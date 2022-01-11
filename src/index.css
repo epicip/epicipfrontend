@@ -1,13 +1,220 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body {
+  color: #1a1549;
+  font-size: 14px;
+  font-weight: 600;
+  /* font-family: 'Raleway', sans-serif; */
+  background-color: #fff;
+}
+.btn {
+  border-radius: 0px !important;
+  /* font-weight: bold !important; */
+  padding: 8px 30px !important;
+  font-size: 14px !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.chart-heading{
+  background-color: #1a1549;
+  color:white;
+  text-align: center;
+  width: 20%;
+  
+  /* text-decoration: underline; */
+}
+header.inner-page {
+  position: relative;
+  background-size: cover !important;
+  padding-bottom: 30px;
+}
+.navbar {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.navbar-nav li {
+  margin: 35px 20px 0px 20px;
+}
+.navbar-nav .dropdown-menu {
+  border: 0px;
+  border-radius: 0px;
+}
+.dropdown-menu {
+  top: 95%;
+}
+.navbar-nav .dropdown-item {
+  font-size: 14px;
+  padding-left: 10px;
+}
+.navbar-nav li a {
+  /* font-size: 16px; */
+  color: #1a1549 !important;
+  font-weight: 600;
+}
+.navbar-nav>li.active>a {
+    color: #99103b !important;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 1200px){
+.container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1140px;
+}
+}
+header {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+}
+.sub-header {
+  margin-top: 50px;
+  position: relative;
+  min-height: 220px;
+}
+.sub-header .text-block p {
+  color: #ffffff;
+  padding: 10px 17px 10px 0px;
+  background: #99103b;
+  display: block;
+  font-size: 16px;
+}
+.sub-header .text-block p:before {
+  content: '';
+  width: 500px;
+  position: absolute;
+  background: #99103b;
+  height: 44px;
+  top: 0px;
+  left: -480px;
+  z-index: -9;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant', serif;
+  font-weight: bold;
+}
+
+
+/* sidebar */
+
+.accordion__item {
+  margin-bottom: 20px;
+}
+
+.accordion__item__header {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  border-bottom: 1px solid #371844;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+.accordion__item__header::before {
+  height: 12px;
+  width: 12px;
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  transition: .5s all;
+  transform: rotate(
+-45deg);
+  border-right: 1px solid #1a1549;
+  border-bottom: 1px solid #1a1549;
+}
+.accordion__item__content {
+  overflow-y: hidden;
+  padding: 0;
+  display: none;
+}
+.accordion__item__content ul {
+  list-style: none;
+  line-height: 30px;
+  padding: 0px;
+  margin: 0px;
+}
+.accordion__item__content ul li a {
+  color: #1a1549;
+  position: relative;
+  display: block;
+}
+.text-right{
+  color: #1a1549;
+}
+.accordion__item__content ul li a .fa {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+}
+.accordion__item__header.active {
+  border-bottom: 1px solid #9db1db;
+}
+
+/* home.js css */
+.main-box {
+  position: relative;
+  padding: 50px 0px;
+}
+.main-box h4 {
+  margin-bottom: 25px;
+}
+
+/* footer contacts css */
+.key-contacts {
+  background: #f2f4f5 !important;
+  padding: 50px 0px;
+}
+.key-contacts p {
+ 
+
+  margin: 0px;
+  font-weight: 600;
+  /* color: #1a1549; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+
+}
+.key-contacts hr {
+  margin: 20px 0px;
+  color: #1a1549;
+}
+hr {
+  margin: 0px;
+  border-top: 2px solid #1a1549 !important;
+}
+h2{
+  font-size:1.9rem !important
+}
+
+/* footer css */
+footer {
+  position: relative;
+  padding: 50px 0px;
+}
+p a, footer ul li a {
+  color: #1a1549;
+  /* text-decoration: underline; */
+}
+body {
+  color: #1a2352;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Raleway', sans-serif;
+  background-color: #fff;
 }
