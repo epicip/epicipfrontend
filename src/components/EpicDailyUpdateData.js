@@ -507,6 +507,7 @@ console.log("calculationcalculationcalculationcalculation")
   setHeadingState(heading)
   setObjectiveState(objective)
   setTeamState(team)
+  $('.footer-container').addClass('footer-container-line')
 
 }
 
@@ -2156,11 +2157,11 @@ function previewData(formData) {
           </div>
 
           <div className="accordion__item">
-            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink active-dis">EPIC Insights</NavLink></div>
+            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink a active-dis">EPIC Insights</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a a-active-color">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">EPIC News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News<span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>

@@ -563,6 +563,7 @@ console.log("calculationcalculationcalculationcalculation")
   setObjectiveState(objective)
   setTeamState(team)
   setStateSession(SessionResponse);
+  $('.footer-container').addClass('footer-container-line')
 
 }
 
@@ -2299,7 +2300,7 @@ function previewData(formData) {
             <div className="accordion__item__content">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
@@ -2362,10 +2363,10 @@ function previewData(formData) {
                                             </p> */}
                                         </div>
                                     </div>
-                                    <span>
+                                    {/* <span>
                                         Key Investor Information can be found 
                                         <a href="#" onClick={Clicked}className="InvestorInfo a">&nbsp;here</a>.
-                                    </span><br/><br/>
+                                    </span><br/><br/> */}
                                     {/* <div>
                                         <h3 class="Paragraph__Heading-sc-2ra4j2-2 dfMrdv">Trading Strategy</h3>
                                         <div class="Paragraph__NormalParagraph-sc-2ra4j2-1 dISjjZ">

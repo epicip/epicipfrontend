@@ -215,6 +215,10 @@ const EpicEquitiesFunction = () => {
         $(this).next("div").slideToggle(200);
         });
         }
+        if( $("section").hasClass('key-contacts')){
+          $("div").removeClass('footer-container-line')
+          
+         }
     });
     async function fetchMyService3API(){
 
@@ -379,7 +383,7 @@ return(
             <div className="accordion__item__content ">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
@@ -468,6 +472,9 @@ In order to generate superior long-term risk adjusted returns we need to be inve
 
 
     </div>
+    <br/>
+    <br/>
+    <span>For General Enquiries:-<a href = "mailto: markets@epicip.com"><span> markets@epicip.com</span></a></span>
   </div>
   </section>
 </section>

@@ -868,7 +868,7 @@ p a:hover, footer ul li a:hover, .main-box ul a:hover, .main-box ol a:hover {
     color: #99103b;
     transition: .4s;
 }
-.footer-container{
+.footer-container-line{
     border-top: 4px solid;
 
 }
@@ -1158,7 +1158,22 @@ h3{
 
 @media only screen and (max-width: 600px) {
   .mob-ml {
-    margin-left: 10px;
+    margin-left: 25px;
     /* background-color: lightblue; */
   }
+  .chart-block {
+    width: 230%;}
+}
+.inline{
+    display: inline !important;
+}
+.right{
+    float: right !important;
+}
+.ml-5{
+margin-left: 15px!important;
+}
+.paginate-active{
+    background: #1a1549;
+    color: white;
 }

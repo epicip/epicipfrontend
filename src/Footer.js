@@ -194,7 +194,7 @@ console.log("ArrLinkResponse");
 
 
   <footer>
-  <div className="container footer-container">
+  <div className="container footer-container footer-container-line">
     <div className="row footer-row">
       <div class="col-lg-3 col-md-3 col-sm-12">
         <ul class="list-unstyled">

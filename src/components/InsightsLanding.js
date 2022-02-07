@@ -87,6 +87,11 @@ const EpicInsightsLandingFunction = () => {
         $(this).next("div").slideToggle(200);
         });
         }
+        if( $("section").hasClass('key-contacts')){
+          $("div").removeClass('footer-container-line')
+          
+         }
+
     });
 
 
@@ -402,7 +407,7 @@ return(
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
@@ -436,10 +441,10 @@ Our fund managers have the freedom to manage money in line with their distinctiv
 Please click below to read latest updates from our fund managers including the Daily Update from our Fixed Income Team.
 <br/>
 </p> */}
-<h3>Our products</h3><br/>
+{/* <h3>Our products</h3><br/> */}
                 <p>
                 <NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink><br/>
-{/* <NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink> */}
+<NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink>
 
                     <br/>
 
@@ -479,6 +484,9 @@ Please click below to read latest updates from our fund managers including the D
           </div>
 
         </div>
+        <br/>
+    <br/>
+        <span>For General Enquiries:-<a href = "mailto: markets@epicip.com"><span> markets@epicip.com</span></a></span>
     </div>
   </section>
 </section>

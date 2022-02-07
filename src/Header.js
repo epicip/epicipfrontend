@@ -602,7 +602,7 @@ function navItemClick(){
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1b}>{HeaderService1b}</a> 
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1c}>{HeaderService1c}</a> 
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1d}>{HeaderService1d}</a>
-              {/* <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a> */}
+              <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a>
 
               {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1e}>{HeaderService1e}</a> */}
               
@@ -719,7 +719,7 @@ function navItemClick(){
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2c}>{HeaderService2c}</a>
               {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2d}>{HeaderService2d}</a> */}
              
-             </div>
+             </div>   
           </li> :""}
           
 			  <li className="nav-item dropdown active"> 
@@ -743,7 +743,7 @@ function navItemClick(){
             <div className="dropdown-menu" aria-labelledby="advisory"> 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL4a}>{HeaderService4a}</a> 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL4b}>{HeaderService4b}</a>
-            {/* <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a> */}
+            <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a>
 
             </div>
           </li>:""}

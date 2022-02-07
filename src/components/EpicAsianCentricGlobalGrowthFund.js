@@ -583,6 +583,8 @@ setStateSession(SessionResponse);
 
 setTeamState(team)
 
+$('.footer-container').addClass('footer-container-line')
+
 }
     
 
@@ -2414,16 +2416,16 @@ function previewData(formData) {
             </div>
           </div>
 
-          {/* <div className="accordion__item">
+          <div className="accordion__item">
             <div className="accordion__item__header">EPIC Insights</div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">EPIC Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicInsights" className="navlink a">EPIC News  <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
-          </div> */}
+          </div>
 
         </div>
 
@@ -2482,11 +2484,11 @@ function previewData(formData) {
                                             </p> */}
                                         </div>
                                     </div>
-                                    <span>
+                                    {/* <span>
                                         Key Investor Information can be found 
                                         <a href="#" onClick={Clicked}className="InvestorInfo a">&nbsp;here</a>.
                                     </span>
-                                    <br/><br/>
+                                    <br/><br/> */}
                                     {/* <div>
                                         <h3 class="Paragraph__Heading-sc-2ra4j2-2 dfMrdv">Trading Strategy</h3>
                                         <div class="Paragraph__NormalParagraph-sc-2ra4j2-1 dISjjZ">
@@ -2702,7 +2704,7 @@ function previewData(formData) {
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf" target="_blank" download>here </a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                   </div>
       </div>
@@ -2908,7 +2910,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                     <p className="mt-2 i">Monthly data as at: {PRTUDate}.
-                     {/* All information also available to download <a  href=window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf" target="_blank" download>here </a>  */}
+                     All information also available to download <a  href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                 </div>
                 {/* <div class="FundTabs__SourceWrapper-ttsyio-0 gCxwto"><i class="mt-2">Monthly data as at: 31/08/2021. All information also available to download <a target="blank" href="https://garrawaystorage.blob.core.windows.net/garraway-files/Factsheets/garraway_financial_trends.pdf">here</a></i>
@@ -2934,7 +2936,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
       <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-      {/* All information also available to download <a href=window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf" target="_blank" download>here </a>  */}
+      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
       <br/></p>
 </div>
                 {/* <div class="FundTabs__SourceWrapper-ttsyio-0 gCxwto">
@@ -3176,7 +3178,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf" target="_blank" target="_blank" download>here </a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" target="_blank" download>here </a> 
                      <br/></p>
                   </div>
                 {/* <div class="FundTabs__SourceWrapper-ttsyio-0 gCxwto">
@@ -3191,8 +3193,8 @@ function previewData(formData) {
       <div class="tab-pane fade" id="four" role="tabpanel">
         <div class="row ">
           <div class="col-sm-12">
-          <h4>{AdminTitle}</h4>
-          <p>{AdminContent}<a href={AdminLink}> :-&nbsp;<br/>{AdminLink}</a></p>
+          {/* <h4>{AdminTitle}</h4>
+          <p>{AdminContent}<a href={AdminLink}> :-&nbsp;<br/>{AdminLink}</a></p> */}
 
 
           <div className="row ">
@@ -3216,12 +3218,12 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
 
-				  {/* <div class="col-sm-12">
+				  <div class="col-sm-12">
             <h4>Factsheet Data</h4>
 
 					  <p class="pdf_download">
 
-            <a href=window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf" target="_blank" download>Asian Centric Global Growth Fund PDF
+            <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>Asian Centric Global Growth Fund PDF
                             <br/>
             
             </a>
@@ -3229,7 +3231,7 @@ function previewData(formData) {
 
 
             </p>
-				  </div> */}
+				  </div>
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
 				  </div> */}

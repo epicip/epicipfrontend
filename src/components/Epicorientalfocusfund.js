@@ -659,6 +659,8 @@ if (!arrPRTU.length > 0) {
 }else{
   $(".daily-price-row").css("display","block")
 }
+$('.footer-container').addClass('footer-container-line')
+
 }
 // $( document ).ready(function() {
     
@@ -1730,7 +1732,7 @@ function previewData(formData) {
             <div className="accordion__item__content">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
@@ -1991,7 +1993,7 @@ function previewData(formData) {
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf" target="_blank" download>here </a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                   </div>
       </div>
@@ -2169,7 +2171,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf" target="_blank" download>here </a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                   </div>
             </div>
@@ -2193,7 +2195,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf" target="_blank" download>here</a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
                     </div>            
@@ -2343,7 +2345,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
-                      {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf" target="_blank" download>here </a>  */}
+                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                   </div>
             </div>
@@ -2376,14 +2378,14 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
 
-				      {/* <div class="col-sm-12">
+				      <div class="col-sm-12">
             <h4>Factsheet Data</h4>
 
 					      <p class="pdf_download">
-                  <a href=window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf" target="_blank" download>Oriental Focus Fund PDF<br/>
+                  <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>Oriental Focus Fund PDF<br/>
                   </a>
                 </p>
-				      </div> */}
+				      </div>
             </div>
 
             

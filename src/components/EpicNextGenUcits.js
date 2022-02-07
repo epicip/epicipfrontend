@@ -709,7 +709,9 @@ let daily_cal = PRTU[5][4]
   
       $(".investment-team-row").css("display","none") 
     
-    }  
+    } 
+$('.footer-container').addClass('footer-container-line')
+
   }
   // $( document ).ready(function() {
     
@@ -2916,16 +2918,16 @@ function previewData(formData) {
             </div>
           </div>
 
-          {/* <div className="accordion__item">
+          <div className="accordion__item">
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a ">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">EPIC Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicInsights" className="navlink a">EPIC News  <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
-          </div> */}
+          </div>
 
         </div>
 
@@ -2985,10 +2987,10 @@ function previewData(formData) {
                                             </p> */}
                                         </div>
                                     </div>
-                                    <span>
+                                    {/* <span>
                                         Key Investor Information can be found 
                                         <a href="#" onClick={Clicked}className="InvestorInfo a">&nbsp;here</a>.
-                                    </span><br/><br/>
+                                    </span><br/><br/> */}
                                     {/* <div>
                                         <h3 class="Paragraph__Heading-sc-2ra4j2-2 dfMrdv">Trading Strategy</h3>
                                         <div class="Paragraph__NormalParagraph-sc-2ra4j2-1 dISjjZ">
@@ -3187,7 +3189,7 @@ function previewData(formData) {
 
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf" target="_blank">here</a> */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank">here</a>
                       <br/></p>
                   </div>
 
@@ -3323,7 +3325,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
-                      {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf" target="_blank">here </a>  */}
+                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf"} target="_blank">here </a> 
                       <br/></p>
                   </div>
             </div>
@@ -3347,7 +3349,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf" target="_blank">here</a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf"} target="_blank">here</a> 
                      <br/></p>
                   </div>
                     </div>            
@@ -3549,7 +3551,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf" target="_blank">here</a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf"} target="_blank">here</a> 
                      <br/></p>
                   </div>
             </div>
@@ -3582,16 +3584,16 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
 
-				  {/* <div class="col-sm-12">
+				  <div class="col-sm-12">
                   <h4>Factsheet Data</h4>
 
 					  <p class="pdf_download">
-                      <a href=window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf" target="_blank" download>Next Gen UCITS Fund PDF
+                      <a href={window.location.origin+"/sitepdfs/epic_next_gen_ucits.pdf"} target="_blank" download>Next Gen UCITS Fund PDF
                             <br/>
                      </a>
 
                       </p>
-				  </div> */}
+				  </div>
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
 				  </div> */}

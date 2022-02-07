@@ -1,8 +1,11 @@
 // import React from 'react';
 import { render } from '@testing-library/react';
 import React, { useState, useEffect, PureComponent, useRef, useMemo, useCallback, Fragment } from 'react';
+import Pagination from './Pagination'
+// import Pagination from '@material-ui/lab/Pagination';
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { NavLink } from 'react-router-dom';
+
 import {
     BarChart,
     Bar,
@@ -18,6 +21,7 @@ import {
     ReferenceLine,
     ResponsiveContainer,
   } from 'recharts';
+  
   import { PieChart, Pie, Sector, } from "recharts";
 import "./EpicfinanceTrends.css";
 import { isEqual } from "lodash";
@@ -199,6 +203,9 @@ const VARdata = [
 
 const DailyUpdateFunction = () => {
 
+
+const [currentPage, setcurrentPage] = useState(1);
+const [postsPerPage, setpostsPerPage] = useState(10);
 
 
 
@@ -438,6 +445,15 @@ var id;
           NewsArr.push(obj);
           
     }
+    // let active = 2;
+    // let items = NewsArr;
+    // for (let number = 1; number <= 5; number++) {
+    //     items.push(
+    //       <Pagination.Item key={number} active={number === active}>
+    //         {number}
+    //       </Pagination.Item>,
+    //     );
+    //   }
 console.log(NewsArr)
 console.log("NewsArr")
 
@@ -499,6 +515,7 @@ console.log("calculationcalculationcalculationcalculation")
   setHeadingState(heading)
   setObjectiveState(objective)
   setTeamState(team)
+  $('.footer-container').addClass('footer-container-line')
 
 }
 
@@ -1264,7 +1281,7 @@ const [StateSession, setStateSession] = useState([]);
     const SettingFunction=()=>{
   
       setStateSession(SessionResponse);
-    
+      $('.footer-container').addClass('footer-container-line')
     }
 $( document ).ready(function() {
   SettingFunction();
@@ -2142,7 +2159,11 @@ function previewData(formData) {
      )
    })
  }
+const indexofLastPost = currentPage * postsPerPage;
+const indexofFirstPost = indexofLastPost - postsPerPage;
+const currentPosts = NewsArrState.slice(indexofFirstPost, indexofLastPost);
 
+const paginate= pageNumber =>setcurrentPage(pageNumber)
 
     return (
       <Fragment>
@@ -2215,11 +2236,11 @@ function previewData(formData) {
           </div>
 
           <div className="accordion__item">
-            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink active-dis">EPIC Insights</NavLink></div>
+            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink a active-dis">EPIC Insights</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a a-active-color">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
-                {/* <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
             </div>
@@ -2241,12 +2262,20 @@ function previewData(formData) {
         Latest News
     </h4> */}
     {/* <p class="Section__SectionSubheading-sc-1iot0f7-4 ktJBWY"></p> */}
-    {NewsArrState.map(renderNewsData)}
+    {currentPosts.map(renderNewsData)}
+    <Pagination postPerPage={postsPerPage} totalPosts={NewsArrState.length} paginate={paginate}/>
     
     
-    
-
-
+    {/* <Pagination size="lg">{NewsArrState.map(renderNewsData)}</Pagination> */}
+    {/* <Pagination>
+        <Pagination.Prev />
+        <Pagination.Ellipsis />
+        <Pagination.Item>{3}</Pagination.Item>
+        <Pagination.Item>{4}</Pagination.Item>
+        <Pagination.Item>{5}</Pagination.Item>
+        <Pagination.Ellipsis />
+        <Pagination.Next />
+      </Pagination> */}
         {/* <div class="PaginationButtons__Wrapper-sc-1murby2-0 frVXsi"><a rel="next" href="/news/2">← Older Articles</a></div> */}
         </div>
   </div>
