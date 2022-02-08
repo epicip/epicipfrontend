@@ -3045,7 +3045,7 @@ function previewData(formData) {
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                            Monthly Performance – GFT Class A GBP</th>
+                                            Monthly Performance – Class A GBP</th>
                                     </tr>
                                     <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
 
@@ -3074,7 +3074,7 @@ function previewData(formData) {
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                            Monthly Performance – GFT Class B GBP</th>
+                                            Monthly Performance – Class B GBP</th>
                                     </tr>
                                     <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
 
@@ -3106,7 +3106,7 @@ function previewData(formData) {
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                            Monthly Performance – GFT Class C GBP</th>
+                                            Monthly Performance – Class C GBP</th>
                                     </tr>
                                     <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
 
@@ -3139,7 +3139,7 @@ function previewData(formData) {
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                            Monthly Performance – GFT Class D GBP</th>
+                                            Monthly Performance – Class B EUR</th>
                                     </tr>
                                     <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
 

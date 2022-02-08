@@ -5,6 +5,7 @@ import Pagination from './Pagination'
 // import Pagination from '@material-ui/lab/Pagination';
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { NavLink } from 'react-router-dom';
+import ReactPaginate from "react-paginate";
 
 import {
     BarChart,
@@ -343,7 +344,6 @@ const [status, setstatus] = useState(false);
 // const objee = Object.assign({}, objjj);
 
 // const prevArr = usePrevious(arr);
-
 
 
 useEffect(()=>{
@@ -1277,6 +1277,8 @@ const informationButton=()=>{
 
 const [StateSession, setStateSession] = useState([]);
     const [SessionResponse, setSessionResponse] = useState([]);
+
+    
   
     const SettingFunction=()=>{
   
@@ -2159,13 +2161,32 @@ function previewData(formData) {
      )
    })
  }
+//  old paginate
 const indexofLastPost = currentPage * postsPerPage;
 const indexofFirstPost = indexofLastPost - postsPerPage;
 const currentPosts = NewsArrState.slice(indexofFirstPost, indexofLastPost);
 
 const paginate= pageNumber =>setcurrentPage(pageNumber)
+// old paginate
 
-    return (
+// current paginate
+const [PageNumber, setPageNumber] = useState(0);
+const usersPerPage = 10
+const pagesVisited = PageNumber * usersPerPage
+
+const displayUsers = NewsArrState
+  .slice(pagesVisited, pagesVisited + usersPerPage)
+  .map(renderNewsData)
+
+const pageCount = Math.ceil(NewsArrState.length / usersPerPage);
+const changePage = ({ selected }) =>  {
+  console.log(selected);
+  console.log("selected");
+
+  setPageNumber(selected);
+}
+
+return (
       <Fragment>
 
     { status === true ? 
@@ -2262,9 +2283,33 @@ const paginate= pageNumber =>setcurrentPage(pageNumber)
         Latest News
     </h4> */}
     {/* <p class="Section__SectionSubheading-sc-1iot0f7-4 ktJBWY"></p> */}
-    {currentPosts.map(renderNewsData)}
-    <Pagination postPerPage={postsPerPage} totalPosts={NewsArrState.length} paginate={paginate}/>
+  
+  {/* custom pagination (old) */}
+    {/* {currentPosts.map(renderNewsData)}
+    <Pagination postPerPage={postsPerPage} totalPosts={NewsArrState.length} paginate={paginate}/> */}
+  {/* custom pagination (old) */}
     
+    {/* Current Pagination  */}
+    {displayUsers}
+  
+    <ReactPaginate
+    previousLabel={"Previous"}
+    nextLabel={"Next"}
+    breakLabel={"..."}
+    pageCount={pageCount}
+    onPageChange={(changePage)}
+    containerClassName={"pagination justify-content-center"}
+    pageClassName={"page-item"}
+    pageLinkClassName={"page-link"}
+    previousClassName={"page-item"}
+    previousLinkClassName={"page-link"}
+    nextClassName={"page-item"}
+    nextLinkClassName={"page-link"}
+    breakClassName={"page-item"}
+    breakLinkClassName={"page-link"}
+    disabledClassName={"paginationDisabled"}
+    activeClassName={"active"}
+   />
     
     {/* <Pagination size="lg">{NewsArrState.map(renderNewsData)}</Pagination> */}
     {/* <Pagination>

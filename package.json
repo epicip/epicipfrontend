@@ -3,7 +3,7 @@
   "name": "epicip-market",
   "version": "0.1.0",
   
-  "homepage": "https://www.epicip.com/markets/",
+  "homepage": "http://epicipprojects.com/public/markets/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",

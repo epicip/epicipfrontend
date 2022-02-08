@@ -1177,3 +1177,9 @@ margin-left: 15px!important;
     background: #1a1549;
     color: white;
 }
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #99103b;;
+    border-color: #99103b;;
+}
