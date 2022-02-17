@@ -406,7 +406,7 @@ return(
             <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink a active-dis">EPIC Insights</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -443,7 +443,7 @@ Please click below to read latest updates from our fund managers including the D
 </p> */}
 {/* <h3>Our products</h3><br/> */}
                 <p>
-                <NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink><br/>
+                {/* <NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink><br/> */}
 <NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink>
 
                     <br/>

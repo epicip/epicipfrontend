@@ -168,16 +168,16 @@ const VARdata = [
   ];
 
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if(percent*100 > 5){
+  if(value > 5){
     return (
       
       <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (percent * 100).toFixed(0)}%`}
+        {`${ (value).toFixed(2)}%`}
       </text>
     )};
   };
@@ -1007,24 +1007,30 @@ const portfolioButton=()=>{
    
    let obj={};
    for(let j =0 ;j< PortfolioStat[i].length ;j++){
+    if(i<4){
 
      if(!isNaN(PortfolioStat[i][j])){
-     let val = PortfolioStat[i][j]*100;
-     
-     // var numb= 212421434.533423131231;
-     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        
+        let val = PortfolioStat[i][j]*100;
+        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        obj[keysPortfolioStat[j]] = rounded+'%' ;
 
-     console.log(rounded);
-     obj[keysPortfolioStat[j]] = rounded+'%' ;
-
-   }
-
-     // var updatedVal =  parseFloat(val).toFixed(2);
-     // console.log(updatedVal);
+    }
      else{
        obj[keysPortfolioStat[j]] = PortfolioStat[i][j] ;
      }     
+    }else{
+      if(!isNaN(PortfolioStat[i][j])){
+        
+        let val = PortfolioStat[i][j];
+        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        obj[keysPortfolioStat[j]] = rounded ;
 
+    }
+     else{
+       obj[keysPortfolioStat[j]] = PortfolioStat[i][j] ;
+     }
+    }
      }
 
      if(obj.value !==0 && obj.value !==0+'%'){
@@ -1041,7 +1047,7 @@ const portfolioButton=()=>{
 
  var keysNFA = ["name", "value"]
   
- for(let i=1 ; i< NFAData.length ;i++){
+ for(let i=1 ; i< NFAData.length-1 ;i++){
   // typeof(products[i][j])
   
   let obj={};
@@ -2922,7 +2928,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a ">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -3125,11 +3131,10 @@ function previewData(formData) {
                 cx={120}
                 cy={200}
                 innerRadius={45}
-                outerRadius={90}
+                outerRadius={95}
                 // fill="#0c2340"
                 paddingAngle={2}
                 labelLine={false}
-
                 dataKey="value"
                 label={renderCustomizedLabel}
 
@@ -3138,7 +3143,7 @@ function previewData(formData) {
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
                 ))}
               </Pie>
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
               
               <Legend margin={ {top:-500, left: -150} } className="legend-text"  formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />

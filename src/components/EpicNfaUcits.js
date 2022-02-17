@@ -170,16 +170,20 @@ const VARdata = [
   ];
 
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index }) => {
+    
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if(percent*100 > 5){
+    console.log(percent);
+    console.log("percent");
+    // var pp = percent
+    
+    if(value > 2){
     return (
       
       <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
-      
-        {`${ (percent * 100).toFixed(0)}%`}
+        {`${ (value).toFixed(2)}%`}
       </text>
     )};
   };
@@ -783,7 +787,7 @@ const portfolioButton=()=>{
       
   // }
 
-  var keysVAR = ["name", "value"]
+  var keysVAR = ["name", "value","a","b"]
   var length =AssetAllocation.length -1;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
@@ -901,26 +905,35 @@ const portfolioButton=()=>{
    
    let obj={};
    for(let j =0 ;j< PortfolioStat[i].length ;j++){
+   if(i<4){
 
      if(!isNaN(PortfolioStat[i][j])){
      let val = PortfolioStat[i][j]*100;
      
-     // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
      console.log(rounded);
-     obj[keysPortfolioStat[j]] = rounded+'%' ;
-
-   }
-
-     // var updatedVal =  parseFloat(val).toFixed(2);
-     // console.log(updatedVal);
-     else{
+     obj[keysPortfolioStat[j]] = rounded+'%';
+    }
+    else{
        obj[keysPortfolioStat[j]] = PortfolioStat[i][j] ;
-     }     
-
      }
+    }else{
 
+      if(!isNaN(PortfolioStat[i][j])){
+        let val = PortfolioStat[i][j];
+        
+        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        console.log(rounded);
+        obj[keysPortfolioStat[j]] = rounded;
+       }
+       else{
+          obj[keysPortfolioStat[j]] = PortfolioStat[i][j] ;
+        }
+
+
+    }     
+
+    }
      if(obj.value !==0 && obj.value !==0+'%'){
       PortfolioStatArray.push(obj)
     }
@@ -977,6 +990,9 @@ const portfolioButton=()=>{
   
   // setgraphData(graphDataResponse)
   setgraphData(graphDataResponse1)
+  console.log(graphDataResponse1);
+  console.log("graphDataResponse1");
+
   setportfolioStatusState(PortfolioStatArray)
   setNFAState(NFAarr)
   // setAssetAllocationState()
@@ -2614,6 +2630,19 @@ function renderbot3contri(bot3contriparam, index){
     </tr>
   )
 }
+function renderPortfolio(porfolioparam, index){
+  // alert(bot3contriparam.name);
+  console.log(porfolioparam);
+  console.log(porfolioparam);
+
+  return(
+    <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
+      
+      <td className="align-left">{porfolioparam.name}</td>
+      <td className="align-right">{porfolioparam.value}</td>
+    </tr>
+  )
+}
 function renderCMSshareinfo(shareinfoparam, index){
   // alert(bot3contriparam.name);
 
@@ -2766,7 +2795,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -3003,13 +3032,13 @@ function previewData(formData) {
 
                 dataKey="value"
                 label={renderCustomizedLabel}
-
               >
                 {graphData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
                 ))}
               </Pie>
-              {/* <Tooltip /> */}
+
+              <Tooltip />
               {/* <Legend /> */}
               
               <Legend margin={ {top:-500, left: -150} } className="legend-text" formatter={renderColorfulLegendText}  iconSize={10} width={300} height={50} layout='vertical' />

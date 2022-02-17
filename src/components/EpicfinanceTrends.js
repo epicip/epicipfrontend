@@ -609,7 +609,7 @@ const portfolioButton=()=>{
 
       }
       graphDataResponse.push(obj)
-
+      console.log(graphDataResponse )
     
       // setTimeout()
       
@@ -664,7 +664,7 @@ var length = productsVAR.length-1
 
 
   var keysSectorPer = ["name", "value"]
-  var length = productsSectorPer.length-1
+  var length = productsSectorPer.length
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -679,16 +679,14 @@ var length = productsVAR.length-1
 
       console.log(rounded);
       obj[keysSectorPer[j]] = rounded ;
-
     }
-
       // var updatedVal =  parseFloat(val).toFixed(2);
       // console.log(updatedVal);
       else{
         obj[keysSectorPer[j]] = productsSectorPer[i][j] ;
       }     
 
-      }
+    }
       if(obj.value !==0){
         graphDataResponse2.push(obj)
 
@@ -1852,6 +1850,30 @@ if ($(".accordion__item__header").length > 0) {
     )
   }
   }
+  // class CustomizedAxisTick extends PureComponent {
+  //   render() {
+  //     const { x, y, stroke, payload } = this.props;
+  
+  //     return (
+  //       <g transform={`translate(${x},${y})`}>
+  //         <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">
+  //           {payload.value}
+  //         </text>
+  //       </g>
+  //     );
+  //   }
+  // }
+
+  const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={30} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-10)">
+          {payload.value}
+        </text>
+      </g>
+    );
+};
 function renderLiteratureData(data, index){
  
   return(
@@ -2281,7 +2303,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -2434,14 +2456,14 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
-          <div class="col-md-6 chart-block"> 
+          <div class="col-md-6 chart-block-finance"> 
             <p class="lse_redirect">Net Notional Sector Exposures (% NAV)</p>
             <p class="lse_redirect"><a class="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             {portfolioStatus === false ? "" : 
             <ResponsiveContainer width="100%" height="90%">
             <BarChart
               width={500}
-              height={300}
+              height={1000}
               data={graphData}
               // data
               layout="vertical"
@@ -2456,7 +2478,7 @@ function previewData(formData) {
               <XAxis  type="number" orientation="top" axisLine={false} tickFormatter={(tick) => {
                return `${tick}%`;
                }} />
-              <YAxis type="category" dataKey="name"  />
+              <YAxis type="category" interval={0} dataKey="name"  />
               <Tooltip />
               {/* <Legend className="legend-net" /> */}
               <ReferenceLine y={0} stroke="#000" />
@@ -2468,7 +2490,7 @@ function previewData(formData) {
             
           </div>
 
-          <div class="col-md-6 VARmargin chart-block"> 
+          <div class="col-md-6 VARmargin chart-block-finance"> 
             <p class="lse_redirect">Portfolio VaR by Sector (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
@@ -2522,12 +2544,11 @@ function previewData(formData) {
             <p class="lse_redirect">Performance by Sector</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
-             <ResponsiveContainer width="100%" height="85%">
+             <ResponsiveContainer width="100%" height="75%">
                 <BarChart
                   width={500}
                   height={300}
                   data={graphDataSectorPer}
-                  // SECdata
                   margin={{
                     top: 5,
                     right: 30,
@@ -2536,12 +2557,13 @@ function previewData(formData) {
                   }}
                 >
                     <CartesianGrid strokeDasharray="" horizontal="true" vertical="" />
-                    <XAxis dataKey="name" axisLine={false} />
-                    <YAxis tickFormatter={(tick) => {
+                    <XAxis dataKey="name" tick={CustomizedAxisTick} type="category" interval={0} axisLine={false} />
+                    <YAxis  tickFormatter={(tick) => {
                          return `${tick}%`;
                          }}
                     />
                     {/* <Legend /> */}
+                    <Tooltip/>
                     <ReferenceLine y={0} stroke="#000" />
                     {/* <Bar dataKey="pv" fill="#8884d8" /> */}
                     <Bar dataKey="value" fill="#82ca9d" >

@@ -1299,9 +1299,9 @@ const informationButton=()=>{
      console.log("obj");
    }
    if(mrounded > 1000000){
-    var million_variable = (mrounded/1000000).toFixed(2) + 'm'
+    var million_variable = (mrounded/1000000).toFixed(2) + 'M'
   
-    obj[keysFundinfo[j]] = 'US$ '+ million_variable;
+    obj[keysFundinfo[j]] = '£ '+ million_variable;
   
     }
  else{
@@ -2299,7 +2299,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -2596,7 +2596,7 @@ function previewData(formData) {
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf" target="_blank">here</a> */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank">here</a>
                       <br/></p>
                   </div>
       </div>
@@ -2770,7 +2770,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
-                      {/* All information also available to download <a href=window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf" target="_blank" download>here </a>  */}
+                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here </a> 
                       <br/></p>
                   </div>
             </div>
@@ -2794,7 +2794,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf" target="_blank" download>here</a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
                     </div>            
@@ -3060,7 +3060,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     {/* All information also available to download <a href=window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf" target="_blank" download>here </a>  */}
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
                   </div>
             </div>
@@ -3094,15 +3094,15 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
           
 
-				  {/* <div class="col-sm-12">
+				  <div class="col-sm-12">
           <h4>Factsheet Data</h4>
 
 					  <p class="pdf_download">
-                      <a href=window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf" target="_blank" download>Multi Asset Balanced Fund PDF
+                      <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"}target="_blank" download>Multi Asset Balanced Fund PDF
                             <br/>
                           </a>
                       </p>
-				  </div> */}
+				  </div>
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
 				  </div> */}

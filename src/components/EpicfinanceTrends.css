@@ -462,8 +462,19 @@ height: 25px;
     border-bottom: 7px solid white;
 
 }
-
-
+.chart-block-finance{
+    padding: 10px;
+    margin: 0px;
+    background: rgb(242, 244, 245);
+    height: 430px;
+    border-right: 7px solid white;
+    /* border-top: 7px solid white; */
+    border-bottom: 7px solid white;
+    
+}
+/* .recharts-surface{
+    height: 300px;
+} */
 .ihWbnk {
     background-image: none;
     background-color: rgb(255, 255, 255);

@@ -1300,7 +1300,7 @@ const informationButton=()=>{
      if(mrounded > 1000000){
       var million_variable = (mrounded/1000000).toFixed(2) + 'M'
     
-      obj[keysFundinfo[j]] = 'US$ '+ million_variable;
+      obj[keysFundinfo[j]] = '£ '+ million_variable;
     
     }
      
@@ -1880,7 +1880,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>

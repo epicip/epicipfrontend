@@ -1367,8 +1367,8 @@ async function fetchMyAPI(){
 
 
     setNews(resp)
-console.log(resp);
-console.log("News");
+      console.log(resp);
+      console.log("News");
 
     // setLoading(true)
     setstatus(true)
