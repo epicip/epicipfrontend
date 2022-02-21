@@ -169,16 +169,16 @@ const VARdata = [
 
   ];
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if(percent*100 > 5){
+  if(value > 5){
     return (
       
       <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (percent * 100).toFixed(0)}%`}
+        {`${ (value).toFixed(2)}%`}
       </text>
     )};
   };
@@ -1347,6 +1347,9 @@ var keysbot3contr = ["name", "value"]
 
   setTwelveMperfAGBPState(TwelveMperfAGBP)
   settop3contriState(Top3contriData)
+  console.log(Top3contriData)
+  console.log("Top3contriData")
+
   setbot3contriarray(Bot3contriData)
     setInceptionArrayState(InceptionDataArray)
     setmonthlyPerformance2DArrayState(arr2D)
@@ -1375,7 +1378,9 @@ const informationButton=()=>{
 
 
   var keysCMSshareinfo = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue"]
-  
+  console.log(CMSshareinfo);
+  console.log("CMSshareinfo");
+
   for(let j =0 ;j< CMSshareinfo.length ;j++){
    console.log(CMSshareinfo[j].title);
    console.log("CMSFundinfo.title");
@@ -1431,7 +1436,7 @@ const informationButton=()=>{
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
      console.log(rounded);
-     obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
+     obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,')+'p' ;
      console.log(obj);
      console.log("obj");
    }
@@ -1493,6 +1498,8 @@ const informationButton=()=>{
 
  setCMSFundinfoarray(CMSfundInfoData)
  setCMSshareinfoarray(CMSshareInfoData)
+console.log(CMSshareInfoData);
+console.log("CMSshareInfoData")
 
 
 
@@ -1522,8 +1529,9 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
-  const Localurl = 'https://epicipprojects.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const url = 'https://epicipprojects.com/vtepic-multi-asset-growth-fund' 
+  const Local2url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -1571,12 +1579,8 @@ async function fetchMyAPI(){
 
 
     setproductSectorBreakdown(resp.EquitiesBreakdown)
-    console.log(resp.EquitiesBreakdown)
-    console.log("resp.EquitiesBreakdown");
-
     setproductsFundinfo(resp.FundInfo)
     setproductsShareClass(resp.NAVperShare)
-   
     setproductsMonthlyPerf(resp.MonthlyPerf)
     // setLoading(true)
     setInceptionData(resp.inceptionperfdata)
@@ -1585,6 +1589,9 @@ async function fetchMyAPI(){
     setSummary(resp.summary)
     setCMSFundinfo(resp.fund_info)
     setCMSshareinfo(resp.shareinfo)
+  console.log(resp.shareinfo);
+  console.log("resp.shareinfo");
+
 
     // setLoading(true)
     setstatus(true)
@@ -2239,6 +2246,16 @@ function renderLiteratureData(data, index){
 				      </div>
   )
 }
+const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <text x={60} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-10)">
+        {payload.value}
+      </text>
+    </g>
+  );
+};
 function renderTop10Holding(holding, index) {
   return(
   <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
@@ -2304,7 +2321,7 @@ function renderCummulativePerformanceValue(cummulatove, index) {
   if(index == 0){
     return(
         
-      <td>{cummulatove.value}</td>
+      <td>{cummulatove.name}</td>
   
   )   
    }else{
@@ -2442,7 +2459,7 @@ function renderShareClassValue(shareClassValue, index){
     <td className="align-left">{shareClassValue.value}</td>
 )}else{
   return(
-    <td className="align-center">£{shareClassValue.value}</td>
+    <td className="align-center">{shareClassValue.value}</td>
 ) 
 }
 }
@@ -2692,7 +2709,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
           
@@ -2725,7 +2742,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
           </div>
@@ -2761,7 +2778,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>  
           
@@ -2784,12 +2801,12 @@ function previewData(formData) {
                   }}
                 >
                     <CartesianGrid strokeDasharray="" horizontal="true" vertical="" />
-                    <XAxis dataKey="name" axisLine={false}/>
-                    <YAxis tickFormatter={(tick) => {
+                    <XAxis dataKey="name" interval={0} tick={CustomizedAxisTick} axisLine={false}/>
+                    <YAxis interval={0} tickFormatter={(tick) => {
                          return `${tick}%`;
                          }}
                     />
-                    {/* <Legend /> */}
+                    <Tooltip />
                     <ReferenceLine y={0} stroke="#000" />
                     {/* <Bar dataKey="pv" fill="#8884d8" /> */}
                     <Bar dataKey="value" fill="#82ca9d" >
@@ -2933,7 +2950,7 @@ function previewData(formData) {
 
                 <div class="mb-2 row table-growth-row">
                     <div class="pr-md-1 col-12 col-md-6 col table-div-margin">
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                     <th colspan="1" className="align-left">Top Three Contributors</th>
@@ -2983,7 +3000,7 @@ function previewData(formData) {
                 <div class="mb-2 row monthly-row">
                     <div class="col" >
                     <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
-                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAWGR">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
@@ -2999,7 +3016,7 @@ function previewData(formData) {
                                 </tbody>
                             </table>
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAWGR table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}

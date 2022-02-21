@@ -187,16 +187,16 @@ const VARdata = [
 
 
   const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index }) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.2;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-if(percent*100 > 5){
+if(value > 5){
   return (
     
     <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
     
-      {`${ (percent * 100).toFixed(0)}%`}
+      {`${ (value).toFixed(2)}%`}
     </text>
   )};
 };
@@ -879,9 +879,11 @@ const performanceButton=()=>{
   }
   console.log("months")
   console.log(monthsArr)
+console.log(productsMonthlyPerf);
+console.log("productsMonthlyPerf");
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=21;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -892,7 +894,6 @@ const performanceButton=()=>{
      if(isNaN(rounded)){
       rounded = 0;
       console.log("rounded--------------------------rounded")
-
       console.log(rounded)
 
      }
@@ -1148,12 +1149,14 @@ const informationButton=()=>{
 
      if(!isNaN(productsShareClass[i][j])){
      let val = productsShareClass[i][j];
-     
+    //  console.Console
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
-     console.log(rounded);
-     obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
+     console.log(productsShareClass[i][j]);
+     console.log("productsShareClass[i][j]");
+    //  rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') 
+     obj[keysShareClass[j]] =rounded.toFixed(4)
      console.log(obj);
      console.log("obj");
    }
@@ -1906,7 +1909,7 @@ function previewData(formData) {
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
                 ))}
               </Pie>
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
               
               <Legend formatter={renderColorfulLegendText} className="legend-text"  iconSize={10} width={300} height={50} layout='vertical' />
@@ -1937,7 +1940,7 @@ function previewData(formData) {
                 ))}
                 
               </Pie>
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText}  iconSize={10} width={300} height={50} layout='vertical' />
 
@@ -1948,7 +1951,7 @@ function previewData(formData) {
         <div class="row chart-row">
           <div class="col-md-6 SECmargin chart-block"> 
 
-          <p class="lse_redirect">Portfolio VaR by Sector (% NAV)</p>
+          <p class="lse_redirect">Regional Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 
@@ -1973,7 +1976,7 @@ function previewData(formData) {
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
                 ))}
               </Pie>
-              {/* <Tooltip /> */}
+              <Tooltip />
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText}  className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
               {/* <Legend /> */}

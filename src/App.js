@@ -52,7 +52,7 @@ export default function App() {
     
     <Switch>
 
-      <Route path="/public/markets"  component={Home} exact/>
+      <Route path="/markets"  component={Home} exact/>
       <Route path="/markets/EpicfinanceTrends" component={EpicfinanceTrends}/> 
       <Route path="/markets/EpicglobalEquity" component={EpicglobalEquity}/> 
       <Route path="/markets/EpicorientalFocus" component={EpicorientalFocus}/> 

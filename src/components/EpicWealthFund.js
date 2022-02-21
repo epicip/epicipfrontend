@@ -167,17 +167,27 @@ const VARdata = [
 
 
   ];
+  const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text x={60} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-10)">
+          {payload.value}
+        </text>
+      </g>
+    );
+};
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if(percent*100 > 5){
+  if(value > 5){
     return (
       
-      <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
+      <text x={x} y={ y} fill="white" className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (percent * 100).toFixed(0)}%`}
+        {`${ (value).toFixed(2)}%`}
       </text>
     )};
   };
@@ -1526,7 +1536,8 @@ const informationButton=()=>{
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
      console.log(rounded);
-     obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
+    //  toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,')
+     obj[keysShareClass[j]] = rounded.toFixed(4) ;
      console.log(obj);
      console.log("obj");
    }
@@ -2837,7 +2848,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
           
@@ -2869,7 +2880,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
           </div>
@@ -2905,7 +2916,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>  
           
@@ -2928,12 +2939,12 @@ function previewData(formData) {
                   }}
                 >
                     <CartesianGrid strokeDasharray="" horizontal="true" vertical="" />
-                    <XAxis dataKey="name" axisLine={false}/>
-                    <YAxis tickFormatter={(tick) => {
+                    <XAxis dataKey="name" tick={CustomizedAxisTick} axisLine={false} interval={0}/>
+                    <YAxis interval={0} tickFormatter={(tick) => {
                          return `${tick}%`;
                          }}
                         />
-                    {/* <Legend /> */}
+                    <Tooltip />
                     <ReferenceLine y={0} stroke="#000" />
                     {/* <Bar dataKey="pv" fill="#8884d8" /> */}
                     <Bar dataKey="value" fill="#82ca9d" >

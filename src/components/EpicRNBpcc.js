@@ -206,6 +206,10 @@ const [productscommulativePerformanceQAEUR, setproductscommulativePerformanceQAE
 const [productscommulativePerformanceQDGBP, setproductscommulativePerformanceQDGBP] = useState([]);
 
 
+const [productscommulativePerformanceACHF, setproductscommulativePerformanceACHF] = useState([]);
+const [productscommulativePerformanceAEUR, setproductscommulativePerformanceAEUR] = useState([]);
+
+
 const [productscommulativePerformanceB, setproductscommulativePerformanceB] = useState([]);
 const [productscommulativePerformanceBEUR, setproductscommulativePerformanceBEUR] = useState([]);
 const [productscommulativePerformanceC, setproductscommulativePerformanceC] = useState([]);
@@ -215,6 +219,9 @@ const [twelvemonPerfDUSD, settwelvemonPerfDUSD] = useState([]);
 const [twelvemonPerfAEUR, settwelvemonPerfAEUR] = useState([]);
 const [twelvemonPerfDEUR, settwelvemonPerfDEUR] = useState([]);
 const [twelvemonPerfDGBP, settwelvemonPerfDGBP] = useState([]);
+const [twelvemonPerfACHF, settwelvemonPerfACHF] = useState([]);
+
+
 const [performanceSummary, setperformanceSummary] = useState([]);
 
 const [StateSession, setStateSession] = useState([]);
@@ -325,6 +332,9 @@ const[cummulatovePerfAEURData,setcummulatovePerfAEURData]= useState([]);
 const[cummulatovePerfDUSDData,setcummulatovePerfDUSDData]= useState([]);
 const[CummulativeperfDEURData,setCummulativeperfDEURData]= useState([]);
 const[CummulativeperfDGBPData,setCummulativeperfDGBPData]= useState([]);
+const[CummulativeperfACHFData,setCummulativeperfACHFData]= useState([]);
+const[CummulativeperfAEURData,setCummulativeperfAEURData]= useState([]);
+
 
 
 
@@ -340,6 +350,8 @@ const[TwelveMperfDUSDState,setTwelveMperfDUSDState]= useState([]);
 const[TwelveMperfDGBPState,setTwelveMperfDGBPState]= useState([]);
 const[TwelveMperfDEURState,setTwelveMperfDEURState]= useState([]);
 const[TwelveMperfAEURState,setTwelveMperfAEURState]= useState([]);
+
+const[TwelveMperfACHFState,setTwelveMperfACHFState]= useState([]);
 
 
 const[PerformanceSummaryState,setPerformanceSummaryState]= useState([]);
@@ -1221,6 +1233,8 @@ const performanceButton=()=>{
   const CummulativeperformanceDEURData =[]
   const CummulativeperformanceAEURData = []
   const CummulativeperformanceDGBPData =[]
+  const CummulativeperformanceACHFDataarray = []
+  const CummulativeperformanceAEURDataarray = []
 
   const CummulativeperformanceBEURData = []
   const CummulativeperformanceCData = []
@@ -1230,6 +1244,7 @@ const performanceButton=()=>{
   const TwelveMperfAEUR = []
   const TwelveMperfDGBP = []
   const TwelveMperfDEUR = []
+  const TwelveMperfACHF = []
   const perfSummaryArr =  []
 
   const TwelveMperfBGBP = []
@@ -1452,7 +1467,7 @@ const performanceButton=()=>{
       }     
 
       }
-      CummulativeperformanceAEURData.push(obj)
+      CummulativeperformanceAEURDataarray.push(obj)
       
 
   } 
@@ -1525,6 +1540,62 @@ const performanceButton=()=>{
   
     } 
 
+    var keysCummulativePerACHF = ["name", "value"]
+    // const [productscommulativePerformanceQAUSD, setproductscommulativePerformanceQAUSD] = useState([]);
+      
+       for(let i=0 ; i< productscommulativePerformanceACHF.length ;i++){
+        // typeof(products[i][j])
+        
+        let obj={};
+        for(let j =0 ;j< productscommulativePerformanceACHF[i].length ;j++){
+    
+          if(!isNaN(productscommulativePerformanceACHF[i][j])){
+          let val = productscommulativePerformanceACHF[i][j]*100;
+          
+          // var numb= 212421434.533423131231;
+          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+    
+          console.log(rounded);
+          obj[keysCummulativePerACHF[j]] = rounded+'%' ;
+    
+        }
+    
+          // var updatedVal =  parseFloat(val).toFixed(2);
+          // console.log(updatedVal);
+          else{
+            obj[keysCummulativePerACHF[j]] = productscommulativePerformanceACHF[i][j] ;
+          }     
+    
+          }
+          CummulativeperformanceACHFDataarray.push(obj)
+          
+    
+      } 
+    // productscommulativePerformanceACHF
+    
+    var keysCummulativePerAEUR = ["name", "value"]
+    // const [productscommulativePerformanceQAUSD, setproductscommulativePerformanceQAUSD] = useState([]);
+      
+       for(let i=0 ; i< productscommulativePerformanceAEUR.length ;i++){
+        // typeof(products[i][j])
+        
+        let obj={};
+        for(let j =0 ;j< productscommulativePerformanceAEUR[i].length ;j++){
+    
+          if(!isNaN(productscommulativePerformanceAEUR[i][j])){
+          let val = productscommulativePerformanceAEUR[i][j]*100;
+          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+          obj[keysCummulativePerAEUR[j]] = rounded+'%' ;
+        }
+          else{
+            obj[keysCummulativePerAEUR[j]] = productscommulativePerformanceAEUR[i][j] ;
+          }     
+    
+          }
+          CummulativeperformanceAEURData.push(obj)
+          
+    
+      } 
 
           var keys12monthsDis = ["name", "value"]
 
@@ -1685,6 +1756,37 @@ const performanceButton=()=>{
             
           } 
 
+          
+          var keys12monthsDisACHF = ["name", "value"]
+
+          for(let i=0 ; i< twelvemonPerfACHF.length ;i++){
+           // typeof(products[i][j])
+          
+           let obj={};
+           for(let j =0 ;j< twelvemonPerfACHF[i].length ;j++){
+
+             if(!isNaN(twelvemonPerfACHF[i][j])){
+             let val = twelvemonPerfACHF[i][j]*100;
+
+             // var numb= 212421434.533423131231;
+             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+             console.log(rounded);
+             obj[keys12monthsDisACHF[j]] = rounded+'%' ;
+
+           }
+         
+             // var updatedVal =  parseFloat(val).toFixed(2);
+             // console.log(updatedVal);
+             else{
+               obj[keys12monthsDisACHF[j]] = twelvemonPerfACHF[i][j] ;
+             }     
+           
+             }
+           
+             TwelveMperfACHF.push(obj)
+            
+          } 
 
           var keysPerfSummary = ["name", "value"]
 
@@ -1795,10 +1897,16 @@ const performanceButton=()=>{
   setcummulatovePerfAEURData(CummulativeperformanceAEURData)
   setCummulativeperfDEURData(CummulativeperformanceDEURData)
   setCummulativeperfDGBPData(CummulativeperformanceDGBPData)
-
+  setCummulativeperfACHFData(CummulativeperformanceACHFDataarray)
+  setCummulativeperfAEURData(CummulativeperformanceAEURDataarray)
+  
   setTwelveMperfAGBPState(TwelveMperfAGBP)
   setTwelveMperfDUSDState(TwelveMperfDUSD)
   setTwelveMperfDGBPState(TwelveMperfDGBP)
+  setTwelveMperfACHFState(TwelveMperfACHF)
+
+  
+
   setTwelveMperfDEURState(TwelveMperfDEUR)
   setTwelveMperfAEURState(TwelveMperfAEUR)
 
@@ -2029,25 +2137,22 @@ async function fetchMyAPI(){
     
     setCreditRating(resp.Creditratingbreakdown)
 
-    setproductscommulativePerformanceQAUSD(resp.CumulativePerfeQAUSD)
-    setproductscommulativePerformanceQDUSD(resp.CumulativePerfeQDUSD)
-    // setproductscommulativePerformanceQAEUR(resp.CumulativePerfQAEUR)
-    setproductscommulativePerformanceQDEUR(resp.CumulativePerfeQDEUR)
-    setproductscommulativePerformanceQDGBP(resp.CumulativePerfeQDGBP)
-      
-    settwelvemonPerfAGBP(resp.PerfDiscreteQAUSD)
-    settwelvemonPerfDUSD(resp.PerfDiscreteQDUSD)
-    settwelvemonPerfAEUR(resp.PerfDiscreteQAEUR)
-    settwelvemonPerfDEUR(resp.PerfDiscreteQDEUR)
-    settwelvemonPerfDGBP(resp.PerfDiscreteQDGBP)
+    setproductscommulativePerformanceQAUSD(resp.CumulativePerfAUSD)
+    setproductscommulativePerformanceQDUSD(resp.CumulativePerfAGBP)
+    setproductscommulativePerformanceQDEUR(resp.CumulativePerfASGD)
+    setproductscommulativePerformanceQDGBP(resp.CumulativePerfAJPY)
+    setproductscommulativePerformanceAEUR(resp.CumulativePerfAEUR)
+    setproductscommulativePerformanceACHF(resp.CumulativePerfACHF)
+
+
+    settwelvemonPerfAGBP(resp.PerfDiscreteAUSD)
+    settwelvemonPerfDUSD(resp.PerfDiscreteAGBP)
+    settwelvemonPerfAEUR(resp.PerfDiscreteASGD)
+    settwelvemonPerfDEUR(resp.PerfDiscreteAJPY)
+    settwelvemonPerfDGBP(resp.PerfDiscreteAEUR)
+    settwelvemonPerfACHF(resp.PerfDiscreteACHF)
 
     setperformanceSummary(resp.perfsummary)
-    
-
-    // settwelvemonPerfBGBP(resp.twelvemPerfDiscreteclassflnc)
-    // settop3response(resp.Top3Contributors)
-    // setbot3response(resp.Bottom3Contributors)
-
     setproductsCommentary(resp.content)
     // setproductRegional(resp.RegionalWeightings)
     // setproductstop10Holding(resp.TopHoldings)
@@ -2130,29 +2235,6 @@ async function fetchSessionUserAPI(){
      console.log(e);
    })
 };
-// async function fetchUserAPI(){
-//   fetchSessionUserAPI();
-//   const url = 'https://epicipprojects.com/pcc_fund_user_data'
-   
-//    fetch(url).then(resp=> resp.json())
-//    .then (resp => {
-//    console.log(count)
-//    console.log("count")
-
-
-//     setUserResponse(resp)
-//       console.log(resp);
-//       console.log("resp user data API");
-
-
-//     //  }
-
-//     })
-    
-//    .catch(e=>{
-//      console.log(e);
-//    })
-// };
 
 
 const players =[
@@ -3002,7 +3084,18 @@ function previewData(formData) {
                                   {CummulativeperfDGBPData.map(renderCummulativePerformanceValue)}
 
                                 </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                     {CummulativeperfACHFData.map(renderCummulativePerformanceValue)}
+
+                                   </tr>
+                                   <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                  {CummulativeperfAEURData.map(renderCummulativePerformanceValue)}
+
+                                </tr>
                                 
+
                                 
                                 
                                 
@@ -3045,6 +3138,12 @@ function previewData(formData) {
                                   {TwelveMperfDGBPState.map(renderCummulativePerformanceValue)}
 
                                   </tr>
+                                  <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+
+                                      {TwelveMperfACHFState.map(renderCummulativePerformanceValue)}
+
+                                      </tr>
+                                  
                                 
 
 

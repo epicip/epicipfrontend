@@ -212,10 +212,6 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
           var HeaderService1d = ServiceName[10].name;
           var HeaderServiceURL1d = ServiceName[10].url
          
-          // var HeaderService1e = ServiceName[22].name;
-          // var HeaderServiceURL1e = ServiceName[22].url
-          
-
           var HeaderService2a = ServiceName[11].name;
           var HeaderServiceURL2a = ServiceName[11].url
 
@@ -224,10 +220,7 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
          
           var HeaderService2c = ServiceName[13].name;
           var HeaderServiceURL2c = ServiceName[13].url
-          
-          // var HeaderService2d = ServiceName[23].name;
-          // var HeaderServiceURL2d = ServiceName[23].url
-
+         
           var HeaderService3a = ServiceName[0].name;
           var HeaderServiceURL3a = ServiceName[0].url
         
@@ -269,8 +262,6 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
 
           var HeaderService6b = ServiceName[21].name;
           var HeaderServiceURL6b = ServiceName[21].url
-
-
           
         }
       }
@@ -503,11 +494,6 @@ var count=0;
 
       setServiceResponse(resp)
 
-      // setstatus(true)
-     
-
-      // document.getElementById("summaryButton").click()
-    
     })
       
      .catch(e=>{
@@ -552,18 +538,12 @@ var count=0;
       
     }
 function navItemClick(){
-  console.log("OnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoad")
 }
     useEffect(()=>{
 
       fetchMyAPI();
       fetchMyServiceAPI();
-      // SettingFunction();
-    //   return () => {
-
-    //     // document.removeEventListener();
-    // $(".inner-page").trigger("click");
-    //   }
+     
 
     },[])
 

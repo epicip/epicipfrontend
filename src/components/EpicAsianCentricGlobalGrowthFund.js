@@ -166,16 +166,16 @@ const VARdata = [
 
   ];
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value,index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  if(percent*100 > 5){
+  if(value > 5){
     return (
       
       <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (percent * 100).toFixed(0)}%`}
+        {`${ (value).toFixed(2)}%`}
       </text>
     )};
   };
@@ -758,9 +758,11 @@ const portfolioButton=()=>{
 
   var keysSectorBreakdown = ["name", "value"]
   
-  for(let i=1 ; i< 10 ;i++){
+  for(let i=1 ; i< 12 ;i++){
    // typeof(products[i][j])
-   
+   console.log(productSectorBreakdown);
+   console.log("productSectorBreakdown");
+
    let obj={};
    for(let j =0 ;j< productSectorBreakdown[i].length ;j++){
 
@@ -2614,7 +2616,6 @@ function previewData(formData) {
                 startAngle={120}
                 endAngle={-360}
                 label={renderCustomizedLabel}
-
               >
                 {graphData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
@@ -2622,7 +2623,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
                       </div>
@@ -2654,7 +2655,7 @@ function previewData(formData) {
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart>
                  </div>

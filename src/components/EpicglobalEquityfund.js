@@ -33,17 +33,20 @@ import $ from 'jquery'
 const colors = ["#0c2340", "#0095c8", "#b7c9d3", "#7030a0"]
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.2;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-if(value*100 > 1){
+
+  if(value > 1){
   return (
     
     <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
     
-      {`${ (value * 100).toFixed(2)}%`}
+      {`${ (value).toFixed(2)}%`}
     </text>
   )};
+
 };
 // const graphData = []
 // const graphDataVAR = []
@@ -425,7 +428,7 @@ var length = productRegional.length -1
       var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
 
       console.log(rounded1);
-      obj[keysVAR[j]] = rounded1 ;
+      obj[keysVAR[j]] = rounded1*100 ;
 
     }
   
@@ -2845,7 +2848,7 @@ function previewData(formData) {
                       </div>
 
           <div class="col-md-6 VARmargin chart-block"> 
-            <p class="lse_redirect">Portfolio VaR  by Sector (% NAV)</p>
+            <p class="lse_redirect">Regional Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 
@@ -2879,7 +2882,7 @@ function previewData(formData) {
               <Legend className="legend" margin={ {top:-500, left: -150} } formatter={renderColorfulLegendText}   iconSize={10} width={300} height={50} layout='vertical' />
 
 
-              {/* <Tooltip /> */}
+              <Tooltip />
               {/* <Legend /> */}
             </PieChart> 
                  </div>
