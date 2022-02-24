@@ -1420,124 +1420,31 @@ async function fetchMyAPI(){
    console.log(count)
    console.log("count")
 
-    // setProducts(resp.SectorExposures)
-    // setProductsVAR(resp.SectorVaR)
-    // setProductsSectorPer(resp.SectorPerformance)
     setInceptionData(resp.inceptionperfdata);
-
     setAssetAllocation(resp.Assetallocation)
     setproductscommulativePerformance(resp.CumulativePerfClassFAcc)
-    // Cumulativeclassflnc
-    // setproductscommulativePerformance(resp.CumulativeclassPerffacc)
-
     setproductscommulativePerformanceB(resp.Cumulativeclassflnc)
-    // setproductscommulativePerformanceBEUR(resp.CumulativePerfClassBEUR)
-    // setproductscommulativePerformanceC(resp.CumulativePerfClassCGBP)
-      
     settwelvemonPerfAGBP(resp.twelvemPerfDiscreteclassfacc)
     settwelvemonPerfBGBP(resp.twelvemPerfDiscreteclassflnc)
-    // settwelvemonPerfBEUR(resp.twelvemPerfDiscreteClassBEUR)
-    // settwelvemonPerfCGBP(resp.twelvemPerfDiscreteClassCGBP)
-
-
-    // setproducts12monthsPerformance(resp.twelvemPerfDiscrete)
-    // setproductstop3contr(resp.Top3Contributors)
-    // setproductsbot3contr(resp.Bottom3Contributors)
     setproductsCommentary(resp.content)
     setproductRegional(resp.RegionalWeightings)
     setproductstop10Holding(resp.TopHoldings)
-
     setproductsmarketCap(resp.MarketCapWeightings)
     setproductRegionBreakdown(resp.Regionbreakdown)
-
-
     setproductSectorBreakdown(resp.Sectorbreakdown)
     setproductsFundinfo(resp.FundInfo)
     setproductsShareClass(resp.NAVperShare)
-   
     setproductsMonthlyPerf(resp.MonthlyPerf)
-    // setLoading(true)
     setPRTU(resp.prtu)
     setSummary(resp.summary)
     setLiterature(resp.literature)
     setCMSFundinfo(resp.fund_info)
     setCMSshareinfo(resp.shareinfo)
-
-
-    // setLoading(true)
+    
     setstatus(true)
     document.getElementById("summaryButton").click();
 
-    // setTimeout(()=>{setstatus(true)}, 2000  )
-    
-    // setproductscommulativePerformanceA(productscommulativePerformance)
-    // setproductstest(productscommulativePerformance[0])
-    
-    
-    //  console.log(resp.SectorVaR);
-    //  console.log("resp.SectorVaR"); 
-    //  console.log(productsVAR)
-
-
-    //  console.log(resp.SectorExposures);
-    //  console.log("resp.SectorExposures");
-    //  console.log(products);
-   
-    //  console.log(resp.CumulativePerf);
-    //  console.log("resp.CumulativePerf");
-    //  console.log(productscommulativePerformance);     
-    //  console.log(productstest)
-    // console.log("productstest")
-    // XYZ = JSON.stringify(productscommulativePerformance)
-    // setproductscommulativePerformanceA()
-    // prevCountRef.current = productscommulativePerformance;
-    // console.log(objjj)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    // console.log(objee)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-    //  console.log(resp.twelvemPerfDiscrete);
-    //  console.log("resp.twelvemonPerfDiscrete");
-    //  console.log(products12monthsPerformance); 
-     
-    //  console.log(resp.Top3Contributors);
-    //  console.log("resp.Top3Contributors");
-    //  console.log(productstop3contr); 
-
-    //  console.log(resp.Bottom3Contributors);
-    //  console.log("resp.Bottom3Contributors");
-    //  console.log(productsbot3contr);
-     
-    //  console.log(resp.content);
-    //  console.log("resp.content");
-    //  console.log(productsCommentary);
-
-    //  console.log(resp.FundInfo);
-    //  console.log("resp.content");
-    //  console.log(productsFundinfo);
-
-    //  console.log(resp.NAVperShare);
-    //  console.log("resp.NAVperShare");
-    //  console.log(productsShareClass);
-
-    //  console.log(resp.MonthlyPerfBGBP);
-    //  console.log("resp.MonthlyPerfBGBP");
-    //  console.log(productsMonthlyPerf);
-
-    //  if(productsMonthlyPerf.length > 1){
-    //    console.log(productsMonthlyPerf)
-    //    console.log("COnsole.productsMonthlyPerf")
-
-    //   setstatus(true)
-    //  }else{
-    //   // fetchMyAPI();
-    //   // EpicfinanceTrends();
-    //   // window.location.reload(true);
-    // setproductsMonthlyPerf(resp.MonthlyPerfBGBP)
-
-    //  }
-
-    })
+  })
     
    .catch(e=>{
      console.log(e);

@@ -52,7 +52,7 @@ export default function App() {
     
     <Switch>
 
-      <Route path="/markets"  component={Home} exact/>
+      <Route path="/public/markets"  component={Home} exact/>
       <Route path="/markets/EpicfinanceTrends" component={EpicfinanceTrends}/> 
       <Route path="/markets/EpicglobalEquity" component={EpicglobalEquity}/> 
       <Route path="/markets/EpicorientalFocus" component={EpicorientalFocus}/> 
@@ -73,18 +73,15 @@ export default function App() {
       <Route path="/public/markets/EpicDFM" EpicDFMcomponent={EpicDFMComponent} />
       <Route path="/markets/EpicNextGenPCC" component={EpicPCCNextGenComponent}/> 
       <Route path="/markets/EpicRNBpcc" component={EpicRNBpccComponent}/> 
-
       <Route path="/markets/Epic-FixedIncome" component={EpicFixedIncomeComponent}/> 
       <Route path="/markets/FixedIncome" component={FixedIncomeComponent}/>  
       <Route path="/markets/Epic-ManagedFutures" component={EpicManagedFuturesComponent}/> 
       <Route path="/markets/Epic-Equitites" component={EpicEquitiesComponent}/> 
       <Route path="/markets/Epic-MultiAsset" component={EpicMultiAssetLandingComponent}/>
       <Route path="/markets/Epic-Insights" component={EpicInsightsLandingComponent}/> 
-
       
     </Switch> 
-
-
+    
      <Footer></Footer>
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 

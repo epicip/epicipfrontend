@@ -1221,3 +1221,6 @@ margin-left: 15px!important;
     background-color: #99103b;;
     border-color: #99103b;;
 }
+.hidden{
+    display: none;
+}

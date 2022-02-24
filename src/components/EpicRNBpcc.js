@@ -2068,6 +2068,8 @@ const informationButton=()=>{
  setFundinfoarray(fundInfoData)
  setCMSFundinfoarray(CMSfundInfoData)
  setCMSshareinfoarray(CMSshareInfoData)
+console.log(CMSshareinfoarray);
+console.log("CMSshareinfoarray");
 
 
 
@@ -2102,28 +2104,15 @@ async function fetchsessionAPI(){
       console.log("not greater than zero")
 
             window.location = window.location.origin+"/login_user";
-
-
     }
     
-  
   })
 
 }
 let count = 0;
 async function fetchMyAPI(){
-  // fetchSessionUserAPI();
-
-
-  
-
-  // fetchSessionUserAPI();
-
-// const fetchMyAPI = useCallback(() => {
-  // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  // const url ='https://epicipprojects.com/garraway-financial-trends';
-  // const url = 'https://epicipprojects.com/api/ss-next-gen-ucits'
+
   const Localurl = 'https://epicipprojects.com/epic-rnb-pcc'
   const url = window.location.origin+'/epic-rnb-pcc' 
    
@@ -2134,70 +2123,41 @@ async function fetchMyAPI(){
 
 
     setAssetAllocation(resp.Entitybreakdown)
-    
     setCreditRating(resp.Creditratingbreakdown)
-
     setproductscommulativePerformanceQAUSD(resp.CumulativePerfAUSD)
     setproductscommulativePerformanceQDUSD(resp.CumulativePerfAGBP)
     setproductscommulativePerformanceQDEUR(resp.CumulativePerfASGD)
     setproductscommulativePerformanceQDGBP(resp.CumulativePerfAJPY)
     setproductscommulativePerformanceAEUR(resp.CumulativePerfAEUR)
     setproductscommulativePerformanceACHF(resp.CumulativePerfACHF)
-
-
     settwelvemonPerfAGBP(resp.PerfDiscreteAUSD)
     settwelvemonPerfDUSD(resp.PerfDiscreteAGBP)
     settwelvemonPerfAEUR(resp.PerfDiscreteASGD)
     settwelvemonPerfDEUR(resp.PerfDiscreteAJPY)
     settwelvemonPerfDGBP(resp.PerfDiscreteAEUR)
     settwelvemonPerfACHF(resp.PerfDiscreteACHF)
-
     setperformanceSummary(resp.perfsummary)
     setproductsCommentary(resp.content)
-    // setproductRegional(resp.RegionalWeightings)
-    // setproductstop10Holding(resp.TopHoldings)
-
-    // setproductsmarketCap(resp.FixedIncomeBreakdown)
-
     setproductRegionBreakdown(resp.Regionbreakdown)
     setPortfolioStat(resp.Portfoliostatistics)
-    
     setNFAData(resp.Nfabreakdown)
-
     setproductSectorBreakdown(resp.EquitiesBreakdown)
-
     setproductsFundinfo(resp.FundInfo)
-    setproductsShareClass(resp.Fundprice)
-   
+    setproductsShareClass(resp.FundPricesClassA)
     setproductsMonthlyPerf(resp.MonthlyPerf)
-    // setLoading(true)
-    
     setRespPrtu(resp.Prtu)
     setPRTU(resp.daily_price)
     setLiterature(resp.literature)
     setSummary(resp.summary)
     setCMSFundinfo(resp.fund_info)
     setCMSshareinfo(resp.shareinfo)
-
-    // setLoading(true)
-
     setstatus(true)
     document.getElementById("summaryButton").click();
 
-
-    //  }
-
-    })
-    
+    })    
    .catch(e=>{
      console.log(e);
    })
-  // setresponseData(result)
-  // .then( resp=>console.log(resp.SectorExposures))
-  
-  // console.log(responseData)
-  // console.log("responseData")
-
   var keysMonthly = ["name"]
   var testArr =[]
   var monthsValue =[[],[]]
@@ -2350,19 +2310,6 @@ if ($(".accordion__item__header").length > 0) {
   $(this).next("div").slideToggle(200);
   });
   }
-//   function sessionCheck(session, index){
-//     console.log(session);
-//     console.log("session");
-
-// if(SessionUserResponse){
-//   window.location ="/markets/EpicRNBpcc"
-
-// }else{
-//   // window.location = window.location.origin+"/login_user";
-// }
-
-//   }
-
 function renderPCCli(response, index){  
   if(response !=0 ){
 return(
@@ -2432,17 +2379,6 @@ function renderSectorState(sector, index) {
   
   )
 }
-
-
-
-
-
-
-
-
-
-
-// productscommulativePerformance
 function renderCummulativePerformanceNames(cummulatove, index) {
   if(index==0){
     return(
@@ -2517,17 +2453,11 @@ function renderMonthNames(months, index){
         <td>{bot3contriparam[11]}</td>
         <td>{bot3contriparam[12]}</td>
         <td>{bot3contriparam[13]}</td>
-
-  
-  
-        {/* <td>{bot3contriparam.value}</td> */}
       </tr>
     )
   }
   }
 function renderbot3contri(bot3contriparam, index){
-  // alert(bot3contriparam.name);
-
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
       
@@ -2537,7 +2467,6 @@ function renderbot3contri(bot3contriparam, index){
   )
 }
 function renderCMSshareinfo(shareinfoparam, index){
-  // alert(bot3contriparam.name);
   if(index ==0 ||index ==1){
     return(
    <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
@@ -2613,8 +2542,6 @@ function renderCMSshareinfo(shareinfoparam, index){
 }
 
 function renderFundinfo(fundinfoparam, index){
-  // alert(bot3contriparam.name);
-
   return(
     <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
       
@@ -2624,8 +2551,6 @@ function renderFundinfo(fundinfoparam, index){
   )
 }
 function renderPerfSummaryinfo(fundinfoparam, index){
-  // alert(bot3contriparam.name);
-
   return(
     <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
       

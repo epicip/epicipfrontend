@@ -18,23 +18,19 @@ import $ from 'jquery';
 // import 'public/assets/css/font-awesome.min.css';
 // import 'public/assets/css/responsive.css';
 <head>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+
 </head>
-
-
 
 // class Header extends React.Component
 const Header = () => {
-  // const [StateSession, setStateSession] = useState([]);
-
-
-
 
   const [HeaderResponse, setHeaderResponse] = useState([]);
-  const[HeaderName,setHeaderName]= useState([]);
+  const [HeaderName,setHeaderName]= useState([]);
   const [ServiceResponse, setServiceResponse] = useState([]);
-  const[ServiceName,setServiceName]= useState([]);
+  const [ServiceName,setServiceName]= useState([]);
   const [status, setstatus] = useState(false);
   const [Header1, setHeader1] = useState([]);
   const [Header2, setHeader2] = useState([]);
@@ -57,6 +53,8 @@ const Header = () => {
   const [HeaderURL4, setHeaderURL4] = useState([]);
   const [HeaderURL5, setHeaderURL5] = useState([]);
   const [HeaderURL6, setHeaderURL6] = useState([]);
+  
+  const [ArrServiceResponsedd, setArrServiceResponsedd] = useState([]);
 
   const [HeaderService1a, setHeaderService1a] = useState([]);
   const [HeaderService1b, setHeaderService1b] = useState([]);
@@ -119,18 +117,12 @@ const Header = () => {
   const [HeaderServiceURL6a, setHeaderServiceURL6a] = useState([]);
   const [HeaderServiceURL6b, setHeaderServiceURL6b] = useState([]);
 
-  const[arrHeaderState,setarrHeaderState]= useState([]);
+  const [arrHeaderState,setarrHeaderState]= useState([]);
 
-
-
-
-const ArrHeaderResponse =[]
-const Example=()=>{
-
-
-// setarrHeaderState(ArrHeaderResponse)
-console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
-}
+  const ArrHeaderResponse =[]
+  const Example=()=>{
+  }
+  
   const HeaderFunction=()=>{
     const ArrServiceResponse =[]
       
@@ -146,14 +138,10 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
           obj[allKeys[2]] = HeaderName[i].name ;
           obj[allKeys[3]] = ServiceName[j].url ;
 
+          }
         }
-      }
-      console.log(obj);
-      console.log("obj Services");
           ArrServiceResponse.push(obj)    
-  }
-  console.log(ArrServiceResponse);
-  console.log("ArrServiceResponse");
+    }
 
     var HeaderKeys = ["HeaderId","HeaderName","HeaderUrl","headerImage"];
 
@@ -168,28 +156,16 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
       ArrHeaderResponse.push(obj)    
     
     }
-    console.log(ArrHeaderResponse);
-    console.log("ArrHeaderResponse");    
+    
     Example();
 }
 
-
+  const ArrServiceResponse = [];
   const SettingFunction=()=>{
-    console.log("SETTING FUNCTION")
-    // ABC();
-    // $(".summaryButton").trigger("click");
-    const ArrServiceResponse = [];
+
     setHeaderName(HeaderResponse);
-    // console.log(HeaderName)
-    // console.log("HeaderName")
-
     setServiceName(ServiceResponse);
-    // console.log(ServiceName)
-    // console.log("ServiceName");
-    
-    // HeaderFunction();
 
-      
     var allKeys = ["Serviceid","Servicename","Headername","ServiceUrl"];
     for(let j=0 ; j< ServiceName.length ;j++){
     let obj={};
@@ -265,12 +241,10 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
           
         }
       }
-      // console.log(obj);
-      // console.log("obj Services");
     ArrServiceResponse.push(obj)    
  
- 
   }
+
   setHeaderService1a(HeaderService1a)
   setHeaderServiceURL1a(HeaderServiceURL1a)
 
@@ -286,7 +260,6 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
   setHeaderService1e(HeaderService1e)
   setHeaderServiceURL1e(HeaderServiceURL1e)
  
-
   setHeaderService2a(HeaderService2a)
   setHeaderServiceURL2a(HeaderServiceURL2a)
 
@@ -298,8 +271,6 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
 
   setHeaderService2d(HeaderService2d)
   setHeaderServiceURL2d(HeaderServiceURL2d)
-
-  
 
   setHeaderService3a(HeaderService3a);    
   setHeaderServiceURL3a(HeaderServiceURL3a)
@@ -336,8 +307,7 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
   
   setHeaderService5e(HeaderService5e);
   setHeaderServiceURL5e(HeaderServiceURL5e)
-  
-  
+    
   setHeaderService6a(HeaderService6a);
   setHeaderServiceURL6a(HeaderServiceURL6a)
 
@@ -346,18 +316,8 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
 
 
   setDomainUrl(window.location.origin);
-    console.log(DomainUrl);
-    console.log(window.location.origin);
-    console.log("----------------------------------------------------------------------");
-
-
-  console.log(ArrServiceResponse);
-  console.log("ArrServiceResponse");
-
+ 
     var HeaderKeys = ["HeaderId","HeaderName","HeaderUrl","headerImage","Status"];
-
-    console.log(HeaderName.length)
-    console.log("HeaderName.length")
 
   for(let i=0 ; i< HeaderName.length ;i++){
       let obj={};
@@ -366,8 +326,6 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
       obj[HeaderKeys[2]] = HeaderName[i].url ;
       obj[HeaderKeys[3]] = HeaderName[i].image ;
       obj[HeaderKeys[4]] = HeaderName[i].status ;
-
-
 
       ArrHeaderResponse.push(obj)    
     
@@ -394,11 +352,9 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
       var HeaderMenu6 = HeaderName[5].name;
       var HeaderURL6 = HeaderName[5].url;
       var HeaderStatus6 = HeaderName[5].status;
-    
-    
+        
     }
-    // var HeaderMenu1 = ArrHeaderResponse[0].HeaderName;
-    // setHeader1(HeaderMenu1);
+    
     setHeader1(HeaderMenu1);
     setHeaderURL1(HeaderURL1);
     setHeaderStatus1(HeaderStatus1);
@@ -419,45 +375,32 @@ console.log("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
     setHeaderURL5(HeaderURL5);
     setHeaderStatus5(HeaderStatus5);
     
-
     setHeader6(HeaderMenu6);    
     setHeaderURL6(HeaderURL6);
     setHeaderStatus6(HeaderStatus6);
 
-    console.log(ArrHeaderResponse);
-    console.log("ArrHeaderResponse");
-    // setarrHeaderState(ArrHeaderResponse)
-    // console.log(arrHeaderState);
-    // console.log("arrHeaderState"+arrHeaderState);
-   
   }
   
   const clicked=()=>{
     
-    console.log("clicked")
+    // console.log("clicked")
     document.getElementById("summaryButton").click()
 
   }
   const ABC=()=>{
     setarrHeaderState(ArrHeaderResponse)
-    console.log(arrHeaderState)
-    console.log("arrHeaderState");
   }
-var count=0;
-// $(document).one('ready', function () {
   
+  var count=0;
+
   $(document).ready(function() {
     $("#capital").ready(function() {
 
       $(this).click();
-      // console.log("OnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoadOnLoad")
 
     });
-//   if(ArrHeaderResponse){
-//    setarrHeaderState(ArrHeaderResponse)
-// }
-    SettingFunction();
-    
+
+  $('.btn-setting')[0].click();
 
   if ($(".accordion__item__header").length > 0) {
 
@@ -465,7 +408,7 @@ var count=0;
       var activedis = "active-dis";
       $(".accordion__item__header").on("click", function (event) {
         event.stopImmediatePropagation();
-        console.log("clicked")
+        // console.log("clicked")
         $(this).toggleClass(active);
         $(this).find(".navlink").toggleClass(activedis);
         
@@ -474,90 +417,64 @@ var count=0;
       }
 
   });  
-
-//   $(window).load(function() {
-//     // $(".inner-page").trigger(  "click");
-//     console.log("trigerred")
-//     //dom not only ready, but everything is loaded
-// });
-  
   async function fetchMyServiceAPI(){
 
-    const url =window.location.origin+'/service_api';
-    const localurl ="https://epicipprojects.com/service_api";
+    const localurl =window.location.origin+'/service_api';
+    const url ="https://epicipprojects.com/service_api";
     
      fetch(url).then(resp=> resp.json())
      .then (resp => {
-      console.log(resp)
-
-      console.log("serv-resp"+ resp)
-
       setServiceResponse(resp)
-
     })
-      
      .catch(e=>{
        console.log(e);
      })
-
-        console.log("allKeys")
-
-
+      console.log("allKeys")
 
   };
   async function fetchMyAPI(){
 
-      const url =window.location.origin+'/division_api';
-      const localurl ="https://epicipprojects.com/division_api";
+      const localurl =window.location.origin+'/division_api';
+      const url ="https://epicipprojects.com/division_api";
       
        fetch(url).then(resp=> resp.json())
-       .then (resp => {
-        console.log(resp)
-        console.log("Division-resp")
-        
+       .then (resp => {      
         setHeaderResponse(resp)
-
       })  
        .catch(e=>{
          console.log(e);
        })
-
-
- 
-          // console.log(graphData);
-    
-          console.log("allKeys")
-
-
     };
-    function renderHeader(Header, sindex){
-      // if(DailyPrice.Price !== 0){
-        console.log(Header);
-        console.log("renderHeader");
-  
-      
+  function renderHeader(Header, sindex){
+        
     }
-function navItemClick(){
-}
-    useEffect(()=>{
+  function navItemClick(){
+    
+    }
+  useEffect(()=>{
 
       fetchMyAPI();
       fetchMyServiceAPI();
-     
+
+
 
     },[])
 
     return (
-      <Fragment>
+<Fragment>
 
 
-<header className="inner-page" onLoad={SettingFunction}  style={{ backgroundImage: `url(${process.env.PUBLIC_URL
+<header className="inner-page"  style={{ backgroundImage: `url(${process.env.PUBLIC_URL
           + "/images/background/markets.jpg"})`,}} >
 {/* styles={{ backgroundImage:`url(${market})` }} */}
 {/* style="background:url('images/background/markets.jpg')" */}
   <div className="container">
     <div className="row">
-      <div className="col-sm-12"> <a href={window.location.origin+"/contact"} className="btn-contact btn-primary float-right">Contact</a> </div>
+      <div className="col-sm-12"> 
+        <a href={window.location.origin+"/contact"} className="btn-contact btn-primary float-right">Contact</a>
+        <a onClick={SettingFunction} className="btn-setting btn-primary float-right hidden">Setting</a> 
+
+      </div>
     </div>
   </div>
   <nav className="navbar navbar-expand-lg navbar-light">
