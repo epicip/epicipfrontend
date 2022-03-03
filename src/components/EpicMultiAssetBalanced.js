@@ -504,10 +504,14 @@ const literatureButton=()=>{
   
   
   }
-
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -1350,9 +1354,9 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-balanced-fund' 
   
-  const Localurl = 'https://epicipprojects.com/vtepic-multi-asset-balanced-fund'
+  const url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-  const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
+  const Localurl = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);

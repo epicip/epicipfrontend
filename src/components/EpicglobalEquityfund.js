@@ -770,12 +770,16 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 
 const summaryButton=()=>{
   
   let arrPRTU=[]
 
-
+tt();
   var heading;
   var objective;
   var team;
@@ -993,7 +997,7 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=15;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1740,8 +1744,8 @@ async function fetchMyAPI(){
 // const fetchMyAPI = useCallback(() => {
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  const Localurl ='https://epicipprojects.com/epic-global-equity-fund';
-  const url = window.location.origin+'/epic-global-equity-fund' 
+  const url ='https://www.epicip.com/epic-global-equity-fund';
+  const Localurl = window.location.origin+'/epic-global-equity-fund' 
   
   // const url = 'https://epicipprojects.com/api/garraway-global-equity-fund' 
   
@@ -2659,7 +2663,7 @@ function previewData(formData) {
             </div>
           </div>
           <div className="accordion__item">
-            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Equitites" className="navlink a">Equities</NavLink></div>
+            <div className="accordion__item__header active"><NavLink to="/markets/Epic-Equitites" className="navlink a active-dis">Equities</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicglobalEquity" className="navlink a a-active-color">Global Equity Fund <span className="fa fa-angle-right"></span></NavLink></li>

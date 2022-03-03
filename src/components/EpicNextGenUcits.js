@@ -569,9 +569,14 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
     let arrPRTU=[]
+    tt();
     var heading;
     var objective;
     var team;
@@ -1957,8 +1962,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-next-gen-ucits'
-  const Localurl = 'https://epicipprojects.com/epic-next-gen-ucits'
-  const url = window.location.origin+'/epic-next-gen-ucits' 
+  const url = 'https://www.epicip.com/epic-next-gen-ucits'
+  const Localurl = window.location.origin+'/epic-next-gen-ucits' 
 
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -1984,7 +1989,6 @@ async function fetchMyAPI(){
     setproductscommulativePerformanceQAEUR(resp.CumulativePerfQAEUR)
     setproductscommulativePerformanceQDEUR(resp.CumulativePerfeQDEUR)
     setproductscommulativePerformanceQDGBP(resp.CumulativePerfeQDGBP)
-      
     settwelvemonPerfAGBP(resp.PerfDiscreteQAUSD)
     settwelvemonPerfDUSD(resp.PerfDiscreteQDUSD)
     settwelvemonPerfAEUR(resp.PerfDiscreteQAEUR)

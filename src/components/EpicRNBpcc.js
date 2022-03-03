@@ -612,12 +612,16 @@ const literatureButton=()=>{
 
     
   //   }
-
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   // if(Auth_User()){
     // Auth_User();
 
     let arrPRTU=[]
+   tt();
     var heading;
   var objective;
   var team;
@@ -2113,8 +2117,8 @@ let count = 0;
 async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
 
-  const Localurl = 'https://epicipprojects.com/epic-rnb-pcc'
-  const url = window.location.origin+'/epic-rnb-pcc' 
+  const url = 'https://www.epicip.com/epic-rnb-pcc'
+  const Localurl = window.location.origin+'/epic-rnb-pcc' 
    
    fetch(url).then(resp=> resp.json())
    .then (resp => {

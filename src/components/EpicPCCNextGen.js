@@ -620,11 +620,15 @@ const literatureButton=()=>{
   //       }
     
   //   }
-    
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   // if(Auth_User()){
 
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -1940,8 +1944,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
-  const Localurl = 'https://epicipprojects.com/epic-next-gen-pcc'
-  const url = window.location.origin+'/epic-next-gen-pcc' 
+  const url = 'https://www.epicip.com/epic-next-gen-pcc'
+  const Localurl = window.location.origin+'/epic-next-gen-pcc' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2640,6 +2644,8 @@ if ($(".accordion__item__header").length > 0) {
         </div>
     </div>
     )
+  }else{
+    return false
   }
   }
 function renderLiteratureData(data, index){

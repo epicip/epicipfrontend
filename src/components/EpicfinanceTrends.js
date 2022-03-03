@@ -6,7 +6,6 @@ import React, { useState, useEffect, PureComponent, useRef, useMemo, useCallback
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { NavLink } from 'react-router-dom';
 import $ from 'jquery';   
-
 import {
     BarChart,
     Bar,
@@ -15,7 +14,6 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    
     Legend,
     ReferenceLine,
     ResponsiveContainer,
@@ -32,29 +30,7 @@ import Button from 'react-bootstrap/Button';
 // var Panel = require('react-bootstrap').Panel;
 // var responseData;
 const colors = ["#1A1549", " #9DB1DB", "#E6EEF6", "#dcdcdc","#B85876"]
-// const graphData = []
-// const graphDataVAR = []
-// const graphDataSectorPer =[]
-// const cummulatovePerfData =[]
-// const cummulatovePerfDatadummy =[]
-
-// const twelvemonPerfDiscreteAPI = []
-// const top3contriarray =[]
-// const bot3contriarray = []
-// const Fundinfoarray = []
-// const ShareClassarray = []
-
 let bot3contriDummy = []
-
-
-// const usePrevious = value => {
-//   const ref = useRef();
-//   useEffect(() => {
-//     ref.current = value;
-//   });
-//   return ref.current;
-// };
-
 
 const data = [
 
@@ -191,16 +167,8 @@ const [PressCoverageState, setPressCoverageState] = useState([]);
 const [ApplicationsState, setApplicationsState] = useState([]);
 const [ReportsState, setReportsState] = useState([]);
 const [offerDocumentState, setofferDocumentState] = useState([]);
-
-
-
-
-
-
 const [LiteratureDate, setLiteratureDate] = useState([]);
 const [FileNameState, setFileNameState] = useState([]);
-
-
 
 // const [productscommulativePerformanceA, setproductscommulativePerformanceA] = useState([]);
 const [SessionResponse, setSessionResponse] = useState([]);
@@ -309,9 +277,6 @@ var LiteratureKeys = ["LiteratureNameKey","FileName","LiteratureDate","Literatur
     let applicationsObj={};
     let reportsObj={};
     let offerDocumentsObj={};
-
-
-
      
     FundName = Literature[i].fund_name;
     if(FundName == "financial_trends"){
@@ -427,22 +392,21 @@ var LiteratureKeys = ["LiteratureNameKey","FileName","LiteratureDate","Literatur
   setReportsState(reportsLiteratureArr);
   setofferDocumentState(offerDocumentsLiteratureArr);
 
-
-
-
-
-
 }
+
 const Clicked=()=>{
   $("#literatureTab").click();
   literatureButton();
-console.log("clicked")
+  console.log("clicked")
 }
-
+const tt=()=>{
+  // alert("hi");
+  $('.btn-setting')[0].click();
+}
 const summaryButton=()=>{
-console.log(SessionResponse);
+  console.log(SessionResponse);
 console.log("Summary_SessionResponse");
-
+tt();
 var heading;
 var objective;
 var team;
@@ -621,9 +585,9 @@ const portfolioButton=()=>{
   }
 
   var keysVAR = ["name", "value"]
-var length = productsVAR.length-1
-   for(let i=1 ; i< length ;i++){
-    // typeof(products[i][j])
+  var length = productsVAR.length-1
+  
+    for(let i=1 ; i< length ;i++){
     
     let obj={};
     for(let j =0 ;j< productsVAR[i].length ;j++){
@@ -652,16 +616,9 @@ var length = productsVAR.length-1
       
         graphDataResponse1.push(obj)
 
-      
-      
       }       
 
-
-
   }
-  
-
-
 
   var keysSectorPer = ["name", "value"]
   var length = productsSectorPer.length
@@ -883,7 +840,7 @@ var monthsArr=[];
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=14;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1108,32 +1065,25 @@ async function fetchMyAPI(){
 // const fetchMyAPI = useCallback(() => {
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  const localurl ='https://epicipprojects.com/epic-financial-trends';
-  const url = window.location.origin+'/epic-financial-trends' 
+  const url ='https://www.epicip.com/epic-financial-trends';
+  const localurl = window.location.origin+'/epic-financial-trends' 
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
-fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
-  console.log(resp);
-  console.log("resp");
+  fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
+    
+    console.log(resp);
+    console.log("resp");
 
-  setSessionResponse(resp);
-
+    setSessionResponse(resp);
 
 })
 
    fetch(url).then(resp=> resp.json())
    .then (resp => {
-    console.log(resp)
-    console.log("resp")
-
-
-    console.log(count)
-   console.log("count")
 
     setProducts(resp.SectorExposures)
     setProductsVAR(resp.SectorVaR)
     setProductsSectorPer(resp.SectorPerformance)
-    
     setproductscommulativePerformance(resp.CumulativePerf)
     setproducts12monthsPerformance(resp.twelvemPerfDiscrete)
     setproductstop3contr(resp.Top3Contributors)
@@ -1147,89 +1097,12 @@ fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(res
     setSummary(resp.summary)
     setLiterature(resp.literature)
     setCMSFundinfo(resp.fund_info)
-
-
     setCMSshareinfo(resp.shareinfo)
-
-
     // setLoading(true)
     setstatus(true)
     // setSessionResponse(sessionresp);
-
     document.getElementById("summaryButton").click();
-
-    // setTimeout(()=>{setstatus(true)}, 2000  )
-    
-    // setproductscommulativePerformanceA(productscommulativePerformance)
-    // setproductstest(productscommulativePerformance[0])
-    
-      console.log(resp.literature);
-      console.log("resp.literature")
-
-     console.log(resp.SectorVaR);
-     console.log("resp.SectorVaR"); 
-     console.log(productsVAR)
-
-
-     console.log(resp.SectorExposures);
-     console.log("resp.SectorExposures");
-     console.log(products);
-   
-     console.log(resp.CumulativePerf);
-     console.log("resp.CumulativePerf");
-     console.log(productscommulativePerformance);     
-    //  console.log(productstest)
-    // console.log("productstest")
-    // XYZ = JSON.stringify(productscommulativePerformance)
-    // setproductscommulativePerformanceA()
-    // prevCountRef.current = productscommulativePerformance;
-    // console.log(objjj)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    // console.log(objee)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-     console.log(resp.twelvemPerfDiscrete);
-     console.log("resp.twelvemonPerfDiscrete");
-     console.log(products12monthsPerformance); 
-     
-     console.log(resp.Top3Contributors);
-     console.log("resp.Top3Contributors");
-     console.log(productstop3contr); 
-
-     console.log(resp.Bottom3Contributors);
-     console.log("resp.Bottom3Contributors");
-     console.log(productsbot3contr);
-     
-     console.log(resp.content);
-     console.log("resp.content");
-     console.log(productsCommentary);
-
-     console.log(resp.FundInfo);
-     console.log("resp.content");
-     console.log(productsFundinfo);
-
-     console.log(resp.NAVperShare);
-     console.log("resp.NAVperShare");
-     console.log(productsShareClass);
-
-     console.log(resp.MonthlyPerfBGBP);
-     console.log("resp.MonthlyPerfBGBP");
-     console.log(productsMonthlyPerf);
-
-
-
-    //  if(productsMonthlyPerf.length > 1){
-    //    console.log(productsMonthlyPerf)
-    //    console.log("COnsole.productsMonthlyPerf")
-
-    //   setstatus(true)
-    //  }else{
-    //   // fetchMyAPI();
-    //   // EpicfinanceTrends();
-    //   // window.location.reload(true);
-    // setproductsMonthlyPerf(resp.MonthlyPerfBGBP)
-
-    //  }
+    document.getElementsByClassName('btn-setting').click();
 
     })
     

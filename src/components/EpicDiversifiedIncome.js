@@ -507,9 +507,14 @@ const literatureButton=()=>{
   
   
   } 
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -1354,8 +1359,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-diversified-income-fund'
-  const Localurl = 'https://epicipprojects.com/vtepic-diversified-income-fund'
-  const url = window.location.origin+'/vtepic-diversified-income-fund' 
+  const url = 'https://www.epicip.com/vtepic-diversified-income-fund'
+  const Localurl = window.location.origin+'/vtepic-diversified-income-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);

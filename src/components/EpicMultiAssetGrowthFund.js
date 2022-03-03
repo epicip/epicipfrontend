@@ -512,9 +512,14 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -1529,8 +1534,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
-  const Local2url = 'https://epicipprojects.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
+  const Local2url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
 
 

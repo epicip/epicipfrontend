@@ -572,9 +572,14 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -709,6 +714,7 @@ let DailycalculatedDate = new Date(daily_cal).toLocaleDateString("en-US", { day:
 
 
   setarrPRTUState(arrPRTU)
+
   setPRTUDate(calculatedDate)
   setDailyDate(DailycalculatedDate)
   setStateSession(SessionResponse);
@@ -1832,8 +1838,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
-  const Localurl = 'https://epicipprojects.com/epic-nfa-ucits'
-  const url = window.location.origin+'/epic-nfa-ucits' 
+  const url = 'https://www.epicip.com/epic-nfa-ucits'
+  const Localurl = window.location.origin+'/epic-nfa-ucits' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2480,6 +2486,8 @@ if ($(".accordion__item__header").length > 0) {
         </div>
     </div>
     )
+  }else{
+    return false;
   }
   }
 function renderLiteratureData(data, index){
@@ -2876,6 +2884,7 @@ function previewData(formData) {
                         {/* </div> */}
                         <div class="row margin-1 daily-price-row">
                             <div class="col-md-12">
+                              
                                 <div>
                                   
                                     <h3 class="Paragraph__Heading-sc-2ra4j2-2">Daily Prices</h3>

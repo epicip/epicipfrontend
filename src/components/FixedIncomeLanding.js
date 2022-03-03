@@ -31,7 +31,7 @@ import { useParams } from 'react-router-dom';
 
 
 const EpicFixedIncomeFunction = () => {
-  
+  // $('.btn-setting')[0].click();
   const [StateSession, setStateSession] = useState([]);
   const [SessionResponse, setSessionResponse] = useState([]);
   const [KeyMapResponse, setKeyMapResponse] = useState([]); 
@@ -42,6 +42,8 @@ const EpicFixedIncomeFunction = () => {
   const [PeopleApi, setPeopleApi] = useState([]);
   const [MarketText, setMarketText] = useState([]);
   
+  const [status, setstatus] = useState([]);
+
   const [UniqueKeyContacts, setUniqueKeyContacts] = useState([]);
   const [KeyNameone, setKeyNameone] = useState([]); 
   const [KeyLinkone, setKeyLinkone] = useState([]); 
@@ -54,7 +56,12 @@ const EpicFixedIncomeFunction = () => {
   const [KeyNamefive, setKeyNamefive] = useState([]); 
   const [KeyLinkfive, setKeyLinkfive] = useState([]); 
   
+  const functionArraySetting=()=>{
+    // console.log("hihihihi");
+      $('.btn-setting')[0].click();
 
+
+  }
   const LoopingFunction=()=>{
   
     var content;
@@ -197,11 +204,13 @@ const EpicFixedIncomeFunction = () => {
     console.log(MarketContent);
     console.log("MarketContent");
     LoopingFunction();
+    
   }
   
 
     $( document ).ready(function() {
       SettingFunction();
+      
       if ($(".accordion__item__header").length > 0) {
   
         var active = "active";
@@ -269,7 +278,8 @@ const EpicFixedIncomeFunction = () => {
       };
       async function fetchMyService2API(){
       
-        const url =window.location.origin+'/market_contentapi';
+        const Localurl =window.location.origin+'/market_contentapi';
+        const url ='https://epicipprojects.com/market_contentapi';
         
          fetch(url).then(resp=> resp.json())
          .then (resp => {
@@ -277,6 +287,8 @@ const EpicFixedIncomeFunction = () => {
           console.log("Market-content-resp")
       
           setMarketContentResponse(resp)
+          setstatus(true)
+          document.getElementById("headerButton").click();
       
         })  
          .catch(e=>{
@@ -305,13 +317,14 @@ async function fetchMyAPI(){
         fetchMyService2API();
         fetchMyServiceAPI();
         fetchMyService3API();
+        
       },[])
 
 return(
 
-    <Fragment>
+<Fragment>
 
-    {/* { status === true ?  */}
+    { status === true ? 
     
 <section className="main-box">
   <div className="container">
@@ -406,6 +419,8 @@ return(
     </div>
     <div class="Section__SectionContent-sc-1iot0f7-2 " >
           <h3>Our products</h3><br/>
+        <button type="button" id="headerButton" onClick={functionArraySetting} className="btn-primary float-right hidden">Header</button> 
+
                 <p>
                     <NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a decoration-none">UCITS - NFA Global Bond Fund UI <span className="fa fa-angle-right"></span></NavLink><br/>
                     <NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a decoration-none">UCITS - Next Generation Bond Fund UI<span className="fa fa-angle-right"></span></NavLink><br/>
@@ -478,7 +493,7 @@ return(
   </div>
   </section>
 </section>
-{/* :<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  */}
+:<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  }
 {/* } */}
 </Fragment>
 )

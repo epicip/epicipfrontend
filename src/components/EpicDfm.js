@@ -236,6 +236,7 @@ const EpicDFMFunction = () => {
     
     
     };
+ 
     async function fetchMyService2API(){
     
       const url =window.location.origin+'/market_contentapi';

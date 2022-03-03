@@ -480,9 +480,14 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
+  tt();
   var heading;
   var objective;
   var team;
@@ -848,7 +853,7 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=14;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1403,8 +1408,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-ukequity-market-fund' 
-  const Localurl = 'https://epicipprojects.com/vtepic-ukequity-market-fund' 
-  const url = window.location.origin+'/vtepic-ukequity-market-fund' 
+  const url = 'https://www.epicip.com/vtepic-ukequity-market-fund' 
+  const Localurl = window.location.origin+'/vtepic-ukequity-market-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -1440,7 +1445,7 @@ async function fetchMyAPI(){
     setLiterature(resp.literature)
     setCMSFundinfo(resp.fund_info)
     setCMSshareinfo(resp.shareinfo)
-    
+
     setstatus(true)
     document.getElementById("summaryButton").click();
 

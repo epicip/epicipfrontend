@@ -41,6 +41,8 @@ const EpicManagedFuturesFunction = () => {
   const [MarketContent, setMarketContent] = useState([]);
   const [PeopleApi, setPeopleApi] = useState([]);
   const [MarketText, setMarketText] = useState([]);
+  const [status, setstatus] = useState([]);
+
 
   const [KeyNameone, setKeyNameone] = useState([]); 
   const [KeyLinkone, setKeyLinkone] = useState([]); 
@@ -53,6 +55,12 @@ const EpicManagedFuturesFunction = () => {
   const [KeyNamefive, setKeyNamefive] = useState([]); 
   const [KeyLinkfive, setKeyLinkfive] = useState([]); 
   
+  const functionArraySetting=()=>{
+    console.log("hihihihi");
+      $('.btn-setting')[0].click();
+
+
+  }
   const LoopingFunction=()=>{
   
     var content;
@@ -269,7 +277,8 @@ const EpicManagedFuturesFunction = () => {
     };
     async function fetchMyService2API(){
     
-      const url =window.location.origin+'/market_contentapi';
+      const Localurl =window.location.origin+'/market_contentapi';
+      const url ='https://epicipprojects.com/market_contentapi';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {
@@ -277,6 +286,8 @@ const EpicManagedFuturesFunction = () => {
         console.log("Market-content-resp")
     
         setMarketContentResponse(resp)
+        setstatus(true)
+        document.getElementById("headerButton").click();
     
       })  
        .catch(e=>{
@@ -311,7 +322,7 @@ return(
 
     <Fragment>
 
-    {/* { status === true ?  */}
+    { status === true ? 
     
 <section className="main-box">
   <div className="container">
@@ -412,6 +423,8 @@ Our own analysis of blending this fund into medium to high-risk portfolios shows
 </div>
 <div class="Section__SectionContent-sc-1iot0f7-2 " >
 <h3>Our products</h3><br/>
+<button type="button" id="headerButton" onClick={functionArraySetting} className="btn-primary float-right hidden">Header</button> 
+
                 <p>
                 <NavLink to="/markets/EpicfinanceTrends" className="navlink a">Financial Trends <span className="fa fa-angle-right"></span></NavLink>
                     <br/>
@@ -466,7 +479,7 @@ Our own analysis of blending this fund into medium to high-risk portfolios shows
   </div>
   </section>
 </section>
-{/* :<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  */}
+:<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  }
 {/* } */}
 </Fragment>
 )

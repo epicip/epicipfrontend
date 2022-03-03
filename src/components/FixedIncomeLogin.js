@@ -73,6 +73,7 @@ const FixedIncomeFunction = () => {
             useEffect(()=>{
       
               fetchMyAPI()
+              $('.btn-setting')[0].click();
               
             },[])
 return(

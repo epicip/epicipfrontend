@@ -288,8 +288,6 @@ const EpicInsightsLandingFunction = () => {
         
               console.log("allKeys")
         
-        
-        
         };
         async function fetchMyService2API(){
         
@@ -308,8 +306,7 @@ const EpicInsightsLandingFunction = () => {
              console.log(e);
            })
         
-              console.log("allKeys")
-        
+              console.log("allKeys")        
         };
         
   

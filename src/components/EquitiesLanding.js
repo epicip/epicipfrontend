@@ -33,10 +33,6 @@ import { useParams } from 'react-router-dom';
 const EpicEquitiesFunction = () => {
   const [StateSession, setStateSession] = useState([]);
   const [SessionResponse, setSessionResponse] = useState([]);
-
-
-
-
   const [KeyMapResponse, setKeyMapResponse] = useState([]); 
   const [MarketContentResponse, setMarketContentResponse] = useState([]);
   const [PeopleApiResponse, setPeopleApiResponse] = useState([]); 
@@ -44,6 +40,7 @@ const EpicEquitiesFunction = () => {
   const [MarketContent, setMarketContent] = useState([]);
   const [PeopleApi, setPeopleApi] = useState([]);
   const [MarketText, setMarketText] = useState([]);
+  const [status, setstatus] = useState([]);
 
   const [KeyNameone, setKeyNameone] = useState([]); 
   const [KeyLinkone, setKeyLinkone] = useState([]); 
@@ -56,6 +53,12 @@ const EpicEquitiesFunction = () => {
   const [KeyNamefive, setKeyNamefive] = useState([]); 
   const [KeyLinkfive, setKeyLinkfive] = useState([]);
 
+  const functionArraySetting=()=>{
+    // console.log("hihihihi");
+      $('.btn-setting')[0].click();
+
+
+  }
   const LoopingFunction=()=>{
   
     var content;
@@ -268,7 +271,9 @@ const EpicEquitiesFunction = () => {
     };
     async function fetchMyService2API(){
     
-      const url =window.location.origin+'/market_contentapi';
+      const Localurl =window.location.origin+'/market_contentapi';
+      const url ='https://epicipprojects.com/market_contentapi';
+
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {
@@ -277,6 +282,8 @@ const EpicEquitiesFunction = () => {
         console.log("Market-content-resp")
     
         setMarketContentResponse(resp)
+        setstatus(true)
+        document.getElementById("headerButton").click();
     
       })  
        .catch(e=>{
@@ -311,7 +318,7 @@ return(
 
     <Fragment>
 
-    {/* { status === true ?  */}
+    { status === true ? 
     
 <section className="main-box">
   <div className="container">
@@ -416,6 +423,8 @@ In order to generate superior long-term risk adjusted returns we need to be inve
 </div>    
 <div class="Section__SectionContent-sc-1iot0f7-2 ">
 <h3>Our products</h3><br/>
+<button type="button" id="headerButton" onClick={functionArraySetting} className="btn-primary float-right hidden">Header</button> 
+
                 <p>
                 <NavLink to="/markets/EpicglobalEquity" className="navlink a">Global Equity Fund <span className="fa fa-angle-right"></span></NavLink><br/>
                 <NavLink to="/markets/EpicorientalFocus" className="navlink a">Oriental Focus Fund <span className="fa fa-angle-right"></span></NavLink><br/>
@@ -478,7 +487,7 @@ In order to generate superior long-term risk adjusted returns we need to be inve
   </div>
   </section>
 </section>
-{/* :<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  */}
+ :<div className="center"><ReactBootstrap.Spinner animation="border"/></div>  }
 {/* } */}
 </Fragment>
 )

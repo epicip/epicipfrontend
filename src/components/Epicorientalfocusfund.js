@@ -503,11 +503,15 @@ const literatureButton=()=>{
   
   
   }
+  const tt=()=>{
+    // alert("hi");
+    $('.btn-setting')[0].click();
+  }
 const summaryButton=()=>{
   
   let arrPRTU=[]
 
-
+tt();
 
   var heading;
   var objective;
@@ -883,7 +887,7 @@ console.log(productsMonthlyPerf);
 console.log("productsMonthlyPerf");
 
   var arr2D=[];
-  for(let i=4 ;i<=21;i++){
+  for(let i=4 ;i<=22;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1240,8 +1244,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/garraway-global-equity-fund' 
   // const url = 'https://epicipprojects.com/api/garraway-oriental-focus-fund' 
-  const Localurl = 'https://epicipprojects.com/epic-oriental-focus-fund' 
-  const url = window.location.origin+'/epic-oriental-focus-fund' 
+  const url = 'https://www.epicip.com/epic-oriental-focus-fund' 
+  const Localurl = window.location.origin+'/epic-oriental-focus-fund' 
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
