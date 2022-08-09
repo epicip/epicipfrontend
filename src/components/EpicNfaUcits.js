@@ -1196,7 +1196,7 @@ const performanceButton=()=>{
       let val = productscommulativePerformanceQAUSD[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
@@ -1232,16 +1232,15 @@ const performanceButton=()=>{
       let val = productscommulativePerformanceQDUSD[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePerDUSD[j]] = rounded+'%' ;
 
     }
-
       // var updatedVal =  parseFloat(val).toFixed(2);
       // console.log(updatedVal);
-      else{
+    else{
         obj[keysCummulativePerDUSD[j]] = productscommulativePerformanceQDUSD[i][j] ;
       }     
 
@@ -1265,7 +1264,7 @@ const performanceButton=()=>{
       let val = productscommulativePerformanceQAEUR[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePerAEUR[j]] = rounded+'%' ;
@@ -1299,7 +1298,7 @@ const performanceButton=()=>{
         let val = productscommulativePerformanceQDEUR[i][j]*100;
         
         // var numb= 212421434.533423131231;
-        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
   
         console.log(rounded);
         obj[keysCummulativePerDEUR[j]] = rounded+'%' ;
@@ -1333,7 +1332,7 @@ const performanceButton=()=>{
         let val = productscommulativePerformanceQDGBP[i][j]*100;
         
         // var numb= 212421434.533423131231;
-        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
   
         console.log(rounded);
         obj[keysCummulativePerDGBP[j]] = rounded+'%' ;
@@ -1365,7 +1364,7 @@ const performanceButton=()=>{
              let val = twelvemonPerfAGBP[i][j]*100;
 
              // var numb= 212421434.533423131231;
-             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+             var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
              console.log(rounded);
              obj[keys12monthsDis[j]] = rounded+'%' ;
@@ -1396,7 +1395,7 @@ const performanceButton=()=>{
              let val = twelvemonPerfDUSD[i][j]*100;
 
              // var numb= 212421434.533423131231;
-             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+             var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
              console.log(rounded);
              obj[keys12monthsDisD[j]] = rounded+'%' ;
@@ -1428,7 +1427,7 @@ const performanceButton=()=>{
              let val = twelvemonPerfAEUR[i][j]*100;
 
              // var numb= 212421434.533423131231;
-             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+             var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
              console.log(rounded);
              obj[keys12monthsDisAEUR[j]] = rounded+'%' ;
@@ -1461,7 +1460,7 @@ const performanceButton=()=>{
              let val = twelvemonPerfDEUR[i][j]*100;
 
              // var numb= 212421434.533423131231;
-             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+             var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
              console.log(rounded);
              obj[keys12monthsDisDEUR[j]] = rounded+'%' ;
@@ -1493,7 +1492,7 @@ const performanceButton=()=>{
              let val = twelvemonPerfDGBP[i][j]*100;
 
              // var numb= 212421434.533423131231;
-             var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+             var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
              console.log(rounded);
              obj[keys12monthsDisDGBP[j]] = rounded+'%' ;
@@ -1838,8 +1837,8 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
-  const url = 'https://www.epicip.com/epic-nfa-ucits'
-  const Localurl = window.location.origin+'/epic-nfa-ucits' 
+  const Localurl = 'https://www.epicip.com/epic-nfa-ucits'
+  const url = window.location.origin+'/epic-nfa-ucits' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -1887,12 +1886,10 @@ async function fetchMyAPI(){
     setPortfolioStat(resp.Portfoliostatistics)
     
     setNFAData(resp.Nfabreakdown)
-
     setproductSectorBreakdown(resp.EquitiesBreakdown)
-
     setproductsFundinfo(resp.FundInfo)
     setproductsShareClass(resp.Fundprice)
-   
+
     setproductsMonthlyPerf(resp.MonthlyPerf)
     // setLoading(true)
     setRespPrtu(resp.Prtu)
@@ -3110,10 +3107,8 @@ function previewData(formData) {
           
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-
             <div class="mb-2 row">
                     <div class="col" >
-
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
@@ -3147,9 +3142,6 @@ function previewData(formData) {
                                   {CummulativeperfDGBPData.map(renderCummulativePerformanceValue)}
 
                                 </tr>
-                                
-                                
-                                
                                 
                             </tbody>
                         </table>
@@ -3469,15 +3461,27 @@ function previewData(formData) {
           <div class="col-sm-12">
 
           <div class="row">
-          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
-          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
+
          
           { KeyInveInfoState.length>0 ? <div class="col-md-12"><h3><b>Key Investor Information</b></h3><br/></div>  : ""}
           { KeyInveInfoState.length>0 ? KeyInveInfoState.map(renderLiteratureData) :""}
           
+          <div class="col-sm-12">
+          <h4>Fact Sheet</h4>
+
+					  <p class="pdf_download">
+                      <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank" download>NFA UCITS Fund PDF
+                            <br/>
+                     </a>
+
+                      </p>
+				  </div>
           
           { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
           { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
+
+          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
+          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
 
           { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
           { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
@@ -3489,16 +3493,7 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
            
 
-				  <div class="col-sm-12">
-          <h4>Factsheet Data</h4>
 
-					  <p class="pdf_download">
-                      <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank" download>NFA UCITS Fund PDF
-                            <br/>
-                     </a>
-
-                      </p>
-				  </div>
           
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>

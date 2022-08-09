@@ -419,8 +419,8 @@ const Header = () => {
   });  
   async function fetchMyServiceAPI(){
 
-    const localurl =window.location.origin+'/service_api';
-    const url ="https://epicipprojects.com/service_api";
+    const url =window.location.origin+'/service_api';
+    const localurl ="https://epicipprojects.com/service_api";
     
      fetch(url).then(resp=> resp.json())
      .then (resp => {
@@ -434,8 +434,8 @@ const Header = () => {
   };
   async function fetchMyAPI(){
 
-      const localurl =window.location.origin+'/division_api';
-      const url ="https://epicipprojects.com/division_api";
+      const url =window.location.origin+'/division_api';
+      const localurl ="https://epicipprojects.com/division_api";
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {      
@@ -483,11 +483,9 @@ const Header = () => {
       <div className="collapse navbar-collapse navbar-header" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
         {/* {arrPRTUState.map(renderHeader)} */}
-        
         {/* {setarrHeaderState(ArrHeaderResponse)} */}
-        {arrHeaderState.map(renderHeader)}
+        {/* {arrHeaderState.map(renderHeader)} */}
         {/* {ArrServiceResponse.map(renderHeader)} */}
-        
         {/* <li className="nav-item nav-item-tabs latest-news"> <a className="nav-link active latest-news" data-toggle="tab" class="summaryButton" id="summaryButton" onload={ABC} onClick={ABC} href="#nine" role="tab">Daily Updates</a> </li> */}
         { HeaderStatus1 ==1 ? 
           <li className="nav-item dropdown" > 

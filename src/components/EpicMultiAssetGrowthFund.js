@@ -220,13 +220,6 @@ const [AssetAllocation, setAssetAllocation] = useState([]);
 const [top3response, settop3response] = useState([]);
 const [bot3response, setbot3response] = useState([]);
 const [SessionResponse, setSessionResponse] = useState([]);
-
-
-
-
-
-
-
 // const [productscommulativePerformanceA, setproductscommulativePerformanceA] = useState([]);
 
 const [products12monthsPerformance, setproducts12monthsPerformance] = useState([]);
@@ -253,7 +246,6 @@ const [ObjectiveState, setObjectiveState] = useState([]);
 const [TeamState, setTeamState] = useState([]);
 const[Summary,setSummary]= useState([]);
 const[Literature,setLiterature]= useState([]);
-
 const [FundNameState, setFundNameState] = useState([]);
 const [LiteratureDataState, setLiteratureDataState] = useState([]);
 const [KeyInveInfoState, setKeyInveInfoState] = useState([]);
@@ -261,8 +253,6 @@ const [PressCoverageState, setPressCoverageState] = useState([]);
 const [ApplicationsState, setApplicationsState] = useState([]);
 const [ReportsState, setReportsState] = useState([]);
 const [offerDocumentState, setofferDocumentState] = useState([]);
-
-
 const [portfolioStatus, setportfolioStatus] = useState(false);
 const [performanceStatus1, setperformanceStatus1] = useState(false);
 
@@ -721,32 +711,26 @@ const portfolioButton=()=>{
     for(let j =0 ;j< productsmarketCap[i].length ;j++){
 
       if(!isNaN(productsmarketCap[i][j])){
-      let val = productsmarketCap[i][j]*100;
       
-      // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        let val = productsmarketCap[i][j]*100;
+        // var numb= 212421434.533423131231;
+        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        console.log(rounded);
+        obj[keysMarketCap[j]] = rounded ;
 
-      console.log(rounded);
-      obj[keysMarketCap[j]] = rounded ;
-
-    }
-
+      }
       // var updatedVal =  parseFloat(val).toFixed(2);
       // console.log(updatedVal);
       else{
         obj[keysMarketCap[j]] = productsmarketCap[i][j] ;
       }     
 
-      }
+    }
       if(obj.value !==0){
         marketCapData.push(obj)
-
       }
-    
-      
       // console.log(graphDataSectorPer);
-                // console.log("allKeys")
-    
+      // console.log("allKeys")    
   } 
   
 
@@ -756,20 +740,19 @@ const portfolioButton=()=>{
   
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
-    
     let obj={};
     for(let j =0 ;j< productSectorBreakdown[i].length ;j++){
 
       if(!isNaN(productSectorBreakdown[i][j])){
-      let val = productSectorBreakdown[i][j]*100;
-      
-      // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+          
+          let val = productSectorBreakdown[i][j]*100;      
+          // var numb= 212421434.533423131231;
+          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
-      console.log(rounded);
-      obj[keysSectorBreakdown[j]] = rounded ;
-
-    }
+          console.log(rounded);
+          obj[keysSectorBreakdown[j]] = rounded ;
+          
+      }
 
       // var updatedVal =  parseFloat(val).toFixed(2);
       // console.log(updatedVal);
@@ -783,7 +766,6 @@ const portfolioButton=()=>{
       
       equitiesData.push(obj)
       }
-      
       // console.log(graphDataSectorPer);
                 // console.log("allKeys")
     
@@ -1062,7 +1044,7 @@ console.log("arr2D");
       let val = productscommulativePerformance[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
@@ -1181,7 +1163,7 @@ console.log("arr2D");
     let val = twelvemonPerfAGBP[i][j]*100;
     
     // var numb= 212421434.533423131231;
-    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+    var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
@@ -1534,9 +1516,9 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
-  const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  const Local2url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
-  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
+  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
+  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -3341,15 +3323,26 @@ function previewData(formData) {
 
           <div className="row">
 
-          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
-          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
+
          
           { KeyInveInfoState.length>0 ? <div class="col-md-12"><h3><b>Key Investor Information</b></h3><br/></div>  : ""}
           { KeyInveInfoState.length>0 ? KeyInveInfoState.map(renderLiteratureData) :""}
-          
+				  
+          <div class="col-sm-12">
+          <h4>Fact Sheet</h4>
+
+					  <p class="pdf_download">              
+                          <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>Multi Asset Growth Fund PDF
+                            <br/>
+                          </a>
+                     </p>
+				  </div>          
           
           { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
           { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
+
+          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
+          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
 
           { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
           { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
@@ -3360,15 +3353,7 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
            
-				  <div class="col-sm-12">
-          <h4>Factsheet Data</h4>
 
-					  <p class="pdf_download">              
-                          <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>Multi Asset Growth Fund PDF
-                            <br/>
-                          </a>
-                     </p>
-				  </div>
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
 				  </div> */}

@@ -696,7 +696,7 @@ const performanceButton=()=>{
       let val = productscommulativePerformance[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
@@ -798,7 +798,7 @@ const performanceButton=()=>{
      let val = products12monthsPerformance[i][j]*100;
      
      // var numb= 212421434.533423131231;
-     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
      console.log(rounded);
      obj[keys12monthsPer[j]] = rounded+'%' ;
@@ -1065,8 +1065,8 @@ async function fetchMyAPI(){
 // const fetchMyAPI = useCallback(() => {
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  const url ='https://www.epicip.com/epic-financial-trends';
-  const localurl = window.location.origin+'/epic-financial-trends' 
+  const localurl ='https://www.epicip.com/epic-financial-trends';
+  const url = window.location.origin+'/epic-financial-trends' 
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -3084,28 +3084,13 @@ function previewData(formData) {
           <div class="col-sm-12">
           <div className="row">
                
-          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
-          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
+
          
           { KeyInveInfoState.length>0 ? <div class="col-md-12"><h3><b>Key Investor Information</b></h3><br/></div>  : ""}
           { KeyInveInfoState.length>0 ? KeyInveInfoState.map(renderLiteratureData) :""}
-          
-          
-          { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
-          { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
 
-          { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
-          { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
-
-          { ReportsState.length>0 ? <div class="col-md-12"><h3><b>Reports</b></h3><br/></div>  : ""}
-          { ReportsState.length>0 ? ReportsState.map(renderLiteratureData) :""}
-
-          { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
-          { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
-             
-    
-              <div className="col-md-12">
-					      <h4>Factsheet Data</h4>
+          <div className="col-md-12">
+					      <h4>Fact Sheet</h4>
                 <div className="row">
               <div className="col-md-6">
                 <p class="pdf_download">
@@ -3124,6 +3109,24 @@ function previewData(formData) {
 				      </div>
               </div>
               </div>
+          
+          { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
+          { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
+
+          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
+          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
+
+          { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
+          { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
+
+          { ReportsState.length>0 ? <div class="col-md-12"><h3><b>Reports</b></h3><br/></div>  : ""}
+          { ReportsState.length>0 ? ReportsState.map(renderLiteratureData) :""}
+
+          { offerDocumentState.length>0 ? <div class="col-md-12"><h3><b>Offering Documents</b></h3><br/></div>  : ""}
+          { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
+             
+    
+
 
           </div>
           {/* <div class="row">

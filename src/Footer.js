@@ -204,6 +204,8 @@ console.log("ArrLinkResponse");
           <li><a href={window.location.origin+"/policies/"+linkthree}>{linkNamethree}</a></li>
           <li><a href={window.location.origin+"/policies/"+linkfour}>{linkNamefour}</a></li>
           <li><a href={window.location.origin+"/policies/"+linkfive}>{linkNamefive}</a></li>
+          <li><a href={window.location.origin+"/policies/interest-policy"}>Conflict of Interest Policy</a></li>
+
         
         </ul>
       </div>

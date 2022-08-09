@@ -278,8 +278,8 @@ const EpicFixedIncomeFunction = () => {
       };
       async function fetchMyService2API(){
       
-        const Localurl =window.location.origin+'/market_contentapi';
-        const url ='https://epicipprojects.com/market_contentapi';
+        const url =window.location.origin+'/market_contentapi';
+        const Localurl ='https://epicipprojects.com/market_contentapi';
         
          fetch(url).then(resp=> resp.json())
          .then (resp => {

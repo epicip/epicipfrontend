@@ -2185,7 +2185,7 @@ function previewData(formData) {
     
     <div class="col-sm-12">
         <h4>{NewsHeadingState}</h4>
-                <p class="pdf_download" dangerouslySetInnerHTML={{ __html: NewsContentState }}>
+                <p  dangerouslySetInnerHTML={{ __html: NewsContentState }}>
                 </p>
             </div>
     

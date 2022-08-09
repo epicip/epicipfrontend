@@ -1048,7 +1048,7 @@ console.log("arr2D");
       let val = productscommulativePerformance[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
@@ -1085,7 +1085,7 @@ console.log("arr2D");
     let val = twelvemonPerfAGBP[i][j]*100;
     
     // var numb= 212421434.533423131231;
-    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+    var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
 
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
@@ -1354,9 +1354,9 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-balanced-fund' 
   
-  const url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
+  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-  const Localurl = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
+  const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -3091,15 +3091,26 @@ function previewData(formData) {
           <div class="col-sm-12">
 
           <div className="row ">
-          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
-          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
+
          
           { KeyInveInfoState.length>0 ? <div class="col-md-12"><h3><b>Key Investor Information</b></h3><br/></div>  : ""}
           { KeyInveInfoState.length>0 ? KeyInveInfoState.map(renderLiteratureData) :""}
           
+          <div class="col-sm-12">
+          <h4>Fact Sheet</h4>
+
+					  <p class="pdf_download">
+                      <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"}target="_blank" download>Multi Asset Balanced Fund PDF
+                            <br/>
+                          </a>
+                      </p>
+				  </div>
           
           { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
           { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
+
+          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
+          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
 
           { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
           { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
@@ -3111,15 +3122,7 @@ function previewData(formData) {
           { offerDocumentState.length>0 ? offerDocumentState.map(renderLiteratureData) :""}
           
 
-				  <div class="col-sm-12">
-          <h4>Factsheet Data</h4>
 
-					  <p class="pdf_download">
-                      <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"}target="_blank" download>Multi Asset Balanced Fund PDF
-                            <br/>
-                          </a>
-                      </p>
-				  </div>
 				  {/* <div class="col-sm-6">
 					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
 				  </div> */}
