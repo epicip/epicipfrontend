@@ -3,8 +3,6 @@ import { render } from '@testing-library/react';
 import React, { useState, useEffect, PureComponent, useRef, useMemo, useCallback, Fragment } from 'react';
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { NavLink } from 'react-router-dom';
-import ReactPaginate from "react-paginate";
-
 import {
     BarChart,
     Bar,
@@ -2142,22 +2140,7 @@ function previewData(formData) {
    })
  }
 
-// current paginate
-const [PageNumber, setPageNumber] = useState(0);
-const usersPerPage = 10
-const pagesVisited = PageNumber * usersPerPage
 
-const displayUsers = NewsArrState
-  .slice(pagesVisited, pagesVisited + usersPerPage)
-  .map(renderNewsData)
-
-const pageCount = Math.ceil(NewsArrState.length / usersPerPage);
-const changePage = ({ selected }) =>  {
-  console.log(selected);
-  console.log("selected");
-
-  setPageNumber(selected);
-}
     return (
       <Fragment>
 
@@ -2232,7 +2215,7 @@ const changePage = ({ selected }) =>  {
             <div className="accordion__item__header active"><NavLink to="/markets/Epic-Insights" className="navlink a active-dis">EPIC Insights</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
-                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicInsights" className="navlink a a-active-color">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>
@@ -2255,28 +2238,8 @@ const changePage = ({ selected }) =>  {
         Latest News
     </h4> */}
     {/* <p class="Section__SectionSubheading-sc-1iot0f7-4 ktJBWY"></p> */}
-    {/* {NewsArrState.map(renderNewsData)} */}
-    {/* Current Pagination  */}
-    {displayUsers}
-  
-    <ReactPaginate
-    previousLabel={"Previous"}
-    nextLabel={"Next"}
-    breakLabel={"..."}
-    pageCount={pageCount}
-    onPageChange={(changePage)}
-    containerClassName={"pagination justify-content-center"}
-    pageClassName={"page-item"}
-    pageLinkClassName={"page-link"}
-    previousClassName={"page-item"}
-    previousLinkClassName={"page-link"}
-    nextClassName={"page-item"}
-    nextLinkClassName={"page-link"}
-    breakClassName={"page-item"}
-    breakLinkClassName={"page-link"}
-    disabledClassName={"paginationDisabled"}
-    activeClassName={"active"}
-   />
+    {NewsArrState.map(renderNewsData)}
+    
     
     
 
