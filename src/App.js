@@ -26,7 +26,11 @@ import EpicInsightsComponent from './components/EpicNews'
 import EpicInsightsDataComponent from './components/EpicNewsData'
 import EpicDailyUpdateComponent from './components/EpicDailyUpdate'
 import EpicDailyUpdateDataComponent from './components/EpicDailyUpdateData'
-import EpicDFMComponent from './components/EpicDfm'
+// import EpicDFMComponent from './components/EpicDfm'
+import EpicDFMComponentNew from './components/EpicDfmlandingpage'
+import RiskEpicDFMComponent from './components/RiskEpicDFM'
+import AIMPortfolioDFMComponent from './components/AIMPortfolioDFM'
+import RiskTargetedDFMComponent from './components/RiskTargetedDFM'
 import NotFoundComponent from './components/NotFound'
 import EpicPCCNextGenComponent from './components/EpicPCCNextGen';
 import EpicRNBpccComponent from './components/EpicRNBpcc';
@@ -64,13 +68,21 @@ export default function App() {
       <Route path="/markets/EpicipMultiAssetGrowthFund" component={EpicMultiAssetGrowthComp}/> 
       <Route path="/markets/EpiciNfaUcitsFundRoute" component={EpicNfaUcitsComponent}/>   
       <Route path="/markets/EpicNextGenUcitsFundRoute" component={EpicNextGenUcitsComponent}/> 
-      <Route path="/markets/EpicDFM" component={EpicDFMComponent}/> 
+      {/* <Route path="/markets/EpicDFM" component={EpicDFMComponent}/>  */}
+      <Route path="/markets/EpicDFM" component={EpicDFMComponentNew}/>
+      <Route path="/markets/RiskEpicDFM" component={RiskEpicDFMComponent}/>
+      <Route path="/markets/AIMPortfolioDFM" component={AIMPortfolioDFMComponent} />
+      <Route path="/markets/RiskTargetedDFM" component={RiskTargetedDFMComponent} /> 
       <Route path="/markets/EpicDailyUpdates" component={EpicDailyUpdateComponent}/>
       <Route path="/markets/DailyUpdatesData/:slug" component={EpicDailyUpdateDataComponent}/>
       <Route path="/markets/EpicInsights" component={EpicInsightsComponent}/> 
       <Route path="/markets/EpicInsightsData/:slug" component={EpicInsightsDataComponent}/> 
       <Route path="/public/markets/:slug" component={NotFoundComponent} />
-      <Route path="/public/markets/EpicDFM" EpicDFMcomponent={EpicDFMComponent} />
+      {/* <Route path="/public/markets/EpicDFM" EpicDFMcomponent={EpicDFMComponent} /> */}
+      <Route path="/public/markets/EpicDFM" EpicDFMcomponent={EpicDFMComponentNew} />
+      <Route path="/public/markets/RiskEpicDFM" RiskEpicDFMComponent={RiskEpicDFMComponent} />
+      <Route path="/public/markets/AIMPortfolioDFM" AIMPortfolioDFMComponent={AIMPortfolioDFMComponent} />
+      <Route path="/public/markets/RiskTargetedDFM" RiskTargetedDFMComponent={RiskTargetedDFMComponent} />
       <Route path="/markets/EpicNextGenPCC" component={EpicPCCNextGenComponent}/> 
       <Route path="/markets/EpicRNBpcc" component={EpicRNBpccComponent}/> 
       <Route path="/markets/Epic-FixedIncome" component={EpicFixedIncomeComponent}/> 

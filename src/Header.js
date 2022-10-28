@@ -420,6 +420,7 @@ const Header = () => {
   async function fetchMyServiceAPI(){
 
     const url =window.location.origin+'/service_api';
+   // const url ='https://www.epicip.com/service_api';
     const localurl ="https://epicipprojects.com/service_api";
     
      fetch(url).then(resp=> resp.json())
@@ -494,7 +495,7 @@ const Header = () => {
             <div className="dropdown-menu" aria-labelledby="capital"> 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1a}>{HeaderService1a}</a> 
 
-              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1b}>{HeaderService1b}</a> 
+              {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1b}>{HeaderService1b}</a>  */}
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1c}>{HeaderService1c}</a> 
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1d}>{HeaderService1d}</a>
               <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a>

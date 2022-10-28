@@ -292,17 +292,17 @@ return(
             <div className="accordion__item__header"><NavLink to="/markets/Epic-FixedIncome" className="navlink a">Fixed Income</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">UCITS - NFA Global Bond Fund UI <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a">UCITS - Next Generation Bond Fund UI<span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a">EPIC - Next Generation Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
                 { StateSession !== 0 ?
-                <li><NavLink to="/markets/EpicNextGenPCC" className="navlink a " >PCC - Next Generation Bond Fund<span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicNextGenPCC" className="navlink a " >EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></NavLink></li>
                    : 
-                <li><a href={window.location.origin+"/login_user"} className="navlink a">PCC - Next Generation Bond Fund<span className="fa fa-angle-right"></span></a></li> 
+                <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li> 
                  }
                 { StateSession !== 0 ?
-                <li><NavLink to="/markets/EpicRNBpcc" className="navlink a " >PCC - Renminbi Bond Fund<span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicRNBpcc" className="navlink a " >EPIC - Renminbi Bond Fund (PCC)<span className="fa fa-angle-right"></span></NavLink></li>
                 :
-                <li><a href={window.location.origin+"/login_user"} className="navlink a">PCC - Renminbi Bond Fund<span className="fa fa-angle-right"></span></a></li>
+                <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Renminbi Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li>
                 }
               </ul>
             </div>
@@ -311,7 +311,7 @@ return(
             <div className="accordion__item__header"><NavLink to="/markets/Epic-ManagedFutures" className="navlink a">Managed Futures </NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicfinanceTrends" className="navlink a">Financial Trends <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicfinanceTrends" className="navlink a">EPIC Financial Trends <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
@@ -319,32 +319,42 @@ return(
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Equitites" className="navlink a">Equities</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicglobalEquity" className="navlink a">Global Equity Fund <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicorientalFocus" className="navlink a">Oriental Focus Fund <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicAsianCentricGlobalGrowth" className="navlink a">Asian Centric Global Growth Fund <span className="fa fa-angle-right"></span></NavLink></li>
-				        <li><NavLink to="/markets/EpicUKEquityMarketFund" className="navlink a">UK Equity Market Fund <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicglobalEquity" className="navlink a">EPIC Global Equity Fund <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicorientalFocus" className="navlink a">EPIC Oriental Focus Fund <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicAsianCentricGlobalGrowth" className="navlink a">VT EPIC Asian Centric Global Growth Fund <span className="fa fa-angle-right"></span></NavLink></li>
+				        <li><NavLink to="/markets/EpicUKEquityMarketFund" className="navlink a">VT EPIC UK Equity Market Fund <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
           <div className="accordion__item">
-            <div className="accordion__item__header"><NavLink to="/markets/Epic-MultiAsset" className="navlink a">Multi Asset</NavLink></div>
+            <div className="accordion__item__header"><NavLink to="/public/markets/Epic-MultiAsset" className="navlink a">Multi Asset</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpicipWealthFund" className="navlink a">Wealth Fund <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">Diversified Income <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">Multi Asset Balanced <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicipWealthFund" className="navlink a">EPIC Wealth Fund <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">VT EPIC Diversified Income <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">VT EPIC Multi Asset Balanced <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
-          <div className="accordion__item">
+          {/* <div className="accordion__item">
           <div className="accordion__item__header_dfm active"><NavLink to="/markets/EpicDFM" className="navlink active-dis">Discretionary  <br />Fund Management</NavLink></div>
             <div className="accordion__item__content">
-              {/* <ul>
+              <ul>
               <li><NavLink to="/market/EpicDFM" className="navlink a ">EPIC DFM <span className="fa fa-angle-right"></span></NavLink></li>           
 
                 
-              </ul> */}
+              </ul>
+            </div>
+          </div> */}
+          <div className="accordion__item">
+            <div className="accordion__item__header"><NavLink to="/markets/EpicDFM" className="navlink a">Discretionary  <br />Fund Management</NavLink></div>
+            <div className="accordion__item__content">
+              <ul>
+                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+              </ul>
             </div>
           </div>
 
