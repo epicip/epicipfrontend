@@ -187,7 +187,7 @@ const VARdata = [
       
       <text x={x} y={ y} fill="white" className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (value).toFixed(2)}%`}
+        {`${ (value).toFixed(1)}%`}
       </text>
     )};
   };
@@ -201,8 +201,8 @@ const VARdata = [
     const { color } = entry;
   console.log(value);
   console.log("value");
-
-    return <span className="legend-span">{value}</span>;
+  return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
+   // return <span className="legend-span">{value}</span>;
   };
 
   // const DONUTCOLORS = [ "#0095c8","#b7c9d3","#7030a0","#ffc000","#99103b","#99103b","#1a2352","blue","green","red", "yellow", "orange"];
@@ -743,7 +743,7 @@ const portfolioButton=()=>{
       
   // }
 
-  var keysVAR = ["name", "value","ABC"]
+  var keysVAR = ["name", "value"]
 var length =AssetAllocation.length-1;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
@@ -755,7 +755,8 @@ var length =AssetAllocation.length-1;
       let val = AssetAllocation[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+     // var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded1 = Math.round(Math.round((val + Number.EPSILON) * 100) / 100,1);
 
       console.log(rounded1);
       obj[keysVAR[j]] = rounded1 ;
@@ -1046,7 +1047,10 @@ const performanceButton=()=>{
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -1635,7 +1639,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/garraway-wealth-fund' 
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
-  const url = window.location.origin+'/epic-wealth-fund' 
+  // const url = window.location.origin+'/epic-wealth-fund'
+  const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2840,7 +2845,7 @@ function previewData(formData) {
         <div class="col-md-6 chart-block">
             <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
-        <PieChart width={280} height={350} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
                 data={graphData}
                 cx={90}
@@ -2850,8 +2855,8 @@ function previewData(formData) {
                 fill="#0c2340"
                 paddingAngle={0}
                 dataKey="value"
-                startAngle={120}
-                endAngle={-360}
+                startAngle={90}
+                endAngle={-330}
 
                 labelLine={false}
                 label={renderCustomizedLabel}
@@ -2873,7 +2878,7 @@ function previewData(formData) {
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 
-            <PieChart width={280} height={330} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+            <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
                 data={marketCapState}
                 cx={90}
@@ -2883,8 +2888,8 @@ function previewData(formData) {
                 fill="#0c2340"
                 paddingAngle={0}
                 dataKey="value"
-                startAngle={120}
-                endAngle={-360}
+                startAngle={90}
+                endAngle={-330}
                 labelLine={false}
                 label={renderCustomizedLabel}
               >
@@ -2909,7 +2914,7 @@ function previewData(formData) {
           <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 
-            <PieChart width={280} height={330} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+            <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
                 data={equititeState}
                 cx={80}
@@ -2918,8 +2923,8 @@ function previewData(formData) {
                 outerRadius={90}
                 fill="#0c2340"
                 paddingAngle={0}
-                startAngle={120}
-                endAngle={-360}
+                startAngle={90}
+                endAngle={-330}
                 dataKey="value"
                 labelLine={false}
                 label={renderCustomizedLabel}
@@ -2984,11 +2989,11 @@ function previewData(formData) {
           <div class="col-md-12 "> 
 
             
-<table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+<table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjENew">
 <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
   <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <th colspan="1">Top 10 Holdings</th>
-    <th colspan="1"></th>
+    <th colspan="1" className="align-left">Top 10 Holdings</th>
+    <th colspan="1" className="align-right"></th>
   </tr>
   {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
   
@@ -3023,7 +3028,7 @@ function previewData(formData) {
           <div class="col-sm-12 ">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
-            <div class="mb-2 row">
+            <div class="row">
                 <div class="col-md-12 chart-block" >
                 <p class="lse_redirect">Cumulative Strategy performance under Mark Harris</p>
                     <LineChart
@@ -3055,7 +3060,7 @@ function previewData(formData) {
 
                       </LineChart>
                       </div>
-                      <div class="mb-2 row table-wealth-row">
+                      {/* <div class="mb-2 row table-wealth-row">
                     <div class="col-md-12 table-margin">
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -3072,6 +3077,25 @@ function previewData(formData) {
                             </tbody>
                         </table>
                     </div>
+                    </div> */}
+                </div>
+
+                <div class="mb-2 row table-cumWealthrow">
+                    <div class="col-md-12" >
+                    <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
+                            <tbody>
+                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
+                                  
+                                  {cummulatovePerfData.map(renderCummulativePerformanceNames)}
+
+                                </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                  {cummulatovePerfData.map(renderCummulativePerformanceValue)}
+
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
