@@ -73,9 +73,11 @@ span{
 }
 .fixwidth_info{
     height: 40px !important;
+    padding-top: unset !important;
+    align-items: center !important;
 }
 .fixwidth_info_a{
-    margin-top: 5px !important;
+    /* margin-top: 5px !important; */
     margin-bottom: 5px !important;
 }
 .remove_margin{
@@ -120,7 +122,7 @@ h3{
     display: block;
     position: relative;
     color: #1a1549;
-    padding: 10px 15px;
+    padding: 15px 15px;
     font-size: 17px;
     line-height: 30px;
     text-decoration: none;
@@ -142,10 +144,16 @@ h3{
 .pdf_download a:hover {
     background: #1a1549;
     color: #ffffff;
+    padding: 15px 15px;
+    font-size: 17px;
+    line-height: 30px;
 }
 .news_download a:hover {
     background: #1a1549;
     color: #ffffff;
+    padding: 15px 15px;
+    font-size: 17px;
+    line-height: 30px;
 }
 
 .pdf_download a:hover .date{
@@ -217,13 +225,20 @@ height: 25px;
     background-color: rgb(216, 226, 232);
     border-bottom: 2px solid rgb(191, 207, 216)
 }
+.dwdfBh_new th {
+    padding: 9px !important;
+}
+.dwdfBh_new_per th {
+    padding: 13px !important;
+}
 .hRUkzz th {
     text-align: center;
     padding: 10px;
     font-weight: 700;
     font-size: 11px;
     color: #1a1549!important;
-
+    width: 100px;
+    vertical-align: middle;
 }
 .eeFpGK {
     border-bottom: 1px solid rgb(191, 207, 216);
@@ -250,11 +265,23 @@ height: 25px;
 
 
 }
+.iiGyjE_new {
+    width: 107% !important;
+}
+.remove_margin_multi_asset{
+    width: 106% !important; 
+}
+
 .iiGyjENew{
     width: 103.5% !important; 
 }
 .iiGyjE_dfm{
     margin-bottom: .5rem!important;
+}
+
+.iiGyjE_dfm_other {
+    width: 106.5%;
+    height: 60px;
 }
 .iiGyjEGR_dfm{
     margin-bottom: .5rem!important;
@@ -285,7 +312,8 @@ height: 25px;
     font-size: 11px;
     color: #1a1549!important;
     font-family: 'Raleway';
-    padding: 10px;
+    /* padding: 10px; */
+    vertical-align: middle;
 }
 .ml-0{
     margin-left:0 !important
@@ -306,7 +334,7 @@ height: 25px;
     text-align: left!important;
 }
 .align-right{
-    text-align: right!important;
+    text-align: center!important;
 }
 .contri-td{
 
@@ -321,6 +349,7 @@ height: 25px;
 .eVXooJ td {
     padding: 6px;
     text-align: right;
+    vertical-align: middle;
 }
 .eVXooJjj td {
     padding: 6px;
@@ -438,14 +467,14 @@ height: 25px;
     justify-content: space-between;
 }
 .span_color {
-    background-color: black;
-    color: black;
+    background-color: #1a2352;
+    color: #1a2352;
     
 }
 .kzFInj {
     background-color: rgb(216, 226, 232);
     font-weight: bold;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     display: flex;
     padding: 2px 5px;
     flex-shrink: 0;
@@ -454,6 +483,7 @@ height: 25px;
     -webkit-box-align: center;
     align-items: center;
     white-space: pre-wrap;
+    height: 50px;
 }
 .cRUpgb {
     width: 100%;
@@ -475,6 +505,9 @@ height: 25px;
     /* align-items: center; */
     white-space: pre-wrap;
     font-size: 13px;
+    height: 40px;
+    vertical-align: middle; 
+    padding-top: 10px;
 }
 .fweCQL th:nth-child(1), .fweCQL td:nth-child(1) {
     text-align: left;
@@ -482,6 +515,7 @@ height: 25px;
 .fweCQL th, .fweCQL td {
     flex: 1 1 0%;
     text-align: center;
+    vertical-align: middle;
 }
 .hbWYKC {
     width: 100%;
@@ -492,20 +526,24 @@ height: 25px;
     font-weight: bold;
     font-size: 11px;
     border-bottom: 1px solid black;
+    height: 50px;
 }
 .hBbtmd th {
     font-weight: 700;
     font-size: 11px;
     padding: 10px;
+    vertical-align:middle;
 }
 .eoQrEv {
     background-color: white;
     font-weight: normal;
     font-size: 13px;
     border-bottom: 1px solid rgb(216, 226, 232);
+    height: 40px;
 }
 .hBbtmd td {
     padding: 2px 5px;
+    vertical-align: middle;
 }
 .recharts-cartesian-axis-tick {    
     font-size: 10px;
@@ -522,7 +560,7 @@ height: 25px;
     padding: 10px;
     margin: 0px;
     background: rgb(242, 244, 245);
-    height: 330px;
+    height: 340px;
     border-right: 7px solid white;
     /* border-top: 7px solid white; */
     border-bottom: 7px solid white;
@@ -957,6 +995,7 @@ td{
     font-size: 11px;
     color: #1a1549!important;
     font-family: 'Raleway';
+    vertical-align: middle !important;
 }
 th{
 
@@ -1230,6 +1269,10 @@ h3{
         border-right: 7px solid white;
         /* border-top: 7px solid white; */
         border-bottom: 7px solid white;
+}
+
+.chart-block-derivatives_new {
+    height: 341px !important;
 }
 .display-none{
     display: none!important;

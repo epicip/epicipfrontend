@@ -1838,7 +1838,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
   const Localurl = 'https://www.epicip.com/epic-nfa-ucits'
-  const url = window.location.origin+'/epic-nfa-ucits' 
+  //const url = window.location.origin+'/epic-nfa-ucits' 
+  const url = 'http://127.0.0.1:8000/epic-nfa-ucits' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2561,7 +2562,7 @@ function renderCummulativePerformanceValue(cummulatove, index) {
     return(
 
 
-      <td>{cummulatove.name}</td>
+      <td >{cummulatove.name}</td>
 )  
   }else{
   return(
@@ -2965,11 +2966,11 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
 
-      <div class="mb-2 row chart-row">
-                    <div class="pr-md-1 col-12 col-md-4 col">
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+      <div class="row table-growth-row remove_margin">
+            <div class="pr-md-1 col-12 col-md-4 col table-div-margin remove_margin">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXoJJ">
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                     <th colspan="3" className="align-center">Regional Breakdown (% NAV)</th>
                                     {/* <th colspan="1" className="align-right"></th> */}
                                 </tr>
@@ -2996,11 +2997,11 @@ function previewData(formData) {
                     </div>
 
 
-                    <div class="pl-md-1 col-12 col-md-4 col">
+                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
 
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE ml-0">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfm_other">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_new">
                                     <th colspan="3"className="align-center">Portfolio Statistics</th>
                                     {/* <th colspan="1"className="align-right">(% NAV)</th> */}
                                 </tr>
@@ -3012,9 +3013,9 @@ function previewData(formData) {
                     </div>
 
 
-                    <div class="pl-md-1 col-12 col-md-4 col">
+                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
 
-                      <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE ml-0">
+                      <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm_other">
                           <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                               <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                   <th colspan="3"className="align-center">Net Foreign Assets Breakdown (% NAV)</th>
@@ -3121,7 +3122,7 @@ function previewData(formData) {
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
-                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
+                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh dwdfBh_new">
                                   
                                   {cummulatovePerfData.map(renderCummulativePerformanceNames)}
 
@@ -3162,7 +3163,7 @@ function previewData(formData) {
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
-                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
+                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh dwdfBh_new">
                                   
                                   {TwelveMperfAGBPState.map(renderCummulativePerformanceNames)}
 
@@ -3207,8 +3208,8 @@ function previewData(formData) {
                     <div class="col" >
                         <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
-                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
-                                    <tr>
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV ">
+                                    <tr class="dwdfBh_new_per">
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
                                             Performance Summary</th>
                                     </tr>
