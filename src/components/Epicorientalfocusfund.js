@@ -893,7 +893,7 @@ console.log("productsMonthlyPerf");
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -915,7 +915,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+      arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -942,7 +942,7 @@ console.log("arr2D");
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -998,7 +998,7 @@ console.log("arr2D");
         
          // var numb= 212421434.533423131231;
          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-        
+         rounded =parseFloat(rounded).toFixed(2);
          console.log(rounded);
          obj[keysbot3contr[j]] = rounded ;
          console.log(obj);
@@ -1027,7 +1027,7 @@ console.log("arr2D");
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keystop3contr[j]] = rounded+'%' ;
 
@@ -1060,7 +1060,7 @@ console.log("arr2D");
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keys12monthsPer[j]] = rounded+'%' ;
 
@@ -1240,7 +1240,8 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/garraway-global-equity-fund' 
   // const url = 'https://epicipprojects.com/api/garraway-oriental-focus-fund' 
   const Localurl = 'https://www.epicip.com/epic-oriental-focus-fund' 
-  const url = window.location.origin+'/epic-oriental-focus-fund' 
+  //const url = window.location.origin+'/epic-oriental-focus-fund' 
+  const url = 'http://127.0.0.1:8000/epic-oriental-focus-fund'
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
@@ -1457,8 +1458,8 @@ function renderMarketState(market, index) {
 function renderSectorState(sector, index) {
   return(
   <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-    <td className="align-left">{sector.name}</td>
-    <td className="align-right">{sector.value}</td>
+    <td className="align-left" style={{width: "75%"}}>{sector.name}</td>
+    <td className="align-right" style={{width: "25%"}}>{sector.value}</td>
 
   </tr>
         
@@ -1992,10 +1993,11 @@ function previewData(formData) {
             </PieChart>          
           </div>
           <div class="col-md-6"> 
-          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_newest">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
-                <th colspan="99">Top 10 Holdings (% NAV)</th>
+                <th className="align-left" style={{width: "75%"}}>Top 10 Holdings</th>
+                <th className="align-right" style={{width: "25%"}}>% NAV</th>
               </tr>
               {top10HoldingState.map(renderSectorState)}
             </tbody></table>
@@ -2003,7 +2005,7 @@ function previewData(formData) {
           </div>
           
         </div>
-        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -2014,7 +2016,7 @@ function previewData(formData) {
           
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-            <div class="mb-2 row chart-row">
+            <div class="row chart-row">
                     <div class="col-md-12 chart-block" >
                     <p class="lse_redirect">Cumulative Performance Since Inception</p>
                     
@@ -2046,12 +2048,13 @@ function previewData(formData) {
                         />
 
                       </LineChart>
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Oriental Focus Fund Class B USD</p>
                       </div>
 
 
-                      <div class="mb-2 row chart-row">
-                    <div class="col-md-12 table-margin">
-                      <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                      <div class="row chart-row table-margin_new_once">
+                    <div class="col-md-12 table-margin table-margin_new">
+                      <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest_one">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2073,9 +2076,9 @@ function previewData(formData) {
                 </div>
                 </div>
                     </div>
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col-md-12" >
-                    <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                    <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest_one">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2152,7 +2155,7 @@ function previewData(formData) {
                 <div class="mb-2 row">
                     <div class="col" >
                     <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
-                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW hRUkzz_newest_one">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
@@ -2168,7 +2171,7 @@ function previewData(formData) {
                                 </tbody>
                             </table>
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped hRUkzz_newest_one">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}
@@ -2181,7 +2184,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -2205,7 +2208,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>
@@ -2219,7 +2222,7 @@ function previewData(formData) {
         <div class="row">
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-                <div class="mb-3 row">
+                <div class="mb-2 row">
                     <div class="col" >
                         <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
                             <tbody class=" FundInformation__Body-sc-18irt95-1 hNmQXY">
@@ -2355,7 +2358,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/epic_oriental_focus_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>

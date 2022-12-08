@@ -859,7 +859,7 @@ const performanceButton=()=>{
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -882,7 +882,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+      arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -910,7 +910,7 @@ console.log("arr2D");
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -940,7 +940,7 @@ console.log("arr2D");
         
          // var numb= 212421434.533423131231;
          var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-        
+         rounded =parseFloat(rounded).toFixed(2);
          console.log(rounded);
          obj[keysCommulativePerfB[j]] = rounded+'%' ;
          console.log(obj);
@@ -1096,7 +1096,7 @@ console.log("InceptionDataArray");
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
 
@@ -1130,7 +1130,7 @@ var keys12monthsDisBGBP = ["name", "value"]
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDisBGBP[j]] = rounded+'%' ;
 
@@ -1409,7 +1409,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-ukequity-market-fund' 
   const Localurl = 'https://www.epicip.com/vtepic-ukequity-market-fund' 
-  const url = window.location.origin+'/vtepic-ukequity-market-fund' 
+  //const url = window.location.origin+'/vtepic-ukequity-market-fund' 
+  const url = 'http://127.0.0.1:8000/vtepic-ukequity-market-fund'
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2529,7 +2530,8 @@ function previewData(formData) {
           <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
-                <th colspan="99">Top 10 Holdings</th>
+              <th className="align-left" style={{width: "75%"}}>Top 10 Holdings</th>
+                <th className="align-right" style={{width: "25%"}}>% NAV</th>
               </tr>
               {top10HoldingState.map(renderSectorState)}
             </tbody></table>
@@ -2568,7 +2570,7 @@ function previewData(formData) {
             </PieChart>
                  </div>
 
-                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/><br/><br/>
+                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_ukequity_market_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -2616,10 +2618,11 @@ function previewData(formData) {
                         />
 
                       </LineChart>
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; VT UK Equity Market Fund Class F Acc in GBP</p>
                       </div>
-                      <div class="mb-2 row chart-row">
+                      <div class="row chart-row table-margin_new_once table-margin_new_once_market">
                     <div class="col-md-12 table-margin">
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest_one">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2646,9 +2649,9 @@ function previewData(formData) {
                     
                 </div>
 
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col-md-12" >
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest_one">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2677,9 +2680,9 @@ function previewData(formData) {
                 
 
 
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col-md-12" >
-                    <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
+                    <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ hRUkzz_newest_one">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
@@ -2709,7 +2712,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_ukequity_market_fund.pdf"} target="_blank" download>here</a> 
                       <br/></p>
@@ -2731,7 +2734,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_ukequity_market_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>
@@ -2745,7 +2748,7 @@ function previewData(formData) {
         <div class="row">
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-                <div class="mb-3 row">
+                <div class="mb-2 row">
                     <div class="col" >
                         <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
                             <tbody class=" FundInformation__Body-sc-18irt95-1 hNmQXY">
@@ -2970,7 +2973,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_ukequity_market_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>

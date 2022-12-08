@@ -205,6 +205,19 @@ height: 25px;
 .SECmargin{
     margin-top: -12%;
 }
+.hRUkzz_new th {
+        text-align: center;
+        padding: 10px;
+        font-weight: 700;
+        font-size: 11px;
+        color: #1a1549!important;
+        width: auto;
+        vertical-align: middle;
+        height: 50px !important;
+}
+.hRUkzz_new_one{
+    margin-bottom: 0.3rem !important;
+}
 .hRUkzz {
     margin-bottom: 1mm;
     width: 100%;
@@ -272,6 +285,13 @@ height: 25px;
     width: 106% !important; 
 }
 
+.remove_margin_multi_asset_once{
+    margin-bottom: -.2rem!important;
+}
+
+.iiGyjE_newonces {
+    width: 106% !important; 
+}
 .iiGyjENew{
     width: 103.5% !important; 
 }
@@ -283,8 +303,21 @@ height: 25px;
     width: 106.5%;
     height: 60px;
 }
+.iiGyjE_dfm_othertwo{
+    width: 107.3%;
+}
+.iiGyjE_dfm_otherOne{
+    width: 110.5%;
+}
 .iiGyjEGR_dfm{
     margin-bottom: .5rem!important;
+}
+.iiGyjEGR_dfm_onece {
+    width: 98% !important;
+    margin-left: unset !important; 
+}
+.iiGyjE_dfmnewonce {
+    width: 100.5% !important;
 }
 .iiGyEE {
     width: 107%;
@@ -509,6 +542,16 @@ height: 25px;
     vertical-align: middle; 
     padding-top: 10px;
 }
+
+.fweCQL_newFact{
+    padding-top:unset !important;
+    align-items: center !important;
+}
+
+.fweCQL_newFact td{
+    min-height:0px !important;
+}
+
 .fweCQL th:nth-child(1), .fweCQL td:nth-child(1) {
     text-align: left;
 }
@@ -527,6 +570,10 @@ height: 25px;
     font-size: 11px;
     border-bottom: 1px solid black;
     height: 50px;
+}
+
+.hzpAKA_new{
+    border-bottom: none !important;
 }
 .hBbtmd th {
     font-weight: 700;
@@ -673,6 +720,10 @@ height: 25px;
     background-color: transparent;
 }
 
+.chart-row_new {
+    width: 98% !important; 
+}
+
 .kWvjtE {
     transition: all 0.5s ease 0s;
     display: flex;
@@ -746,6 +797,14 @@ height: 25px;
   }
 .eVXooJ{
     color: #1a1549 !important;
+}
+
+.eVXooJ_newch th{
+    height: 43px;
+    padding: 7px;
+}
+.eVXooJ_newchSec th{
+    margin-left: -25px;
 }
 .AssetClass__Row-sc-1rmhbx4-5{
     color: #1a1549!important;
@@ -1172,8 +1231,34 @@ height: 330px; */
 .table-margin{
     margin-left: -11px;
 }
+.table-margin_new{
+    margin-left: -14px;
+}
+.table-margin_new_once{
+    margin-left: -2px;
+}
+.table-margin_new_once_market{
+   margin-bottom: -7px; 
+   margin-top: -3px;
+}
+.hRUkzz_newest{
+    width: 103.3%;
+}
+.mergin_new_table{
+    margin-bottom: -12px;
+}
 .table-div-margin{
     margin-right: 15px;
+}
+.iiGyjE_newest{
+    width: 107%;
+}
+.hRUkzz_newest_one{
+    width: 101%;
+}
+.iiGyjE_newesttop10{
+    width: 104%;
+    margin-top: -7px;
 }
 .table-row{
     width: 105%;
@@ -1245,7 +1330,7 @@ h3{
     font-size: 9px;
 }
 .he-30 td{
-    min-height: 30px!important;
+    min-height: 30px;
 }
 .eVXppJ th{
         text-align: left;

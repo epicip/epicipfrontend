@@ -1197,7 +1197,7 @@ const performanceButton=()=>{
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -1233,7 +1233,7 @@ const performanceButton=()=>{
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePerDUSD[j]] = rounded+'%' ;
 
@@ -1265,7 +1265,7 @@ const performanceButton=()=>{
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePerAEUR[j]] = rounded+'%' ;
 
@@ -1299,7 +1299,7 @@ const performanceButton=()=>{
         
         // var numb= 212421434.533423131231;
         var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-  
+        rounded =parseFloat(rounded).toFixed(2);
         console.log(rounded);
         obj[keysCummulativePerDEUR[j]] = rounded+'%' ;
   
@@ -1333,7 +1333,7 @@ const performanceButton=()=>{
         
         // var numb= 212421434.533423131231;
         var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-  
+        rounded =parseFloat(rounded).toFixed(2);
         console.log(rounded);
         obj[keysCummulativePerDGBP[j]] = rounded+'%' ;
   
@@ -1365,7 +1365,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keys12monthsDis[j]] = rounded+'%' ;
 
@@ -1396,7 +1396,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keys12monthsDisD[j]] = rounded+'%' ;
 
@@ -1428,7 +1428,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keys12monthsDisAEUR[j]] = rounded+'%' ;
 
@@ -1461,7 +1461,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keys12monthsDisDEUR[j]] = rounded+'%' ;
 
@@ -1493,7 +1493,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keys12monthsDisDGBP[j]] = rounded+'%' ;
 
@@ -1525,7 +1525,7 @@ const performanceButton=()=>{
 
              // var numb= 212421434.533423131231;
              var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+             rounded =parseFloat(rounded).toFixed(2);
              console.log(rounded);
              obj[keysPerfSummary[j]] = rounded+'%' ;
 
@@ -2585,8 +2585,8 @@ function rendertwelvemonPerfDiscreteAPIValue(twelvemon, index){
 function rendertop3contri(top3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="align-left">{top3contriparam.name}</td>
-      <td  className="align-right">{top3contriparam.value}</td>
+      <td className="align-left" style={{height: "31px"}}>{top3contriparam.name}</td>
+      <td  className="align-right" style={{height: "31px"}}>{top3contriparam.value}</td>
     </tr>
   )
 }
@@ -2629,10 +2629,10 @@ function renderbot3contri(bot3contriparam, index){
   // alert(bot3contriparam.name);
 
   return(
-    <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
+    <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_newfact" key={index}>
       
-      <td className="align-left">{bot3contriparam.name}</td>
-      <td className="align-right">{bot3contriparam.value}</td>
+      <td className="align-left" style={{height: "31.4px"}}>{bot3contriparam.name}</td>
+      <td className="align-right" style={{height: "31.4px"}}>{bot3contriparam.value}</td>
     </tr>
   )
 }
@@ -2682,10 +2682,10 @@ function renderFundinfo(fundinfoparam, index){
  
 
   return(
-    <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
+    <tr className="FundInformation__Row-sc-18irt95-2 fweCQL fweCQL_newFact" key={index}>
       
-      <td className="align-left">{fundinfoparam.name}</td>
-      <td className="align-center">{fundinfoparam.value}</td>
+      <td className="align-left" style={{width: "75%"}}>{fundinfoparam.name}</td>
+      <td className="align-center" style={{width: "25%"}}>{fundinfoparam.value}</td>
     </tr>
   )
 }
@@ -2965,72 +2965,6 @@ function previewData(formData) {
         </div>
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
-
-      <div class="row table-growth-row remove_margin">
-            <div class="pr-md-1 col-12 col-md-4 col table-div-margin remove_margin">
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
-                            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <th colspan="3" className="align-center">Regional Breakdown (% NAV)</th>
-                                    {/* <th colspan="1" className="align-right"></th> */}
-                                </tr>
-                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
-                                {/* {top3contriarray.map(rendertop3contri)} */}
-                                
-                                {regionBreakdownState.map(rendertop3contri)}
-
-                                {/* </tr> */}
-                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Long ASX SPI 200 Index</td>
-                                    <td>0.41%</td>
-                                </tr>
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Long S&amp;P 500 Index</td>
-                                    <td>0.33%</td>
-                                </tr>
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Short Australian Dollar / New Zealand Dollar</td>
-                                    <td>0.30%</td>
-                                </tr> */}
-                            </tbody>
-                        </table>
-                    </div>
-
-
-                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
-
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfm_other">
-                            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_new">
-                                    <th colspan="3"className="align-center">Portfolio Statistics</th>
-                                    {/* <th colspan="1"className="align-right">(% NAV)</th> */}
-                                </tr>
-                                {portfolioStatusState.map(renderbot3contri)}
-                                
-
-                            </tbody>
-                        </table>
-                    </div>
-
-
-                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
-
-                      <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm_other">
-                          <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                              <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                  <th colspan="3"className="align-center">Net Foreign Assets Breakdown (% NAV)</th>
-                                  {/* <th colspan="1"className="align-right">(% NAV)</th> */}
-                              </tr>
-                              {NFAState.map(renderbot3contri)}
-
-
-                          </tbody>
-                      </table>
-                      </div>
-                </div>
-
-
-
         <div class="row chart-row">
         <div class="col-md-6 chart-block">
             <p class="lse_redirect">Entity Breakdown (% NAV)</p>
@@ -3101,10 +3035,71 @@ function previewData(formData) {
                </BarChart>
                </ResponsiveContainer>
           </div>
-          
+          <div class="row table-growth-row remove_margin">
+            <div class="pr-md-1 col-12 col-md-4 col table-div-margin remove_margin">
+                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
+                            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                    <th className="align-left" style={{width: "65%"}}>Regional Breakdown</th>
+                                    <th className="align-right" style={{width: "30%"}}>(% NAV)</th>
+                                </tr>
+                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
+                                {/* {top3contriarray.map(rendertop3contri)} */}
+                                
+                                {regionBreakdownState.map(rendertop3contri)}
+
+                                {/* </tr> */}
+                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                    <td>Long ASX SPI 200 Index</td>
+                                    <td>0.41%</td>
+                                </tr>
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                    <td>Long S&amp;P 500 Index</td>
+                                    <td>0.33%</td>
+                                </tr>
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                    <td>Short Australian Dollar / New Zealand Dollar</td>
+                                    <td>0.30%</td>
+                                </tr> */}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
+
+                    <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfm_othertwo">
+                            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+                            <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_new">
+                                <th className="align-left" style={{width: "65%"}}>Portfolio Statistics</th>
+                                    <th className="align-right" style={{width: "30%"}}>(% NAV)</th>
+                                </tr>
+                                {portfolioStatusState.map(renderbot3contri)}
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
+
+                    <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm_otherOne">
+                          <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+                          <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_newch">
+                                  <th style={{width: "65%"}} className="align-left">Net Foreign Assets Breakdown</th>
+                                  <th style={{width: "25%"}} className="align-right">(% NAV)</th>
+                              </tr>
+                              {NFAState.map(renderbot3contri)}
+
+
+                          </tbody>
+                      </table>
+                      </div>
+                </div>
         </div>
 
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank">here</a>
                       <br/></p>
@@ -3118,7 +3113,7 @@ function previewData(formData) {
           
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-            <div class="mb-2 row">
+            <div class="row">
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -3159,7 +3154,7 @@ function previewData(formData) {
                     </div>
                 </div>
 
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -3235,7 +3230,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank">here</a>
                       <br/></p>
@@ -3259,7 +3254,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank">here</a> 
                      <br/></p>
@@ -3456,7 +3451,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_nfa_ucits.pdf"} target="_blank">here</a> 
                      <br/></p>
