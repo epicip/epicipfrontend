@@ -2488,37 +2488,31 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
-        <div class="col-md-6 chart-block">
-            <p class="lse_redirect">Asset Allocation (% NAV)</p>
+        <div class="col-md-6" style={{paddingRight: "2px"}}> 
+          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+          <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+            <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <th colspan="1" className="align-left">Top 10 Holdings</th>
+              <th colspan="1" className="align-right">Asset Class</th>
+            </tr>
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
+            
+              {top10HoldingState.map(renderTop10Holding)}
+              
+              {/* <td>Microsoft</td>
+              <td>7.46%</td> */}
+            {/* </tr> */}
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <td>PayPal Holdings</td>
+              <td>5.54%</td>
+            </tr> */}
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
+              </tbody></table> 
+        </div>
+        
 
-        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} }  >
-              <Pie
-                data={graphData}
-                cx={90}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                startAngle={90}
-                endAngle={-330}
-                paddingAngle={0}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabel}
-              >
-                {graphData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
-                ))}
-              </Pie>
-              <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>
-          
-          </div>
-
-          <div class="col-md-6 VARmargin chart-block"> 
+          <div class="col-md-6 VARmargin chart-block" style={{height: "389px"}}> 
           <p class="lse_redirect">Equities Breakdown (% NAV)</p>
           <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
@@ -2553,6 +2547,35 @@ function previewData(formData) {
 
 
         <div class="row chart-row">
+        <div class="col-md-6 chart-block">
+            <p class="lse_redirect">Asset Allocation (% NAV)</p>
+
+        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} }  >
+              <Pie
+                data={graphData}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                startAngle={90}
+                endAngle={-330}
+                paddingAngle={0}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabel}
+              >
+                {graphData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+          
+          </div>
           <div class="col-md-6 TOPmargin chart-block"> 
 
          
@@ -2585,74 +2608,7 @@ function previewData(formData) {
               {/* <Legend /> */}
             </PieChart>
           </div>
-          <div class="col-md-6 SECmargin chart-block"> 
-            <p class="lse_redirect">Derivatives VaR Contribution (% of total VaR)</p>
-            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-             <ResponsiveContainer width="100%" height="85%">
-                <BarChart
-                  width={500}
-                  height={300}
-                  data={DerVarState}
-                  // SECdata
-                  margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                  }}
-                >
-                    <CartesianGrid strokeDasharray="" horizontal="true" vertical="" />
-                    <XAxis interval={0} tick={CustomizedAxisTick} dataKey="name" axisLine={false}/>
-                    <YAxis interval={0} tickFormatter={(tick) => {
-                         return `${tick}%`;
-                         }}
-                        />
-                    <Tooltip />
-                    <ReferenceLine y={0} stroke="#000" />
-                    {/* <Bar dataKey="pv" fill="#8884d8" /> */}
-                    <Bar dataKey="value" fill="#82ca9d" >
-                    
-                        {
-                          DerVarState.map((entry, index) => (
-                            <Cell key={`cell-${index}`}  stroke={colors[index]}  strokeWidth={index === 2 ? 4 : 1} fill={colors[index % 20]}/>
-                          ))
-                        }                        
-                    </Bar>
-                </BarChart>
-            </ResponsiveContainer>
-                    <Tooltip />
-
-          
-          </div>
-
-
-          <div class="col-md-12 "> 
-
-            
-<table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
-<tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-  <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <th colspan="1" className="align-left">Top 10 Holdings</th>
-    <th colspan="1" className="align-right">Asset Class</th>
-  </tr>
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
-  
-    {top10HoldingState.map(renderTop10Holding)}
-    
-    {/* <td>Microsoft</td>
-    <td>7.46%</td> */}
-  {/* </tr> */}
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <td>PayPal Holdings</td>
-    <td>5.54%</td>
-  </tr> */}
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
-    </tbody></table> 
-
-
-</div>
+         
           
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
