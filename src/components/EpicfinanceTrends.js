@@ -697,7 +697,7 @@ const performanceButton=()=>{
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -737,7 +737,7 @@ const performanceButton=()=>{
         
          // var numb= 212421434.533423131231;
          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-        
+         rounded =parseFloat(rounded).toFixed(2);
          console.log(rounded);
          obj[keysbot3contr[j]] = rounded+'%' ;
          console.log(obj);
@@ -766,7 +766,7 @@ const performanceButton=()=>{
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keystop3contr[j]] = rounded+'%' ;
 
@@ -799,7 +799,7 @@ const performanceButton=()=>{
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keys12monthsPer[j]] = rounded+'%' ;
 
@@ -846,7 +846,10 @@ var monthsArr=[];
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -869,7 +872,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
 if(arr2D[i][j]==0+'%'){
   console.log(arr2D[i][j])
-    arr2D[i][j] = ""
+  arr2D[i][j] = "0.00%"
 }
 }
 console.log("--------------------------------------------------------------------")
@@ -1067,6 +1070,7 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   const localurl ='https://www.epicip.com/epic-financial-trends';
   const url = window.location.origin+'/epic-financial-trends' 
+  //const url = 'http://127.0.0.1:8000/epic-financial-trends'
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -1819,8 +1823,8 @@ function rendertwelvemonPerfDiscreteAPIValue(twelvemon, index){
 function rendertop3contri(top3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="contri-td align-left">{top3contriparam.name}</td>
-      <td className="contri-td align-right">{top3contriparam.value}</td>
+      <td className="contri-td align-left" style={{height: "52px"}}>{top3contriparam.name}</td>
+      <td className="contri-td align-right" style={{height: "52px"}}>{top3contriparam.value}</td>
     </tr>
   )
 }
@@ -1862,8 +1866,8 @@ function renderbot3contri(bot3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
       
-      <td className="contri-td align-left">{bot3contriparam.name}</td>
-      <td className="contri-td align-right">{bot3contriparam.value}</td>
+      <td className="contri-td align-left" style={{height: "52px"}}>{bot3contriparam.name}</td>
+      <td className="contri-td align-right" style={{height: "52px"}}>{bot3contriparam.value}</td>
     </tr>
   )
 }
@@ -2465,7 +2469,7 @@ function previewData(formData) {
           </div>
           
         </div>
-        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_financial_trends.pdf"} target="_blank">here</a>
                       <br/></p>
@@ -2475,9 +2479,9 @@ function previewData(formData) {
         <div class="row table-row">
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-            <div class="mb-2 row">
+            <div class="row">
                     <div class="col" >
-                        <table class="table CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                    <table class="table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz_new hRUkzz_new_one">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                 
@@ -2495,7 +2499,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col" >
                         <table class="table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -2543,12 +2547,11 @@ function previewData(formData) {
                     </div>
                 </div> */}
                 
-                <div class="mb-2 row chart-row">
-                    <div class="pr-md-1 col-12 col-md-6 col-sm-12 col table-div-margin">
-
-                        <table class="col-sm-12 table AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+                <div className="row remove_margin_multi_asset remove_margin_multi_asset_once">
+                    <div className="pr-md-1 col-12 col-md-6 col table-div-margin remove_margin" >
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm iiGyjEGR_dfm_onece">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXppJ">
+                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                     <th colspan="1" className="align-left">Top Three Contributors</th>
                                     <th colspan="1" className="align-right">Gross Attribution</th>
                                 </tr>
@@ -2558,13 +2561,13 @@ function previewData(formData) {
                             </tbody>
                         </table>
                     </div>
-                    <div className="pl-md-1 col-12 col-md-6 col-sm-12 col">
+                    <div class="pl-md-1 col-12 col-md-6 col remove_margin">
 
-                        <table className="table AssetClass__Table-sc-1rmhbx4-3 iiGyjE mob-ml">
-                            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXppJ">
-                                    <th colspan="1" className="align-left">Bottom Three Contributors</th>
-                                    <th colspan="1" className="align-right">Gross Attribution</th>
+                      <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfmnewonce">
+                          <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+                              <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+                                    <th style={{width: "60%"}} className="align-left">Bottom Three Contributors</th>
+                                    <th style={{width: "30%"}} className="align-right">Gross Attribution</th>
                                 </tr>
                                 {bot3contriarray.map(renderbot3contri)}
                                 
@@ -2812,7 +2815,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a download href={window.location.origin+"/sitepdfs/epic_financial_trends.pdf"} target="_blank" >here </a> 
                       <br/></p>
@@ -2836,7 +2839,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/epic_financial_trends.pdf"} target="_blank" download>here </a> 
                       <br/></p>
@@ -3077,7 +3080,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/epic_financial_trends.pdf"} target="_blank" download>here </a> 
                       <br/></p>

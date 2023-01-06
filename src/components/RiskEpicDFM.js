@@ -169,24 +169,51 @@ const VARdata = [
 
   ];
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+  const renderCustomizedLabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
   if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
     return (
       
-      <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
       
         {`${ (value).toFixed(1)}%`}
       </text>
     )};
   };
-  const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
+
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#000000','#000000','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
+  if(value > 5){
+    const colors =labelarray[index]
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
+  // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
+
+  // const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
+  
+  // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
+
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#666666','#353637','#000000','#B85876','#D296A9','#9DB1DB'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
+  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
 
   const renderColorfulLegendText = (value, entry ) => {
     const { color } = entry;
@@ -653,7 +680,7 @@ console.log(InceptionDataArray2);
   // }
 
   var keysVAR = ["name", "value"]
-  var length = AssetAllocation.length-1;
+  var length = AssetAllocation.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -729,7 +756,7 @@ console.log(InceptionDataArray2);
 
 
   var keysMarketCap = ["name", "value"]
-    var length = productsmarketCap.length-1;
+    var length = productsmarketCap.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -762,7 +789,7 @@ console.log(InceptionDataArray2);
 
 
   var keysSectorBreakdown = ["name", "value"]
-  var length = productSectorBreakdown.length-1
+  var length = productSectorBreakdown.length
   
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
@@ -1522,8 +1549,8 @@ async function fetchMyAPI(){
   //const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
   //const url ='https://www.epicip.com/vtepic-multi-asset-growth-fund';
-  //const url = "https://www.epicip.com/epic-mps-rmd5";
-  const url = window.location.origin+'/epic-mps-rmd5';
+  const url = "https://www.epicip.com/epic-mps-rmd5";
+  //const url = window.location.origin+'/epic-mps-rmd5';
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
@@ -2430,8 +2457,8 @@ function renderFundinfo(fundinfoparam, index){
   return(
     <tr className="FundInformation__Row-sc-18irt95-2 fweCQL fixwidth_info" key={index}>
       
-      <td className="align-left fixwidth_info_a">{fundinfoparam.name}</td>
-      <td className="align-center fixwidth_info_a">{fundinfoparam.value}</td>
+      <td className="align-left">{fundinfoparam.name}</td>
+      <td className="align-center">{fundinfoparam.value}</td>
     </tr>
   )
 }
@@ -2712,43 +2739,6 @@ function previewData(formData) {
           </div>
 
           <div class="col-md-6 VARmargin chart-block"> 
-            <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
-            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-                
-            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
-              <Pie
-                data={marketCapState}
-                cx={90}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabel}
-
-              >
-                {marketCapState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
-                ))}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>
-          </div>
-          
-        </div>
-
-
-        <div class="row chart-row">
-          <div class="col-md-6 TOPmargin chart-block"> 
-
           <p class="lse_redirect">Equities Breakdown (% NAV)</p>
           <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
@@ -2777,6 +2767,43 @@ function previewData(formData) {
               <Tooltip />
               {/* <Legend /> */}
             </PieChart>  
+          </div>
+          
+        </div>
+
+
+        <div class="row chart-row">
+          <div class="col-md-6 TOPmargin chart-block"> 
+          <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+                
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={marketCapState}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabelFixed}
+
+              >
+                {marketCapState.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+          
           
           </div>
           <div class="col-md-6 SECmargin chart-block"> 
@@ -2828,7 +2855,7 @@ function previewData(formData) {
 <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
   <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
     <th colspan="1" className="align-left">Top 10 Holdings</th>
-    <th colspan="1" className="align-right">% NAV</th>
+    <th colspan="1" className="align-right">Asset Class</th>
   </tr>
   {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
   
@@ -2893,7 +2920,7 @@ function previewData(formData) {
                         />
 
                       </LineChart>
-
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Model Portfolio Solutions – Risk Managed Decumulation 5</p>
                       </div>
                       
                     

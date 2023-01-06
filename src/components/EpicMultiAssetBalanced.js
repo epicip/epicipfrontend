@@ -169,29 +169,55 @@ const VARdata = [
 
   ];
   const RADIAN = Math.PI / 180;
+  const renderCustomizedLabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#000000','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#000000','#000000','#000000','#1A1549','#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff'];
   if(value > 5){
+    const colors =labelarray[index]
     return (
       
-      <text x={x} y={ y} fill="white" className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
+      <text x={x} y={ y} fill={colors} className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
       
-        {`${ (value).toFixed(2)}%`}
+        {`${ (value).toFixed(1)}%`}
       </text>
     )};
   };
-  const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
+  // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
+
+  // const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
+  
+
+
+  const DONUTCOLORS10 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#D296A9','#B85876','#666666','#9DB1DB','#000000'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#B85876"]
+  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
+  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#E6EEF6","#000000"]
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
-  
-    return <span className="legend-span">{value}</span>;
+    return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
+    //return <span className="legend-span">{value}</span>;
   };
 
 //   const DONUTCOLORS = [ "#b7c9d3","#7030a0","#00C49F", "#FFBB28", "#FF8042"];
@@ -626,7 +652,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value"]
-var length = AssetAllocation.length-1;
+var length = AssetAllocation.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -701,7 +727,7 @@ var length = AssetAllocation.length-1;
 
 
   var keysMarketCap = ["name", "value"]
-  var length = productsmarketCap.length -1;
+  var length = productsmarketCap.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -740,7 +766,7 @@ var length = AssetAllocation.length-1;
 
 
   var keysSectorBreakdown = ["name", "value"]
-  var length = productSectorBreakdown.length-1;
+  var length = productSectorBreakdown.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -802,7 +828,11 @@ var length = AssetAllocation.length-1;
      }     
 
      }
-     DerVarData.push(obj)
+     if(obj.value !==0){
+      DerVarData.push(obj)
+
+      }
+     //DerVarData.push(obj)
    
      
      // console.log(graphDataSectorPer);
@@ -922,13 +952,16 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=14;i++){
+  for(let i=4 ;i<=15;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -951,7 +984,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+      arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -1049,7 +1082,7 @@ console.log("arr2D");
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -1086,7 +1119,7 @@ console.log("arr2D");
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
 
@@ -1357,6 +1390,7 @@ async function fetchMyAPI(){
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
   const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
+  //const url = 'http://127.0.0.1:8000/vtepic-multi-asset-balanced-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2340,9 +2374,9 @@ function previewData(formData) {
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item nav-item-tabs"> <a class="nav-link active" data-toggle="tab" id="summaryButton" href="#nine" onClick={summaryButton} role="tab">Summary</a> </li>
       <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#eight" onClick={portfolioButton} role="tab">Portfolio</a> </li>
-      <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#one" onClick={performanceButton}  role="tab">Performance</a> </li>
+      <li class="nav-item nav-item-tabs"> <a  class="nav-link" data-toggle="tab" href="#one" onClick={performanceButton}  role="tab">Performance</a> </li>
 
-      <li class="nav-item nav-item-tabs"> <a class="nav-link " data-toggle="tab" href="#two" role="tab">Commentary</a> </li>
+      <li class="nav-item nav-item-tabs"> <a  class="nav-link " data-toggle="tab" href="#two" role="tab">Commentary</a> </li>
      <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#three" onClick={informationButton}  role="tab">Information</a> </li>
      <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#four" id="literatureTab" onClick={literatureButton} role="tab">Literature</a> </li>  
     </ul>
@@ -2454,10 +2488,69 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
+        <div class="col-md-6" style={{paddingRight: "2px"}}> 
+          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+          <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+            <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <th colspan="1" className="align-left">Top 10 Holdings</th>
+              <th colspan="1" className="align-right">Asset Class</th>
+            </tr>
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
+            
+              {top10HoldingState.map(renderTop10Holding)}
+              
+              {/* <td>Microsoft</td>
+              <td>7.46%</td> */}
+            {/* </tr> */}
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <td>PayPal Holdings</td>
+              <td>5.54%</td>
+            </tr> */}
+            {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+              <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
+              </tbody></table> 
+        </div>
+        
+
+          <div class="col-md-6 VARmargin chart-block" style={{height: "389px"}}> 
+          <p class="lse_redirect">Equities Breakdown (% NAV)</p>
+          <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+                
+            <PieChart width={330} height={550} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+              <Pie
+                data={equititeState}
+                cx={80}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabel}
+              >
+                {equititeState.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>  
+          </div>
+          
+        </div>
+
+
+        <div class="row chart-row">
         <div class="col-md-6 chart-block">
             <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
-        <PieChart width={300} height={350} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} }  >
               <Pie
                 data={graphData}
                 cx={90}
@@ -2465,8 +2558,8 @@ function previewData(formData) {
                 innerRadius={45}
                 outerRadius={90}
                 // fill="#0c2340"
-                startAngle={120}
-                endAngle={-360}
+                startAngle={90}
+                endAngle={-330}
                 paddingAngle={0}
                 dataKey="value"
                 labelLine={false}
@@ -2483,13 +2576,14 @@ function previewData(formData) {
             </PieChart>
           
           </div>
+          <div class="col-md-6 TOPmargin chart-block"> 
 
-          <div class="col-md-6 VARmargin chart-block"> 
+         
             <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 
-            <PieChart width={300} height={350} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+            <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
                 data={marketCapState}
                 cx={90}
@@ -2498,14 +2592,14 @@ function previewData(formData) {
                 outerRadius={90}
                 // fill="#0c2340"
                 paddingAngle={0}
-                startAngle={120}
-                endAngle={-360}
+                startAngle={90}
+                endAngle={-330}
                 dataKey="value"
                 labelLine={false}
-                label={renderCustomizedLabel}
+                label={renderCustomizedLabelFixed}
               >
                 {marketCapState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
                 ))}
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
@@ -2514,111 +2608,7 @@ function previewData(formData) {
               {/* <Legend /> */}
             </PieChart>
           </div>
-          
-        </div>
-
-
-        <div class="row chart-row">
-          <div class="col-md-6 TOPmargin chart-block"> 
-
-          <p class="lse_redirect">Equities Breakdown (% NAV)</p>
-          <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-                
-            <PieChart width={300} height={350} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
-              <Pie
-                data={equititeState}
-                cx={80}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={120}
-                endAngle={-360}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabel}
-              >
-                {equititeState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
-                ))}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>  
-          
-          </div>
-          <div class="col-md-6 SECmargin chart-block"> 
-            <p class="lse_redirect">Derivatives VaR Contribution (% of total VaR)</p>
-            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-             <ResponsiveContainer width="100%" height="85%">
-                <BarChart
-                  width={500}
-                  height={300}
-                  data={DerVarState}
-                  // SECdata
-                  margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                  }}
-                >
-                    <CartesianGrid strokeDasharray="" horizontal="true" vertical="" />
-                    <XAxis interval={0} tick={CustomizedAxisTick} dataKey="name" axisLine={false}/>
-                    <YAxis interval={0} tickFormatter={(tick) => {
-                         return `${tick}%`;
-                         }}
-                        />
-                    <Tooltip />
-                    <ReferenceLine y={0} stroke="#000" />
-                    {/* <Bar dataKey="pv" fill="#8884d8" /> */}
-                    <Bar dataKey="value" fill="#82ca9d" >
-                    
-                        {
-                          DerVarState.map((entry, index) => (
-                            <Cell key={`cell-${index}`}  stroke={colors[index]}  strokeWidth={index === 2 ? 4 : 1} fill={colors[index % 20]}/>
-                          ))
-                        }                        
-                    </Bar>
-                </BarChart>
-            </ResponsiveContainer>
-                    <Tooltip />
-
-          
-          </div>
-
-
-          <div class="col-md-12 "> 
-
-            
-<table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
-<tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-  <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <th colspan="1" className="align-left">Top 10 Holdings</th>
-    <th colspan="1" className="align-right">% NAV</th>
-  </tr>
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
-  
-    {top10HoldingState.map(renderTop10Holding)}
-    
-    {/* <td>Microsoft</td>
-    <td>7.46%</td> */}
-  {/* </tr> */}
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <td>PayPal Holdings</td>
-    <td>5.54%</td>
-  </tr> */}
-  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-    <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
-    </tbody></table> 
-
-
-</div>
+         
           
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
@@ -2634,7 +2624,7 @@ function previewData(formData) {
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
-            <div class="mb-2 row chart-row">
+            <div class="row chart-row">
                     <div class="col-md-12 chart-block" >
                     <p class="lse_redirect">Cumulative Strategy performance under Mark Harris</p>
                     <LineChart
@@ -2665,8 +2655,9 @@ function previewData(formData) {
                         />
 
                       </LineChart>
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; VT EPIC Multi Asset Balanced Fund Class I Acc in GBP</p>
                       </div>
-                      <div class="mb-2 row chart-row">
+                      {/* <div class="mb-2 row chart-row">
                     <div class="col-md-12 table-margin">
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -2687,13 +2678,31 @@ function previewData(formData) {
                             </tbody>
                         </table>
                         </div>
-                        </div>
+                        </div> */}
                     </div>
                 
-
-                <div class="mb-2 row cum-row">
+                    <div class="mb-2 row cum-row">
                     <div class="col-md-12" >
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                    <table class="table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
+                            <tbody>
+                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
+                                  
+                                  {cummulatovePerfData.map(renderCummulativePerformanceNames)}
+
+                                </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                  {cummulatovePerfData.map(renderCummulativePerformanceValue)}
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row cum-row">
+                    <div class="col-md-12" >
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2714,9 +2723,9 @@ function previewData(formData) {
                 </div>
 
 
-                <div class="mb-2 row table-multibal-row">
-                    <div class="pr-md-1 col-12 col-md-6 col table-div-margin">
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+                <div class="row table-growth-row remove_margin">
+                    <div class="pr-md-1 col-12 col-md-6 col table-div-margin remove_margin">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                     <th colspan="1" className="align-left">Top Three Contributors</th>
@@ -2743,9 +2752,9 @@ function previewData(formData) {
                             </tbody>
                         </table>
                     </div>
-                    <div class="pl-md-1 col-12 col-md-6 col">
+                    <div class="pl-md-1 col-12 col-md-6 col remove_margin">
 
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                                     <th colspan="1" className="align-left">Bottom Three Contributors</th>
@@ -2795,7 +2804,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here </a> 
                       <br/></p>
@@ -2819,7 +2828,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here</a> 
                      <br/></p>
@@ -3085,7 +3094,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_balanced_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>

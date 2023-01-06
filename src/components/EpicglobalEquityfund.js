@@ -1003,7 +1003,7 @@ const performanceButton=()=>{
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      if(isNaN(rounded)){
       rounded = 0;
@@ -1031,7 +1031,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+      arr2D[i][j] = "0.00%"
   }
   
   console.log(arr2D[i][j])
@@ -1068,7 +1068,7 @@ for(let i=4 ;i<=7;i++){
    let val = productsMonthlyPerfB[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+   rounded =parseFloat(rounded).toFixed(2);
    console.log(rounded);
    if(isNaN(rounded)){
     rounded = 0;
@@ -1091,7 +1091,7 @@ for(let j =0 ; j< arrB2D[0].length;j++){
 // console.log(arr2D[1][j])
 if(arrB2D[i][j]==0+'%'){
   console.log(arrB2D[i][j])
-    arrB2D[i][j] = ""
+    arrB2D[i][j] = "0.00%"
 }
 
 console.log(arrB2D[i][j])
@@ -1123,7 +1123,7 @@ for(let i=4 ;i<=6;i++){
    let val = productsMonthlyPerfC[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+   rounded =parseFloat(rounded).toFixed(2);
    console.log(rounded);
    if(isNaN(rounded)){
     rounded = 0;
@@ -1146,7 +1146,7 @@ for(let j =0 ; j< arrC2D[0].length;j++){
 // console.log(arr2D[1][j])
 if(arrC2D[i][j]==0+'%'){
   console.log(arrC2D[i][j])
-    arrC2D[i][j] = ""
+    arrC2D[i][j] = "0.00%"
 }
 console.log(arrC2D[i][j])
 }
@@ -1180,7 +1180,7 @@ for(let i=4 ;i<=6;i++){
    let val = productsMonthlyPerfBEUR[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+   rounded =parseFloat(rounded).toFixed(2);
    console.log(rounded);
    if(isNaN(rounded)){
     rounded = 0;
@@ -1203,7 +1203,7 @@ for(let j =0 ; j< arrD2D[0].length;j++){
 // console.log(arr2D[1][j])
 if(arrD2D[i][j]==0+'%'){
   console.log(arrD2D[i][j])
-    arrD2D[i][j] = ""
+    arrD2D[i][j] = "0.00%"
 }
 console.log(arrD2D[i][j])
 }
@@ -1244,7 +1244,7 @@ console.log("arrD2D");
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -1284,7 +1284,7 @@ console.log("arrD2D");
         
          // var numb= 212421434.533423131231;
          var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-        
+         rounded =parseFloat(rounded).toFixed(2);
          console.log(rounded);
          obj[keysCommulativePerfB[j]] = rounded+'%' ;
          console.log(obj);
@@ -1313,7 +1313,7 @@ console.log("arrD2D");
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keysCommPerfBEUR[j]] = rounded+'%' ;
 
@@ -1343,7 +1343,7 @@ console.log("arrD2D");
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
      obj[keysCommPerfC[j]] = rounded+'%' ;
 
@@ -1373,7 +1373,7 @@ console.log("arrD2D");
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
 
@@ -1415,7 +1415,7 @@ var keys12monthsDisBGBP = ["name", "value"]
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDisBGBP[j]] = rounded+'%' ;
 
@@ -1458,7 +1458,7 @@ var keys12monthsDisBEUR = ["name", "value"]
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDisBEUR[j]] = rounded+'%' ;
 
@@ -1495,7 +1495,7 @@ var keys12monthsDisCGBP = ["name", "value"]
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDisCGBP[j]] = rounded+'%' ;
 
@@ -1745,7 +1745,8 @@ async function fetchMyAPI(){
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
   const Localurl ='https://www.epicip.com/epic-global-equity-fund';
-  const url = window.location.origin+'/epic-global-equity-fund' 
+  const url = window.location.origin+'/epic-global-equity-fund'
+  //const url = 'http://127.0.0.1:8000/epic-global-equity-fund'
   
   // const url = 'https://epicipprojects.com/api/garraway-global-equity-fund' 
   
@@ -2902,7 +2903,7 @@ function previewData(formData) {
                  </div>
           
         </div>
-        <div class="row chart-row">
+        <div class="row chart-row" style={{marginTop: "-10px"}}>
           <div class="col-md-6 MarketcapBreakmargin"> 
 
           <table class="AssetClass__Table-sc-1rmhbx4-3 mt iiGyjE">
@@ -2922,7 +2923,7 @@ function previewData(formData) {
           
           </div>
           <div class="col-md-6 SECbreakmargin "> 
-          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE">
+          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_newonces">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
                 <th colspan="99">Sector Breakdown</th>
@@ -2933,7 +2934,7 @@ function previewData(formData) {
           </div>
           
         </div>
-        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+        <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -2945,8 +2946,8 @@ function previewData(formData) {
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
-            <div class="mb-2 row chart-row">
-                    <div class="col-md-12 chart-block" >
+            <div class="row chart-row">
+                    <div class="col-md-12 chart-block " >
                     <p class="lse_redirect">Cumulative Performance Since Inception</p>
                     <LineChart
                         width={700}
@@ -2976,10 +2977,12 @@ function previewData(formData) {
                         />
 
                       </LineChart>
-                      </div>
-                      <div class="mb-2 row chart-row">
-                    <div class="col-md-12 table-margin">
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Global Equity Fund Class A GBP</p>
+                  </div>
+                  </div>
+                    <div class="row chart-row">
+                    <div class="col-md-12 table-margin table-margin_new">
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -3013,12 +3016,11 @@ function previewData(formData) {
                         </table>
                         </div>
                         </div>
-                    </div>
                 
 
-                <div class="mb-2 row ">
-                    <div class="col-md-12" >
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                    <div class="row chart-row">
+                    <div class="col-md-12 table-margin_new" >
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_newest">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -3055,8 +3057,8 @@ function previewData(formData) {
                 
 
 
-                <div class="mb-2 row">
-                    <div class="col-md-12" >
+                <div class="row">
+                    <div class="col-md-12 mergin_new_table" >
                     <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
@@ -3084,7 +3086,7 @@ function previewData(formData) {
                             </table>
                         </div>
                         </div>
-                        <div class="col-md-12" >
+                        <div class="col-md-12 mergin_new_table" >
 
                         <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
@@ -3116,7 +3118,7 @@ function previewData(formData) {
                         </div>
 
 
-                        <div class="col-md-12" >
+                        <div class="col-md-12 mergin_new_table" >
 
                         <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
@@ -3183,7 +3185,7 @@ function previewData(formData) {
 
                     {/* </div> */}
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -3207,7 +3209,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -3218,12 +3220,12 @@ function previewData(formData) {
         </div>
       </div>
       <div class="tab-pane fade" id="three" role="tabpanel">
-        <div class="row">
+      <div class="row">
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-                <div class="mb-3 row">
+                <div class="mb-2 row">
                     <div class="col" >
-                        <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
+                    <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
                             <tbody class=" FundInformation__Body-sc-18irt95-1 hNmQXY">
                                 <tr class="FundInformation__Row-sc-18irt95-2 kzFInj">
                                     <th>Fund Information</th>
@@ -3294,7 +3296,7 @@ function previewData(formData) {
                 </div>
                 <div class="row">
                     <div class="col" >
-                        <table class="table Shares__Table-sc-1brks4f-0 hBbtmd">
+                        <table class="table  Shares__Table-sc-1brks4f-0 hBbtmd wealth-table">
                             <tbody class="Shares__Body-sc-1brks4f-1 hbWYKC">
                                 {/* <tr class="Shares__Row-sc-1brks4f-2 hzpAKA">
                                 
@@ -3321,9 +3323,10 @@ function previewData(formData) {
                                 {/* {ShareClassarray.map(renderShareClassNames)} */}
 
                                 {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv"> */}
-
+                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
                                 {ShareClassarray.map(renderShareClassValue)}
                                 {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv"><td class="align-left">Minimum Initial Investment</td><td class="align-right">$100,000 </td><td class="align-right">$100,000 </td><td class="align-right">$100,000 </td><td class="align-right">$100</td><td class="align-right">$100</td><td class="align-right">$100</td></tr> */}
+                                </tr>
                                 {CMSshareinfoarray.map(renderCMSshareinfo)}
 
 
@@ -3483,7 +3486,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                       All information also available to download <a href={window.location.origin+"/sitepdfs/epic_global_equity_fund.pdf"} target="_blank" download>here </a> 
                       <br/></p>

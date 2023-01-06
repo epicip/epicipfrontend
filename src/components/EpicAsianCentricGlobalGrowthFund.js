@@ -909,7 +909,7 @@ const performanceButton=()=>{
       let val = productsMonthlyPerf[i][j]*100;
   
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
+     rounded =parseFloat(rounded).toFixed(2);
      console.log(rounded);
 
      if(isNaN(rounded)){
@@ -933,7 +933,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+      arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -963,7 +963,7 @@ console.log("arr2D");
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+      rounded =parseFloat(rounded).toFixed(2);
       console.log(rounded);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
@@ -1082,7 +1082,7 @@ console.log("arr2D");
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-
+    rounded =parseFloat(rounded).toFixed(2);
     console.log(rounded);
     obj[keys12monthsDis[j]] = rounded+'%' ;
 
@@ -1402,6 +1402,7 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-asian-centric-global-growth-fund' 
   const Localurl = 'https://www.epicip.com/vtepic-asian-centric-global-growth-fund' 
   const url = window.location.origin+'/vtepic-asian-centric-global-growth-fund' 
+  //const url = 'http://127.0.0.1:8000/vtepic-asian-centric-global-growth-fund'
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
@@ -2169,8 +2170,8 @@ for( let i=0; i< bot3contriparam.length; i++){
 function renderMarketState(market, index) {
   return(
   <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-    <td className="align-left">{market.name}</td>
-    <td className="align-right">{market.value}</td>
+    <td className="align-left" style={{height: "35.9px"}}>{market.name}</td>
+    <td className="align-right" style={{height: "35.9px"}}>{market.value}</td>
 
   </tr>
         
@@ -2181,8 +2182,8 @@ function renderMarketState(market, index) {
 function renderSectorState(sector, index) {
   return(
   <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-    <td className="align-left">{sector.name}</td>
-    <td className="align-right">{sector.value}</td>
+    <td className="align-left" style={{width: "75%"}}>{sector.name}</td>
+    <td className="align-right" style={{width: "25%"}}>{sector.value}</td>
 
   </tr>
         
@@ -2681,7 +2682,8 @@ function previewData(formData) {
           <table class="AssetClass__Table-sc-1rmhbx4-3 mt iiGyEE">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
-                <th colspan="99">Regional Breakdown</th>
+                <th className="align-left" style={{width: "75%"}}>Regional Breakdown</th>
+                <th className="align-right" style={{width: "25%"}}>% NAV</th>
               </tr>
               
 
@@ -2698,7 +2700,8 @@ function previewData(formData) {
           <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyEE ">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
-                <th colspan="99">Sector Breakdown</th>
+                <th className="align-left" style={{width: "75%"}}>Sector Breakdown</th>
+                <th className="align-right" style={{width: "25%"}}>% NAV</th>
               </tr>
               {sectorBreakdownState.map(renderSectorState)}
             </tbody></table>
@@ -2706,10 +2709,11 @@ function previewData(formData) {
           </div>
 
           <div className="col-md-12 top10-div"> 
-          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+          <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_newesttop10">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 fQKjoJ">
-                <th colspan="99">Top 10 Holdings</th>
+                <th className="align-left" style={{width: "75%"}}>Top 10 Holdings</th>
+                <th className="align-right" style={{width: "25%"}}>% NAV</th>
               </tr>
               {top10HoldingState.map(renderSectorState)}
             </tbody></table>
@@ -2730,7 +2734,7 @@ function previewData(formData) {
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
-            <div class="mb-2 row">
+            <div class="row">
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -2752,7 +2756,7 @@ function previewData(formData) {
                     </div>
                 </div>
 
-                <div class="mb-2 row">
+                <div class="row">
                     <div class="col" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
                             <tbody>
@@ -2923,7 +2927,7 @@ function previewData(formData) {
                         </div>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                     <p className="mt-2 i">Monthly data as at: {PRTUDate}.
                      All information also available to download <a  href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
@@ -2949,7 +2953,7 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
       <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
       All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
       <br/></p>
@@ -2965,7 +2969,7 @@ function previewData(formData) {
         <div class="row">
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
-                <div class="mb-3 row">
+                <div class="mb-2 row">
                     <div class="col" >
                         <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
                             <tbody class=" FundInformation__Body-sc-18irt95-1 hNmQXY">
@@ -3191,7 +3195,7 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
                      All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_asian_centric_global_growth_fund.pdf"} target="_blank" download>here </a> 
                      <br/></p>
