@@ -1389,8 +1389,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-diversified-income-fund'
   const Localurl = 'https://www.epicip.com/vtepic-diversified-income-fund'
-  //const url = window.location.origin+'/vtepic-diversified-income-fund' 
-  const url = 'http://127.0.0.1:8000/vtepic-diversified-income-fund';
+  const url = window.location.origin+'/vtepic-diversified-income-fund' 
+  //const url = 'http://127.0.0.1:8000/vtepic-diversified-income-fund';
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);

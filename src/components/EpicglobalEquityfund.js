@@ -1745,8 +1745,8 @@ async function fetchMyAPI(){
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
   const Localurl ='https://www.epicip.com/epic-global-equity-fund';
-  //const url = window.location.origin+'/epic-global-equity-fund'
-  const url = 'http://127.0.0.1:8000/epic-global-equity-fund'
+  const url = window.location.origin+'/epic-global-equity-fund'
+  //const url = 'http://127.0.0.1:8000/epic-global-equity-fund'
   
   // const url = 'https://epicipprojects.com/api/garraway-global-equity-fund' 
   
