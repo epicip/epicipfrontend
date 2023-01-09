@@ -1670,7 +1670,7 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/garraway-wealth-fund' 
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
   const url = window.location.origin+'/epic-wealth-fund'
-  //const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
+  //const url ="https://www.epicip.com/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2483,8 +2483,8 @@ function rendertwelvemonPerfDiscreteAPIValue(twelvemon, index){
 function rendertop3contri(top3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="align-left">{top3contriparam.name}</td>
-      <td className="align-right">{top3contriparam.value}</td>
+      <td className="align-left" style={{width: "75%",height: "35px"}}>{top3contriparam.name}</td>
+      <td className="align-right" style={{width: "25%",height: "35px"}}>{top3contriparam.value}</td>
     </tr>
   )
 }
@@ -3158,8 +3158,8 @@ function previewData(formData) {
                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <th colspan="1" className="align-left">Top Three Contributors</th>
-                                    <th colspan="1" className="align-right">Asset Class</th>
+                                    <th colspan="1" className="align-left" style={{width: "75%"}}>Top Three Contributors</th>
+                                    <th colspan="1" className="align-right" style={{width: "25%"}}>Asset Class</th>
                                 </tr>
                                 {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
                                 {/* {top3contriarray.map(rendertop3contri)} */}
@@ -3187,8 +3187,8 @@ function previewData(formData) {
                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <th colspan="1" className="align-left">Bottom Three Contributors</th>
-                                    <th colspan="1" className="align-right">Asset Class</th>
+                                    <th colspan="1" className="align-left" style={{width: "75%"}}>Bottom Three Contributors</th>
+                                    <th colspan="1" className="align-right" style={{width: "25%"}}>Asset Class</th>
                                 </tr>
                                 {bot3contriarray.map(renderbot3contri)}
                                 
