@@ -1670,7 +1670,7 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/garraway-wealth-fund' 
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
   const url = window.location.origin+'/epic-wealth-fund'
-  //const url ="https://www.epicip.com/epic-wealth-fund"; 
+  // const url ="https://www.epicip.com/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2483,8 +2483,8 @@ function rendertwelvemonPerfDiscreteAPIValue(twelvemon, index){
 function rendertop3contri(top3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="align-left" style={{width: "75%",height: "35px"}}>{top3contriparam.name}</td>
-      <td className="align-right" style={{width: "25%",height: "35px"}}>{top3contriparam.value}</td>
+      <td className="align-left" style={{width: "75%",height: "50px"}}>{top3contriparam.name}</td>
+      <td className="align-right" style={{width: "25%",height: "50px"}}>{top3contriparam.value}</td>
     </tr>
   )
 }
@@ -2528,9 +2528,8 @@ function renderbot3contri(bot3contriparam, index){
 
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      
-      <td className="align-left">{bot3contriparam.name}</td>
-      <td className="align-right">{bot3contriparam.value}</td>
+      <td className="align-left" style={{width: "75%",height: "50px"}}>{bot3contriparam.name}</td>
+      <td className="align-right" style={{width: "25%",height: "50px"}}>{bot3contriparam.value}</td>
     </tr>
   )
 }
