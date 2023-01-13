@@ -42,8 +42,8 @@ const colors = ["#1A1549", " #9DB1DB", "#E6EEF6", "#dcdcdc","#B85876"]
 // const top3contriarray =[]
 // const bot3contriarray = []
 const Fundinfoarray = []
-const ShareClassarray = []
-
+const ShareClassAarray = []
+const ShareClassBarray = []
 let bot3contriDummy = []
 
 
@@ -267,7 +267,8 @@ const [productsCommentary, setproductsCommentary] = useState([]);
 const [productsFundinfo, setproductsFundinfo] = useState([]);
 const [CMSFundinfo, setCMSFundinfo] = useState([]);
 const [CMSshareinfo, setCMSshareinfo] = useState([]);
-const [productsShareClass, setproductsShareClass] = useState([]);
+const [productsShareClassA, setproductsShareClassA] = useState([]);
+const [productsShareClassB, setproductsShareClassB] = useState([]);
 const [productsMonthlyPerf, setproductsMonthlyPerf] = useState([]);
 const [portfolioStatus, setportfolioStatus] = useState(false);
 const [performanceStatus1, setperformanceStatus1] = useState(false);
@@ -383,9 +384,12 @@ const[top3contriState,settop3contriState]= useState([]);
 
 const[bot3contriarray,setbot3contriarray]= useState([]);
 const[Fundinfoarray,setFundinfoarray]= useState([]);
-const[ShareClassarray,setShareClassarray]= useState([]);
+const[ShareClassAarray,setShareClassAarray]= useState([]);
+const[ShareClassBarray,setShareClassBarray]= useState([]);
 const[CMSFundinfoarray,setCMSFundinfoarray]= useState([]);
 const[CMSshareinfoarray,setCMSshareinfoarray]= useState([]);
+const[CMSshareinfoarrayB,setCMSshareinfoarrayB]= useState([]);
+
 
 const[monthlyPerformance2DArrayState,setmonthlyPerformance2DArrayState]= useState([]);
 const[monthsArrayState,setmonthsArrayState]= useState([]);
@@ -1943,13 +1947,16 @@ const performanceButton=()=>{
 
 
 const informationButton=()=>{
-  const shareClassData =[]
+  const shareClassAData =[]
+  const shareClassBData =[]
   const fundInfoData =[]
   const CMSfundInfoData =[]
   const CMSshareInfoData =[]
+  const CMSshareInfoDataB =[]
 
 
   var keysCMSshareinfo = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue","cgbpValue","lastValue"]
+  var keysCMSshareinfoB = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue","cgbpValue","lastValue"]
   
   console.log(CMSshareinfo);
   console.log("CMSshareinfo");
@@ -1982,6 +1989,35 @@ const informationButton=()=>{
   console.log(CMSshareInfoData);
   console.log("CMSshareInfoData")
 
+  for(let j =0 ;j< CMSshareinfo.length ;j++){
+
+
+   console.log(CMSshareinfo[j].title);
+   console.log("CMSFundinfo.title");
+
+   let obj={};
+
+      obj[keysCMSshareinfoB[0]] = CMSshareinfo[j].title ;
+      obj[keysCMSshareinfoB[1]] = CMSshareinfo[j].b_ausd_value ;
+      obj[keysCMSshareinfoB[2]] = CMSshareinfo[j].b_agbp_value ;
+      obj[keysCMSshareinfoB[3]] = CMSshareinfo[j].b_aeur_value ;
+      obj[keysCMSshareinfoB[4]] = CMSshareinfo[j].b_busd_value ;
+      obj[keysCMSshareinfoB[5]] = CMSshareinfo[j].b_bgbp_value ;
+      obj[keysCMSshareinfoB[6]] = CMSshareinfo[j].b_beur_value ;
+      obj[keysCMSshareinfoB[7]] = CMSshareinfo[j].b_cgbp_value ; 
+      obj[keysCMSshareinfoB[8]] = CMSshareinfo[j].b_last_value ;
+
+
+
+
+
+      console.log(obj);
+      console.log("obj---------------@");
+    CMSshareInfoDataB.push(obj)
+  }
+  console.log(CMSshareInfoData);
+  console.log("CMSshareInfoData")
+
   var keysCMSFundinfo = ["name", "value"]
   
   for(let j =0 ;j< CMSFundinfo.length ;j++){
@@ -2003,36 +2039,66 @@ const informationButton=()=>{
     }
 
   var keysShareClass = ["name", "value"]
+
   
-  for(let i=0 ; i< productsShareClass.length ;i++){
+  for(let i=0 ; i< productsShareClassA.length ;i++){
    // typeof(products[i][j])
    
    let obj={};
-   for(let j =0 ;j< productsShareClass[i].length ;j++){
+   for(let j =0 ;j< productsShareClassA[i].length;j++){
 
-     if(!isNaN(productsShareClass[i][j])){
-     let val = productsShareClass[i][j];
+     if(!isNaN(productsShareClassA[i][j])){
+     let val = productsShareClassA[i][j];
      
      // var numb= 212421434.533423131231;
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-     console.log(rounded);
-     obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
-     console.log(obj);
-     console.log("obj");
+     if(rounded==0){
+      obj[keysShareClass[j]] = '' ;
+     } else{
+      obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
+     }
    }
 
      // var updatedVal =  parseFloat(val).toFixed(2);
      // console.log(updatedVal);
      else{
-       obj[keysShareClass[j]] = productsShareClass[i][j] ;
+       obj[keysShareClass[j]] = productsShareClassA[i][j] ;
      }     
 
      }
-     shareClassData.push(obj)
-   
-     
+     shareClassAData.push(obj);
  }  
+
+ for(let i=0 ; i< productsShareClassB.length ;i++){
+  // typeof(products[i][j])
+  
+  let obj={};
+  for(let j =0 ;j< productsShareClassB[i].length ;j++){
+
+    if(!isNaN(productsShareClassB[i][j])){
+    let val = productsShareClassB[i][j];
+    
+    // var numb= 212421434.533423131231;
+    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+    if(rounded==0){
+      obj[keysShareClass[j]] = '' ;
+     } else{
+      obj[keysShareClass[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
+     }
+  
+  }
+
+    // var updatedVal =  parseFloat(val).toFixed(2);
+    // console.log(updatedVal);
+    else{
+      obj[keysShareClass[j]] = productsShareClassB[i][j] ;
+    }     
+
+    }
+    shareClassBData.push(obj)
+    
+}  
 
 
   var keysFundinfo = ["name", "value"]
@@ -2067,10 +2133,12 @@ const informationButton=()=>{
 
  }
 
- setShareClassarray(shareClassData)
+ setShareClassAarray(shareClassAData)
+ setShareClassBarray(shareClassBData)
  setFundinfoarray(fundInfoData)
  setCMSFundinfoarray(CMSfundInfoData)
  setCMSshareinfoarray(CMSshareInfoData)
+ setCMSshareinfoarrayB(CMSshareInfoDataB)
 console.log(CMSshareinfoarray);
 console.log("CMSshareinfoarray");
 
@@ -2117,8 +2185,9 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
 
   const Localurl = 'https://www.epicip.com/epic-rnb-pcc'
- const url = window.location.origin+'/epic-rnb-pcc'
- //  const url = 'http://127.0.0.1:8000/epic-rnb-pcc'; 
+  //const url = window.location.origin+'/epic-rnb-pcc'
+  const url = 'https://www.epicip.com/epic-rnb-pcc'; 
+  //const url = 'http://127.0.0.1:8000/epic-rnb-pcc'; 
    
    fetch(url).then(resp=> resp.json())
    .then (resp => {
@@ -2147,7 +2216,8 @@ async function fetchMyAPI(){
     setNFAData(resp.Nfabreakdown)
     setproductSectorBreakdown(resp.EquitiesBreakdown)
     setproductsFundinfo(resp.FundInfo)
-    setproductsShareClass(resp.FundPricesClassA)
+    setproductsShareClassA(resp.FundPricesClassA)
+    setproductsShareClassB(resp.FundPricesClassB)
     setproductsMonthlyPerf(resp.MonthlyPerf)
     setRespPrtu(resp.Prtu)
     setPRTU(resp.daily_price)
@@ -2471,10 +2541,11 @@ function renderbot3contri(bot3contriparam, index){
   )
 }
 function renderCMSshareinfo(shareinfoparam, index){
+  console.log(shareinfoparam);
+
   if(index ==0 ||index ==1){
     return(
    <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
-        
     <td className="align-left">{shareinfoparam.name}</td>
     {shareinfoparam.ausdValue ?
     <td className="align-center" colspan="7">{shareinfoparam.ausdValue}</td>:""}
@@ -2497,7 +2568,6 @@ function renderCMSshareinfo(shareinfoparam, index){
   }else if(index ==5){
     return(
    <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
-        
     <td className="align-left">{shareinfoparam.name}</td>
     {shareinfoparam.ausdValue ?
     <td className="align-center ISIN-font">{shareinfoparam.ausdValue}</td>:""}
@@ -2521,7 +2591,6 @@ function renderCMSshareinfo(shareinfoparam, index){
   else{
   return(
     <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
-      
       <td className="align-left">{shareinfoparam.name}</td>
     {shareinfoparam.ausdValue ?
     <td className="align-center">{shareinfoparam.ausdValue}</td>:""}
@@ -2539,8 +2608,76 @@ function renderCMSshareinfo(shareinfoparam, index){
     <td className="align-center">{shareinfoparam.cgbpValue}</td>:""}
     {shareinfoparam.lastValue?
     <td className="align-center">{shareinfoparam.lastValue}</td>:""}
+    </tr>
+  )}
+}
 
-    
+function renderCMSshareinfoB(shareinfoparam, index){
+  if(index ==0 ||index ==1){
+    return(
+   <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
+    <td className="align-left">{shareinfoparam.name}</td>
+    {shareinfoparam.ausdValue ?
+    <td className="align-center" colspan="7">{shareinfoparam.ausdValue}</td>:""}
+    {shareinfoparam.agbpValue ?
+    <td className="align-center">{shareinfoparam.agbpValue}</td> : ""}
+    {shareinfoparam.aeurValue ? 
+    <td className="align-center">{shareinfoparam.aeurValue}</td> : ""}
+    {shareinfoparam.busdValue ?
+    <td className="align-center">{shareinfoparam.busdValue}</td> :""}
+    {shareinfoparam.bgbpValue ? 
+    <td className="align-center">{shareinfoparam.bgbpValue}</td> :""}
+    {shareinfoparam.beurValue ? 
+    <td className="align-center">{shareinfoparam.beurValue}</td>:""}
+    {shareinfoparam.cgbpValue ?
+    <td className="align-center">{shareinfoparam.cgbpValue}</td>:""}
+    {shareinfoparam.lastValue ?
+    <td className="align-center">{shareinfoparam.lastValue}</td>:""}
+  </tr>
+    )
+  }else if(index ==5){
+    return(
+   <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
+    <td className="align-left">{shareinfoparam.name}</td>
+    {shareinfoparam.ausdValue ?
+    <td className="align-center ISIN-font">{shareinfoparam.ausdValue}</td>:""}
+    {shareinfoparam.agbpValue ?
+    <td className="align-center ISIN-font">{shareinfoparam.agbpValue}</td> : ""}
+    {shareinfoparam.aeurValue ? 
+    <td className="align-center ISIN-font">{shareinfoparam.aeurValue}</td> : ""}
+    {shareinfoparam.busdValue ?
+    <td className="align-center ISIN-font">{shareinfoparam.busdValue}</td> :""}
+    {shareinfoparam.bgbpValue ? 
+    <td className="align-center ISIN-font">{shareinfoparam.bgbpValue}</td> :""}
+    {shareinfoparam.beurValue ? 
+    <td className="align-center ISIN-font">{shareinfoparam.beurValue}</td>:""}
+    {shareinfoparam.cgbpValue ?
+    <td className="align-center ISIN-font">{shareinfoparam.cgbpValue}</td>:""}
+    {shareinfoparam.lastValue ?
+    <td className="align-center ISIN-font">{shareinfoparam.lastValue}</td>:""}
+  </tr>
+    )
+  }
+  else{
+  return(
+    <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
+      <td className="align-left">{shareinfoparam.name}</td>
+    {shareinfoparam.ausdValue ?
+    <td className="align-center">{shareinfoparam.ausdValue}</td>:""}
+    {shareinfoparam.agbpValue ?
+    <td className="align-center">{shareinfoparam.agbpValue}</td> : ""}
+    {shareinfoparam.aeurValue ? 
+    <td className="align-center">{shareinfoparam.aeurValue}</td> : ""}
+    {shareinfoparam.busdValue ?
+    <td className="align-center">{shareinfoparam.busdValue}</td> :""}
+    {shareinfoparam.bgbpValue ? 
+    <td className="align-center">{shareinfoparam.bgbpValue}</td> :""}
+    {shareinfoparam.beurValue ? 
+    <td className="align-center">{shareinfoparam.beurValue}</td>:""}
+    {shareinfoparam.cgbpValue?
+    <td className="align-center">{shareinfoparam.cgbpValue}</td>:""}
+    {shareinfoparam.lastValue?
+    <td className="align-center">{shareinfoparam.lastValue}</td>:""}
     </tr>
   )}
 }
@@ -2574,7 +2711,17 @@ function renderShareClassNames(shareClass, index){
     )   
 }
 }
-function renderShareClassValue(shareClassValue, index){
+function renderShareClassAValue(shareClassValue, index){
+  if(index==0){
+    return(
+    <td className="align-left">{shareClassValue.value}</td>
+)}else{
+    return(
+        <td className="align-right">{shareClassValue.value}</td>
+    )
+}
+}
+function renderShareClassBValue(shareClassValue, index){
   if(index==0){
     return(
     <td className="align-left">{shareClassValue.value}</td>
@@ -3216,92 +3363,48 @@ function previewData(formData) {
                         <table class="table  Shares__Table-sc-1brks4f-0 hBbtmd">
                             <tbody class="Shares__Body-sc-1brks4f-1 hbWYKC">
                                 <tr class="Shares__Row-sc-1brks4f-2 hzpAKA hzpAKA_new">
+                                {/* {ShareClassarray.map(renderShareClassNames)} */}
+                                <th class="text-left">Share Class</th>
+                                <th class="text-center">Class A USD</th>
+                                <th class="text-center">Class A GBP </th>
+                                <th class="text-center">Class A SGD</th>
+                                <th class="text-center">Class A JPY</th>
+                                <th class="text-center">Class A EUR</th>
+                                <th class="text-center">Class A CHF</th>
+                                <th class="text-center">Class A CNH</th>
+                                <th class="text-center">Class A AUD</th>
+                                </tr>
+                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
+                                  {ShareClassAarray.map(renderShareClassAValue)}
+                                </tr>
+                                {CMSshareinfoarray.map(renderCMSshareinfo)}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" >
+                        <table class="table  Shares__Table-sc-1brks4f-0 hBbtmd">
+                            <tbody class="Shares__Body-sc-1brks4f-1 hbWYKC">
+                                <tr class="Shares__Row-sc-1brks4f-2 hzpAKA hzpAKA_new">
                                 
 
                                 {/* {ShareClassarray.map(renderShareClassNames)} */}
 
-                                    <th class="text-left">Share Class</th>
-                                    <th class="text-center">A USD</th>
-                                    <th class="text-center">A GBP</th>
-                                    <th class="text-center">A SGD</th>
-                                    <th class="text-center">A GBP</th>
-                                    <th class="text-center">A EUR</th>
-                                    <th class="text-center">B CNH</th>
-                                    <th class="text-center">B CHF</th>
-                                    <th class="text-center">B AUD</th>
-                                </tr>
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv"> */}
-
-                                {/* {ShareClassarray.map(renderShareClassValue)} */}
-
-                                    {/* <td>NAV per Share</td>
-                                    <td align="center" colspan="1">$995.86</td>
-                                    <td align="center" colspan="1">£964.27</td>
-                                    <td align="center" colspan="1">€820.02</td>
-                                    <td align="center" colspan="1">$1,063.31</td>
-                                    <td align="center" colspan="1">£795.17</td>
-                                    <td align="center" colspan="1">€773.23</td> */}
-                                {/* </tr> */}
-                                {CMSshareinfoarray.map(renderCMSshareinfo)}
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Minimum Additional Investment</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
+                                <th class="text-left">Share Class</th>
+                                <th class="text-center">Class B USD</th>
+                                <th class="text-center">Class B GBP </th>
+                                <th class="text-center">Class B SGD</th>
+                                <th class="text-center">Class B JPY</th>
+                                <th class="text-center">Class B EUR</th>
+                                <th class="text-center">Class B CHF</th>
+                                <th class="text-center">Class B CNH</th>
+                                <th class="text-center">Class B AUD</th>
                                 </tr>
                                 <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Ongoing Charge (as at 31 December 2020)</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.55%</td>
-                                    <td className="align-right">1.81%</td>
-                                    <td className="align-right">1.80%</td>
-
-                                 </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">ISIN</td>
-                                    <td className="align-right">IE00B86V3N61</td>
-                                    <td className="align-right">IE00B8NCXV05</td>
-                                    <td className="align-right">IE00B86JXG34</td>
-                                    <td className="align-right">IE00B8L77L59</td>
-                                    <td className="align-right">IE00B86KNN34</td>
-
+                                {ShareClassBarray.map(renderShareClassBValue)}
                                 </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Bloomberg Ticker</td>
-                                    <td className="align-right">EEADTAU ID</td>
-                                    <td className="align-right">EEADTAS ID</td>
-                                    <td className="align-right">GARFTAE ID</td>
-                                    <td className="align-right">EEADTBU ID</td>
-                                    <td className="align-right">EEADTBS ID</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Citi</td>
-                                    <td className="align-right">MD8G</td>
-                                    <td className="align-right">I2VK</td>
-                                    <td className="align-right">Q6OF</td>
-                                    <td className="align-right">I2VL</td>
-                                    <td className="align-right">MD8J</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">MEXID</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GAWXA</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GACMA</td>
-
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Open for new investment</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                </tr> */}
+                                {CMSshareinfoarrayB.map(renderCMSshareinfoB)}
                             </tbody>
                         </table>
                     </div>

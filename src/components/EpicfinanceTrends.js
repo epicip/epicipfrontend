@@ -930,12 +930,9 @@ const informationButton=()=>{
      if(obj.name == "A GBP" || obj.name=="B GBP"){
       obj[keysShareClass[2]] = "£";
     }else if(obj.name == "A EUR" || obj.name == "B EUR"){
-      
       obj[keysShareClass[2]] = "€";
-
     }else if(obj.name == "A USD" || obj.name == "B USD"){
       obj[keysShareClass[2]] = "$";
-
     }
      }
      shareClassData.push(obj)
