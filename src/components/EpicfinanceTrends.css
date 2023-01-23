@@ -123,7 +123,7 @@ h3{
     position: relative;
     color: #1a1549;
     padding: 15px 15px;
-    font-size: 17px;
+    font-size: 16.5px;
     line-height: 30px;
     text-decoration: none;
 }
@@ -133,7 +133,7 @@ h3{
     position: relative;
     color: #1a1549;
     padding: 10px 15px;
-    font-size: 17px;
+    font-size: 16.5px;
     line-height: 30px;
     text-decoration: none;
 }
@@ -144,16 +144,10 @@ h3{
 .pdf_download a:hover {
     background: #1a1549;
     color: #ffffff;
-    padding: 15px 15px;
-    font-size: 17px;
-    line-height: 30px;
 }
 .news_download a:hover {
     background: #1a1549;
     color: #ffffff;
-    padding: 15px 15px;
-    font-size: 17px;
-    line-height: 30px;
 }
 
 .pdf_download a:hover .date{
@@ -380,7 +374,7 @@ height: 25px;
     border-bottom: 1px solid rgb(183, 201, 211);
 }
 .eVXooJ td {
-    padding: 6px;
+    padding: 6.1px 6px;
     text-align: right;
     vertical-align: middle;
 }
@@ -434,7 +428,7 @@ height: 25px;
     border-right: 2px solid white;
 }
 .reg-div{
-    margin-top: 81px;
+    margin-top: 80px;
 }
 .top10-div{
     margin-top: 15px;
@@ -1095,9 +1089,8 @@ text-decoration: none;
     font-size: 13px;
     padding-top: 10px;
 }
-.offset-md-1{
+.offset-md-1 p{
     text-align: justify;
-
 }
 .tab-content{
     margin-right: 22px;}
@@ -1357,7 +1350,7 @@ h3{
 }
 
 .chart-block-derivatives_new {
-    height: 341px !important;
+    height: 337px !important;
 }
 .display-none{
     display: none!important;
