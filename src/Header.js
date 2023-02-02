@@ -117,6 +117,18 @@ const Header = () => {
   const [HeaderServiceURL6a, setHeaderServiceURL6a] = useState([]);
   const [HeaderServiceURL6b, setHeaderServiceURL6b] = useState([]);
 
+  const [HeaderService6c, setHeaderService6c] = useState([]); 
+  const [HeaderServiceURL6c, setHeaderServiceURL6c] = useState([]); 
+
+  const [HeaderService6d, setHeaderService6d] = useState([]); 
+  const [HeaderServiceURL6d, setHeaderServiceURL6d] = useState([]); 
+
+  const [HeaderService6e, setHeaderService6e] = useState([]); 
+  const [HeaderServiceURL6e, setHeaderServiceURL6e] = useState([]);
+
+  const [HeaderService6f, setHeaderService6f] = useState([]); 
+  const [HeaderServiceURL6f, setHeaderServiceURL6f] = useState([]);
+
   const [arrHeaderState,setarrHeaderState]= useState([]);
 
   const ArrHeaderResponse =[]
@@ -178,24 +190,24 @@ const Header = () => {
           obj[allKeys[2]] = HeaderName[i].name ;
           obj[allKeys[3]] = ServiceName[j].url ;
 
-          var HeaderService1a = ServiceName[7].name;
-          var HeaderServiceURL1a = ServiceName[7].url
-          var HeaderService1b = ServiceName[8].name;
-          var HeaderServiceURL1b = ServiceName[8].url 
-          var HeaderService1c = ServiceName[9].name;
-          var HeaderServiceURL1c = ServiceName[9].url
+          var HeaderService1a = ServiceName[6].name;
+          var HeaderServiceURL1a = ServiceName[6].url
+         // var HeaderService1b = ServiceName[8].name;
+         // var HeaderServiceURL1b = ServiceName[8].url 
+          var HeaderService1c = ServiceName[8].name;
+          var HeaderServiceURL1c = ServiceName[8].url
          
-          var HeaderService1d = ServiceName[10].name;
-          var HeaderServiceURL1d = ServiceName[10].url
+          var HeaderService1d = ServiceName[9].name;
+          var HeaderServiceURL1d = ServiceName[9].url
          
-          var HeaderService2a = ServiceName[11].name;
-          var HeaderServiceURL2a = ServiceName[11].url
+          var HeaderService2a = ServiceName[10].name;
+          var HeaderServiceURL2a = ServiceName[10].url
 
-          var HeaderService2b = ServiceName[12].name;
-          var HeaderServiceURL2b = ServiceName[12].url
+          var HeaderService2b = ServiceName[11].name;
+          var HeaderServiceURL2b = ServiceName[11].url
          
-          var HeaderService2c = ServiceName[13].name;
-          var HeaderServiceURL2c = ServiceName[13].url
+          var HeaderService2c = ServiceName[12].name;
+          var HeaderServiceURL2c = ServiceName[12].url
          
           var HeaderService3a = ServiceName[0].name;
           var HeaderServiceURL3a = ServiceName[0].url
@@ -206,17 +218,17 @@ const Header = () => {
           var HeaderService3c = ServiceName[2].name;
           var HeaderServiceURL3c = ServiceName[2].url
 
-          var HeaderService3d = ServiceName[4].name;
-          var HeaderServiceURL3d = ServiceName[4].url
+          var HeaderService3d = ServiceName[3].name;
+          var HeaderServiceURL3d = ServiceName[3].url
 
-          var HeaderService3e = ServiceName[5].name;
-          var HeaderServiceURL3e = ServiceName[5].url
+          var HeaderService3e = ServiceName[4].name;
+          var HeaderServiceURL3e = ServiceName[4].url
 
-          var HeaderService4a = ServiceName[14].name;
-          var HeaderServiceURL4a = ServiceName[14].url
+          var HeaderService4a = ServiceName[13].name;
+          var HeaderServiceURL4a = ServiceName[13].url
 
-          var HeaderService4b = ServiceName[15].name;
-          var HeaderServiceURL4b = ServiceName[15].url
+          var HeaderService4b = ServiceName[14].name;
+          var HeaderServiceURL4b = ServiceName[14].url
 
           var HeaderService5a = ServiceName[16].name;
           var HeaderServiceURL5a = ServiceName[16].url
@@ -233,11 +245,23 @@ const Header = () => {
           var HeaderService5e = ServiceName[20].name;
           var HeaderServiceURL5e = ServiceName[20].url
 
-          var HeaderService6a = ServiceName[3].name;
-          var HeaderServiceURL6a = ServiceName[3].url
+          var HeaderService6a = ServiceName[20].name;
+          var HeaderServiceURL6a = ServiceName[20].url
 
           var HeaderService6b = ServiceName[21].name;
           var HeaderServiceURL6b = ServiceName[21].url
+
+          var HeaderService6c = ServiceName[22].name;
+          var HeaderServiceURL6c = ServiceName[22].url
+
+          var HeaderService6d = ServiceName[23].name;
+          var HeaderServiceURL6d = ServiceName[23].url
+
+          var HeaderService6e = ServiceName[24].name;
+          var HeaderServiceURL6e = ServiceName[24].url
+
+          var HeaderService6f = ServiceName[25].name;
+          var HeaderServiceURL6f = ServiceName[25].url
           
         }
       }
@@ -313,6 +337,18 @@ const Header = () => {
 
   setHeaderService6b(HeaderService6b);
   setHeaderServiceURL6b(HeaderServiceURL6b)
+
+  setHeaderService6c(HeaderService6c);
+  setHeaderServiceURL6c(HeaderServiceURL6c)
+
+  setHeaderService6d(HeaderService6d);
+  setHeaderServiceURL6d(HeaderServiceURL6d)
+
+  setHeaderService6e(HeaderService6e);
+  setHeaderServiceURL6e(HeaderServiceURL6e)
+
+  setHeaderService6f(HeaderService6f);
+  setHeaderServiceURL6f(HeaderServiceURL6f)
 
 
   setDomainUrl(window.location.origin);
@@ -419,8 +455,8 @@ const Header = () => {
   });  
   async function fetchMyServiceAPI(){
 
-    const url =window.location.origin+'/service_api';
-   // const url ='https://www.epicip.com/service_api';
+   // const url =window.location.origin+'/service_api';
+    const url ='https://www.epicip.com/service_api';
     const localurl ="https://epicipprojects.com/service_api";
     
      fetch(url).then(resp=> resp.json())
@@ -435,7 +471,9 @@ const Header = () => {
   };
   async function fetchMyAPI(){
 
-      const url =window.location.origin+'/division_api';
+     // const url =window.location.origin+'/division_api';
+    // const url ="https://epicipprojects.com/epicip/division_api";
+      const url ="https://www.epicip.com/division_api";
       const localurl ="https://epicipprojects.com/division_api";
       
        fetch(url).then(resp=> resp.json())
@@ -660,7 +698,11 @@ const Header = () => {
             <div className="dropdown-menu right" aria-labelledby="about"> 
             {/* <a className="dropdown-item" href="#">History</a>  */}
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6a}>{HeaderService6a}</a>
-            <a className="dropdown-item" href={window.location.origin+"/people"}>{HeaderService6b}</a>
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6b}>{HeaderService6b}</a>
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6c}>{HeaderService6c}</a>
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6d}>{HeaderService6d}</a>
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6e}>{HeaderService6e}</a>
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6f}>{HeaderService6f}</a>
             {/* <a className="dropdown-item" href="why-join-us.php">Why Join Us</a> */}
             </div>
           </li>:""}

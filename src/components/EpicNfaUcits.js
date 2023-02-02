@@ -2475,7 +2475,7 @@ if ($(".accordion__item__header").length > 0) {
   });
   }
   function renderDailyPrices(DailyPrice, index){
-    if(DailyPrice.Price !== 0 && DailyPrice.fundName == "Stratton Street UCITS - NFA Gl.Bd.Fd. "){
+    if(DailyPrice.Price !== 0){
     return(
       <div class="DailyPricing__DailyPriceCard-sc-62f3gi-1 coIgZR">
         <div class="DailyPricing__DailyPrice-sc-62f3gi-2 gsZde">{DailyPrice.symbol}{DailyPrice.Price}</div>
