@@ -183,8 +183,11 @@ const VARdata = [
   };
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
-  
-    return <span style={{ color:"#1a1549" }}>{value}</span>;
+    if(entry.payload.value != undefined){
+        return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+    }else{
+      return <span style={{ color:"#1a1549" }}>{value}</span>;
+    }
   };
   const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
 
@@ -785,7 +788,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value"]
-  var length = AssetAllocation.length-1
+  var length = AssetAllocation.length
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -3080,13 +3083,14 @@ function previewData(formData) {
                 cx={120}
                 cy={200}
                 innerRadius={45}
-                outerRadius={95}
+                outerRadius={90}
                 // fill="#0c2340"
-                paddingAngle={2}
+                paddingAngle={0}
+                startAngle={120}
+                endAngle={-360}
                 labelLine={false}
                 dataKey="value"
                 label={renderCustomizedLabel}
-
               >
                 {data.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
