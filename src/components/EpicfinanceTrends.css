@@ -184,7 +184,7 @@ height: 25px;
 
 .lse_redirect1{
     color:#1a1542;
-    text-align: center;
+    text-align: center !important;
     font-size: 11px;
 }
 

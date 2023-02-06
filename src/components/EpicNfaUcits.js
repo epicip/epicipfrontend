@@ -197,7 +197,8 @@ const VARdata = [
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
   
-    return <span style={{ color:"#1a1549" }}>{value}</span>;
+    //return <span style={{ color:"#1a1549" }}>{value}</span>;
+    return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(2)+'%'}</span>;
   };
 
 
@@ -794,7 +795,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value","a","b"]
-  var length =AssetAllocation.length -1;
+  var length =AssetAllocation.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -1839,7 +1840,7 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
   const Localurl = 'https://www.epicip.com/epic-nfa-ucits'
   const url = window.location.origin+'/epic-nfa-ucits' 
-  //const url = 'http://127.0.0.1:8000/epic-nfa-ucits' 
+  //const url = 'https://www.epicip.com/epic-nfa-ucits' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
