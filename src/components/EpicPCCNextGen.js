@@ -191,8 +191,11 @@ const VARdata = [
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
-  
-    return <span style={{ color:"#1a1549" }}>{value}</span>;
+    if(entry.payload.value != undefined){
+      return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+    }else{
+      return <span style={{ color:"#1a1549" }}>{value}</span>;
+    }
   };
 
 
@@ -1118,50 +1121,53 @@ const performanceButton=()=>{
   const Top3contriData = []
   const InceptionDataArray =[]
   // const TwelvemonPerfData = []
-//   var monthsArr=[];
+   var monthsArr=[];
 
 
 
 
 
-//   console.log(productsMonthlyPerf)
-//   console.log("productsMonthlyPerf")
+  console.log(productsMonthlyPerf)
+  console.log("productsMonthlyPerf")
 
-//   for(let i= 7; i<=21;i++ ){
-//     monthsArr.push(productsMonthlyPerf[3][i])
-//   }
-//   console.log("months")
-//   console.log(monthsArr)
+  for(let i= 7; i<=21;i++ ){
+    monthsArr.push(productsMonthlyPerf[3][i])
+  }
+  console.log("months")
+  console.log(monthsArr)
 
-//   var arr2D=[];
-//   for(let i=4 ;i<=13;i++){
-//     let arr=[]
-//     for(let j=8 ;j<=21;j++){
-//      let val = productsMonthlyPerf[i][j]*100;
+  var arr2D=[];
+  for(let i=4 ;i<=10;i++){
+    let arr=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerf[i][j]*100;
      
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
-//      console.log(rounded);
-//       arr.push(rounded)
+     console.log(rounded);
+      arr.push(rounded +'%')
      
       
-//       // arr.push(productsMonthlyPerf[i][j])
-//     }
-//     arr2D.push(arr);
-//   }
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2D.push(arr);
+  }
 
-// for(let i =0;i<arr2D.length;i++){
-// for(let j =0 ; j< arr2D[0].length;j++){
+for(let i =0;i<arr2D.length;i++){
+for(let j =0 ; j< arr2D[0].length;j++){
 
-//   // console.log(arr2D[1][j])
+  // console.log(arr2D[1][j])
 
-//   console.log(arr2D[i][j])
-// }
-// console.log("--------------------------------------------------------------------")
-// }
+  if(arr2D[i][j]==0+'%'){
+    console.log(arr2D[i][j])
+      arr2D[i][j] = "0.00%"
+  }
+}
+console.log("--------------------------------------------------------------------")
+}
 
-// console.log(arr2D);
-// console.log("arr2D");
+console.log(arr2D);
+console.log("arr2D");
 
 
 
@@ -1746,8 +1752,8 @@ const performanceButton=()=>{
   
 
   // setcummulatovePerfBData(CummulativeperformanceBData)
-//   setmonthlyPerformance2DArrayState(arr2D)
-//   setmonthsArrayState(monthsArr)
+   setmonthlyPerformance2DArrayState(arr2D)
+   setmonthsArrayState(monthsArr)
 //   setCummulativeperfeBEURData(CummulativeperformanceBEURData)
   
 //   setCummulativeperfC(CummulativeperformanceCData)
@@ -1945,7 +1951,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-nfa-ucits'
   const Localurl = 'https://www.epicip.com/epic-next-gen-pcc'
-  const url = window.location.origin+'/epic-next-gen-pcc' 
+  //const url = window.location.origin+'/epic-next-gen-pcc' 
+  const url = 'https://www.epicip.com/epic-next-gen-pcc'
   //const url = 'http://127.0.0.1:8000/epic-next-gen-pcc'
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -2002,7 +2009,8 @@ async function fetchMyAPI(){
     setproductsFundinfo(resp.Fundinfo)
     setproductsShareClass(resp.Fundprice)
    
-    setproductsMonthlyPerf(resp.MonthlyPerf)
+    //setproductsMonthlyPerf(resp.MonthlyPerf)
+    setproductsMonthlyPerf(resp.Inceptionperfdata)
     // setLoading(true)
     setRespPrtu(resp.Prtu)
     setPRTU(resp.daily_price)
@@ -3350,7 +3358,23 @@ function previewData(formData) {
                                 </tbody>
                             </table>
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                            Monthly Performance – Class GBP Acc.</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+
+                                        {monthsArrayState.map(renderMonthNames)}
+
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}

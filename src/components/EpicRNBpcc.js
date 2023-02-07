@@ -189,6 +189,15 @@ const VARdata = [
   
   const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#B85876"]
 
+  const renderColorfulLegendText = (value, entry) => {
+    const { color } = entry;
+    if(entry.payload.value != undefined){
+      return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+    }else{
+      return <span style={{ color:"#1a1549" }}>{value}</span>;
+    }
+  };
+
 const EpicipRNBpccFunction = () => {
 
 
@@ -845,7 +854,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value"]
-  var length = AssetAllocation.length-1
+  var length = AssetAllocation.length
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -1264,50 +1273,54 @@ const performanceButton=()=>{
   const Top3contriData = []
   const InceptionDataArray =[]
   // const TwelvemonPerfData = []
-//   var monthsArr=[];
+   var monthsArr=[];
 
 
 
 
 
-//   console.log(productsMonthlyPerf)
-//   console.log("productsMonthlyPerf")
+  console.log(productsMonthlyPerf)
+  console.log("productsMonthlyPerf")
 
-//   for(let i= 7; i<=21;i++ ){
-//     monthsArr.push(productsMonthlyPerf[3][i])
-//   }
-//   console.log("months")
-//   console.log(monthsArr)
+  for(let i= 7; i<=21;i++ ){
+    monthsArr.push(productsMonthlyPerf[3][i])
+  }
+  console.log("months")
+  console.log(monthsArr)
 
-//   var arr2D=[];
-//   for(let i=4 ;i<=13;i++){
-//     let arr=[]
-//     for(let j=8 ;j<=21;j++){
-//      let val = productsMonthlyPerf[i][j]*100;
+  var arr2D=[];
+  for(let i=4 ;i<=19;i++){
+    let arr=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerf[i][j]*100;
      
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
-//      console.log(rounded);
-//       arr.push(rounded)
+     console.log(rounded);
+      arr.push(rounded +'%')
      
       
-//       // arr.push(productsMonthlyPerf[i][j])
-//     }
-//     arr2D.push(arr);
-//   }
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2D.push(arr);
+  }
 
-// for(let i =0;i<arr2D.length;i++){
-// for(let j =0 ; j< arr2D[0].length;j++){
+for(let i =0;i<arr2D.length;i++){
+for(let j =0 ; j< arr2D[0].length;j++){
 
-//   // console.log(arr2D[1][j])
+  // console.log(arr2D[1][j])
 
-//   console.log(arr2D[i][j])
-// }
-// console.log("--------------------------------------------------------------------")
-// }
+  console.log(arr2D[i][j])
+  if(arr2D[i][j]==0+'%'){
+    console.log(arr2D[i][j])
+      arr2D[i][j] = "0.00%"
+  }
+}
+console.log("--------------------------------------------------------------------")
+}
 
-// console.log(arr2D);
-// console.log("arr2D");
+console.log(arr2D);
+console.log("arr2D");
 
 
 
@@ -1382,11 +1395,13 @@ const performanceButton=()=>{
   var keysCummulativePer = ["name", "value"]
 // const [productscommulativePerformanceQAUSD, setproductscommulativePerformanceQAUSD] = useState([]);
   
-   for(let i=0 ; i< productscommulativePerformanceQAUSD.length ;i++){
+  //  for(let i=0 ; i< productscommulativePerformanceQAUSD.length ;i++){
+    for(let i=0 ; i<= 6 ;i++){
     // typeof(products[i][j])
     
     let obj={};
-    for(let j =0 ;j< productscommulativePerformanceQAUSD[i].length ;j++){
+    // for(let j =0 ;j< productscommulativePerformanceQAUSD[i].length ;j++){
+      for(let j =0 ;j<= 6 ;j++){
 
       if(!isNaN(productscommulativePerformanceQAUSD[i][j])){
       let val = productscommulativePerformanceQAUSD[i][j]*100;
@@ -1922,8 +1937,8 @@ const performanceButton=()=>{
   
 
   // setcummulatovePerfBData(CummulativeperformanceBData)
-//   setmonthlyPerformance2DArrayState(arr2D)
-//   setmonthsArrayState(monthsArr)
+   setmonthlyPerformance2DArrayState(arr2D)
+   setmonthsArrayState(monthsArr)
 //   setCummulativeperfeBEURData(CummulativeperformanceBEURData)
   
 //   setCummulativeperfC(CummulativeperformanceCData)
@@ -2218,7 +2233,7 @@ async function fetchMyAPI(){
     setproductsFundinfo(resp.FundInfo)
     setproductsShareClassA(resp.FundPricesClassA)
     setproductsShareClassB(resp.FundPricesClassB)
-    setproductsMonthlyPerf(resp.MonthlyPerf)
+    setproductsMonthlyPerf(resp.Monthlyperf)
     setRespPrtu(resp.Prtu)
     setPRTU(resp.daily_price)
     setLiterature(resp.literature)
@@ -2992,9 +3007,11 @@ function previewData(formData) {
                 cx={120}
                 cy={200}
                 innerRadius={45}
-                outerRadius={95}
+                outerRadius={90}
                 // fill="#0c2340"
-                paddingAngle={2}
+                paddingAngle={0}
+                startAngle={120}
+                endAngle={-360}
                 labelLine={false}
 
                 dataKey="value"
@@ -3008,7 +3025,8 @@ function previewData(formData) {
               <Tooltip />
               {/* <Legend /> */}
               
-              <Legend margin={ {top:-500, left: -150} } className="legend-text"  iconSize={10} width={300} height={50} layout='vertical' />
+              {/* <Legend margin={ {top:-500, left: -150} } className="legend-text"  iconSize={10} width={300} height={50} layout='vertical' /> */}
+              <Legend margin={ {top:-500, left: -150} } className="legend-text" formatter={renderColorfulLegendText}  iconSize={10} width={300} height={50} layout='vertical' />
             </PieChart>
             
           
@@ -3244,8 +3262,7 @@ function previewData(formData) {
 
                 <div class="mb-2 row">
                     <div class="col" >
-                        <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
-                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                        <table class="table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV ">
                                     <tr class="dwdfBh_new_per">
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
@@ -3259,8 +3276,28 @@ function previewData(formData) {
                                     
                                 </tbody>
                             </table>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <div class="col" >
+                        <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0  hRUkzz hRUkzz_dfm_new">
+                        <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                        Monthly Performance – Class A USD</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                        {monthsArrayState.map(renderMonthNames)}
+
+
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}
