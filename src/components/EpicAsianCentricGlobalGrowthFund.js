@@ -722,7 +722,7 @@ const portfolioButton=()=>{
 
 
   var keysMarketCap = ["name", "value"]
-  var length= productsmarketCap.length-1
+  var length= productsmarketCap.length
   
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
@@ -799,7 +799,7 @@ const portfolioButton=()=>{
 
   var keysRegionBreakdown = ["name", "value"]
   
-  for(let i=1 ; i< 10 ;i++){
+  for(let i=1 ; i< 9 ;i++){
    // typeof(products[i][j])
    
    let obj={};
@@ -2115,8 +2115,12 @@ function renderLiteratureData(data, index){
 }
 const renderColorfulLegendText = (value, entry) => {
   const { color } = entry;
-
-  return <span style={{ color:"#1a1549" }}>{value}</span>;
+  if(entry.payload.value != undefined){
+    return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+  }else{
+    return <span className="legend-span">{value}</span>;
+  }
+  //return <span style={{ color:"#1a1549" }}>{value}</span>;
 };
 
 function renderTop10Holding(holding, index) {

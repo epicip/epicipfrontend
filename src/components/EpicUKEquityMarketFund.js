@@ -183,8 +183,12 @@ const VARdata = [
   const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#B85876"]
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
-  
-    return <span style={{ color:"#1a1549" }}>{value}</span>;
+    if(entry.payload.value != undefined){
+      return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+    }else{
+      return <span style={{ color:"#1a1549" }}>{value}</span>;
+    }
+    //return <span style={{ color:"#1a1549" }}>{value}</span>;
   };
 
   // const DONUTCOLORS = [ "#0095c8","#ff9933","#7030a0","#ffc000","#1a2352","#99103b","blue","green","red", "yellow", "orange"];
@@ -676,7 +680,7 @@ const portfolioButton=()=>{
 
 
   var keysMarketCap = ["name", "value"]
-var length =   productsmarketCap.length-1;
+var length =   productsmarketCap.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     

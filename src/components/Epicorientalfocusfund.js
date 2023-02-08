@@ -203,8 +203,11 @@ if(value > 5){
   
 const renderColorfulLegendText = (value, entry) => {
   const { color } = entry;
-
-  return <span className="legend-span">{value}</span>;
+  if(entry.payload.value != undefined){
+    return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+  }else{
+    return <span className="legend-span">{value}</span>;
+  }
 };
   // const DONUTCOLORS = [ "#b7c9d3","#7030a0","#00C49F", "#FFBB28", "#FF8042"];
   const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
@@ -757,7 +760,7 @@ const portfolioButton=()=>{
   }
   
   var keysMarktGraph = ["name", "value","addon"]
-    var length = productsMarketgraph.length - 1;
+    var length = productsMarketgraph.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -1899,7 +1902,7 @@ function previewData(formData) {
           <p class="lse_redirect">Sector Breakdown (% NAV)</p>
             
                 
-            <PieChart width={300} height={350} margin ={ {top: -60, right: 50, bottom: 5, left:-10 } } >
+            <PieChart width={290} height={350} margin ={ {top: -60, right: 50, bottom: 5, left:-20 } } >
               <Pie
                 data={graphData}
                 cx={120}
@@ -1961,7 +1964,7 @@ function previewData(formData) {
         <div class="row chart-row">
           <div class="col-md-6 SECmargin chart-block"> 
 
-          <p class="lse_redirect">Regional Breakdown (% NAV)</p>
+          <p class="lse_redirect">Market Cap Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
                 

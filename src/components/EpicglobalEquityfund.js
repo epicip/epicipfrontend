@@ -186,8 +186,11 @@ const VARdata = [
   ];
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
-  
-    return <span style={{ color:"#1a1549" }}>{value}</span>;
+    if(entry.payload.value != undefined){
+      return <span className="legend-span">{value+' '+(entry.payload.payload.value).toFixed(2)+'%'}</span>;
+    }else{
+      return <span style={{ color:"#1a1549" }}>{value}</span>;
+    }
   };
     // const DONUTCOLORS = [ "#b7c9d3","#7030a0","#00C49F", "#FFBB28", "#FF8042"];
     const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
@@ -413,7 +416,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value"]
-var length = productRegional.length -1
+var length = productRegional.length
 
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
@@ -426,7 +429,10 @@ var length = productRegional.length -1
       
       // var numb= 212421434.533423131231;
       var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
-
+      rounded1 = parseFloat(rounded1).toFixed(2);
+      if(rounded1 ==0.00){
+        rounded1 = 0;
+     }
       console.log(rounded1);
       obj[keysVAR[j]] = rounded1*100 ;
 
@@ -439,7 +445,7 @@ var length = productRegional.length -1
         obj[keysVAR[j]] = productRegional[i][j] ;
       }     
     // }
-      } 
+      }
       if(obj.value !==0){
         graphDataResponse1.push(obj)
 
@@ -495,12 +501,13 @@ console.log("graphDataResponse1")
 
 
   var keysMarketCap = ["name", "value"]
-    var length = productsmarketCap.length-1;
+    var length = productsmarketCap.length-2;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
     let obj={};
-    for(let j =0 ;j< productsmarketCap[i].length ;j++){
+    // for(let j =0 ;j< productsmarketCap[i].length ;j++){
+      for(let j =0 ;j< productsmarketCap[i].length ;j++){
 
       if(!isNaN(productsmarketCap[i][j])){
       let val = productsmarketCap[i][j]*100;
@@ -535,7 +542,7 @@ console.log("graphDataResponse1")
 
 
   var keysSectorBreakdown = ["name", "value"]
-  var length = productSectorBreakdown.length-1;
+  var length = productSectorBreakdown.length;
   for(let i=1 ; i< length ;i++){
    // typeof(products[i][j])
    
@@ -1062,7 +1069,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrB2D=[];
-for(let i=4 ;i<=7;i++){
+for(let i=4 ;i<=8;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfB[i][j]*100;
@@ -1117,7 +1124,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrC2D=[];
-for(let i=4 ;i<=6;i++){
+for(let i=4 ;i<=7;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfC[i][j]*100;
@@ -1174,7 +1181,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrD2D=[];
-for(let i=4 ;i<=6;i++){
+for(let i=4 ;i<=7;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfBEUR[i][j]*100;
