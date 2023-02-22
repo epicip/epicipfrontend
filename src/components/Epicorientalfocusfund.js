@@ -890,7 +890,7 @@ console.log(productsMonthlyPerf);
 console.log("productsMonthlyPerf");
 
   var arr2D=[];
-  for(let i=4 ;i<=22;i++){
+  for(let i=4 ;i<=23;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;

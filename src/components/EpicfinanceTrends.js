@@ -185,6 +185,12 @@ const [CMSshareinfo, setCMSshareinfo] = useState([]);
 
 const [productsShareClass, setproductsShareClass] = useState([]);
 const [productsMonthlyPerf, setproductsMonthlyPerf] = useState([]);
+const [productsMonthlyPerfUSD, setproductsMonthlyPerfUSD] = useState([]);
+const [productsMonthlyPerfUSDB, setproductsMonthlyPerfUSDB] = useState([]);
+const [productsMonthlyPerfAEUR, setproductsMonthlyPerfAEUR] = useState([]);
+const [productsMonthlyPerfBEUR, setproductsMonthlyPerfBEUR] = useState([]);
+const [productsMonthlyPerfAGBP, setproductsMonthlyPerfAGBP] = useState([]);
+
 const [portfolioStatus, setportfolioStatus] = useState(false);
 const [performanceStatus1, setperformanceStatus1] = useState(false);
 
@@ -204,7 +210,21 @@ const[CMSshareinfoarray,setCMSshareinfoarray]= useState([]);
 const[ShareClassarray,setShareClassarray]= useState([]);
 
 const[monthsArrayState,setmonthsArrayState]= useState([]);
+const[monthsArrayStateUSD,setmonthsArrayStateUSD]= useState([]);
+const[monthsArrayStateUSDB,setmonthsArrayStateUSDB]= useState([]);
+const[monthsArrayStateAEUR,setmonthsArrayStateAEUR]= useState([]);
+const[monthsArrayStateBEUR,setmonthsArrayStateBEUR]= useState([]);
+const[monthsArrayStateAGBP,setmonthsArrayStateAGBP]= useState([]);
+
 const[monthlyPerformance2DArrayState,setmonthlyPerformance2DArrayState]= useState([]);
+const[monthlyPerformance2DArrayStateUSD,setmonthlyPerformance2DArrayStateUSD]= useState([]);
+const[monthlyPerformance2DArrayStateUSDB,setmonthlyPerformance2DArrayStateUSDB]= useState([]);
+const[monthlyPerformance2DArrayStateAEUR,setmonthlyPerformance2DArrayStateAEUR]= useState([]);
+const[monthlyPerformance2DArrayStateBEUR,setmonthlyPerformance2DArrayStateBEUR]= useState([]);
+const[monthlyPerformance2DArrayStateAGBP,setmonthlyPerformance2DArrayStateAGBP]= useState([]);
+
+
+
 
 
 const [RespPrtu, setRespPrtu] = useState([]);
@@ -840,7 +860,7 @@ var monthsArr=[];
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=14;i++){
+  for(let i=4 ;i<=15;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -887,10 +907,279 @@ console.log("arr2D");
   setbot3contriarray(Bot3contriData)
   setmonthsArrayState(monthsArr)
   setmonthlyPerformance2DArrayState(arr2D)
+
+
+
+  var monthsArrUSD=[];
+  console.log(productsMonthlyPerfUSD)
+  console.log("productsMonthlyPerfUSD")
+
+  for(let i= 7; i<=21;i++ ){
+    monthsArrUSD.push(productsMonthlyPerfUSD[3][i])
+  }
+  console.log("months")
+  console.log(monthsArrUSD)
+
+  var arr2DUSD=[];
+  for(let i=4 ;i<=15;i++){
+    let arr=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerfUSD[i][j]*100;
+     
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
+     console.log(rounded);
+     if(isNaN(rounded)){
+      rounded = 0;
+      console.log("rounded--------------------------rounded")
+
+      console.log(rounded)
+
+     }
+      arr.push(rounded+'%')
+     
+      
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2DUSD.push(arr);
+  }
+
+for(let i =0;i<arr2DUSD.length;i++){
+for(let j =0 ; j< arr2DUSD[0].length;j++){
+
+  // console.log(arr2D[1][j])
+if(arr2DUSD[i][j]==0+'%'){
+  console.log(arr2DUSD[i][j])
+  arr2DUSD[i][j] = "0.00%"
+}
+}
+console.log("--------------------------------------------------------------------")
+}
+  setmonthsArrayStateUSD(monthsArrUSD)
+  setmonthlyPerformance2DArrayStateUSD(arr2DUSD)
   
 
 
 
+  var monthsArrAEUR=[];
+  console.log(productsMonthlyPerfAEUR)
+  console.log("productsMonthlyPerfAEUR")
+
+  for(let i= 7; i<=21;i++ ){
+    monthsArrAEUR.push(productsMonthlyPerfAEUR[3][i])
+  }
+  console.log("months")
+  console.log(monthsArrAEUR)
+
+  var arr2DAEUR=[];
+  for(let i=4 ;i<=10;i++){
+    let arrAEUR=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerfAEUR[i][j]*100;
+     
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
+     console.log(rounded);
+     if(isNaN(rounded)){
+      rounded = 0;
+      console.log("rounded--------------------------rounded")
+
+      console.log(rounded)
+
+     }
+     arrAEUR.push(rounded+'%')
+     
+      
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2DAEUR.push(arrAEUR);
+  }
+
+for(let i =0;i<arr2DAEUR.length;i++){
+for(let j =0 ; j< arr2DAEUR[0].length;j++){
+
+  // console.log(arr2D[1][j])
+if(arr2DAEUR[i][j]==0+'%'){
+  console.log(arr2DAEUR[i][j])
+  arr2DAEUR[i][j] = "0.00%"
+}
+}
+console.log("--------------------------------------------------------------------")
+}
+  
+  setmonthsArrayStateAEUR(monthsArrAEUR)
+  setmonthlyPerformance2DArrayStateAEUR(arr2DAEUR)
+
+
+
+
+
+  var monthsArrUSDB=[];
+  console.log(productsMonthlyPerfUSDB)
+  console.log("productsMonthlyPerfUSDB")
+
+  for(let i= 7; i<=21;i++ ){
+    monthsArrUSDB.push(productsMonthlyPerfUSDB[3][i])
+  }
+  console.log("months")
+  console.log(monthsArrUSDB)
+
+  var arr2DUSDB=[];
+  for(let i=4 ;i<=15;i++){
+    let arrB=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerfUSDB[i][j]*100;
+     
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
+     console.log(rounded);
+     if(isNaN(rounded)){
+      rounded = 0;
+      console.log("rounded--------------------------rounded")
+
+      console.log(rounded)
+
+     }
+     arrB.push(rounded+'%')
+     
+      
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2DUSDB.push(arrB);
+  }
+
+for(let i =0;i<arr2DUSDB.length;i++){
+for(let j =0 ; j< arr2DUSDB[0].length;j++){
+
+  // console.log(arr2D[1][j])
+if(arr2DUSDB[i][j]==0+'%'){
+  console.log(arr2DUSDB[i][j])
+  arr2DUSDB[i][j] = "0.00%"
+}
+}
+console.log("--------------------------------------------------------------------")
+}
+  setmonthsArrayStateUSD(monthsArrUSDB)
+  setmonthlyPerformance2DArrayStateUSDB(arr2DUSDB)
+  
+
+
+
+  var monthsArrBEUR=[];
+  console.log(productsMonthlyPerfBEUR)
+  console.log("productsMonthlyPerfBEUR")
+
+  for(let i= 7; i<=21;i++ ){
+    monthsArrBEUR.push(productsMonthlyPerfBEUR[3][i])
+  }
+  console.log("months")
+  console.log(monthsArrBEUR)
+
+  var arr2DBEUR=[];
+  for(let i=4 ;i<=10;i++){
+    let arrBEUR=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerfBEUR[i][j]*100;
+     
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
+     console.log(rounded);
+     if(isNaN(rounded)){
+      rounded = 0;
+      console.log("rounded--------------------------rounded")
+
+      console.log(rounded)
+
+     }
+     arrBEUR.push(rounded+'%')
+     
+      
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2DBEUR.push(arrBEUR);
+  }
+
+for(let i =0;i<arr2DBEUR.length;i++){
+for(let j =0 ; j< arr2DBEUR[0].length;j++){
+
+  // console.log(arr2D[1][j])
+if(arr2DBEUR[i][j]==0+'%'){
+  console.log(arr2DBEUR[i][j])
+  arr2DBEUR[i][j] = "0.00%"
+}
+}
+console.log("--------------------------------------------------------------------")
+}
+  
+  setmonthsArrayStateBEUR(monthsArrBEUR)
+  setmonthlyPerformance2DArrayStateBEUR(arr2DBEUR)
+
+
+
+
+  var monthsArrAGBP=[];
+  console.log(productsMonthlyPerfAGBP)
+  console.log("productsMonthlyPerfAGBP")
+
+  for(let i= 7; i<=21;i++ ){
+    monthsArrAGBP.push(productsMonthlyPerfAGBP[3][i])
+  }
+  console.log("months")
+  console.log(monthsArrAGBP)
+
+  var arr2DAGBP=[];
+  for(let i=4 ;i<=15;i++){
+    let arrBEUR=[]
+    for(let j=8 ;j<=21;j++){
+     let val = productsMonthlyPerfAGBP[i][j]*100;
+     
+     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+     rounded = parseFloat(rounded).toFixed(2);
+     if(rounded ==0.00){
+      rounded = 0;
+    }
+     console.log(rounded);
+     if(isNaN(rounded)){
+      rounded = 0;
+      console.log("rounded--------------------------rounded")
+
+      console.log(rounded)
+
+     }
+     arrBEUR.push(rounded+'%')
+     
+      
+      // arr.push(productsMonthlyPerf[i][j])
+    }
+    arr2DAGBP.push(arrBEUR);
+  }
+
+for(let i =0;i<arr2DAGBP.length;i++){
+for(let j =0 ; j< arr2DAGBP[0].length;j++){
+
+  // console.log(arr2D[1][j])
+if(arr2DAGBP[i][j]==0+'%'){
+  console.log(arr2DAGBP[i][j])
+  arr2DAGBP[i][j] = "0.00%"
+}
+}
+console.log("--------------------------------------------------------------------")
+}
+  
+  setmonthsArrayStateAGBP(monthsArrAGBP)
+  setmonthlyPerformance2DArrayStateAGBP(arr2DAGBP)
 }
 
 
@@ -1093,6 +1382,11 @@ async function fetchMyAPI(){
     setproductsFundinfo(resp.FundInfo)
     setproductsShareClass(resp.NAVperShare)
     setproductsMonthlyPerf(resp.MonthlyPerfBGBP)
+    setproductsMonthlyPerfUSD(resp.MonthlyPerfAUSD)
+    setproductsMonthlyPerfUSDB(resp.MonthlyPerfBUSD)
+    setproductsMonthlyPerfAEUR(resp.MonthlyPerfAEUR)
+    setproductsMonthlyPerfBEUR(resp.MonthlyPerfBEUR)
+    setproductsMonthlyPerfAGBP(resp.MonthlyPerfAGBP)
     setRespPrtu(resp.prtu)
     setPRTU(resp.daily_price)
     setSummary(resp.summary)
@@ -2805,6 +3099,112 @@ function previewData(formData) {
                                         <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.52%</td>
                                         <td>-6.94%</td>
                                     </tr> */}
+                                </tbody>
+                            </table>
+
+
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                         Monthly Performance – GFT Class A USD</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+
+                                        {monthsArrayStateUSD.map(renderMonthNames)}
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    {monthlyPerformance2DArrayStateUSD.map(render12MonthsData)}
+                                </tbody>
+                            </table>
+
+
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                        Monthly Performance – GFT Class A EUR</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+
+                                        {monthsArrayStateAEUR.map(renderMonthNames)}
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    {monthlyPerformance2DArrayStateAEUR.map(render12MonthsData)}
+                                </tbody>
+                            </table>
+
+
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                        Monthly Performance – GFT Class B USD</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+
+                                        {monthsArrayStateUSDB.map(renderMonthNames)}
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    {monthlyPerformance2DArrayStateUSDB.map(render12MonthsData)}
+                                </tbody>
+                            </table>
+
+
+
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                        Monthly Performance – GFT Class B EUR</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+
+                                        {monthsArrayStateBEUR.map(renderMonthNames)}
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    {monthlyPerformance2DArrayStateBEUR.map(render12MonthsData)}
+                                </tbody>
+                            </table>
+
+
+
+                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    <tr>
+                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
+                                         Monthly Performance – GFT Class A GBP</th>
+                                    </tr>
+                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
+                                        {monthsArrayStateAGBP.map(renderMonthNames)}
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
+                                    {monthlyPerformance2DArrayStateAGBP.map(render12MonthsData)}
                                 </tbody>
                             </table>
 
