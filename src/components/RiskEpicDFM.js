@@ -973,7 +973,7 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=11;i++){
+  for(let i=4 ;i<=12;i++){
     let arr=[]
     for(let j=9;j<=22;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1007,7 +1007,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = ""
+     arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -1549,8 +1549,9 @@ async function fetchMyAPI(){
   //const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
   //const url ='https://www.epicip.com/vtepic-multi-asset-growth-fund';
-  const url = "https://www.epicip.com/epic-mps-rmd5";
-  //const url = window.location.origin+'/epic-mps-rmd5';
+  //const url = "https://www.epicip.com/epic-mps-rmd5";
+  const url = window.location.origin+'/epic-mps-rmd5';
+  //const url = 'http://127.0.0.1:8000/epic-mps-rmd5'
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
