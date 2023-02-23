@@ -1355,8 +1355,8 @@ async function fetchMyAPI(){
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
   const localurl ='https://www.epicip.com/epic-financial-trends';
-  const url = window.location.origin+'/epic-financial-trends' 
-  //const url = 'http://127.0.0.1:8000/epic-financial-trends'
+  // const url = window.location.origin+'/epic-financial-trends' 
+  const url = 'http://127.0.0.1:8000/epic-financial-trends'
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -3189,7 +3189,7 @@ function previewData(formData) {
 
 
 
-                            <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
+                            {/* <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
                                         <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
@@ -3206,7 +3206,7 @@ function previewData(formData) {
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     {monthlyPerformance2DArrayStateAGBP.map(render12MonthsData)}
                                 </tbody>
-                            </table>
+                            </table> */}
 
 
                         </div>
