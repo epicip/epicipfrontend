@@ -976,27 +976,32 @@ const performanceButton=()=>{
   for(let i=4 ;i<=12;i++){
     let arr=[]
     for(let j=9;j<=22;j++){
-     let val = productsMonthlyPerf[i][j]*100;
-     
-     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-     rounded = parseFloat(rounded).toFixed(2);
-     if(rounded ==0.00){
-       rounded = 0;
-     }
-     console.log(rounded);
-     if(isNaN(rounded)){
-      rounded = 0;
-      console.log("rounded--------------------------rounded")
-
-      console.log(rounded)
-
-     }
-     //parseFloat(val).toFixed(2);
-     //arr.push(parseFloat(rounded).toFixed(2)+'%')
-      arr.push(rounded+'%')
-     
+      if(productsMonthlyPerf[i][j] != ""){
+      let val = productsMonthlyPerf[i][j]*100;
       
-      // arr.push(productsMonthlyPerf[i][j])
+      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      rounded = parseFloat(rounded).toFixed(2);
+      if(rounded ==0.00){
+        rounded = 0;
+      }
+      console.log(rounded);
+      if(isNaN(rounded)){
+        rounded = 0;
+        console.log("rounded--------------------------rounded")
+
+        console.log(rounded)
+
+      }
+      //parseFloat(val).toFixed(2);
+      //arr.push(parseFloat(rounded).toFixed(2)+'%')
+        arr.push(rounded+'%')
+      
+        
+        // arr.push(productsMonthlyPerf[i][j])
+      }else{
+        rounded = ''; 
+        arr.push(rounded)
+      }
     }
     arr2D.push(arr);
   }
