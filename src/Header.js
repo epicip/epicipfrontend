@@ -455,8 +455,8 @@ const Header = () => {
   });  
   async function fetchMyServiceAPI(){
 
-   // const url =window.location.origin+'/service_api';
-    const url ='https://www.epicip.com/service_api';
+    const url =window.location.origin+'/service_api';
+    //const url ='https://www.epicip.com/service_api';
     const localurl ="https://epicipprojects.com/service_api";
     
      fetch(url).then(resp=> resp.json())
@@ -471,9 +471,9 @@ const Header = () => {
   };
   async function fetchMyAPI(){
 
-     // const url =window.location.origin+'/division_api';
+      const url =window.location.origin+'/division_api';
     // const url ="https://epicipprojects.com/epicip/division_api";
-      const url ="https://www.epicip.com/division_api";
+     // const url ="https://www.epicip.com/division_api";
       const localurl ="https://epicipprojects.com/division_api";
       
        fetch(url).then(resp=> resp.json())
