@@ -952,9 +952,10 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=15;i++){
+  for(let i=4 ;i<=16;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -974,6 +975,10 @@ const performanceButton=()=>{
      
       
       // arr.push(productsMonthlyPerf[i][j])
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
     }
     arr2D.push(arr);
   }
@@ -985,6 +990,8 @@ for(let j =0 ; j< arr2D[0].length;j++){
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
       arr2D[i][j] = "0.00%"
+  }else if(arr2D[i][j]==''){
+     arr2D[i][j] = ""
   }
   console.log(arr2D[i][j])
 }
@@ -1389,8 +1396,8 @@ async function fetchMyAPI(){
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-  const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
-  //const url = 'http://127.0.0.1:8000/vtepic-multi-asset-balanced-fund' 
+  // const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
+  const url = 'http://127.0.0.1:8000/vtepic-multi-asset-balanced-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);

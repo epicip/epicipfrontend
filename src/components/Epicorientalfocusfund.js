@@ -890,7 +890,7 @@ console.log(productsMonthlyPerf);
 console.log("productsMonthlyPerf");
 
   var arr2D=[];
-  for(let i=4 ;i<=22;i++){
+  for(let i=4 ;i<=23;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1243,8 +1243,8 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/garraway-global-equity-fund' 
   // const url = 'https://epicipprojects.com/api/garraway-oriental-focus-fund' 
   const Localurl = 'https://www.epicip.com/epic-oriental-focus-fund' 
-  const url = window.location.origin+'/epic-oriental-focus-fund' 
-  //const url = 'http://127.0.0.1:8000/epic-oriental-focus-fund'
+  // const url = window.location.origin+'/epic-oriental-focus-fund' 
+  const url = 'http://127.0.0.1:8000/epic-oriental-focus-fund'
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);

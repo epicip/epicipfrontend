@@ -951,9 +951,10 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=14;i++){
     let arr=[]
-    for(let j=8 ;j<=21;j++){
+    for(let j=8 ;j<=22;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -973,6 +974,10 @@ const performanceButton=()=>{
      
       
       // arr.push(productsMonthlyPerf[i][j])
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
     }
     arr2D.push(arr);
   }
@@ -984,6 +989,8 @@ for(let j =0 ; j< arr2D[0].length;j++){
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
       arr2D[i][j] = "0.00%"
+  }else if(arr2D[i][j]==''){
+     arr2D[i][j] = ""
   }
   console.log(arr2D[i][j])
 }
@@ -993,7 +1000,8 @@ console.log("-------------------------------------------------------------------
 console.log(arr2D);
 console.log("arr2D");
 
-
+setmonthlyPerformance2DArrayState(arr2D)
+setmonthsArrayState(monthsArr)
 
 
 
@@ -1013,28 +1021,7 @@ console.log("arr2D");
    var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
    console.log("AlphaDate")
    console.log(AlphaDate)
-  //  console.log(date + " "  + PerformanceValue)
- 
-  //  for(let j =0 ;j< InceptionData[i].length ;j++){
- 
-  // //    if(!isNaN(InceptionData[i][j])){
-  // //    let val = InceptionData[i][j]*100;
-     
-  // //    // var numb= 212421434.533423131231;
-  // //    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
- 
-  // //   //  console.log(rounded);
-  // //    obj[keysInceptionData[j]] = rounded ;
- 
-  // //  }
- 
-  //    // var updatedVal =  parseFloat(val).toFixed(2);
-  //    // console.log(updatedVal);
-  //   //  else{
-  //      obj[keysInceptionData[j]] = InceptionData[i][j] ;
-  //   //  }     
- 
-  //    }
+  
   obj[keysInceptionData[0]] = AlphaDate;
   obj[keysInceptionData[1]] = PerformanceValue*100;
  
@@ -1043,18 +1030,7 @@ console.log("arr2D");
      date = null
      PerformanceValue = null
  
-     //  AbcObject = obj;
-     
-     
- 
- 
-    //  console.log("AbcObjectAbcObjectAbcObjectAbcObject")
-   
-     
-    //  console.log(cummulatovePerfData);
-    //  console.log("cummulatovePerfData");
- 
-               // console.log("allKeys")
+    
    
  } 
  console.log(InceptionDataArray);
@@ -1098,89 +1074,6 @@ console.log("arr2D");
   } 
 
 
-//   var keysCommulativePerfB = ["name", "value"] 
-//   for(let i=0 ; i< productscommulativePerformanceB.length ;i++){
-   
-//    let obj={};
-//        for(let j =0 ;j< productscommulativePerformanceB[i].length ;j++){
-
-//          if(!isNaN(productscommulativePerformanceB[i][j])){
-//          let val = productscommulativePerformanceB[i][j]*100;
-        
-//          // var numb= 212421434.533423131231;
-//          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-        
-//          console.log(rounded);
-//          obj[keysCommulativePerfB[j]] = rounded ;
-//          console.log(obj);
-//          console.log("obj");
-//        }
-//          else{
-//            obj[keysCommulativePerfB[j]] = productscommulativePerformanceB[i][j] ;
-//          }     
-       
-//          }
-       
-//          CummulativeperformanceBData.push(obj)
-
-//  }
-
-
- 
-//   var keysCommPerfBEUR = ["name", "value"]
-//   for(let i=0 ; i< productscommulativePerformanceBEUR.length ;i++){
-   
-//    let obj={};
-//    for(let j =0 ;j< productscommulativePerformanceBEUR[i].length ;j++){
-
-//      if(!isNaN(productscommulativePerformanceBEUR[i][j])){
-//      let val = productscommulativePerformanceBEUR[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keysCommPerfBEUR[j]] = rounded ;
-
-//    }
-//      else{
-//        obj[keysCommPerfBEUR[j]] = productscommulativePerformanceBEUR[i][j] ;
-//      }     
-
-//     }
-//     CummulativeperformanceBEURData.push(obj)
-   
-     
-   
-//  } 
- 
-
-//   var keysCommPerfC= ["name", "value"]
-  
-//   for(let i=0 ; i< productscommulativePerformanceC.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< productscommulativePerformanceC[i].length ;j++){
-
-//      if(!isNaN(productscommulativePerformanceC[i][j])){
-//      let val = productscommulativePerformanceC[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keysCommPerfC[j]] = rounded ;
-
-//    }
-//      else{
-//        obj[keysCommPerfC[j]] = productscommulativePerformanceC[i][j] ;
-//      }     
-
-//      }
-//      CummulativeperformanceCData.push(obj)
-   
-//  } 
 
 
  var keys12monthsDis = ["name", "value"]
@@ -1219,75 +1112,6 @@ console.log("arr2D");
   
 } 
 
-// var keys12monthsDisBGBP = ["name", "value"]
-  
-//  for(let i=0 ; i< twelvemonPerfBGBP.length ;i++){
-//   // typeof(products[i][j])
-  
-//   let obj={};
-//   for(let j =0 ;j< twelvemonPerfBGBP[i].length ;j++){
-
-//     if(!isNaN(twelvemonPerfBGBP[i][j])){
-//     let val = twelvemonPerfBGBP[i][j]*100;
-    
-//     // var numb= 212421434.533423131231;
-//     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//     console.log(rounded);
-//     obj[keys12monthsDisBGBP[j]] = rounded ;
-
-//   }
-
-//     // var updatedVal =  parseFloat(val).toFixed(2);
-//     // console.log(updatedVal);
-//     else{
-//       obj[keys12monthsDisBGBP[j]] = twelvemonPerfBGBP[i][j] ;
-//     }     
-
-//     }
-    
-
-//     TwelveMperfBGBP.push(obj)
- 
-
-//               // console.log("allKeys")
-  
-// } 
-
-// var keys12monthsDisBEUR = ["name", "value"]
-  
-//  for(let i=0 ; i< twelvemonPerfBEUR.length ;i++){
-//   // typeof(products[i][j])
-  
-//   let obj={};
-//   for(let j =0 ;j< twelvemonPerfBEUR[i].length ;j++){
-
-//     if(!isNaN(twelvemonPerfBEUR[i][j])){
-//     let val = twelvemonPerfBEUR[i][j]*100;
-    
-//     // var numb= 212421434.533423131231;
-//     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//     console.log(rounded);
-//     obj[keys12monthsDisBEUR[j]] = rounded ;
-
-//   }
-
-//     // var updatedVal =  parseFloat(val).toFixed(2);
-//     // console.log(updatedVal);
-//     else{
-//       obj[keys12monthsDisBEUR[j]] = twelvemonPerfBEUR[i][j] ;
-//     }     
-
-//     }
-    
-    
-//     TwelveMperfBEUR.push(obj)
-    
-
-//               // console.log("allKeys")
-  
-// } 
 
 
 
@@ -1373,8 +1197,7 @@ var keysbot3contr = ["name", "value"]
 
   setbot3contriarray(Bot3contriData)
     setInceptionArrayState(InceptionDataArray)
-    setmonthlyPerformance2DArrayState(arr2D)
-    setmonthsArrayState(monthsArr)
+    
   // setTwelveMperfBGBPState(TwelveMperfBGBP)
 //   setTwelveMperfBEURState(TwelveMperfBEUR)
 //   setTwelveMperfCGBPState(TwelveMperfCGBP)
@@ -1551,9 +1374,10 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  // const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
   //const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund'
+  const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -1619,514 +1443,20 @@ async function fetchMyAPI(){
     setstatus(true)
     document.getElementById("summaryButton").click();
 
-    // setTimeout(()=>{setstatus(true)}, 2000  )
     
-    // setproductscommulativePerformanceA(productscommulativePerformance)
-    // setproductstest(productscommulativePerformance[0])
-    
-    
-    //  console.log(resp.SectorVaR);
-    //  console.log("resp.SectorVaR"); 
-    //  console.log(productsVAR)
-
-
-    //  console.log(resp.SectorExposures);
-    //  console.log("resp.SectorExposures");
-    //  console.log(products);
-   
-    //  console.log(resp.CumulativePerf);
-    //  console.log("resp.CumulativePerf");
-    //  console.log(productscommulativePerformance);     
-    //  console.log(productstest)
-    // console.log("productstest")
-    // XYZ = JSON.stringify(productscommulativePerformance)
-    // setproductscommulativePerformanceA()
-    // prevCountRef.current = productscommulativePerformance;
-    // console.log(objjj)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    // console.log(objee)
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
-    //  console.log(resp.twelvemPerfDiscrete);
-    //  console.log("resp.twelvemonPerfDiscrete");
-    //  console.log(products12monthsPerformance); 
-     
-    //  console.log(resp.Top3Contributors);
-    //  console.log("resp.Top3Contributors");
-    //  console.log(productstop3contr); 
-
-    //  console.log(resp.Bottom3Contributors);
-    //  console.log("resp.Bottom3Contributors");
-    //  console.log(productsbot3contr);
-     
-    //  console.log(resp.content);
-    //  console.log("resp.content");
-    //  console.log(productsCommentary);
-
-    //  console.log(resp.FundInfo);
-    //  console.log("resp.content");
-    //  console.log(productsFundinfo);
-
-    //  console.log(resp.NAVperShare);
-    //  console.log("resp.NAVperShare");
-    //  console.log(productsShareClass);
-
-    //  console.log(resp.MonthlyPerfBGBP);
-    //  console.log("resp.MonthlyPerfBGBP");
-    //  console.log(productsMonthlyPerf);
-
-    //  if(productsMonthlyPerf.length > 1){
-    //    console.log(productsMonthlyPerf)
-    //    console.log("COnsole.productsMonthlyPerf")
-
-    //   setstatus(true)
-    //  }else{
-    //   // fetchMyAPI();
-    //   // EpicfinanceTrends();
-    //   // window.location.reload(true);
-    // setproductsMonthlyPerf(resp.MonthlyPerfBGBP)
-
-    //  }
 
     })
     
    .catch(e=>{
      console.log(e);
    })
-  // setresponseData(result)
-  // .then( resp=>console.log(resp.SectorExposures))
   
-  // console.log(responseData)
-  // console.log("responseData")
 
   var keysMonthly = ["name"]
   var testArr =[]
   var monthsValue =[[],[]]
   var xArr =[[]]
-  // var xArr = new Array(10);
-
-  // for (var i = 0; i < xArr.length; i++) {
-  //   xArr[i] = new Array(14);
-  // }
   
-
-//   for(let y = 4; y < 13; y++){
-
-//     var count = 0;
-//     var moreCount = 0;  
-
-//     for(let z = 8; z < 22; z++){
-
-//       xArr[count][moreCount]= productsMonthlyPerf[y][z]
-//       // xArr.push(productsMonthlyPerf[y][z])
-
-//       moreCount++;
-//     }
-//     count++;
-
-
-//   }
-//   console.log(xArr);
-//   console.log("xArr");
-
-//   for(let x= 8; x < 22; x++){
-
-//   testArr.push(productsMonthlyPerf[3][x])
-
-// }
-// console.log(testArr)
-// console.log("testArr")
-
-
-//   for(let i=3 ; i< 14;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j = 8 ;j< 22 ;j++){
-
-//      if(!isNaN(productsMonthlyPerf[i][j])){
-       
-//      let val = productsMonthlyPerf[i][j]*100;
-//      console.log(productsMonthlyPerf[i][j])
-//      console.log("productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]")
-
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-
-
-
-//      console.log(rounded);
-//      obj[keysMonthly[j]] = rounded ;
-//      console.log(obj);
-//      console.log("obj");
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keysMonthly[j]] = productsMonthlyPerf[i][j] ;
-//      }     
-
-//      }
-//     //  ShareClassarray.push(obj)
-   
-     
-//     //  console.log(bot3contriarray);
-//     //  console.log("bot3contriarray");
-//     //  console.log(bot3contriDummy);
-//     //  console.log("bot3contriDummy");
-
-//                // console.log("allKeys")
-//  }  
-
-// For loops for displaying data
-//   var keysShareClass = ["name", "value"]
-  
-//   for(let i=0 ; i< productsShareClass.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< productsShareClass[i].length ;j++){
-
-//      if(!isNaN(productsShareClass[i][j])){
-//      let val = productsShareClass[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keysShareClass[j]] = rounded ;
-//      console.log(obj);
-//      console.log("obj");
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keysShareClass[j]] = productsShareClass[i][j] ;
-//      }     
-
-//      }
-//      ShareClassarray.push(obj)
-   
-     
-//      console.log(bot3contriarray);
-//      console.log("bot3contriarray");
-//      console.log(bot3contriDummy);
-//      console.log("bot3contriDummy");
-
-//                // console.log("allKeys")
-//  }  
-
-
-//   var keysFundinfo = ["name", "value"]
-  
-//   for(let i=0 ; i< productsFundinfo.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< productsFundinfo[i].length ;j++){
-
-//      if(!isNaN(productsFundinfo[i][j])){
-//      let val = productsFundinfo[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keysFundinfo[j]] = rounded ;
-//      console.log(obj);
-//      console.log("obj");
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keysFundinfo[j]] = productsFundinfo[i][j] ;
-//      }     
-
-//      }
-//      Fundinfoarray.push(obj)
-   
-     
-//      console.log(Fundinfoarray);
-//      console.log("Fundinfoarray");
-
-//  }
-
-
-
-
-//   var keysbot3contr = ["name", "value"]
-  
-//   for(let i=0 ; i< productsbot3contr.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< productsbot3contr[i].length ;j++){
-
-//      if(!isNaN(productsbot3contr[i][j])){
-//      let val = productsbot3contr[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keysbot3contr[j]] = rounded ;
-//      console.log(obj);
-//      console.log("obj");
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keysbot3contr[j]] = productsbot3contr[i][j] ;
-//      }     
-
-//      }
-//      bot3contriarray.push(obj)
-   
-     
-//      console.log(bot3contriarray);
-//      console.log("bot3contriarray");
-//      console.log(bot3contriDummy);
-//      console.log("bot3contriDummy");
-
-//                // console.log("allKeys")
-//  }
-// //  bot3contriDummy = [
-// //   {name: 'Short Euro / Swiss Franc', value: -0.34},
-// //   {name: 'Short Norwegian Krone / US Dollar', value: -0.31},
-// //   {name: 'Long Italian BTP', value: -0.29}
-// //  ]
-
- 
-// //  bot3contriarray.push(productsbot3contr)
-
-// //  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-// //  console.log(productsbot3contr)
-
-
-
- 
-//   var keystop3contr = ["name", "value"]
-  
-//   for(let i=1 ; i< productstop3contr.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< productstop3contr[i].length ;j++){
-
-//      if(!isNaN(productstop3contr[i][j])){
-//      let val = productstop3contr[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keystop3contr[j]] = rounded ;
-
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keystop3contr[j]] = productstop3contr[i][j] ;
-//      }     
-
-//      }
-//      top3contriarray.push(obj)
-   
-     
-//      console.log(top3contriarray);
-//      console.log("top3contriarray");
-//       // console.log("allKeys")
-   
-//  } 
- 
-
-//   var keys12monthsPer = ["name", "value"]
-  
-//   for(let i=0 ; i< products12monthsPerformance.length ;i++){
-//    // typeof(products[i][j])
-   
-//    let obj={};
-//    for(let j =0 ;j< products12monthsPerformance[i].length ;j++){
-
-//      if(!isNaN(products12monthsPerformance[i][j])){
-//      let val = products12monthsPerformance[i][j]*100;
-     
-//      // var numb= 212421434.533423131231;
-//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-//      console.log(rounded);
-//      obj[keys12monthsPer[j]] = rounded ;
-
-//    }
-
-//      // var updatedVal =  parseFloat(val).toFixed(2);
-//      // console.log(updatedVal);
-//      else{
-//        obj[keys12monthsPer[j]] = products12monthsPerformance[i][j] ;
-//      }     
-
-//      }
-//      twelvemonPerfDiscreteAPI.push(obj)
-   
-     
-//      console.log(twelvemonPerfDiscreteAPI);
-//      console.log("twelvemonPerfDiscreteAPI");
-
-//                // console.log("allKeys")
-   
-//  } 
-
-  // var keysCummulativePer = ["name", "value"]
-  
-  //  for(let i=0 ; i< productscommulativePerformance.length ;i++){
-  //   // typeof(products[i][j])
-    
-  //   let obj={};
-  //   for(let j =0 ;j< productscommulativePerformance[i].length ;j++){
-
-  //     if(!isNaN(productscommulativePerformance[i][j])){
-  //     let val = productscommulativePerformance[i][j]*100;
-      
-  //     // var numb= 212421434.533423131231;
-  //     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-  //     console.log(rounded);
-  //     obj[keysCummulativePer[j]] = rounded ;
-
-  //   }
-
-  //     // var updatedVal =  parseFloat(val).toFixed(2);
-  //     // console.log(updatedVal);
-  //     else{
-  //       obj[keysCummulativePer[j]] = productscommulativePerformance[i][j] ;
-  //     }     
-
-  //     }
-  //     cummulatovePerfData.push(obj)
-  //     AbcObject = obj;
-      
-      
-  //     console.log(AbcObject)
-  //     console.log("AbcObjectAbcObjectAbcObjectAbcObject")
-    
-      
-  //     console.log(cummulatovePerfData);
-  //     console.log("cummulatovePerfData");
-
-  //               // console.log("allKeys")
-    
-  // } 
-
-
-
-  // var keysSectorPer = ["name", "value"]
-  
-  //  for(let i=1 ; i< productsSectorPer.length ;i++){
-  //   // typeof(products[i][j])
-    
-  //   let obj={};
-  //   for(let j =0 ;j< productsSectorPer[i].length ;j++){
-
-  //     if(!isNaN(productsSectorPer[i][j])){
-  //     let val = productsSectorPer[i][j]*100;
-      
-  //     // var numb= 212421434.533423131231;
-  //     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-
-  //     console.log(rounded);
-  //     obj[keysSectorPer[j]] = rounded ;
-
-  //   }
-
-  //     // var updatedVal =  parseFloat(val).toFixed(2);
-  //     // console.log(updatedVal);
-  //     else{
-  //       obj[keysSectorPer[j]] = productsSectorPer[i][j] ;
-  //     }     
-
-  //     }
-  //     graphDataSectorPer.push(obj)
-    
-      
-  //     console.log(graphDataSectorPer);
-  //               // console.log("allKeys")
-    
-  // } 
-  
-  
-  // var keysVAR = ["name", "value"]
-
-  //  for(let i=1 ; i< productsVAR.length ;i++){
-  //   // typeof(products[i][j])
-    
-  //   let obj={};
-  //   for(let j =0 ;j< productsVAR[i].length ;j++){
-
-  //     if(!isNaN(productsVAR[i][j])){
-  //     let val = productsVAR[i][j]*100;
-      
-  //     // var numb= 212421434.533423131231;
-  //     var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
-
-  //     console.log(rounded1);
-  //     obj[keysVAR[j]] = rounded1 ;
-
-  //   }
-
-  //     // var updatedVal =  parseFloat(val).toFixed(2);
-  //     // console.log(updatedVal);
-  //     else{
-  //       obj[keysVAR[j]] = productsVAR[i][j] ;
-  //     }     
-
-  //     } 
-  //     graphDataVAR.push(obj)
-  //     setstatus(true)
-  //     // console.log(graphData);
-  //     // console.log("allKeys")
-      
-  // }
-
-
-  
-  
-  // var allKeys = ["name","current month","pevious month"];
-  
-  // for(let i=1 ; i< products.length ;i++){
-  //   // typeof(products[i][j])
-    
-  //   let obj={};
-  //   for(let j =0 ;j< products[i].length ;j++){
-
-  //     if(!isNaN(products[i][j])){
-  //     let val = products[i][j];
-  //     // var numb= 212421434.533423131231;
-  //     var rounded2 = Math.round((val + Number.EPSILON) * 100) / 100;
-
-  //     console.log(rounded2);
-  //     obj[allKeys[j]] = rounded2 ;
-
-  //   }
-  //     // var updatedVal =  parseFloat(val).toFixed(2);
-  //     // console.log(updatedVal);
-  //     else{
-  //       obj[allKeys[j]] = products[i][j] ;
-  //     }     
-
-  //     }
-  //     graphData.push(obj)
-      
-  //     // console.log(graphData);
-  //     // console.log("allKeys")
-      
-  // }
-      // console.log(graphData);
 
       console.log("allKeys")
 };
@@ -2398,6 +1728,7 @@ function renderMonthNames(months, index){
         <td>{bot3contriparam[10]}</td>
         <td>{bot3contriparam[11]}</td>
         <td>{bot3contriparam[12]}</td>
+        <td>{bot3contriparam[13]}</td>
   
   
         {/* <td>{bot3contriparam.value}</td> */}
@@ -3027,7 +2358,7 @@ function previewData(formData) {
                                 </tbody>
                             </table>
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAWGR table-striped">
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}

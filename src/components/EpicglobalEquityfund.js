@@ -1004,7 +1004,7 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=15;i++){
+  for(let i=4 ;i<=16;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
      let val = productsMonthlyPerf[i][j]*100;
@@ -1069,7 +1069,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrB2D=[];
-for(let i=4 ;i<=8;i++){
+for(let i=4 ;i<=9;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfB[i][j]*100;
@@ -1124,7 +1124,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrC2D=[];
-for(let i=4 ;i<=7;i++){
+for(let i=4 ;i<=8;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfC[i][j]*100;
@@ -1181,7 +1181,7 @@ console.log("months")
 console.log(monthsBArr)
 
 var arrD2D=[];
-for(let i=4 ;i<=7;i++){
+for(let i=4 ;i<=8;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
    let val = productsMonthlyPerfBEUR[i][j]*100;

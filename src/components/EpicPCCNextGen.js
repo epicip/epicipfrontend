@@ -1783,11 +1783,13 @@ const informationButton=()=>{
   const CMSshareInfoData =[]
 
   
-  var keysCMSshareinfo = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue"]
+  var keysCMSshareinfo = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue","cgbpValue"]
   
   for(let j =0 ;j< CMSshareinfo.length ;j++){
    console.log(CMSshareinfo[j].title);
    console.log("CMSFundinfo.title");
+   console.log(CMSshareinfo[j].cgbp_value);
+   console.log("CMSshareinfo[j].cgbp_value");
 
    let obj={};
 
@@ -1798,6 +1800,7 @@ const informationButton=()=>{
       obj[keysCMSshareinfo[4]] = CMSshareinfo[j].busd_value ;
       obj[keysCMSshareinfo[5]] = CMSshareinfo[j].bgbp_value ;
       obj[keysCMSshareinfo[6]] = CMSshareinfo[j].beur_value ;
+      obj[keysCMSshareinfo[7]] = CMSshareinfo[j].cgbp_value ;
 
 
     console.log(obj);
@@ -2818,6 +2821,7 @@ function renderCMSshareinfo(shareinfoparam, index){
       <td className="align-center">{shareinfoparam.busdValue}</td>
       <td className="align-center">{shareinfoparam.bgbpValue}</td>
       <td className="align-center">{shareinfoparam.beurValue}</td>
+      <td className="align-center">{shareinfoparam.cgbpValue}</td>
     
     </tr>
   )
@@ -3514,12 +3518,13 @@ function previewData(formData) {
                                     <th class="text-center">B EUR</th> */}
                                 {/* </tr> */}
                                 <tr class="Shares__Row-sc-1brks4f-2 hzpAKA"><th class="align-left">Share Class</th>
-                                <th class="align-center">A USD</th>
-                                <th class="align-center">A GBP</th>
-                                <th class="align-center">A EUR</th>
-                                <th class="align-center">B USD</th>
-                                <th class="align-center">B GBP</th>
-                                <th class="align-center">B EUR</th>
+                                <th class="align-center">Class X USD</th>
+                                <th class="align-center">Class X GBP</th>
+                                <th class="align-center">Class X CHF</th>
+                                <th class="align-center">Class X EUR</th>
+                                <th class="align-center">Class USD Participating</th>
+                                <th class="align-center">Class GBP Participating</th>
+                                <th class="align-center">Class CNH Participating</th>
                                 </tr>
                                 {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv"> */}
 
