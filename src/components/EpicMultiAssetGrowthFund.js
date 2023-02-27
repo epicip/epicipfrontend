@@ -1374,10 +1374,10 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  // const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
-  const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-  //const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund'
-  const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
+   const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund';
+  // const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund';
+  // const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {

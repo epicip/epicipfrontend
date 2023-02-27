@@ -863,6 +863,7 @@ var monthsArr=[];
   for(let i=4 ;i<=15;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -880,7 +881,10 @@ var monthsArr=[];
      }
       arr.push(rounded+'%')
      
-      
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
       // arr.push(productsMonthlyPerf[i][j])
     }
     arr2D.push(arr);
@@ -893,6 +897,9 @@ for(let j =0 ; j< arr2D[0].length;j++){
 if(arr2D[i][j]==0+'%'){
   console.log(arr2D[i][j])
   arr2D[i][j] = "0.00%"
+}else if(arr2D[i][j]==''){
+  console.log(arr2D[i][j])
+  arr2D[i][j] = " "
 }
 }
 console.log("--------------------------------------------------------------------")
@@ -924,24 +931,28 @@ console.log("arr2D");
   for(let i=4 ;i<=15;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
-     let val = productsMonthlyPerfUSD[i][j]*100;
-     
-     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-     rounded = parseFloat(rounded).toFixed(2);
-     if(rounded ==0.00){
-      rounded = 0;
-    }
-     console.log(rounded);
-     if(isNaN(rounded)){
-      rounded = 0;
-      console.log("rounded--------------------------rounded")
+      if(productsMonthlyPerfUSD[i][j] != ""){
+        let val = productsMonthlyPerfUSD[i][j]*100;
+        
+        var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        rounded = parseFloat(rounded).toFixed(2);
+        if(rounded ==0.00){
+          rounded = 0;
+        }
+        console.log(rounded);
+        if(isNaN(rounded)){
+          rounded = 0;
+          console.log("rounded--------------------------rounded")
 
-      console.log(rounded)
+          console.log(rounded)
 
-     }
-      arr.push(rounded+'%')
-     
-      
+        }
+          arr.push(rounded+'%')
+        
+        }else{
+          rounded = ''; 
+          arr.push(rounded)
+        }
       // arr.push(productsMonthlyPerf[i][j])
     }
     arr2DUSD.push(arr);
@@ -954,6 +965,9 @@ for(let j =0 ; j< arr2DUSD[0].length;j++){
 if(arr2DUSD[i][j]==0+'%'){
   console.log(arr2DUSD[i][j])
   arr2DUSD[i][j] = "0.00%"
+}else if(arr2DUSD[i][j]==''){
+  console.log(arr2DUSD[i][j])
+  arr2DUSD[i][j] = " "
 }
 }
 console.log("--------------------------------------------------------------------")
@@ -978,6 +992,7 @@ console.log("-------------------------------------------------------------------
   for(let i=4 ;i<=10;i++){
     let arrAEUR=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerfAEUR[i][j] != ""){
      let val = productsMonthlyPerfAEUR[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -995,7 +1010,10 @@ console.log("-------------------------------------------------------------------
      }
      arrAEUR.push(rounded+'%')
      
-      
+    }else{
+      rounded = ''; 
+      arrAEUR.push(rounded)
+    }
       // arr.push(productsMonthlyPerf[i][j])
     }
     arr2DAEUR.push(arrAEUR);
@@ -1008,6 +1026,9 @@ for(let j =0 ; j< arr2DAEUR[0].length;j++){
 if(arr2DAEUR[i][j]==0+'%'){
   console.log(arr2DAEUR[i][j])
   arr2DAEUR[i][j] = "0.00%"
+}else if(arr2DAEUR[i][j]==''){
+  console.log(arr2DAEUR[i][j])
+  arr2DAEUR[i][j] = " "
 }
 }
 console.log("--------------------------------------------------------------------")
@@ -1034,6 +1055,7 @@ console.log("-------------------------------------------------------------------
   for(let i=4 ;i<=15;i++){
     let arrB=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerfUSDB[i][j] != ""){
      let val = productsMonthlyPerfUSDB[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1050,7 +1072,10 @@ console.log("-------------------------------------------------------------------
 
      }
      arrB.push(rounded+'%')
-     
+    }else{
+      rounded = ''; 
+      arrB.push(rounded)
+    }
       
       // arr.push(productsMonthlyPerf[i][j])
     }
@@ -1064,6 +1089,9 @@ for(let j =0 ; j< arr2DUSDB[0].length;j++){
 if(arr2DUSDB[i][j]==0+'%'){
   console.log(arr2DUSDB[i][j])
   arr2DUSDB[i][j] = "0.00%"
+}else if(arr2DUSDB[i][j]==''){
+  console.log(arr2DUSDB[i][j])
+  arr2DUSDB[i][j] = " "
 }
 }
 console.log("--------------------------------------------------------------------")
@@ -1088,6 +1116,7 @@ console.log("-------------------------------------------------------------------
   for(let i=4 ;i<=10;i++){
     let arrBEUR=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerfBEUR[i][j] != ""){
      let val = productsMonthlyPerfBEUR[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1105,7 +1134,10 @@ console.log("-------------------------------------------------------------------
      }
      arrBEUR.push(rounded+'%')
      
-      
+    }else{
+      rounded = ''; 
+      arrBEUR.push(rounded)
+    }
       // arr.push(productsMonthlyPerf[i][j])
     }
     arr2DBEUR.push(arrBEUR);
@@ -1118,6 +1150,9 @@ for(let j =0 ; j< arr2DBEUR[0].length;j++){
 if(arr2DBEUR[i][j]==0+'%'){
   console.log(arr2DBEUR[i][j])
   arr2DBEUR[i][j] = "0.00%"
+}else if(arr2DBEUR[i][j]==''){
+  console.log(arr2DBEUR[i][j])
+  arr2DBEUR[i][j] = " "
 }
 }
 console.log("--------------------------------------------------------------------")
