@@ -1140,13 +1140,17 @@ const performanceButton=()=>{
   for(let i=4 ;i<=11;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
 
      console.log(rounded);
       arr.push(rounded +'%')
-     
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
       
       // arr.push(productsMonthlyPerf[i][j])
     }
@@ -1161,6 +1165,9 @@ for(let j =0 ; j< arr2D[0].length;j++){
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
       arr2D[i][j] = "0.00%"
+  }else if(arr2D[i][j]==''){
+      console.log(arr2D[i][j])
+      arr2D[i][j] = " "
   }
 }
 console.log("--------------------------------------------------------------------")

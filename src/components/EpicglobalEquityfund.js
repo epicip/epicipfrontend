@@ -501,7 +501,7 @@ console.log("graphDataResponse1")
 
 
   var keysMarketCap = ["name", "value"]
-    var length = productsmarketCap.length-2;
+    var length = productsmarketCap.length-1;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -1007,6 +1007,7 @@ const performanceButton=()=>{
   for(let i=4 ;i<=16;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1020,7 +1021,10 @@ const performanceButton=()=>{
 
      }
       arr.push(rounded+'%')
-     
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
       
       // arr.push(productsMonthlyPerf[i][j])
     }
@@ -1039,6 +1043,9 @@ for(let j =0 ; j< arr2D[0].length;j++){
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
       arr2D[i][j] = "0.00%"
+  }else if(arr2D[i][j]==''){
+    console.log(arr2D[i][j])
+    arr2D[i][j] = " "
   }
   
   console.log(arr2D[i][j])
@@ -1072,6 +1079,7 @@ var arrB2D=[];
 for(let i=4 ;i<=9;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
+    if(productsMonthlyPerfB[i][j] != ""){
    let val = productsMonthlyPerfB[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1085,7 +1093,10 @@ for(let i=4 ;i<=9;i++){
 
    }
     arr.push(rounded+'%')
-   
+  }else{
+    rounded = ''; 
+    arr.push(rounded)
+  }
     
     // arr.push(productsMonthlyPerf[i][j])
   }
@@ -1099,6 +1110,9 @@ for(let j =0 ; j< arrB2D[0].length;j++){
 if(arrB2D[i][j]==0+'%'){
   console.log(arrB2D[i][j])
     arrB2D[i][j] = "0.00%"
+}else if(arrB2D[i][j]==''){
+  console.log(arrB2D[i][j])
+  arrB2D[i][j] = " "
 }
 
 console.log(arrB2D[i][j])
@@ -1127,6 +1141,7 @@ var arrC2D=[];
 for(let i=4 ;i<=8;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
+    if(productsMonthlyPerfC[i][j] != ""){
    let val = productsMonthlyPerfC[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1141,7 +1156,10 @@ for(let i=4 ;i<=8;i++){
    }
     arr.push(rounded+'%')
    
-    
+  }else{
+    rounded = ''; 
+    arr.push(rounded)
+  }
     // arr.push(productsMonthlyPerf[i][j])
   }
   arrC2D.push(arr);
@@ -1154,6 +1172,9 @@ for(let j =0 ; j< arrC2D[0].length;j++){
 if(arrC2D[i][j]==0+'%'){
   console.log(arrC2D[i][j])
     arrC2D[i][j] = "0.00%"
+}else if(arrC2D[i][j]==''){
+  console.log(arrC2D[i][j])
+  arrC2D[i][j] = " "
 }
 console.log(arrC2D[i][j])
 }
@@ -1184,6 +1205,7 @@ var arrD2D=[];
 for(let i=4 ;i<=8;i++){
   let arr=[]
   for(let j=8 ;j<=21;j++){
+    if(productsMonthlyPerfBEUR[i][j] != ""){
    let val = productsMonthlyPerfBEUR[i][j]*100;
    
    var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -1197,7 +1219,10 @@ for(let i=4 ;i<=8;i++){
 
    }
     arr.push(rounded+'%')
-   
+  }else{
+    rounded = ''; 
+    arr.push(rounded)
+  }
     
     // arr.push(productsMonthlyPerf[i][j])
   }
@@ -1211,6 +1236,9 @@ for(let j =0 ; j< arrD2D[0].length;j++){
 if(arrD2D[i][j]==0+'%'){
   console.log(arrD2D[i][j])
     arrD2D[i][j] = "0.00%"
+}else if(arrD2D[i][j]==''){
+  console.log(arrD2D[i][j])
+  arrD2D[i][j] = " "
 }
 console.log(arrD2D[i][j])
 }
