@@ -173,6 +173,24 @@ const VARdata = [
     const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
+
+  const renderCustomizedAssLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
     const labelarray=['#ffffff','#000000','#000000','#000000','#ffffff','#ffffff','#ffffff','#000000'];
   if(value > 5){
     console.log(index);
@@ -191,7 +209,7 @@ const VARdata = [
     const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#000000','#000000','#000000','#1A1549','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
+    const labelarray=['#ffffff','#000000','#000000','#ffffff','#1A1549','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
   if(value > 5){
     const colors =labelarray[index]
     return (
@@ -208,12 +226,12 @@ const VARdata = [
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = [ "#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#666666','#99103B','#000000','#353637','#262626'];
+  const DONUTCOLORS10 = [ "#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#666666','#353637','#000000','#353637','#262626'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
-  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#E6EEF6","#000000"]
+  const DONUTCOLORS5 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8']
+  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
@@ -1374,7 +1392,7 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-   const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund';
   // const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund';
   // const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
@@ -2122,7 +2140,7 @@ function previewData(formData) {
                 endAngle={-330}
                 dataKey="value"
                 labelLine={false}
-                label={renderCustomizedLabel}
+                label={renderCustomizedAssLabel}
 
             >
                 {graphData.map((entry, index) => (

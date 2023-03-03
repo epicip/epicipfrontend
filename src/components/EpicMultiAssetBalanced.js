@@ -173,7 +173,7 @@ const VARdata = [
     const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#ffffff','#000000','#000000','#ffffff','#ffffff','#ffffff','#000000'];
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
   if(value > 5){
     console.log(index);
     const colors =labelarray[index]
@@ -190,7 +190,7 @@ const VARdata = [
     const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#000000','#000000','#000000','#1A1549','#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff'];
+    const labelarray=['#ffffff','#000000','#000000','#000000','#1A1549','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
   if(value > 5){
     const colors =labelarray[index]
     return (
@@ -207,12 +207,12 @@ const VARdata = [
   
 
 
-  const DONUTCOLORS10 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#666666','#B85876','#000000','#9DB1DB','#000000'];
+  const DONUTCOLORS10 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#666666','#353637','#000000','#9DB1DB','#000000'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
-  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#E6EEF6","#000000"]
+  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
