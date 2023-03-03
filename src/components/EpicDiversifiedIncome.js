@@ -207,7 +207,7 @@ const VARdata = [
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
-  const DONUTCOLORS6 = ['#666666',"#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#000000','#353637','#262626']
+  const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#000000','#D296A9']
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
@@ -829,11 +829,11 @@ const portfolioButton=()=>{
      }     
 
      }
-     if(obj.value !==0){
-      DerVarData.push(obj)
+    //  if(obj.value !==0){
+    //   DerVarData.push(obj)
 
-      }
-    // DerVarData.push(obj)
+    //   }
+     DerVarData.push(obj)
    
      
      // console.log(graphDataSectorPer);
@@ -953,9 +953,10 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=12;i++){
+  for(let i=4 ;i<=13;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
+      if(productsMonthlyPerf[i][j] != ""){
      let val = productsMonthlyPerf[i][j]*100;
      
      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
@@ -973,7 +974,10 @@ const performanceButton=()=>{
      }
       arr.push(rounded+'%')
      
-      
+    }else{
+      rounded = ''; 
+      arr.push(rounded)
+    }
       // arr.push(productsMonthlyPerf[i][j])
     }
     arr2D.push(arr);
@@ -986,6 +990,9 @@ for(let j =0 ; j< arr2D[0].length;j++){
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
       arr2D[i][j] = "0.00%"
+  }else if(arr2D[i][j]==''){
+      console.log(arr2D[i][j])
+      arr2D[i][j] = " "
   }
   console.log(arr2D[i][j])
 }

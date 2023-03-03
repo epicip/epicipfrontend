@@ -207,7 +207,7 @@ const VARdata = [
   
 
 
-  const DONUTCOLORS10 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#D296A9','#B85876','#666666','#9DB1DB','#000000'];
+  const DONUTCOLORS10 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#666666','#B85876','#000000','#9DB1DB','#000000'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   

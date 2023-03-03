@@ -208,7 +208,7 @@ const VARdata = [
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = [ "#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#666666','#B85876','#353637','#262626'];
+  const DONUTCOLORS10 = [ "#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#666666','#99103B','#000000','#353637','#262626'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
@@ -654,7 +654,7 @@ const portfolioButton=()=>{
   // }
 
   var keysVAR = ["name", "value"]
-  var length = AssetAllocation.length-1;
+  var length = AssetAllocation.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -730,7 +730,7 @@ const portfolioButton=()=>{
 
 
   var keysMarketCap = ["name", "value"]
-    var length = productsmarketCap.length-1;
+    var length = productsmarketCap.length;
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])
     
@@ -763,7 +763,7 @@ const portfolioButton=()=>{
 
 
   var keysSectorBreakdown = ["name", "value"]
-  var length = productSectorBreakdown.length-1
+  var length = productSectorBreakdown.length
   
    for(let i=1 ; i< length ;i++){
     // typeof(products[i][j])

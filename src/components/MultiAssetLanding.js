@@ -401,7 +401,7 @@ The portfolios provide active exposure to a broad spectrum of asset classes and 
                 <p>
                 <NavLink to="/markets/EpicipWealthFund" className="navlink a">EPIC Wealth Fund <span className="fa fa-angle-right"></span></NavLink><br/>
 <NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">VT EPIC Diversified Income Fund <span className="fa fa-angle-right"></span></NavLink><br/>
-<NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">VT EPICMulti Asset Balanced Fund<span className="fa fa-angle-right"></span></NavLink><br/>
+<NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">VT EPIC Multi Asset Balanced Fund<span className="fa fa-angle-right"></span></NavLink><br/>
 <NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth Fund <span className="fa fa-angle-right"></span></NavLink><br/>
 
                     <br/>
