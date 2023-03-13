@@ -457,11 +457,6 @@ Our own analysis of blending this fund into medium to high-risk portfolios shows
       </div>
     </div>
     <div class="row">
-    <div class="col-md-4">
-        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
-          {/* hiren.patel@epicpe.com */}
-          </p>
-      </div>
       {/* <div class="col-md-3">
         <p ><strong><a href=window.location.origin+"/people/45#45">Pushpanshu Prakash</a></strong> <br />
           mark.harris@epicpe.com

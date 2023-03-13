@@ -473,12 +473,6 @@ Please click below to read latest updates from our fund managers including the D
       </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <p><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
-              {/* andy.seaman@epicpe.com */}
-              </p>
-          </div>
-
           <div class="col-md-4">
             <p ><strong><a href={window.location.origin+"/people/"+KeyLinktwo+"#"+KeyLinktwo}>{KeyNametwo}</a></strong> <br />
               {/* darren.goodwin@epicpe.com */}

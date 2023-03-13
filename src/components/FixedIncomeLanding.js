@@ -470,11 +470,6 @@ return(
     </div>
 
     <div class="row">
-    <div class="col-md-3">
-        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
-          {/* hiren.patel@epicpe.com */}
-          </p>
-      </div>
       <div class="col-md-3">
         <p><strong><a href={window.location.origin+"/people/"+KeyLinktwo+"#"+KeyLinktwo}>{KeyNametwo}</a></strong> <br />
           {/* andy.seaman@epicpe.com */}

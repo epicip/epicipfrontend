@@ -460,7 +460,7 @@ In order to generate superior long-term risk adjusted returns we need to be inve
 
     <div class="row">
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
           {/* mark.harris@epicpe.com */}
           </p>
@@ -471,16 +471,11 @@ In order to generate superior long-term risk adjusted returns we need to be inve
           </p>
       </div>
       <div class="col-md-3">
-        <p><strong><a href={window.location.origin+"/people/"+KeyLinkthree+"#"+KeyLinkthree}>{KeyNamethree}</a></strong> <br />
-          {/* andy.seaman@epicpe.com */}
-          </p>
-      </div>
-      <div class="col-md-2">
         <p ><strong><a href={window.location.origin+"/people/"+KeyLinkfour+"#"+KeyLinkfour}>{KeyNamefour}</a></strong> <br />
           {/* darren.goodwin@epicpe.com */}
           </p>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <p ><strong><a href={window.location.origin+"/people/"+KeyLinkfive+"#"+KeyLinkfive}>{KeyNamefive}</a></strong> <br />
           {/* frederick.coldham@epicpe.com */}
           </p>
