@@ -605,7 +605,7 @@ const portfolioButton=()=>{
   }
 
   var keysVAR = ["name", "value"]
-  var length = productsVAR.length-1
+  var length = productsVAR.length
   
     for(let i=1 ; i< length ;i++){
     
@@ -1391,6 +1391,7 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
   const localurl ='https://www.epicip.com/epic-financial-trends';
   const url = window.location.origin+'/epic-financial-trends' 
+  //const url = 'https://www.epicip.com/epic-financial-trends';
   // const url = 'http://127.0.0.1:8000/epic-financial-trends'
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
@@ -2053,19 +2054,7 @@ if ($(".accordion__item__header").length > 0) {
     )
   }
   }
-  // class CustomizedAxisTick extends PureComponent {
-  //   render() {
-  //     const { x, y, stroke, payload } = this.props;
   
-  //     return (
-  //       <g transform={`translate(${x},${y})`}>
-  //         <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">
-  //           {payload.value}
-  //         </text>
-  //       </g>
-  //     );
-  //   }
-  // }
 
   const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
 
@@ -2211,19 +2200,19 @@ function renderFundinfo(fundinfoparam, index){
 }
 function renderCMSshareinfo(shareinfoparam, index){
   // alert(bot3contriparam.name);
-if(index ==3 ||index ==2){
+if(index ==2){
   return(
  <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
       
   <td className="align-left">{shareinfoparam.name}</td>
   {shareinfoparam.ausdValue ?
-  <td className="align-center" colspan="6">{shareinfoparam.ausdValue}</td>:""}
+  <td className="align-center" colspan="3">{shareinfoparam.ausdValue}</td>:""}
   {shareinfoparam.agbpValue ?
   <td className="align-center">{shareinfoparam.agbpValue}</td> : ""}
   {shareinfoparam.aeurValue ? 
   <td className="align-center">{shareinfoparam.aeurValue}</td> : ""}
   {shareinfoparam.busdValue ?
-  <td className="align-center">{shareinfoparam.busdValue}</td> :""}
+  <td className="align-center" colspan="3">{shareinfoparam.busdValue}</td> :""}
   {shareinfoparam.bgbpValue ? 
   <td className="align-center">{shareinfoparam.bgbpValue}</td> :""}
   {shareinfoparam.beurValue ? 
@@ -2231,6 +2220,26 @@ if(index ==3 ||index ==2){
 
 </tr>
   )
+}else if(index ==3){
+  return(
+    <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
+         
+     <td className="align-left">{shareinfoparam.name}</td>
+     {shareinfoparam.ausdValue ?
+     <td className="align-center" colspan="6">{shareinfoparam.ausdValue}</td>:""}
+     {shareinfoparam.agbpValue ?
+     <td className="align-center">{shareinfoparam.agbpValue}</td> : ""}
+     {shareinfoparam.aeurValue ? 
+     <td className="align-center">{shareinfoparam.aeurValue}</td> : ""}
+     {shareinfoparam.busdValue ?
+     <td className="align-center">{shareinfoparam.busdValue}</td> :""}
+     {shareinfoparam.bgbpValue ? 
+     <td className="align-center">{shareinfoparam.bgbpValue}</td> :""}
+     {shareinfoparam.beurValue ? 
+     <td className="align-center">{shareinfoparam.beurValue}</td>:""}
+   
+   </tr>
+     )
 }else{
   return(
     <tr className="Shares__Row-sc-1brks4f-2 eoQrEv" key={index}>
@@ -2848,30 +2857,6 @@ function previewData(formData) {
                         </table>
                     </div>
                 </div>
-                {/* <div class="mb-2 row">
-                    <div class="col" >
-                        <table class=" table table-bordered CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
-                            <tbody>
-                                <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
-                                    <th>12 month Performance</th>
-                                    <th>30/06/2016 - 30/06/2017</th>
-                                    <th>30/06/2017 - 30/06/2018</th>
-                                    <th>30/06/2018 - 30/06/2019</th>
-                                    <th>30/06/2019 - 30/06/2020</th>
-                                    <th>30/06/2020 - 30/06/2021</th>
-                                </tr>
-                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
-                                    <th>Class B GBP</th>
-                                    <td class="CumulativePerformance__NormalTableHead-sc-51pab9-3 dVUvJj">-5.09%</td>
-                                    <td class="CumulativePerformance__NormalTableHead-sc-51pab9-3 dVUvJj">-13.35%</td>
-                                    <td class="CumulativePerformance__NormalTableHead-sc-51pab9-3 dVUvJj">2.26%</td>
-                                    <td class="CumulativePerformance__NormalTableHead-sc-51pab9-3 dVUvJj">-4.85%</td>
-                                    <td class="CumulativePerformance__NormalTableHead-sc-51pab9-3 dVUvJj">3.50%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> */}
                 
                 <div className="row remove_margin_multi_asset remove_margin_multi_asset_once">
                     <div className="pr-md-1 col-12 col-md-6 col table-div-margin remove_margin" >
@@ -2916,224 +2901,18 @@ function previewData(formData) {
 
                                         {monthsArrayState.map(renderMonthNames)}
 
-                                        {/* <th></th>
-                                        <th>Jan</th>
-                                        <th>Feb</th>
-                                        <th>Mar</th>
-                                        <th>Apr</th>
-                                        <th>May</th>
-                                        <th>Jun</th>
-                                        <th>Jul</th>
-                                        <th>Aug</th>
-                                        <th>Sept</th>
-                                        <th>Oct</th>
-                                        <th>Nov</th>
-                                        <th>Dec</th>
-                                        <th>YTD</th> */}
                                     </tr>
                                     
                                     <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
                                     
-
-                                        {/* <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2021</td>
-                                        <td>-0.40%</td>
-                                        <td>2.55%</td>
-                                        <td>2.31%</td>
-                                        <td>0.98%</td>
-                                        <td>3.32%</td>
-                                        <td>-3.95%</td>
-                                        <td>-1.90%</td>
-                                        <td>-1.29%</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>1.40%</td> */}
                                     </tr>
-                                    {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2020</td>
-                                        <td>0.50%</td>
-                                        <td>-1.22%</td>
-                                        <td>6.61%</td>
-                                        <td>-4.44%</td>
-                                        <td>-4.35%</td>
-                                        <td>-3.74%</td>
-                                        <td>1.01%</td>
-                                        <td>-1.82%</td>
-                                        <td>-2.36%</td>
-                                        <td>-0.59%</td>
-                                        <td>-3.14%</td>
-                                        <td>5.99%</td>
-                                        <td>-7.97%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2019</td>
-                                        <td>-3.10%</td>
-                                        <td>-0.44%</td>
-                                        <td>5.43%</td>
-                                        <td>-0.72%</td>
-                                        <td>6.76%</td>
-                                        <td>-1.75%</td>
-                                        <td>4.84%</td>
-                                        <td>8.54%</td>
-                                        <td>-6.10%</td>
-                                        <td>-4.08%</td>
-                                        <td>0.64%</td>
-                                        <td>-0.94%</td>
-                                        <td>8.22%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2018</td>
-                                        <td>2.85%</td><td>-9.72%</td><td>-0.98%</td><td>-3.34%</td><td>-3.76%</td><td>1.01%</td><td>-2.11%</td><td>2.06%</td><td>-5.22%</td><td>-1.16%</td><td>-1.69%</td><td>4.92%</td><td>-16.59%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2017</td><td>-0.23%</td><td>0.77%</td><td>-3.19%</td><td>0.83%</td><td>-0.82%</td><td>-2.29%</td><td>1.79%</td><td>-2.15%</td><td>-2.03%</td><td>4.77%</td><td>0.53%</td><td>-2.41%</td><td>-4.62%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2016</td><td>10.83%</td><td>7.58%</td><td>-4.43%</td><td>-2.62%</td><td>-2.40%</td><td>10.43%</td><td>1.82%</td><td>-2.04%</td><td>0.93%</td><td>-3.10%</td><td>-1.45%</td><td>3.82%</td><td>19.37%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2015</td><td>7.59%</td><td>1.92%</td><td>-0.48%</td><td>-2.23%</td><td>0.80%</td><td>-2.06%</td><td>1.13%</td><td>-3.80%</td><td>3.75%</td><td>-6.27%</td><td>-0.58%</td><td>-2.49%</td><td>-3.37%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2014</td><td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-3.10%</td><td class="MonthlyPerformance__PartialShadedCell-sc-1n33bhd-6 idoIOi">-0.21%</td><td>-2.98%</td><td>1.82%</td><td>3.45%</td><td>3.09%</td><td>0.02%</td><td>3.35%</td><td>1.66%</td><td>-5.15%</td><td>15.31%</td><td>2.87%</td><td>20.44%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2013</td><td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">3.76%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-5.83%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">3.29%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">4.99%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.87%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-5.99%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-4.43%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-4.57%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-2.45%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">4.00%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">0.04%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">1.77%</td>
-                                    <td>-6.97%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2012</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.18%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-7.15%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">0.93%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.52%</td>
-                                        <td>-6.94%</td>
-                                    </tr> */}
+                                  
                                 </tbody>
                             </table>
 
                             <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
-                                    {/* <tr>
-                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                            Monthly Performance – GFT Class B GBP</th>
-                                    </tr> */}
-
-
-
-
-
-                                    
-                                    {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}
-                                    
                                     {monthlyPerformance2DArrayState.map(render12MonthsData)}
-
-                                        {/* <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2021</td>
-                                        <td>-0.40%</td>
-                                        <td>2.55%</td>
-                                        <td>2.31%</td>
-                                        <td>0.98%</td>
-                                        <td>3.32%</td>
-                                        <td>-3.95%</td>
-                                        <td>-1.90%</td>
-                                        <td>-1.29%</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>1.40%</td> */}
-                                    {/* </tr> */}
-                                    {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2020</td>
-                                        <td>0.50%</td>
-                                        <td>-1.22%</td>
-                                        <td>6.61%</td>
-                                        <td>-4.44%</td>
-                                        <td>-4.35%</td>
-                                        <td>-3.74%</td>
-                                        <td>1.01%</td>
-                                        <td>-1.82%</td>
-                                        <td>-2.36%</td>
-                                        <td>-0.59%</td>
-                                        <td>-3.14%</td>
-                                        <td>5.99%</td>
-                                        <td>-7.97%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2019</td>
-                                        <td>-3.10%</td>
-                                        <td>-0.44%</td>
-                                        <td>5.43%</td>
-                                        <td>-0.72%</td>
-                                        <td>6.76%</td>
-                                        <td>-1.75%</td>
-                                        <td>4.84%</td>
-                                        <td>8.54%</td>
-                                        <td>-6.10%</td>
-                                        <td>-4.08%</td>
-                                        <td>0.64%</td>
-                                        <td>-0.94%</td>
-                                        <td>8.22%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2018</td>
-                                        <td>2.85%</td><td>-9.72%</td><td>-0.98%</td><td>-3.34%</td><td>-3.76%</td><td>1.01%</td><td>-2.11%</td><td>2.06%</td><td>-5.22%</td><td>-1.16%</td><td>-1.69%</td><td>4.92%</td><td>-16.59%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2017</td><td>-0.23%</td><td>0.77%</td><td>-3.19%</td><td>0.83%</td><td>-0.82%</td><td>-2.29%</td><td>1.79%</td><td>-2.15%</td><td>-2.03%</td><td>4.77%</td><td>0.53%</td><td>-2.41%</td><td>-4.62%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2016</td><td>10.83%</td><td>7.58%</td><td>-4.43%</td><td>-2.62%</td><td>-2.40%</td><td>10.43%</td><td>1.82%</td><td>-2.04%</td><td>0.93%</td><td>-3.10%</td><td>-1.45%</td><td>3.82%</td><td>19.37%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2015</td><td>7.59%</td><td>1.92%</td><td>-0.48%</td><td>-2.23%</td><td>0.80%</td><td>-2.06%</td><td>1.13%</td><td>-3.80%</td><td>3.75%</td><td>-6.27%</td><td>-0.58%</td><td>-2.49%</td><td>-3.37%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2014</td><td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-3.10%</td><td class="MonthlyPerformance__PartialShadedCell-sc-1n33bhd-6 idoIOi">-0.21%</td><td>-2.98%</td><td>1.82%</td><td>3.45%</td><td>3.09%</td><td>0.02%</td><td>3.35%</td><td>1.66%</td><td>-5.15%</td><td>15.31%</td><td>2.87%</td><td>20.44%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"><td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2013</td><td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">3.76%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-5.83%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">3.29%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">4.99%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.87%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-5.99%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-4.43%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-4.57%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-2.45%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">4.00%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">0.04%</td>
-                                    <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">1.77%</td>
-                                    <td>-6.97%</td>
-                                    </tr>
-                                    <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa">
-                                        <td class="MonthlyPerformance__Year-sc-1n33bhd-7 gQqNla">2012</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.18%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-7.15%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">0.93%</td>
-                                        <td class="MonthlyPerformance__ShadedCell-sc-1n33bhd-5 bSjxEq">-0.52%</td>
-                                        <td>-6.94%</td>
-                                    </tr> */}
                                 </tbody>
                             </table>
 
@@ -3221,29 +3000,6 @@ function previewData(formData) {
                                     {monthlyPerformance2DArrayStateBEUR.map(render12MonthsData)}
                                 </tbody>
                             </table>
-
-
-
-                            {/* <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
-                                <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
-                                    <tr>
-                                        <th colspan="99" class="MonthlyPerformance__Title-sc-1n33bhd-1 ekfIgT">
-                                         Monthly Performance – GFT Class A GBP</th>
-                                    </tr>
-                                    <tr color="#d8e2e8" class="MonthlyPerformance__Row-sc-1n33bhd-4 elqUjA">
-                                        {monthsArrayStateAGBP.map(renderMonthNames)}
-                                    </tr>
-                                   
-                                </tbody>
-                            </table>
-
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
-                                <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
-                                    {monthlyPerformance2DArrayStateAGBP.map(render12MonthsData)}
-                                </tbody>
-                            </table> */}
-
-
                         </div>
                     </div>
                 </div>
@@ -3253,10 +3009,8 @@ function previewData(formData) {
                       <br/></p>
                   </div>
             </div>
-          
           </div>
 
-          
         </div>
       </div>
       <div class="tab-pane fade" id="two" role="tabpanel">
@@ -3265,10 +3019,6 @@ function previewData(formData) {
           <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
               <div class="mb-2 row">
                   <div class="col-md-12"  dangerouslySetInnerHTML={{ __html: productsCommentary }}>
-                    {/* {productsCommentary} */}
-                  {/* {bot3contriarray.map(renderbot3contri)} */}
-                    
-                    
                   </div>
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
@@ -3293,24 +3043,7 @@ function previewData(formData) {
                                     <th>Fund Information</th>
                                 </tr>
                                 {Fundinfoarray.map(renderFundinfo)}
-                                
                                 {CMSFundinfoarray.map(renderFundinfo)}
-                                
-{/* 
-                                <tr className="FundInformation__Row-sc-18irt95-2 fweCQL">
-                                  <td className="align-left">Pricing Frequency</td>   
-                                  <td className="align-right">Daily</td>
-                                </tr>
-                                <tr className="FundInformation__Row-sc-18irt95-2 fweCQL">
-                                  <td className="align-left">Domicile</td>   
-                                  <td className="align-right">Ireland</td>
-                                </tr>
-                                <tr className="FundInformation__Row-sc-18irt95-2 fweCQL">
-                                  <td className="align-left">Exit Charge</td>   
-                                  <td className="align-right">None</td>
-                                </tr> */}
- 
-                               
                             </tbody>
                         </table>
                     </div>
@@ -3320,194 +3053,12 @@ function previewData(formData) {
                         <table class="table  Shares__Table-sc-1brks4f-0 hBbtmd">
                             <tbody class="Shares__Body-sc-1brks4f-1 hbWYKC">
                                 <tr class="Shares__Row-sc-1brks4f-2 hzpAKA">
-                                
-
-                                {ShareClassarray.map(renderShareClassNames)}
-                                
-                                {/* {CMSshareinfoarray.map(renderShareClassNames)} */}
-
-                                    {/* <th class="text-left">Share Class</th>
-                                    <th class="text-center">A USD</th>
-                                    <th class="text-center">A GBP</th>
-                                    <th class="text-center">A EUR</th>
-                                    <th class="text-center">B USD</th>
-                                    <th class="text-center">B GBP</th>
-                                    <th class="text-center">B EUR</th> */}
+                                  {ShareClassarray.map(renderShareClassNames)}
                                 </tr>
-
-
                                 <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-
-                                {ShareClassarray.map(renderShareClassValue)}
-                                
-                                {/* {CMSshareinfoarray.map(renderShareClassValue)} */}
-
-                                    {/* <td>NAV per Share</td>
-                                    <td align="center" colspan="1">$995.86</td>
-                                    <td align="center" colspan="1">£964.27</td>
-                                    <td align="center" colspan="1">€820.02</td>
-                                    <td align="center" colspan="1">$1,063.31</td>
-                                    <td align="center" colspan="1">£795.17</td>
-                                    <td align="center" colspan="1">€773.23</td> */}
+                                  {ShareClassarray.map(renderShareClassValue)}
                                 </tr>
                                 {CMSshareinfoarray.map(renderCMSshareinfo)}
-
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Minimum Initial Investment</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                </tr>
-
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Minimum Additional Investment</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Ongoing Charge (as at 31 December 2020)</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.55%</td>
-                                    <td className="align-right">1.81%</td>
-                                    <td className="align-right">1.80%</td>
-                                    <td className="align-right">1.81%</td>
-                                 </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">ISIN</td>
-                                    <td className="align-right">IE00B86V3N61</td>
-                                    <td className="align-right">IE00B8NCXV05</td>
-                                    <td className="align-right">IE00B86JXG34</td>
-                                    <td className="align-right">IE00B8L77L59</td>
-                                    <td className="align-right">IE00B86KNN34</td>
-                                    <td className="align-right">IE00B7S9LZ93</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Bloomberg Ticker</td>
-                                    <td className="align-right">EEADTAU ID</td>
-                                    <td className="align-right">EEADTAS ID</td>
-                                    <td className="align-right">GARFTAE ID</td>
-                                    <td className="align-right">EEADTBU ID</td>
-                                    <td className="align-right">EEADTBS ID</td>
-                                    <td className="align-right">GARFTBE ID</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Citi</td>
-                                    <td className="align-right">MD8G</td>
-                                    <td className="align-right">I2VK</td>
-                                    <td className="align-right">Q6OF</td>
-                                    <td className="align-right">I2VL</td>
-                                    <td className="align-right">MD8J</td>
-                                    <td className="align-right">NTGR</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">MEXID</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GAWXA</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GACMA</td>
-                                    <td className="align-right">GAYZA</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Open for new investment</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                </tr> */}
-
-                                
-
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Minimum Initial Investment</td>
-                                    <td align="center" colspan="1">$100,000</td>
-                                    <td align="center" colspan="1">£100,000</td>
-                                    <td align="center" colspan="1">€100,000</td>
-                                    <td align="center" colspan="1">$100</td>
-                                    <td align="center" colspan="1">£100</td>
-                                    <td align="center" colspan="1">€100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Minimum Additional Investment</td>
-                                    <td align="center" colspan="1">$10,000</td>
-                                    <td align="center" colspan="1">£10,000</td>
-                                    <td align="center" colspan="1">€10,000</td>
-                                    <td align="center" colspan="1">$100</td>
-                                    <td align="center" colspan="1">£100</td>
-                                    <td align="center" colspan="1">€100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Ongoing Charge (as at 31 December 2020)</td>
-                                    <td align="center" colspan="1">1.56%</td>
-                                    <td align="center" colspan="1">1.56%</td>
-                                    <td align="center" colspan="1">1.55%</td>
-                                    <td align="center" colspan="1">1.81%</td>
-                                    <td align="center" colspan="1">1.80%</td>
-                                    <td align="center" colspan="1">1.81%</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Performance Fee</td>
-                                    <td align="center" colspan="99">20%, High water mark</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>UK Reporting Fund Status</td>
-                                    <td align="center" colspan="99">Yes (All share classes)</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>ISIN</td>
-                                    <td align="center" colspan="1">IE00B86V3N61</td>
-                                    <td align="center" colspan="1">IE00B8NCXV05</td>
-                                    <td align="center" colspan="1">IE00B86JXG34</td>
-                                    <td align="center" colspan="1">IE00B8L77L59</td>
-                                    <td align="center" colspan="1">IE00B86KNN34</td>
-                                    <td align="center" colspan="1">IE00B7S9LZ93</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Bloomberg Ticker</td>
-                                    <td align="center" colspan="1">EEADTAU ID</td>
-                                    <td align="center" colspan="1">EEADTAS ID</td>
-                                    <td align="center" colspan="1">GARFTAE ID</td>
-                                    <td align="center" colspan="1">EEADTBU ID</td>
-                                    <td align="center" colspan="1">EEADTBS ID</td>
-                                    <td align="center" colspan="1">GARFTBE ID</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Citi</td>
-                                    <td align="center" colspan="1">MD8G</td>
-                                    <td align="center" colspan="1">I2VK</td>
-                                    <td align="center" colspan="1">Q6OF</td>
-                                    <td align="center" colspan="1">I2VL</td>
-                                    <td align="center" colspan="1">MD8J</td>
-                                    <td align="center" colspan="1">NTGR</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>MEXID</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">GAWXA</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">GACMA</td>
-                                    <td align="center" colspan="1">GAYZA</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Open for new investment</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                </tr> */}
                             </tbody>
                         </table>
                     </div>
@@ -3574,42 +3125,6 @@ function previewData(formData) {
 
 
           </div>
-          {/* <div class="row">
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-05-20-ESO-AGM-Notice-V3-326976254-clean.pdf">2021 Notice of AGM
-                      <br/><span class="date">20 May 2021</span></a></p>
-				  </div>
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
-				  </div>
-          </div>
-          <div class="row">
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-05-20-ESO-AGM-Notice-V3-326976254-clean.pdf">2021 Notice of AGM
-                      <br/><span class="date">20 May 2021</span></a></p>
-				  </div>
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
-				  </div>
-          </div>
-          <div class="row">
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-05-20-ESO-AGM-Notice-V3-326976254-clean.pdf">2021 Notice of AGM
-                      <br/><span class="date">20 May 2021</span></a></p>
-				  </div>
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
-				  </div>
-          </div>
-          <div class="row">
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-05-20-ESO-AGM-Notice-V3-326976254-clean.pdf">2021 Notice of AGM
-                      <br/><span class="date">20 May 2021</span></a></p>
-				  </div>
-				  <div class="col-sm-6">
-					  <p class="pdf_download"><a href="files/2021-ESO-AGM-Proxy_32699907_3_0.pdf">2021 AGM Proxy Form<br/><span class="date">21 May 2021</span></a></p>
-				  </div>
-          </div> */}
             
           </div>
           
