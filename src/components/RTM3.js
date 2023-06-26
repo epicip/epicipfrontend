@@ -1547,16 +1547,10 @@ async function fetchMyAPI(){
 // const fetchMyAPI = useCallback(() => {
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  // const url ='https://epicipprojects.com/garraway-financial-trends';
-  // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
-  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  //const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
-  const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-  //const url ='https://www.epicip.com/vtepic-multi-asset-growth-fund';
-  //const url = "https://www.epicip.com/epic-mps-rmd5";
-  // const url = window.location.origin+'/epic-mps-rmd5';
-  const url = 'http://127.0.0.1:8000/epic-mps-rmd5'
+  //const url = "https://www.epicip.com/epic-mps-rtm3";
+  //const url = window.location.origin+'/epic-mps-rtm3';
+  const url = 'http://127.0.0.1:8000/epic-mps-rtm3'
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
@@ -2579,8 +2573,8 @@ function previewData(formData) {
             <div className="accordion__item__header active"><NavLink to="/markets/EpicDFM" className="navlink a">Discretionary  <br />Fund Management</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
-                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a a-active-color">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM3" className="navlink a a-active-color">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS - Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS - Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
@@ -2850,7 +2844,7 @@ function previewData(formData) {
                       </LineChart>
                       
             </ResponsiveContainer>
-              <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC MPS – RMD 5</p>
+              <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC MPS – RTM 3</p>
                     <Tooltip />
             
 
@@ -2887,7 +2881,7 @@ function previewData(formData) {
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rmd5.pdf"} target="_blank">here</a>
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm3.pdf"} target="_blank">here</a>
                       <br/></p>
                   </div>
       </div>
@@ -2929,7 +2923,7 @@ function previewData(formData) {
                         />
 
                       </LineChart>
-                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Model Portfolio Solutions – Risk Managed Decumulation 5</p>
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Model Portfolio Solutions – Risk Target Managed 3</p>
                       </div>
                       
                     
@@ -3066,7 +3060,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rmd5.pdf"} target="_blank" download>here</a> 
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm3.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
             </div>
@@ -3090,7 +3084,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rmd5.pdf"} target="_blank" download>here</a> 
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm3.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
                     </div>            
@@ -3193,7 +3187,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rmd5.pdf"} target="_blank" download>here</a>
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm3.pdf"} target="_blank" download>here</a>
                       <br/></p>
                   </div>
             </div>
@@ -3217,7 +3211,7 @@ function previewData(formData) {
           <h4>Fact Sheet</h4>
 
 					  <p class="pdf_download">              
-                          <a href={window.location.origin+"/sitepdfs/epic_mps_rmd5.pdf"} target="_blank" download>EPIC MPS – RMD 5 PDF
+                          <a href={window.location.origin+"/sitepdfs/epic_mps_rtm3.pdf"} target="_blank" download>EPIC MPS – RTM 3 PDF
                             <br/>
                           </a>
                      </p>
