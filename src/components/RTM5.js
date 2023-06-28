@@ -202,24 +202,50 @@ const VARdata = [
       </text>
     )};
   };
+
+  const renderCustomized12LabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
   // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
 
   // const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#666666','#353637','#000000','#B85876','#D296A9','#9DB1DB'];
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
-  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS8 = ['#1A1549','#99103b']
 
   const renderColorfulLegendText = (value, entry ) => {
     const { color } = entry;
     console.log(value,entry.payload.value);
 
     return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
+  };
+
+  const renderColor12fulLegendText = (value, entry ) => {
+    const { color } = entry;
+    console.log(value,entry.payload.value);
+
+    return <span className="legend-span">{value+' '+(entry.payload.value)+'%'}</span>;
   };
 
 
@@ -289,13 +315,14 @@ const [graphData, setgraphData] = useState([]);
 
 const [top10HoldingState, settop10HoldingState] = useState([]);
 const [InceptionArrayState, setInceptionArrayState] = useState([]);
-const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
+
  const [monthlyPerformance2DArrayState, setmonthlyPerformance2DArrayState] = useState([]);
  const [monthsArrayState, setmonthsArrayState] = useState([]);
 
 
 const [AssetAllocationState, setAssetAllocationState] = useState([]);
 const [marketCapState, setmarketCapState]= useState([]);
+const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
 const [equititeState, setequititeState]= useState([]);
 
 const [DerVarState, setDerVarState]= useState([]);
@@ -611,34 +638,62 @@ const portfolioButton=()=>{
 
   const top10HoldingData =[]
   const marketCapData =[]
+  const InceptionDataArray2 = []
   const equitiesData =[]
   const DerVarData = []
 
   const sectorBreakdownData =[]
   const RegionbreakdownArray =[] 
   const sectorbreakdownArray =[] 
-  const InceptionDataArray2 = []
+ 
 
 
   var keysInceptionData2 = ["date", "value"]
   
   
-for(let i=1 ; i< InceptionData.length ;i++){
- // typeof(products[i][j])
+// for(let i=1 ; i< InceptionData.length ;i++){
+//  // typeof(products[i][j])
  
- let obj={};
- var date = InceptionData[i][3]
- var PerformanceValue = InceptionData[i][10]
- var AlphaDate =  new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
-obj[keysInceptionData2[0]] = AlphaDate;
-obj[keysInceptionData2[1]] = PerformanceValue*100;
+//  let obj={};
+//  var date = InceptionData[i][3]
+//  var PerformanceValue = InceptionData[i][10]
+//  var AlphaDate =  new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
+// obj[keysInceptionData2[0]] = AlphaDate;
+// obj[keysInceptionData2[1]] = PerformanceValue*100;
 
-   InceptionDataArray2.push(obj)
+//    InceptionDataArray2.push(obj)
 
-   date = null
-   PerformanceValue = null
+//    date = null
+//    PerformanceValue = null
  
-} 
+// }
+
+
+
+
+var keysInceptionData21 = ["name", "value"]
+  var length = productstop10Holding.length;
+  let obj1={};
+  let obj2={};
+  let obj={};
+  console.log("hello")
+  console.log(productstop10Holding)
+  obj1[keysInceptionData21[0]] = productstop10Holding[1][5];
+  let val12 = productstop10Holding[1][6]*100;
+  var rounded112 = Math.round(Math.round((val12 + Number.EPSILON) * 100) / 100,1);
+  obj1[keysInceptionData21[1]] = rounded112;
+  obj2[keysInceptionData21[0]] = productstop10Holding[2][5];
+  let val123 = productstop10Holding[2][6]*100;
+  var rounded1123 = Math.round(Math.round((val123 + Number.EPSILON) * 100) / 100,1);
+  obj2[keysInceptionData2[1]] = rounded1123;
+  obj =[obj1,obj2]
+  let objlength =obj.length
+  for(let i=0 ; i< objlength ;i++){
+    //console.log(obj[i].value);
+    if(obj[i].value !==0){
+        InceptionDataArray2.push(obj[i])
+      }
+  }
 console.log(InceptionDataArray2);
 
   // const fundInfoData =[]
@@ -904,13 +959,14 @@ console.log(InceptionDataArray2);
   // setAssetAllocationState()
   settop10HoldingState(top10HoldingData)
   setmarketCapState(marketCapData)
+  setInceptionArrayState2(InceptionDataArray2)
   setequititeState(equitiesData)
   setDerVarState(DerVarData)
 
 
   setregionBreakdownState(RegionbreakdownArray)
   setsectorBreakdownState(sectorbreakdownArray)
-  setInceptionArrayState2(InceptionDataArray2)
+  
   setgraphDataSectorPer(graphDataResponse2)
 
   // console.log(graphDataResponse);
@@ -1035,7 +1091,7 @@ console.log("arr2D");
 
 
   
-  var keysInceptionData = ["date", "value"]
+  var keysInceptionData = ["date", "value" , "value1"]
   
   
   for(let i=1 ; i< InceptionData.length ;i++){
@@ -1044,16 +1100,19 @@ console.log("arr2D");
    let obj={};
    var date = InceptionData[i][3]
    var PerformanceValue = InceptionData[i][7]
+   var PerformanceValue13 = InceptionData[i][8]
    var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
    console.log("AlphaDate")
    console.log(AlphaDate)
   obj[keysInceptionData[0]] = AlphaDate;
   obj[keysInceptionData[1]] = PerformanceValue*100;
+  obj[keysInceptionData[2]] = PerformanceValue13*100;
  
      InceptionDataArray.push(obj)
  
      date = null
      PerformanceValue = null
+     PerformanceValue13 = null
    
  } 
  console.log(InceptionDataArray);
@@ -1602,6 +1661,7 @@ async function fetchMyAPI(){
     setproductsMonthlyPerf(resp.MonthlyPerf)
     // setLoading(true)
     setInceptionData(resp.inceptionperfdata)
+   // setInceptionData(resp.TopHoldings)
     setPRTU(resp.prtu)
     setLiterature(resp.literature)
     setSummary(resp.summary)
@@ -2575,7 +2635,7 @@ function previewData(formData) {
               <ul>
                 <li><NavLink to="/markets/RiskEpicDFM" className="navlink a">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM5" className="navlink a a-active-color">EPIC MPS - Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM5" className="navlink a  a-active-color">EPIC MPS - Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS - Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
@@ -2810,42 +2870,34 @@ function previewData(formData) {
           
           </div>
           <div class="col-md-6 SECmargin chart-block"> 
-            <p class="lse_redirect">Portfolio Drawdown</p>
+            <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
-             <ResponsiveContainer width="100%" height="85%">
-             <LineChart
-                        width={700}
-                        height={260}
-                        data={InceptionArrayState2}
-                        margin={{
-                          top: 5,
-                          right: 30,
-                          left: -20,
-                          bottom: 5
-                        }}
-                      >
-                        <CartesianGrid horizontal="true" vertical="" strokeDasharray=" " />
-                        <XAxis dataKey="date" />
-                        <YAxis tickFormatter={(tick) => {
-                         return `${tick}%`;
-                         }}
-                        />
-                        {/* <Tooltip /> */}
-                        {/* <Legend /> */}
-                        <Line
-                          type="monotone"
-                          dataKey="value"
-                          stroke="#1a2352"
-                          dot={false}
-                          activeDot={{ r: 4 }}
-                        />
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={InceptionArrayState2}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomized12LabelFixed}
 
-                      </LineChart>
-                      
-            </ResponsiveContainer>
-              <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC MPS – RTM 5</p>
-                    <Tooltip />
+              >
+                {InceptionArrayState2.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
             
 
           </div>
@@ -2916,8 +2968,17 @@ function previewData(formData) {
                         {/* <Legend /> */}
                         <Line
                           type="monotone"
+                          data={InceptionArrayState.value}
                           dataKey="value"
                           stroke="#1a2352"
+                          dot={false}
+                          activeDot={{ r: 4 }}
+                        />
+                        <Line
+                          type="monotone"
+                          data={InceptionArrayState.value1}
+                          dataKey="value1"
+                          stroke="#99103c"
                           dot={false}
                           activeDot={{ r: 4 }}
                         />
