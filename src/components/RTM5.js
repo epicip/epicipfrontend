@@ -2953,38 +2953,23 @@ function previewData(formData) {
                         data={InceptionArrayState}
                         margin={{
                           top: 5,
-                          right: 30,
+                          right: -10,
                           left: -20,
-                          bottom: 5
+                          bottom: 5,
                         }}
                       >
-                        <CartesianGrid horizontal="true" vertical="" strokeDasharray=" " />
+                        <CartesianGrid strokeDasharray="" />
                         <XAxis dataKey="date" />
-                        <YAxis tickFormatter={(tick) => {
-                         return `${tick}%`;
-                         }}
-                        />
-                        {/* <Tooltip /> */}
-                        {/* <Legend /> */}
-                        <Line
-                          type="monotone"
-                          data={InceptionArrayState.value}
-                          dataKey="value"
-                          stroke="#1a2352"
-                          dot={false}
-                          activeDot={{ r: 4 }}
-                        />
-                        <Line
-                          type="monotone"
-                          data={InceptionArrayState.value1}
-                          dataKey="value1"
-                          stroke="#99103c"
-                          dot={false}
-                          activeDot={{ r: 4 }}
-                        />
-
+                        <YAxis yAxisId="left" />
+                        <YAxis yAxisId="right" orientation="right" />
+                        {/* <Tooltip />
+                        <Legend /> */}
+                        <Line yAxisId="left" type="monotone" dataKey="value" dot={false} stroke="#1a2352" activeDot={{ r: 8 }} />
+                        <Line yAxisId="right" type="monotone" dataKey="value1" dot={false} stroke="#99103c" activeDot={{ r: 8 }}/>
                       </LineChart>
-                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Model Portfolio Solutions – Risk Target Managed 5</p>
+                    {/* </ResponsiveContainer> */}
+                      <p class="lse_redirect1"><p class="p_color"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC MPS - RTM 5</p>
+                      <p><span class="span_color12"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; 12m. Rolling Vol (RHS)</p></p>
                       </div>
                       
                     

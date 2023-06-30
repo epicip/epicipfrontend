@@ -184,8 +184,13 @@ height: 25px;
 
 .lse_redirect1{
     color:#1a1542;
-    text-align: center !important;
+    /* text-align: center !important; */
     font-size: 11px;
+}
+.p_color{
+    float: left;
+    margin-left: 190px;
+    margin-right:10px;
 }
 
 .lse_redirect{
@@ -498,6 +503,10 @@ height: 25px;
     color: #1a2352;
     
 }
+.span_color12{
+    background-color: #99103c;
+    color: #99103c;
+}
 .kzFInj {
     background-color: rgb(216, 226, 232);
     font-weight: bold;
@@ -606,6 +615,10 @@ height: 25px;
     /* border-top: 7px solid white; */
     border-bottom: 7px solid white;
 
+}
+
+.chart-block12{
+    margin-bottom: 50px;
 }
 .chart-block-finance{
     padding: 10px;
