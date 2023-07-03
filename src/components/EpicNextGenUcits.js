@@ -29,7 +29,7 @@ import $ from "jquery";
 // var Accordion = require('react-bootstrap').Accordion;
 // var Panel = require('react-bootstrap').Panel;
 // var responseData;
-const colors = ["#1A1549", " #9DB1DB", "#E6EEF6", "#dcdcdc","#B85876"]
+const colors = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
 
 // const graphData = []
 // const graphDataVAR = []
@@ -181,6 +181,43 @@ const VARdata = [
       </text>
     )};
   };
+
+  const renderCustomizedLabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
+
+  const renderCustomized12LabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
+
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
     if(entry.payload.value != undefined){
@@ -189,11 +226,20 @@ const VARdata = [
       return <span style={{ color:"#1a1549" }}>{value}</span>;
     }
   };
+
+  const renderColor12fulLegendText = (value, entry ) => {
+    const { color } = entry;
+    console.log(value,entry.payload.value);
+
+    return <span className="legend-span">{value+' '+(entry.payload.value)+'%'}</span>;
+  };
+
   const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
 
-  const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
+  const DONUTCOLORS7 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626'];
   
-  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#B85876"]
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS6 =  ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
 
 const EpicipNextGenUcitsFunction = () => {
 
@@ -284,6 +330,8 @@ const [ReportsState, setReportsState] = useState([]);
 const [offerDocumentState, setofferDocumentState] = useState([]);
 
 const [graphData, setgraphData] = useState([]);
+const [regionBreakdown1, setregionBreakdown1] = useState([]);
+const [netForeignA, setnetForeignA] = useState([]);
 const [portfolioStatusState, setportfolioStatusState] = useState([]);
 
 const [NFAState, setNFAState] = useState([]);
@@ -734,6 +782,8 @@ const portfolioButton=()=>{
 
   const graphDataResponse = []
   const graphDataResponse1 = []
+  const graphDataResponse12 = []
+  const graphDataResponse123 = []
   const graphDataResponse2 = []
 
   const top10HoldingData =[]
@@ -1007,6 +1057,40 @@ const portfolioButton=()=>{
    
  } 
 
+ var keysVAR112 = ["name", "value","a","b"]
+ var length =productRegionBreakdown.length-1;
+   for(let i=1 ; i< length ;i++){
+    // typeof(products[i][j])
+    
+    let obj={};
+    for(let j =0 ;j< productRegionBreakdown[i].length ;j++){
+
+      if(!isNaN(productRegionBreakdown[i][j])){
+      let val = productRegionBreakdown[i][j]*100;
+      
+      // var numb= 212421434.533423131231;
+      var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+
+      console.log(rounded1);
+      obj[keysVAR112[j]] = rounded1 ;
+
+    }
+
+      // var updatedVal =  parseFloat(val).toFixed(2);
+      // console.log(updatedVal);
+      else{
+
+        obj[keysVAR112[j]] = productRegionBreakdown[i][j] ;
+      }     
+
+      } 
+      if(obj.value !==0){
+        graphDataResponse12.push(obj)
+
+      }
+ 
+    }
+
  
    var keysPortfolioStat = ["name", "value"]
   
@@ -1089,7 +1173,41 @@ const portfolioButton=()=>{
     // console.log(graphDataSectorPer);
               // console.log("allKeys")
   
-} 
+}
+
+var keysVAR11 = ["name", "value","a","b"]
+  var length =NFAData.length-1;
+   for(let i=1 ; i< length ;i++){
+    // typeof(products[i][j])
+    
+    let obj={};
+    for(let j =0 ;j< NFAData[i].length ;j++){
+
+      if(!isNaN(NFAData[i][j])){
+      let val = NFAData[i][j]*100;
+      
+      // var numb= 212421434.533423131231;
+      var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+
+      console.log(rounded1);
+      obj[keysVAR11[j]] = rounded1 ;
+
+    }
+
+      // var updatedVal =  parseFloat(val).toFixed(2);
+      // console.log(updatedVal);
+      else{
+
+        obj[keysVAR11[j]] = NFAData[i][j] ;
+      }     
+
+      } 
+      if(obj.value !==0){
+        graphDataResponse123.push(obj)
+
+      }
+ 
+    }
  
 
 
@@ -1134,6 +1252,8 @@ const portfolioButton=()=>{
   
   // setgraphData(graphDataResponse)
   setgraphData(graphDataResponse1)
+  setregionBreakdown1(graphDataResponse12);
+  setnetForeignA(graphDataResponse123);
   setportfolioStatusState(PortfolioStatArray)
   setNFAState(NFAarr)
   // setAssetAllocationState()
@@ -1966,8 +2086,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/ss-next-gen-ucits'
   const Localurl = 'https://www.epicip.com/epic-next-gen-ucits'
-  const url = window.location.origin+'/epic-next-gen-ucits' 
-   //const url = 'http://127.0.0.1:8000/epic-next-gen-ucits';
+ // const url = window.location.origin+'/epic-next-gen-ucits' 
+   const url = 'http://127.0.0.1:8000/epic-next-gen-ucits';
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2935,6 +3055,9 @@ function previewData(formData) {
             <div className="accordion__item__content">
               <ul>
                 <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS - Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS - Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
@@ -3077,19 +3200,18 @@ function previewData(formData) {
         <div class="row chart-row">
         <div class="col-md-6 chart-block">
             <p class="lse_redirect">Entity Breakdown (% NAV)</p>
-            <PieChart width={300} height={350} margin ={ {top: -60, right: 50, bottom: 5, } } >
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
               <Pie
                 data={graphData}
-                cx={120}
+                cx={90}
                 cy={200}
                 innerRadius={45}
                 outerRadius={90}
-                // fill="#0c2340"
                 paddingAngle={0}
-                startAngle={120}
-                endAngle={-360}
-                labelLine={false}
+                startAngle={90}
+                endAngle={-330}
                 dataKey="value"
+                labelLine={false}
                 label={renderCustomizedLabel}
               >
                 {data.map((entry, index) => (
@@ -3142,8 +3264,73 @@ function previewData(formData) {
                </BarChart>
                </ResponsiveContainer>
           </div>
+          <div class="col-md-6 chart-block"> 
+          <p class="lse_redirect">Regional Breakdown</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+                
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={regionBreakdown1}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabelFixed}
+
+              >
+                {regionBreakdown1.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+          
+          
+          </div>
+          <div class="col-md-6 VARmargin chart-block"> 
+            <p class="lse_redirect">Net Foreign Assets Breakdown (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={netForeignA}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomized12LabelFixed}
+
+              >
+                {netForeignA.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS7[index % DONUTCOLORS7.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+            
+
+             </div>
           <div class="row table-growth-row remove_margin">
-        <div class="pr-md-1 col-12 col-md-4 col table-div-margin remove_margin">
+        {/*<div class="pr-md-1 col-12 col-md-4 col table-div-margin remove_margin">
                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
@@ -3153,7 +3340,7 @@ function previewData(formData) {
                                 {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
                                 {/* {top3contriarray.map(rendertop3contri)} */}
                                 
-                                {regionBreakdownState.map(rendertop3contri)}
+                              {/* {regionBreakdownState.map(rendertop3contri)}*/}
 
                                 {/* </tr> */}
                                 {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
@@ -3168,14 +3355,14 @@ function previewData(formData) {
                                     <td>Short Australian Dollar / New Zealand Dollar</td>
                                     <td>0.30%</td>
                                 </tr> */}
-                            </tbody>
+                           {/*  </tbody>
                         </table>
-                    </div>
+                    </div>*/}
 
 
                     <div class="pl-md-1 col-12 col-md-4 col remove_margin">
 
-                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfm_othertwo">
+                        <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm iiGyjE_dfmwidth">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                             <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ eVXooJ_new">
                                 <th className="align-left" style={{width: "65%"}}>Portfolio Statistics</th>
@@ -3189,7 +3376,7 @@ function previewData(formData) {
                     </div>
 
 
-                    <div class="pl-md-1 col-12 col-md-4 col remove_margin">
+                   {/*  <div class="pl-md-1 col-12 col-md-4 col remove_margin">
 
                     <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm_otherOne">
                           <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
@@ -3202,7 +3389,7 @@ function previewData(formData) {
 
                           </tbody>
                       </table>
-                      </div>
+                      </div>*/}
                 </div>
         </div>
        
