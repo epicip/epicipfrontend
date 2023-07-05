@@ -205,6 +205,24 @@ const VARdata = [
     )};
   };
 
+  const renderCustomized12LabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
+
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -226,17 +244,25 @@ const VARdata = [
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = [ "#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#666666','#353637','#000000','#353637','#262626'];
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ["#1A1549",'#9DB1DB','#E6EEF6','#C8C8C8']
-  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS8 = ['#1A1549','#99103b']
 
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
     return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
     //return <span className="legend-span">{value}</span>;
+  };
+
+  const renderColor12fulLegendText = (value, entry ) => {
+    const { color } = entry;
+    console.log(value,entry.payload.value);
+
+    return <span className="legend-span">{value+' '+(entry.payload.value)+'%'}</span>;
   };
 
 
@@ -302,6 +328,7 @@ const [portfolioStatus, setportfolioStatus] = useState(false);
 const [performanceStatus1, setperformanceStatus1] = useState(false);
 
 const [graphData, setgraphData] = useState([]);
+const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
 
 const [top10HoldingState, settop10HoldingState] = useState([]);
 const [InceptionArrayState, setInceptionArrayState] = useState([]);
@@ -596,8 +623,9 @@ console.log("calculationcalculationcalculationcalculation")
 
     console.log(val);
     console.log("-----------------------------------ValVAL");
-
-    arrPRTU.push(val.toFixed(3))
+    if(val !=''){
+      arrPRTU.push(val.toFixed(3))
+    }
   }
 
   console.log(arrPRTU)
@@ -628,6 +656,7 @@ const portfolioButton=()=>{
   const marketCapData =[]
   const equitiesData =[]
   const DerVarData = []
+  const InceptionDataArray2 = [] 
 
   const sectorBreakdownData =[]
   const RegionbreakdownArray =[] 
@@ -742,6 +771,31 @@ const portfolioButton=()=>{
    
      
  }  
+
+
+ var keysInceptionData21 = ["name", "value"]
+  var length = productstop10Holding.length;
+  let obj1={};
+  let obj2={};
+  let obj={};
+  console.log(productstop10Holding)
+  obj1[keysInceptionData21[0]] = productstop10Holding[1][5];
+  let val12 = productstop10Holding[1][6]*100;
+  var rounded112 = Math.round(Math.round((val12 + Number.EPSILON) * 100) / 100,1);
+  obj1[keysInceptionData21[1]] = rounded112;
+  obj2[keysInceptionData21[0]] = productstop10Holding[2][5];
+  let val123 = productstop10Holding[2][6]*100;
+  var rounded1123 = Math.round(Math.round((val123 + Number.EPSILON) * 100) / 100,1);
+  obj2[keysInceptionData21[1]] = rounded1123;
+  obj =[obj1,obj2]
+  let objlength =obj.length
+  for(let i=0 ; i< objlength ;i++){
+    //console.log(obj[i].value);
+    if(obj[i].value !==0){
+        InceptionDataArray2.push(obj[i])
+      }
+  }
+console.log(InceptionDataArray2);
 
   
 
@@ -898,6 +952,7 @@ const portfolioButton=()=>{
   // setgraphData(graphDataResponse)
   setgraphData(graphDataResponse1)
   // setAssetAllocationState()
+  setInceptionArrayState2(InceptionDataArray2)
   settop10HoldingState(top10HoldingData)
   setmarketCapState(marketCapData)
   setequititeState(equitiesData)
@@ -1392,10 +1447,10 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  //const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund';
   // const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund';
-  // const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
+   const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -2064,7 +2119,7 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
-        <div class="col-md-6" style={{paddingRight: "2px"}}> 
+        {/*<div class="col-md-6" style={{paddingRight: "2px"}}> 
             <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
               <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
@@ -2073,7 +2128,7 @@ function previewData(formData) {
               </tr>
               {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
               
-                {top10HoldingState.map(renderTop10Holding)}
+               {/* {top10HoldingState.map(renderTop10Holding)} */}
                 
                 {/* <td>Microsoft</td>
                 <td>7.46%</td> */}
@@ -2084,8 +2139,41 @@ function previewData(formData) {
               </tr> */}
               {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
                 <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
-                </tbody></table> 
-            </div>
+               {/* </tbody></table> 
+            </div>*/}
+
+<div class="col-md-6 SECmargin chart-block"> 
+            <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={InceptionArrayState2}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomized12LabelFixed}
+
+              >
+                {InceptionArrayState2.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+            
+
+          </div>
        
 
           <div class="col-md-6 VARmargin chart-block" style={{height: "373px"}}> 
