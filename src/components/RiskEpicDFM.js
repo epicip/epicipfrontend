@@ -202,18 +202,36 @@ const VARdata = [
       </text>
     )};
   };
+  const renderCustomized12LabelFixed = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+  if(value > 5){
+    console.log(index);
+    const colors =labelarray[index]
+    console.log("value");
+    return (
+      
+      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      
+        {`${ (value).toFixed(1)}%`}
+      </text>
+    )};
+  };
   // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
 
   // const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#666666','#353637','#000000','#B85876','#D296A9','#9DB1DB'];
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
-  const DONUTCOLORS6 = ["#666666","#1A1549","#9DB1DB","#353637","#000000"]
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS8 = ['#1A1549','#99103b']
 
   const renderColorfulLegendText = (value, entry ) => {
     const { color } = entry;
@@ -221,7 +239,12 @@ const VARdata = [
 
     return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
   };
+  const renderColor12fulLegendText = (value, entry ) => {
+    const { color } = entry;
+    console.log(value,entry.payload.value);
 
+    return <span className="legend-span">{value+' '+(entry.payload.value)+'%'}</span>;
+  };
 
 //   const DONUTCOLORS = [ "#b7c9d3","#7030a0","#00C49F", "#FFBB28", "#FF8042"];
 
@@ -290,6 +313,7 @@ const [graphData, setgraphData] = useState([]);
 const [top10HoldingState, settop10HoldingState] = useState([]);
 const [InceptionArrayState, setInceptionArrayState] = useState([]);
 const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
+const [InceptionArrayState3, setInceptionArrayState3] = useState([]);
  const [monthlyPerformance2DArrayState, setmonthlyPerformance2DArrayState] = useState([]);
  const [monthsArrayState, setmonthsArrayState] = useState([]);
 
@@ -618,6 +642,7 @@ const portfolioButton=()=>{
   const RegionbreakdownArray =[] 
   const sectorbreakdownArray =[] 
   const InceptionDataArray2 = []
+  const InceptionDataArray3 = []
 
 
   var keysInceptionData2 = ["date", "value"]
@@ -629,11 +654,14 @@ for(let i=1 ; i< InceptionData.length ;i++){
  let obj={};
  var date = InceptionData[i][3]
  var PerformanceValue = InceptionData[i][10]
- var AlphaDate =  new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
-obj[keysInceptionData2[0]] = AlphaDate;
-obj[keysInceptionData2[1]] = PerformanceValue*100;
-
-   InceptionDataArray2.push(obj)
+ if(PerformanceValue !=''){
+  var AlphaDate =  new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
+  obj[keysInceptionData2[0]] = AlphaDate;
+  obj[keysInceptionData2[1]] = PerformanceValue*100;
+  
+     InceptionDataArray2.push(obj)
+ }
+ 
 
    date = null
    PerformanceValue = null
@@ -749,7 +777,31 @@ console.log(InceptionDataArray2);
      top10HoldingData.push(obj)
    
      
- }  
+ } 
+ 
+ var keysInceptionData21 = ["name", "value"]
+  var length = productstop10Holding.length;
+  let obj1={};
+  let obj2={};
+  let obj={};
+  console.log(productstop10Holding)
+  obj1[keysInceptionData21[0]] = productstop10Holding[1][5];
+  let val12 = productstop10Holding[1][6]*100;
+  var rounded112 = Math.round(Math.round((val12 + Number.EPSILON) * 100) / 100,1);
+  obj1[keysInceptionData21[1]] = rounded112;
+  obj2[keysInceptionData21[0]] = productstop10Holding[2][5];
+  let val123 = productstop10Holding[2][6]*100;
+  var rounded1123 = Math.round(Math.round((val123 + Number.EPSILON) * 100) / 100,1);
+  obj2[keysInceptionData21[1]] = rounded1123;
+  obj =[obj1,obj2]
+  let objlength =obj.length
+  for(let i=0 ; i< objlength ;i++){
+    //console.log(obj[i].value);
+    if(obj[i].value !==0){
+        InceptionDataArray3.push(obj[i])
+      }
+  }
+console.log(InceptionDataArray3);
 
   
 
@@ -911,6 +963,7 @@ console.log(InceptionDataArray2);
   setregionBreakdownState(RegionbreakdownArray)
   setsectorBreakdownState(sectorbreakdownArray)
   setInceptionArrayState2(InceptionDataArray2)
+  setInceptionArrayState3(InceptionDataArray3)
   setgraphDataSectorPer(graphDataResponse2)
 
   // console.log(graphDataResponse);
@@ -1047,10 +1100,12 @@ console.log("arr2D");
    var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
    console.log("AlphaDate")
    console.log(AlphaDate)
-  obj[keysInceptionData[0]] = AlphaDate;
-  obj[keysInceptionData[1]] = PerformanceValue*100;
- 
-     InceptionDataArray.push(obj)
+   if(PerformanceValue !=""){
+      obj[keysInceptionData[0]] = AlphaDate;
+      obj[keysInceptionData[1]] = PerformanceValue*100;
+      InceptionDataArray.push(obj)
+   }
+  
  
      date = null
      PerformanceValue = null
@@ -2855,11 +2910,42 @@ function previewData(formData) {
             
 
           </div>
+          <div class="col-md-6 VARmargin chart-block"> 
+            <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={InceptionArrayState3}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomized12LabelFixed}
 
+              >
+                {InceptionArrayState3.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+            
+
+          </div>
 
           <div class="col-md-12 "> 
 
-            
+     {/*       
 <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
 <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
   <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
@@ -2868,7 +2954,7 @@ function previewData(formData) {
   </tr>
   {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
   
-    {top10HoldingState.map(renderTop10Holding)}
+   {/* {top10HoldingState.map(renderTop10Holding)} */}
     
     {/* <td>Microsoft</td>
     <td>7.46%</td> */}
@@ -2879,7 +2965,7 @@ function previewData(formData) {
   </tr> */}
   {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
     <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
-    </tbody></table> 
+    {/*</tbody></table> */}
 
 
 </div>

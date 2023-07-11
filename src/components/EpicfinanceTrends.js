@@ -29,7 +29,7 @@ import Button from 'react-bootstrap/Button';
 // var Accordion = require('react-bootstrap').Accordion;
 // var Panel = require('react-bootstrap').Panel;
 // var responseData;
-const colors = ["#1A1549", " #9DB1DB", "#E6EEF6", "#dcdcdc","#B85876"]
+const colors = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
 let bot3contriDummy = []
 
 const data = [
@@ -1390,9 +1390,9 @@ async function fetchMyAPI(){
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
   const localurl ='https://www.epicip.com/epic-financial-trends';
-  const url = window.location.origin+'/epic-financial-trends' 
+  //const url = window.location.origin+'/epic-financial-trends' 
   //const url = 'https://www.epicip.com/epic-financial-trends';
-  // const url = 'http://127.0.0.1:8000/epic-financial-trends'
+   const url = 'http://127.0.0.1:8000/epic-financial-trends'
   
   // const url =window.location.origin+"/api/garraway-financial-trends"
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -2705,7 +2705,7 @@ function previewData(formData) {
               {/* <Legend className="legend-net" /> */}
               <ReferenceLine y={0} stroke="#000" />
               <Bar dataKey="current month" fill="#1a2352" />
-              <Bar dataKey="pevious month" fill="#DBE4E9" />
+              <Bar dataKey="pevious month" fill="#9DB1DB" />
             </BarChart>
             </ResponsiveContainer>
             }
@@ -2741,7 +2741,7 @@ function previewData(formData) {
                 {/* <Legend /> */}
                 <ReferenceLine y={0} stroke="#000" />
                 {/* <Bar dataKey="pv" fill="#8884d8" /> */}
-                <Bar dataKey="value" fill="#82ca9d" >
+                <Bar dataKey="value" fill="#9DB1DB" >
                 {
                           graphDataVAR.map((entry, index) => (
                             <Cell key={`cell-${index}`}  stroke={colors[index]}  strokeWidth={index === 2 ? 4 : 1} fill={colors[index % 20]}/>
