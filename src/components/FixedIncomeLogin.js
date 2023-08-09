@@ -91,7 +91,7 @@ return(
             <div className="accordion__item__header active"><NavLink to="/markets/Epic-FixedIncome" className="navlink a active-dis">Fixed Income</NavLink></div>
             <div className="accordion__item__content  block">
               <ul>
-                <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a">EPIC - Next Generation Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
                 { StateSession !== 0 ?
                 <li><NavLink to="/markets/EpicNextGenPCC" className="navlink a " >EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></NavLink></li>
@@ -194,7 +194,7 @@ Traditionally investors have segmented the world into developed and emerging eco
 Net Foreign Asset (NFA) analysis is a key driver of country and currency returns.</p>
 <h3>Our products</h3><br/>
                 <p>
-                    <NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a decoration-none">EPIC - NFA Global Bond Fund UI (UCITS) <span className="fa fa-angle-right"></span></NavLink><br/>
+                    {/* <NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a decoration-none">EPIC - NFA Global Bond Fund UI (UCITS) <span className="fa fa-angle-right"></span></NavLink><br/> */}
                     <NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a decoration-none">EPIC - Next Generation Bond Fund UI  (UCITS)<span className="fa fa-angle-right"></span></NavLink><br/>
                     { StateSession !== 0 ?
                 <NavLink to="/markets/EpicNextGenPCC" className="navlink a " >EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></NavLink>
