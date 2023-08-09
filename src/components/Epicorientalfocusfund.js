@@ -1737,7 +1737,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-FixedIncome" className="navlink a">Fixed Income</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a">EPIC - Next Generation Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
                 {/* <li><a href=window.location.origin+"/login_user" className="navlink a">PCC - Next Generation Bond Fund<span className="fa fa-angle-right"></span></a></li>
                 <li><a href=window.location.origin+"/login_user" className="navlink a">PCC - Renminbi Bond Fund<span className="fa fa-angle-right"></span></a></li> */}

@@ -495,7 +495,12 @@ console.log("calculationcalculationcalculationcalculation")
     console.log(val);
     console.log("-----------------------------------ValVAL");
 
-    arrPRTU.push(val.toFixed(3))
+    //arrPRTU.push(val.toFixed(3))
+    if(val != ''){
+      arrPRTU.push(val.toFixed(3))
+    }else{
+      arrPRTU.push(val)
+    }
   }
 
   console.log(arrPRTU)
@@ -2108,7 +2113,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-FixedIncome" className="navlink a">Fixed Income</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpiciNfaUcitsFundRoute" className="navlink a">EPIC - NFA Global Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicNextGenUcitsFundRoute" className="navlink a">EPIC - Next Generation Bond Fund UI (UCITS)<span className="fa fa-angle-right"></span></NavLink></li>
                 <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li>
                 <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Renminbi Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li>
