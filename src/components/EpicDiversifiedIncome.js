@@ -1396,9 +1396,9 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/vtgarraway-diversified-income-fund'
   const Localurl = 'https://www.epicip.com/vtepic-diversified-income-fund'
-  const url = window.location.origin+'/vtepic-diversified-income-fund' 
+  //const url = window.location.origin+'/vtepic-diversified-income-fund' 
   //const url = 'https://www.epicip.com/vtepic-diversified-income-fund' 
-  //const url = 'http://127.0.0.1:8000/vtepic-diversified-income-fund';
+  const url = 'http://127.0.0.1:8000/vtepic-diversified-income-fund';
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -1850,6 +1850,30 @@ function renderShareClassValue(shareClassValue, index){
 }
 }
 
+function marketCapchart(entry, index){
+  if(entry.name==="Cash & Other"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#000000'} />
+    )
+  }else if(entry.name==="Uncorrelated"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#353637'} />
+    )
+  }else if(entry.name==="Commodities"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#4D4D4D'} />
+    )
+  }else if(entry.name==="Equities"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#666666'} />
+    )
+  }else{
+  return (
+      <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+    )
+  }
+}
+
 
 function previewData(formData) {
 
@@ -2145,9 +2169,10 @@ function previewData(formData) {
                 labelLine={false}
                 label={renderCustomizedLabelFixed}
               >
-                {marketCapState.map((entry, index) => (
+                {/* {marketCapState.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
-                ))}
+                ))} */}
+                {marketCapState.map(marketCapchart)}
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 

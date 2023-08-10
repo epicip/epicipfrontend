@@ -244,12 +244,12 @@ const VARdata = [
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626'];
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB'];
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
-  const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9','#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9']
+  const DONUTCOLORS6 = ['#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB']
   const DONUTCOLORS8 = ['#1A1549','#99103b']
 
   const renderColorfulLegendText = (value, entry) => {
@@ -1889,6 +1889,56 @@ function renderShareClassValue(shareClassValue, index){
 }
 }
 
+function equitichart(entry, index){
+  console.log(index,entry.name,"mahesh 123");
+  if(entry.name==="Cash & Other"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#000000'} />
+    )
+  }else if(entry.name==="Uncorrelated"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#353637'} />
+    )
+  }else if(entry.name==="Commodities"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#4D4D4D'} />
+    )
+  }else if(entry.name==="Fixed Income"){
+    return (
+      <Cell key={`cell-${index}`} fill={'#666666'} />
+    )
+  }else{
+  return (
+      <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+    )
+  }
+}
+
+
+function marketCapchart(entry, index){
+    if(entry.name==="Cash & Other"){
+      return (
+        <Cell key={`cell-${index}`} fill={'#000000'} />
+      )
+    }else if(entry.name==="Uncorrelated"){
+      return (
+        <Cell key={`cell-${index}`} fill={'#353637'} />
+      )
+    }else if(entry.name==="Commodities"){
+      return (
+        <Cell key={`cell-${index}`} fill={'#4D4D4D'} />
+      )
+    }else if(entry.name==="Equities"){
+      return (
+        <Cell key={`cell-${index}`} fill={'#666666'} />
+      )
+    }else{
+    return (
+        <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
+      )
+    }
+}
+
 
 function previewData(formData) {
 
@@ -2200,9 +2250,10 @@ function previewData(formData) {
                 labelLine={false}
                 label={renderCustomizedLabel}
               >
-                {equititeState.map((entry, index) => (
+                {/* {equititeState.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
-                ))}
+                ))} */}
+                {equititeState.map(equitichart)}
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
@@ -2268,9 +2319,10 @@ function previewData(formData) {
                 label={renderCustomizedLabelFixed}
 
               >
-                {marketCapState.map((entry, index) => (
+                {/* {marketCapState.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
-                ))}
+                ))} */}
+                {marketCapState.map(marketCapchart)}
               </Pie>
               <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
 
