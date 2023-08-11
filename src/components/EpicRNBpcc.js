@@ -2324,9 +2324,9 @@ async function fetchMyAPI(){
   // https://jsonplaceholder.typicode.com/posts
 
   const Localurl = 'https://www.epicip.com/epic-rnb-pcc'
-  //const url = window.location.origin+'/epic-rnb-pcc'
+  const url = window.location.origin+'/epic-rnb-pcc'
   //const url = 'https://www.epicip.com/epic-rnb-pcc'; 
-  const url = 'http://127.0.0.1:8000/epic-rnb-pcc'; 
+  //const url = 'http://127.0.0.1:8000/epic-rnb-pcc'; 
    
    fetch(url).then(resp=> resp.json())
    .then (resp => {

@@ -1610,8 +1610,8 @@ async function fetchMyAPI(){
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
   //const url ='https://www.epicip.com/vtepic-multi-asset-growth-fund';
   //const url = "https://www.epicip.com/epic-mps-rmd5";
-  // const url = window.location.origin+'/epic-mps-rmd5';
-  const url = 'http://127.0.0.1:8000/epic-mps-rmd5'
+   const url = window.location.origin+'/epic-mps-rmd5';
+  //const url = 'http://127.0.0.1:8000/epic-mps-rmd5'
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
