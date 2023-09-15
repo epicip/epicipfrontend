@@ -1396,10 +1396,10 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
+  //const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
   const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund';
   // const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund';
-  // const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
+   const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
@@ -1876,11 +1876,11 @@ function previewData(formData) {
                    : 
                 <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Next Generation Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li> 
                  }
-                { StateSession !== 0 ?
+                {/* { StateSession !== 0 ?
                 <li><NavLink to="/markets/EpicRNBpcc" className="navlink a " >EPIC - Renminbi Bond Fund (PCC)<span className="fa fa-angle-right"></span></NavLink></li>
                 :
                 <li><a href={window.location.origin+"/login_user"} className="navlink a">EPIC - Renminbi Bond Fund (PCC)<span className="fa fa-angle-right"></span></a></li>
-                }
+                } */}
               </ul>
             </div>
           </div>
@@ -1899,7 +1899,8 @@ function previewData(formData) {
                 <li><NavLink to="/markets/EpicglobalEquity" className="navlink a">EPIC Global Equity Fund <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicorientalFocus" className="navlink a">EPIC Oriental Focus Fund <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicAsianCentricGlobalGrowth" className="navlink a">VT EPIC Asian Centric Global Growth Fund <span className="fa fa-angle-right"></span></NavLink></li>
-				        <li><NavLink to="/markets/EpicUKEquityMarketFund" className="navlink a">VT EPIC UK Equity Market Fund <span className="fa fa-angle-right"></span></NavLink></li>
+				        {/* <li><NavLink to="/markets/EpicUKEquityMarketFund" className="navlink a">VT EPIC UK Equity Market Fund <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
@@ -1908,9 +1909,11 @@ function previewData(formData) {
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicipWealthFund" className="navlink a">EPIC Wealth Fund <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">VT EPIC Diversified Income <span className="fa fa-angle-right"></span></NavLink></li>
+                {/* <li><NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">VT EPIC Diversified Income <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">VT EPIC Multi Asset Balanced <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a a-active-color">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
@@ -1924,7 +1927,7 @@ function previewData(formData) {
               </ul>
             </div>
           </div> */}
-          <div className="accordion__item">
+          {/* <div className="accordion__item">
             <div className="accordion__item__header"><NavLink to="/markets/EpicDFM" className="navlink a">Discretionary  <br />Fund Management</NavLink></div>
             <div className="accordion__item__content">
               <ul>
@@ -1933,7 +1936,7 @@ function previewData(formData) {
                 <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
-          </div>
+          </div> */}
 
           <div className="accordion__item">
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
