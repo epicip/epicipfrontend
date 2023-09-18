@@ -666,7 +666,7 @@ const Header = () => {
               {/* <a className="dropdown-item" href="#">Managed Futures</a>  */}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Equitites">{HeaderService3c}</NavLink>
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-MultiAsset">{HeaderService3d}</NavLink>
-              <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink> 
+              {/* <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink>  */}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Insights">EPIC Insights</NavLink> 
             
             </div>

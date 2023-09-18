@@ -1263,10 +1263,10 @@ async function fetchMyAPI(){
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
   // const url ='https://epicipprojects.com/garraway-financial-trends';
-   const url = 'https://www.epicip.com/news_data'
+   //const url = 'https://www.epicip.com/news_data'
   
   const Localurl = 'https://epicipprojects.com/news_data' 
-  //const url = window.location.origin+'/news_data' 
+  const url = window.location.origin+'/news_data' 
 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {

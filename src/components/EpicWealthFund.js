@@ -1676,8 +1676,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/garraway-wealth-fund' 
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
-  //const url = window.location.origin+'/epic-wealth-fund'
-   const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
+  const url = window.location.origin+'/epic-wealth-fund'
+  // const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
