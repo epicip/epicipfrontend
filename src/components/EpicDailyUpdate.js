@@ -503,7 +503,12 @@ console.log("calculationcalculationcalculationcalculation")
     console.log(val);
     console.log("-----------------------------------ValVAL");
 
-    arrPRTU.push(val.toFixed(3))
+    //arrPRTU.push(val.toFixed(3))
+    if(val != ''){
+      arrPRTU.push(val.toFixed(3))
+    }else{
+      arrPRTU.push(val)
+    }
   }
 
   console.log(arrPRTU)
