@@ -181,6 +181,7 @@ const Header = () => {
     var allKeys = ["Serviceid","Servicename","Headername","ServiceUrl"];
     for(let j=0 ; j< ServiceName.length ;j++){
     let obj={};
+    console.log(ServiceName);
         for(let i=0 ; i< HeaderName.length ;i++){
     
           if(HeaderName[i].id == ServiceName[j].division_id){
@@ -190,24 +191,24 @@ const Header = () => {
           obj[allKeys[2]] = HeaderName[i].name ;
           obj[allKeys[3]] = ServiceName[j].url ;
 
-          var HeaderService1a = ServiceName[6].name;
-          var HeaderServiceURL1a = ServiceName[6].url
+          var HeaderService1a = ServiceName[5].name;
+          var HeaderServiceURL1a = ServiceName[5].url
          // var HeaderService1b = ServiceName[8].name;
          // var HeaderServiceURL1b = ServiceName[8].url 
-          var HeaderService1c = ServiceName[8].name;
-          var HeaderServiceURL1c = ServiceName[8].url
+          var HeaderService1c = ServiceName[7].name;
+          var HeaderServiceURL1c = ServiceName[7].url
          
-          var HeaderService1d = ServiceName[9].name;
-          var HeaderServiceURL1d = ServiceName[9].url
+          var HeaderService1d = ServiceName[8].name;
+          var HeaderServiceURL1d = ServiceName[8].url
          
-          var HeaderService2a = ServiceName[10].name;
-          var HeaderServiceURL2a = ServiceName[10].url
+          var HeaderService2a = ServiceName[9].name;
+          var HeaderServiceURL2a = ServiceName[9].url
 
-          var HeaderService2b = ServiceName[11].name;
-          var HeaderServiceURL2b = ServiceName[11].url
+          var HeaderService2b = ServiceName[10].name;
+          var HeaderServiceURL2b = ServiceName[10].url
          
-          var HeaderService2c = ServiceName[12].name;
-          var HeaderServiceURL2c = ServiceName[12].url
+          var HeaderService2c = ServiceName[11].name;
+          var HeaderServiceURL2c = ServiceName[11].url
          
           var HeaderService3a = ServiceName[0].name;
           var HeaderServiceURL3a = ServiceName[0].url
@@ -221,47 +222,47 @@ const Header = () => {
           var HeaderService3d = ServiceName[3].name;
           var HeaderServiceURL3d = ServiceName[3].url
 
-          var HeaderService3e = ServiceName[4].name;
-          var HeaderServiceURL3e = ServiceName[4].url
+          // var HeaderService3e = ServiceName[4].name;
+          // var HeaderServiceURL3e = ServiceName[4].url
 
-          var HeaderService4a = ServiceName[13].name;
-          var HeaderServiceURL4a = ServiceName[13].url
+          var HeaderService4a = ServiceName[12].name;
+          var HeaderServiceURL4a = ServiceName[12].url
 
-          var HeaderService4b = ServiceName[14].name;
-          var HeaderServiceURL4b = ServiceName[14].url
+          var HeaderService4b = ServiceName[13].name;
+          var HeaderServiceURL4b = ServiceName[13].url
 
-          var HeaderService5a = ServiceName[16].name;
-          var HeaderServiceURL5a = ServiceName[16].url
+          var HeaderService5a = ServiceName[15].name;
+          var HeaderServiceURL5a = ServiceName[15].url
           
-          var HeaderService5b = ServiceName[17].name;
-          var HeaderServiceURL5b = ServiceName[17].url
+          var HeaderService5b = ServiceName[16].name;
+          var HeaderServiceURL5b = ServiceName[16].url
           
-          var HeaderService5c = ServiceName[18].name;
-          var HeaderServiceURL5c = ServiceName[18].url
+          var HeaderService5c = ServiceName[17].name;
+          var HeaderServiceURL5c = ServiceName[17].url
           
-          var HeaderService5d = ServiceName[19].name;
-          var HeaderServiceURL5d = ServiceName[19].url
+          var HeaderService5d = ServiceName[18].name;
+          var HeaderServiceURL5d = ServiceName[18].url
           
-          var HeaderService5e = ServiceName[20].name;
-          var HeaderServiceURL5e = ServiceName[20].url
+          var HeaderService5e = ServiceName[19].name;
+          var HeaderServiceURL5e = ServiceName[19].url
 
-          var HeaderService6a = ServiceName[20].name;
-          var HeaderServiceURL6a = ServiceName[20].url
+          var HeaderService6a = ServiceName[19].name;
+          var HeaderServiceURL6a = ServiceName[19].url
 
-          var HeaderService6b = ServiceName[21].name;
-          var HeaderServiceURL6b = ServiceName[21].url
+          var HeaderService6b = ServiceName[20].name;
+          var HeaderServiceURL6b = ServiceName[20].url
 
-          var HeaderService6c = ServiceName[22].name;
-          var HeaderServiceURL6c = ServiceName[22].url
+          var HeaderService6c = ServiceName[21].name;
+          var HeaderServiceURL6c = ServiceName[21].url
 
-          var HeaderService6d = ServiceName[23].name;
-          var HeaderServiceURL6d = ServiceName[23].url
+          var HeaderService6d = ServiceName[22].name;
+          var HeaderServiceURL6d = ServiceName[22].url
 
-          var HeaderService6e = ServiceName[24].name;
-          var HeaderServiceURL6e = ServiceName[24].url
+          var HeaderService6e = ServiceName[23].name;
+          var HeaderServiceURL6e = ServiceName[23].url
 
-          var HeaderService6f = ServiceName[25].name;
-          var HeaderServiceURL6f = ServiceName[25].url
+          var HeaderService6f = ServiceName[24].name;
+          var HeaderServiceURL6f = ServiceName[24].url
           
         }
       }
@@ -458,7 +459,7 @@ const Header = () => {
     const url =window.location.origin+'/service_api';
     //const url ='https://www.epicip.com/service_api';
     const localurl ="https://epicipprojects.com/service_api";
-    
+    // const url ='http://127.0.0.1:8000/service_api';
      fetch(url).then(resp=> resp.json())
      .then (resp => {
       setServiceResponse(resp)
@@ -475,6 +476,7 @@ const Header = () => {
     // const url ="https://epicipprojects.com/epicip/division_api";
      // const url ="https://www.epicip.com/division_api";
       const localurl ="https://epicipprojects.com/division_api";
+      //const url ='http://127.0.0.1:8000/division_api';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {      
@@ -666,7 +668,7 @@ const Header = () => {
               {/* <a className="dropdown-item" href="#">Managed Futures</a>  */}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Equitites">{HeaderService3c}</NavLink>
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-MultiAsset">{HeaderService3d}</NavLink>
-              <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink> 
+              {/* <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink>  */}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Insights">EPIC Insights</NavLink> 
             
             </div>
