@@ -234,13 +234,16 @@ const VARdata = [
       </text>
     )};
   };
-  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#B85876','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB'];
+  //const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#B85876','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB'];
+
+  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9','#D296A9','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9']
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9','#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9']
   const DONUTCOLORS6 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
   const DONUTCOLORS8 = ['#1A1549','#99103b']
+  const grayarray=['#E7E7E7','#D9D9D9','#BFBFBF','#A6A6A6','#808080','#6E6E6E'];
   
   const renderColorfulLegendText = (value, entry) => {
     const { color } = entry;
@@ -1125,7 +1128,7 @@ const performanceButton=()=>{
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=13;i++){
+  for(let i=4 ;i<=19;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerf[i][j] != ""){
@@ -2671,56 +2674,104 @@ function renderShareClassValue(shareClassValue, index){
 ) 
 }
 }
-
+var valEquCounts = 0;
+var indexEquKey = 0;
+var newEqucolor ="#353637";
+var newEquKeycolor ="#1A1549";
 function equitichart(entry, index){
   console.log(index,entry.name,"mahesh 123");
   if(entry.name==="Cash & Other"){
+    newEqucolor = grayarray[valEquCounts];
+    valEquCounts = Number(valEquCounts) + Number(1);
     return (
-      <Cell key={`cell-${index}`} fill={'#000000'} />
+      <Cell key={`cell-${index}`} fill={newEqucolor} />
     )
   }else if(entry.name==="Uncorrelated"){
+    newEqucolor = grayarray[valEquCounts];
+    valEquCounts = Number(valEquCounts) + Number(1);
     return (
-      <Cell key={`cell-${index}`} fill={'#353637'} />
+      <Cell key={`cell-${index}`} fill={newEqucolor} />
+    )
+  }else if(entry.name==="Property"){
+    newEqucolor = grayarray[valEquCounts];
+    valEquCounts = Number(valEquCounts) + Number(1);
+    return (
+      <Cell key={`cell-${index}`} fill={newEqucolor} />
     )
   }else if(entry.name==="Commodities"){
+    newEqucolor = grayarray[valEquCounts];
+    valEquCounts = Number(valEquCounts) + Number(1);
     return (
-      <Cell key={`cell-${index}`} fill={'#4D4D4D'} />
+      <Cell key={`cell-${index}`} fill={newEqucolor} />
     )
   }else if(entry.name==="Fixed Income"){
+    newEqucolor = grayarray[valEquCounts];
+    valEquCounts = Number(valEquCounts) + Number(1);
     return (
-      <Cell key={`cell-${index}`} fill={'#666666'} />
+      <Cell key={`cell-${index}`} fill={newEqucolor} />
     )
   }else{
+    newEquKeycolor = DONUTCOLORS10[indexEquKey];
+    indexEquKey = Number(indexEquKey) + Number(1);
   return (
-      <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+      <Cell key={`cell-${index}`} fill={newEquKeycolor} />
     )
   }
 }
 
-
+var valFixCounts = 0;
+var newFixcolor ="#353637";
+var indexFixKey = 0;
+var newFixKeycolor ="#1A1549";
 function marketCapchart(entry, index){
     if(entry.name==="Cash & Other"){
+      newFixcolor = grayarray[valFixCounts];
+      valFixCounts = Number(valFixCounts) + Number(1);
       return (
-        <Cell key={`cell-${index}`} fill={'#000000'} />
+        <Cell key={`cell-${index}`} fill={newFixcolor} />
       )
     }else if(entry.name==="Uncorrelated"){
+      newFixcolor = grayarray[valFixCounts];
+      valFixCounts = Number(valFixCounts) + Number(1);
       return (
-        <Cell key={`cell-${index}`} fill={'#353637'} />
+        <Cell key={`cell-${index}`} fill={newFixcolor} />
       )
     }else if(entry.name==="Commodities"){
+      newFixcolor = grayarray[valFixCounts];
+      valFixCounts = Number(valFixCounts) + Number(1);
       return (
-        <Cell key={`cell-${index}`} fill={'#4D4D4D'} />
+        <Cell key={`cell-${index}`} fill={newFixcolor} />
       )
     }else if(entry.name==="Equities"){
+      newFixcolor = grayarray[valFixCounts];
+      valFixCounts = Number(valFixCounts) + Number(1);
       return (
-        <Cell key={`cell-${index}`} fill={'#666666'} />
+        <Cell key={`cell-${index}`} fill={newFixcolor} />
       )
     }else{
+      newFixKeycolor = DONUTCOLORS10[indexFixKey];
+      indexFixKey = Number(indexFixKey) + Number(1);
     return (
-        <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+        <Cell key={`cell-${index}`} fill={newFixKeycolor} />
       )
     }
 }
+
+console.log(graphData,'mahesh GGGGGGGGGGG')
+var graphDataset =[];
+function assessAllocation(entry, index){
+  console.log(index,'mahesh234');
+   if(entry.name==="Fixed Income"){
+      graphDataset=entry.name;
+      document.getElementById("hide_show_fixed").style.display = 'block';
+      document.getElementById("hide_show_fixed_text").style.display = 'none';
+   }else if(entry.name==="Equity"){
+      graphDataset=entry.name;
+      document.getElementById("hide_show_equity").style.display = 'block';
+      document.getElementById("hide_show_equity_text").style.display = 'none';
+   }
+}
+
 
 
 function previewData(formData) {
@@ -2990,8 +3041,8 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div className="row chart-row">
-        <div class="col-md-6 chart-block">
-            <p class="lse_redirect">Asset Allocation (% NAV)</p>
+        <div class="col-md-6 chart-block" id="hide_show_chart">
+          <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
         <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
@@ -3012,6 +3063,7 @@ function previewData(formData) {
                 {graphData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
                 ))}
+                {graphData.map(assessAllocation)}
               </Pie>
               <Legend margin={ {top:-500,} } formatter={renderColorfulLegendText} className="legend-text" iconSize={10} width={300} height={50} layout='vertical' />
 
@@ -3021,7 +3073,7 @@ function previewData(formData) {
           
           </div>
 
-          <div class="col-md-6 VARmargin chart-block"> 
+          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity"  style={{ display: 'none'}}> 
             
             <p class="lse_redirect">Equities Breakdown (% NAV)</p>
           <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
@@ -3053,7 +3105,10 @@ function previewData(formData) {
               {/* <Legend /> */}
             </PieChart> 
           </div>
-          <div class="col-md-6 TOPmargin chart-block"> 
+          <div class="col-md-6 TOPmargin chart-block" id="hide_show_equity_text">
+               <p class="exposore">The portfolio does not currently have any equity exposure</p>
+          </div>
+          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed" style={{ display: 'none'}}> 
 
           <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
@@ -3085,6 +3140,9 @@ function previewData(formData) {
               {/* <Legend /> */}
             </PieChart>
           
+          </div>
+          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed_text">
+               <p class="exposore">The portfolio does not currently have any fixed income exposure</p>
           </div>
           <div class="col-md-6 VARmargin chart-block"> 
                 <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
@@ -3118,7 +3176,7 @@ function previewData(formData) {
                 
 
               </div>
-          <div class="col-md-6 SECmargin chart-block"> 
+          {/* <div class="col-md-6 SECmargin chart-block"> 
             <p class="lse_redirect">Derivatives VaR Contribution (% of total VaR)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
@@ -3143,7 +3201,6 @@ function previewData(formData) {
                         />
                     <Tooltip />
                     <ReferenceLine y={0} stroke="#000" />
-                    {/* <Bar dataKey="pv" fill="#8884d8" /> */}
                     <Bar dataKey="value" fill="#82ca9d" >
                     
                         {
@@ -3159,7 +3216,7 @@ function previewData(formData) {
                     
                   </div>
                   
-          </div>
+          </div> */}
 
 
           <div class="col-md-12 "> 
