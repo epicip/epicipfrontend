@@ -1733,8 +1733,8 @@ async function fetchMyAPI(){
   // const url ='https://epicipprojects.com/garraway-financial-trends';
   // const url = 'https://epicipprojects.com/api/garraway-wealth-fund' 
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
-   //const url = window.location.origin+'/epic-wealth-fund'
-   const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
+    const url = window.location.origin+'/epic-wealth-fund'
+   //const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2765,7 +2765,7 @@ function assessAllocation(entry, index){
       graphDataset=entry.name;
       document.getElementById("hide_show_fixed").style.display = 'block';
       document.getElementById("hide_show_fixed_text").style.display = 'none';
-   }else if(entry.name==="Equity"){
+   }else if(entry.name==="Equities"){
       graphDataset=entry.name;
       document.getElementById("hide_show_equity").style.display = 'block';
       document.getElementById("hide_show_equity_text").style.display = 'none';
@@ -3061,7 +3061,7 @@ function previewData(formData) {
                 label={renderCustomizedLabel}
               >
                 {graphData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS5[index % DONUTCOLORS5.length]} />
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
                 ))}
                 {graphData.map(assessAllocation)}
               </Pie>

@@ -277,8 +277,8 @@ const EpicManagedFuturesFunction = () => {
     };
     async function fetchMyService2API(){
     
-      //const url =window.location.origin+'/market_contentapi';
-      const url ='http://127.0.0.1:8000/market_contentapi';
+      const url =window.location.origin+'/market_contentapi';
+      //const url ='http://127.0.0.1:8000/market_contentapi';
       const Localurl ='https://epicipprojects.com/market_contentapi';
       
        fetch(url).then(resp=> resp.json())

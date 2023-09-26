@@ -199,6 +199,7 @@ const EpicMultiAssetFunction = () => {
     async function fetchMyService3API(){
 
       const url =window.location.origin+'/people_api';
+      //const url ='https://www.epicip.com/people_api';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {
@@ -222,6 +223,7 @@ const EpicMultiAssetFunction = () => {
     async function fetchMyServiceAPI(){
     
       const url =window.location.origin+'/key_mapdata';
+      //const url ='https://www.epicip.com/key_mapdata';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {
@@ -245,6 +247,7 @@ const EpicMultiAssetFunction = () => {
     async function fetchMyService2API(){
     
       const url =window.location.origin+'/market_contentapi';
+      //const url ='https://www.epicip.com/market_contentapi';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {
@@ -433,11 +436,11 @@ The portfolios provide active exposure to a broad spectrum of asset classes and 
       </div>
     </div>
     <div class="row">
-    <div class="col-md-4">
-        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
+      {/*<div class="col-md-4">
+        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br /> */}
           {/* hiren.patel@epicpe.com */}
-          </p>
-      </div>
+         {/* </p>
+      </div>*/}
       {/* <div class="col-md-3">
         <p ><strong><a href=window.location.origin+"/people/45#45">Pushpanshu Prakash</a></strong> <br />
           mark.harris@epicpe.com
@@ -461,7 +464,7 @@ The portfolios provide active exposure to a broad spectrum of asset classes and 
     </div>
     <br/>
     <br/>
-    <span>For General Enquiries:-<a href = "mailto: markets@epicip.com"><span> markets@epicip.com</span></a></span>
+    <span>For General Enquiries:-<a href="mailto:markets@epicip.com"><span>markets@epicip.com</span></a></span>
   </div>
   </section>
 </section>
