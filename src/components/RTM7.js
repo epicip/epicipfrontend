@@ -442,7 +442,7 @@ const literatureButton=()=>{
   
        
       FundName = Literature[i].fund_name;
-      if(FundName == "epic_mps_rmd5_fund"){
+      if(FundName == "epic_mps_rtm7"){
         console.log(FundName)
   
       if(Literature[i].literature_name == "other_information"){
@@ -575,7 +575,7 @@ const summaryButton=()=>{
 
   for(let i=0 ; i< Summary.length ;i++){
     // typeof(products[i][j])
-    if(Summary[i].heading== "epic_mps_rmd5_fund"){
+    if(Summary[i].heading== "epic_mps_rtm7"){
       heading = Summary[i].heading;
       objective = Summary[i].objective_content;  
       team = Summary[i].team_content ;
