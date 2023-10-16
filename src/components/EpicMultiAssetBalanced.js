@@ -1398,14 +1398,13 @@ const informationButton=()=>{
      obj[keysFundinfo[j]] = rounded.toString().replace(/(^\d{1,3}|\d{3})(?=(?:\d{3})+(?:$|\.))/g, '$1,') ;
      console.log(obj);
      console.log("obj");
-   }
-   if(mrounded > 1000000){
-    var million_variable = (mrounded/1000000).toFixed(2) + 'M'
-  
-    obj[keysFundinfo[j]] = '£ '+ million_variable;
-  
-    }
- else{
+     if(mrounded > 1000000){
+      var million_variable = (mrounded/1000000).toFixed(2) + 'M'
+    
+      obj[keysFundinfo[j]] = '£ '+ million_variable;
+    
+      }
+   }else{
        obj[keysFundinfo[j]] = productsFundinfo[i][j] ;
      }     
 
@@ -1453,7 +1452,7 @@ async function fetchMyAPI(){
   
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
-   const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
+    const url = window.location.origin+'/vtepic-multi-asset-balanced-fund' 
    //const url = 'http://127.0.0.1:8000/vtepic-multi-asset-balanced-fund' 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
