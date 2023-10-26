@@ -32,6 +32,10 @@ import RiskEpicDFMComponent from './components/RiskEpicDFM'
 import RTM3Component from './components/RTM3'
 import RTM5Component from './components/RTM5'
 import RTM7Component from './components/RTM7'
+import RTM1Component from './components/RTM1'
+import RTM2Component from './components/RTM2'
+import RTM8Component from './components/RTM8'
+import RTM9Component from './components/RTM9'
 
 import AIMPortfolioDFMComponent from './components/AIMPortfolioDFM'
 import RiskTargetedDFMComponent from './components/RiskTargetedDFM'
@@ -78,6 +82,10 @@ export default function App() {
       <Route path="/markets/RTM3" component={RTM3Component}/>
       <Route path="/markets/RTM5" component={RTM5Component}/>
       <Route path="/markets/RTM7" component={RTM7Component}/>
+      <Route path="/markets/RTM1" component={RTM1Component}/>
+      <Route path="/markets/RTM2" component={RTM2Component}/>
+      <Route path="/markets/RTM8" component={RTM8Component}/>
+      <Route path="/markets/RTM9" component={RTM9Component}/>
       <Route path="/markets/AIMPortfolioDFM" component={AIMPortfolioDFMComponent} />
       <Route path="/markets/RiskTargetedDFM" component={RiskTargetedDFMComponent} /> 
       <Route path="/markets/EpicDailyUpdates" component={EpicDailyUpdateComponent}/>

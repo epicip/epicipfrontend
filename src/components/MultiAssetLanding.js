@@ -342,9 +342,13 @@ return(
                 <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/market/RiskEpicDFM" className="navlink a ">EPIC MPS Risk Managed Decumulation 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 {/* <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/RTM1" className="navlink a">EPIC MPS Risk Target Managed 1 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM2" className="navlink a">EPIC MPS Risk Target Managed 2 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM8" className="navlink a">EPIC MPS Risk Target Managed 8 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM9" className="navlink a">EPIC MPS Risk Target Managed 9 <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
           </div>
@@ -414,9 +418,13 @@ The portfolios provide active exposure to a broad spectrum of asset classes and 
                   <NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth Fund <span className="fa fa-angle-right"></span></NavLink><br/>
                   <NavLink to="/markets/RiskEpicDFM" className="navlink a">EPIC MPS Risk Managed Decumulation 5 <span className="fa fa-angle-right"></span></NavLink><br/>
                   {/* <NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink><br/> */}
+                  <NavLink to="/markets/RTM1" className="navlink a">EPIC MPS Risk Target Managed 1 <span className="fa fa-angle-right"></span></NavLink><br/>
+                  <NavLink to="/markets/RTM2" className="navlink a">EPIC MPS Risk Target Managed 2 <span className="fa fa-angle-right"></span></NavLink><br/>
                   <NavLink to="/markets/RTM3" className="navlink a">EPIC MPS Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink><br/>
                   <NavLink to="/markets/RTM5" className="navlink a">EPIC MPS Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink><br/>
                   <NavLink to="/markets/RTM7" className="navlink a">EPIC MPS Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink><br/>
+                  <NavLink to="/markets/RTM8" className="navlink a">EPIC MPS Risk Target Managed 8 <span className="fa fa-angle-right"></span></NavLink><br/>
+                  <NavLink to="/markets/RTM9" className="navlink a">EPIC MPS Risk Target Managed 9 <span className="fa fa-angle-right"></span></NavLink><br/>
 
                 </p>
         

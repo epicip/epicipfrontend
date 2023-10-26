@@ -30,7 +30,7 @@ import $ from 'jquery'
 // var Accordion = require('react-bootstrap').Accordion;
 // var Panel = require('react-bootstrap').Panel;
 // var responseData;
-const colors = ['#1A1549','#1A1549','#ffffff','#000000','#000000','#000000','#1A1549','#ffffff','#ffffff','#000000']
+const colors = ["#1A1549", " #9DB1DB", "#E6EEF6", "#dcdcdc","#B85876"]
 
 // const graphData = []
 // const graphDataVAR = []
@@ -173,7 +173,7 @@ const VARdata = [
     const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
+    const labelarray=['#ffffff','#ffffff','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#000000'];
   if(value > 5){
     console.log(index);
     const colors =labelarray[index]
@@ -187,18 +187,16 @@ const VARdata = [
     )};
   };
 
-  const renderCustomizedAssLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value, index ,name }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.4;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#000000','#000000','#000000','#ffffff','#ffffff','#ffffff','#000000'];
+    const labelarray=['#ffffff','#000000','#000000','#000000','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
   if(value > 5){
-    console.log(index);
     const colors =labelarray[index]
-    console.log("value");
     return (
       
-      <text x={x} y={ y} fill={colors} className="text-size-a-wealth" textAnchor={x > cx ? 'start' : 'end'} >
+      <text x={x} y={ y} fill={colors} className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
       
         {`${ (value).toFixed(1)}%`}
       </text>
@@ -222,44 +220,28 @@ const VARdata = [
       </text>
     )};
   };
-
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent,value, index }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const labelarray=['#ffffff','#000000','#000000','#ffffff','#1A1549','#ffffff','#ffffff','#ffffff','#ffffff','#ffffff'];
-  if(value > 5){
-    const colors =labelarray[index]
-    return (
-      
-      <text x={x} y={ y} fill={colors} className="text-size-a" textAnchor={x > cx ? 'start' : 'end'} >
-      
-        {`${ (value).toFixed(1)}%`}
-      </text>
-    )};
-  };
-  // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#99103B","#B85876","#D296A9","#262626"];
+  // const DONUTCOLORS10 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#404040","#262626","#99103B","#B85876","#D296A9"];
 
   // const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
   // const DONUTCOLORS5 = ["#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#262626"]
 
-  //const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB'];
+ // const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626'];
 
-  const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9','#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9']
+ const DONUTCOLORS10 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9','#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#DCDCDC','#99103B','#B85876','#D296A9']
 
   const DONUTCOLORS7 = [ "#1A1549","#9DB1DB","#E6EEF6","#dcdcdc","#666666","#99103B",": #B85876"];
   
-  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9','#1A1549','#9DB1DB','#E6EEF6','#A6A6A6','#dcdcdc','#99103B','#B85876','#D296A9']
+  const DONUTCOLORS5 = ['#1A1549','#9DB1DB','#D0DEF5','#99103B','#B85876','#D296A9','#dcdcdc','#666666','#404040','#262626']
   const DONUTCOLORS6 = ['#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB','#1A1549','#1A1549','#9DB1DB','#E6EEF6','#C8C8C8','#dcdcdc','#99103B','#B85876','#D296A9','#9DB1DB']
   const DONUTCOLORS8 = ['#1A1549','#99103b']
-
   const grayarray=['#E7E7E7','#D9D9D9','#BFBFBF','#A6A6A6','#808080','#6E6E6E'];
 
-  const renderColorfulLegendText = (value, entry) => {
+  const renderColorfulLegendText = (value, entry ) => {
     const { color } = entry;
+    console.log(value,entry.payload.value);
+
     return <span className="legend-span">{value+' '+(entry.payload.value).toFixed(1)+'%'}</span>;
-    //return <span className="legend-span">{value}</span>;
   };
 
   const renderColor12fulLegendText = (value, entry ) => {
@@ -308,6 +290,7 @@ const [productsShareClass, setproductsShareClass] = useState([]);
 const [productsMonthlyPerf, setproductsMonthlyPerf] = useState([]);
 
 const [InceptionData, setInceptionData] = useState([]);
+const [InceptionData2, setInceptionData2] = useState([]);
 
 
 const [PRTU, setPRTU] = useState([]);
@@ -332,16 +315,17 @@ const [portfolioStatus, setportfolioStatus] = useState(false);
 const [performanceStatus1, setperformanceStatus1] = useState(false);
 
 const [graphData, setgraphData] = useState([]);
-const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
 
 const [top10HoldingState, settop10HoldingState] = useState([]);
 const [InceptionArrayState, setInceptionArrayState] = useState([]);
+
  const [monthlyPerformance2DArrayState, setmonthlyPerformance2DArrayState] = useState([]);
  const [monthsArrayState, setmonthsArrayState] = useState([]);
 
 
 const [AssetAllocationState, setAssetAllocationState] = useState([]);
 const [marketCapState, setmarketCapState]= useState([]);
+const [InceptionArrayState2, setInceptionArrayState2] = useState([]);
 const [equititeState, setequititeState]= useState([]);
 
 const [DerVarState, setDerVarState]= useState([]);
@@ -459,7 +443,7 @@ const literatureButton=()=>{
   
        
       FundName = Literature[i].fund_name;
-      if(FundName == "multi_asset_growth_fund"){
+      if(FundName == "epic_mps_rtm8"){
         console.log(FundName)
   
       if(Literature[i].literature_name == "other_information"){
@@ -592,7 +576,7 @@ const summaryButton=()=>{
 
   for(let i=0 ; i< Summary.length ;i++){
     // typeof(products[i][j])
-    if(Summary[i].heading== "multi_asset_growth_fund"){
+    if(Summary[i].heading== "epic_mps_rtm8"){
       heading = Summary[i].heading;
       objective = Summary[i].objective_content;  
       team = Summary[i].team_content ;
@@ -621,19 +605,15 @@ console.log(new Date(calculation).toLocaleDateString("en-US", { day: 'numeric' }
 console.log("calculationcalculationcalculationcalculation")
 
   // for loop for Share price
-  for(let i=5;i<=10;i++){
+  // for(let i=6;i<=10;i++){
 
-    let val = PRTU[i][2]
+  //   let val = PRTU[i][2]
 
-    console.log(val);
-    console.log("-----------------------------------ValVAL");
-    if(val != ''){
-      arrPRTU.push(val.toFixed(3))
-    }else{
-      arrPRTU.push(val)
-    }
-  
-  }
+  //   console.log(val);
+  //   console.log("-----------------------------------ValVAL");
+
+  //   arrPRTU.push(val.toFixed(3))
+  // }
 
   console.log(arrPRTU)
   console.log("arrPRTUarrPRTUarrPRTUarrPRTUarrPRTUarrPRTUarrPRTU")
@@ -661,13 +641,63 @@ const portfolioButton=()=>{
 
   const top10HoldingData =[]
   const marketCapData =[]
+  const InceptionDataArray2 = []
   const equitiesData =[]
   const DerVarData = []
-  const InceptionDataArray2 = [] 
 
   const sectorBreakdownData =[]
   const RegionbreakdownArray =[] 
-  const sectorbreakdownArray =[]  
+  const sectorbreakdownArray =[] 
+ 
+
+
+  var keysInceptionData2 = ["date", "value"]
+  
+  
+// for(let i=1 ; i< InceptionData.length ;i++){
+//  // typeof(products[i][j])
+ 
+//  let obj={};
+//  var date = InceptionData[i][3]
+//  var PerformanceValue = InceptionData[i][10]
+//  var AlphaDate =  new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
+// obj[keysInceptionData2[0]] = AlphaDate;
+// obj[keysInceptionData2[1]] = PerformanceValue*100;
+
+//    InceptionDataArray2.push(obj)
+
+//    date = null
+//    PerformanceValue = null
+ 
+// }
+
+
+
+
+var keysInceptionData21 = ["name", "value"]
+  var length = productstop10Holding.length;
+  let obj1={};
+  let obj2={};
+  let obj={};
+  console.log("hello")
+  console.log(productstop10Holding)
+  obj1[keysInceptionData21[0]] = productstop10Holding[1][5];
+  let val12 = productstop10Holding[1][6]*100;
+  var rounded112 = Math.round(Math.round((val12 + Number.EPSILON) * 100) / 100,1);
+  obj1[keysInceptionData21[1]] = rounded112;
+  obj2[keysInceptionData21[0]] = productstop10Holding[2][5];
+  let val123 = productstop10Holding[2][6]*100;
+  var rounded1123 = Math.round(Math.round((val123 + Number.EPSILON) * 100) / 100,1);
+  obj2[keysInceptionData2[1]] = rounded1123;
+  obj =[obj1,obj2]
+  let objlength =obj.length
+  for(let i=0 ; i< objlength ;i++){
+    //console.log(obj[i].value);
+    if(obj[i].value !==0){
+        InceptionDataArray2.push(obj[i])
+      }
+  }
+console.log(InceptionDataArray2);
 
   // const fundInfoData =[]
 
@@ -719,7 +749,7 @@ const portfolioButton=()=>{
       let val = AssetAllocation[i][j]*100;
       
       // var numb= 212421434.533423131231;
-      var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+      var rounded1 = Math.round(Math.round((val + Number.EPSILON) * 100) / 100,1);
 
       console.log(rounded1);
       obj[keysVAR[j]] = rounded1 ;
@@ -779,31 +809,6 @@ const portfolioButton=()=>{
      
  }  
 
-
- var keysInceptionData21 = ["name", "value"]
-  var length = productstop10Holding.length;
-  let obj1={};
-  let obj2={};
-  let obj={};
-  console.log(productstop10Holding)
-  obj1[keysInceptionData21[0]] = productstop10Holding[1][5];
-  let val12 = productstop10Holding[1][6]*100;
-  var rounded112 = Math.round(Math.round((val12 + Number.EPSILON) * 100) / 100,1);
-  obj1[keysInceptionData21[1]] = rounded112;
-  obj2[keysInceptionData21[0]] = productstop10Holding[2][5];
-  let val123 = productstop10Holding[2][6]*100;
-  var rounded1123 = Math.round(Math.round((val123 + Number.EPSILON) * 100) / 100,1);
-  obj2[keysInceptionData21[1]] = rounded1123;
-  obj =[obj1,obj2]
-  let objlength =obj.length
-  for(let i=0 ; i< objlength ;i++){
-    //console.log(obj[i].value);
-    if(obj[i].value !==0){
-        InceptionDataArray2.push(obj[i])
-      }
-  }
-console.log(InceptionDataArray2);
-
   
 
 
@@ -853,7 +858,7 @@ console.log(InceptionDataArray2);
           
           let val = productSectorBreakdown[i][j]*100;      
           // var numb= 212421434.533423131231;
-          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+          var rounded =  Math.round((val + Number.EPSILON) * 100) / 100;
 
           console.log(rounded);
           obj[keysSectorBreakdown[j]] = rounded ;
@@ -903,11 +908,7 @@ console.log(InceptionDataArray2);
      }     
 
      }
-     if(obj.value !==0){
-      DerVarData.push(obj)
-
-      }
-    // DerVarData.push(obj)
+     DerVarData.push(obj)
    
      
      // console.log(graphDataSectorPer);
@@ -959,16 +960,16 @@ console.log(InceptionDataArray2);
   // setgraphData(graphDataResponse)
   setgraphData(graphDataResponse1)
   // setAssetAllocationState()
-  setInceptionArrayState2(InceptionDataArray2)
   settop10HoldingState(top10HoldingData)
   setmarketCapState(marketCapData)
+  setInceptionArrayState2(InceptionDataArray2)
   setequititeState(equitiesData)
   setDerVarState(DerVarData)
 
 
   setregionBreakdownState(RegionbreakdownArray)
   setsectorBreakdownState(sectorbreakdownArray)
-
+  
   setgraphDataSectorPer(graphDataResponse2)
 
   // console.log(graphDataResponse);
@@ -1024,40 +1025,42 @@ const performanceButton=()=>{
   console.log(productsMonthlyPerf)
   console.log("productsMonthlyPerf")
 
-  for(let i= 7; i<=21;i++ ){
+  for(let i= 8; i<=22;i++ ){
     monthsArr.push(productsMonthlyPerf[3][i])
   }
   console.log("months")
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=14;i++){
+  for(let i=4 ;i<=12;i++){
     let arr=[]
-    for(let j=8 ;j<=22;j++){
+    for(let j=9;j<=22;j++){
       if(productsMonthlyPerf[i][j] != ""){
-     let val = productsMonthlyPerf[i][j]*100;
-     
-     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
-     rounded = parseFloat(rounded).toFixed(2);
-     if(rounded ==0.00){
-      rounded = 0;
-    }
-     console.log(rounded);
-     if(isNaN(rounded)){
-      rounded = 0;
-      console.log("rounded--------------------------rounded")
-
-      console.log(rounded)
-
-     }
-      arr.push(rounded+'%')
-     
+      let val = productsMonthlyPerf[i][j]*100;
       
-      // arr.push(productsMonthlyPerf[i][j])
-    }else{
-      rounded = ''; 
-      arr.push(rounded)
-    }
+      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+      rounded = parseFloat(rounded).toFixed(2);
+      if(rounded ==0.00){
+        rounded = 0;
+      }
+      console.log(rounded);
+      if(isNaN(rounded)){
+        rounded = 0;
+        console.log("rounded--------------------------rounded")
+
+        console.log(rounded)
+
+      }
+      //parseFloat(val).toFixed(2);
+      //arr.push(parseFloat(rounded).toFixed(2)+'%')
+        arr.push(rounded+'%')
+      
+        
+        // arr.push(productsMonthlyPerf[i][j])
+      }else{
+        rounded = ''; 
+        arr.push(rounded)
+      }
     }
     arr2D.push(arr);
   }
@@ -1068,9 +1071,7 @@ for(let j =0 ; j< arr2D[0].length;j++){
   // console.log(arr2D[1][j])
   if(arr2D[i][j]==0+'%'){
     console.log(arr2D[i][j])
-      arr2D[i][j] = "0.00%"
-  }else if(arr2D[i][j]==''){
-     arr2D[i][j] = ""
+     arr2D[i][j] = "0.00%"
   }
   console.log(arr2D[i][j])
 }
@@ -1080,8 +1081,12 @@ console.log("-------------------------------------------------------------------
 console.log(arr2D);
 console.log("arr2D");
 
-setmonthlyPerformance2DArrayState(arr2D)
-setmonthsArrayState(monthsArr)
+
+
+
+
+
+
 
 
 
@@ -1089,7 +1094,7 @@ setmonthsArrayState(monthsArr)
 
 
   
-  var keysInceptionData = ["date", "value"]
+  var keysInceptionData = ["date", "value" , "value1"]
   
   
   for(let i=1 ; i< InceptionData.length ;i++){
@@ -1098,25 +1103,23 @@ setmonthsArrayState(monthsArr)
    let obj={};
    var date = InceptionData[i][3]
    var PerformanceValue = InceptionData[i][7]
+   var PerformanceValue13 = InceptionData[i][8]
    var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
    console.log("AlphaDate")
    console.log(AlphaDate)
-  
   obj[keysInceptionData[0]] = AlphaDate;
   obj[keysInceptionData[1]] = PerformanceValue*100;
+  obj[keysInceptionData[2]] = PerformanceValue13*100;
  
      InceptionDataArray.push(obj)
  
      date = null
      PerformanceValue = null
- 
-    
+     PerformanceValue13 = null
    
  } 
  console.log(InceptionDataArray);
- 
- //  console.log(InceptionData);
- //  console.log("InceptionData");
+
  
  
  console.log("InceptionDataArray");
@@ -1135,8 +1138,9 @@ setmonthsArrayState(monthsArr)
       
       // var numb= 212421434.533423131231;
       var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-      rounded =parseFloat(rounded).toFixed(2);
+
       console.log(rounded);
+      rounded =parseFloat(rounded).toFixed(2);
       obj[keysCummulativePer[j]] = rounded+'%' ;
 
     }
@@ -1154,6 +1158,89 @@ setmonthsArrayState(monthsArr)
   } 
 
 
+//   var keysCommulativePerfB = ["name", "value"] 
+//   for(let i=0 ; i< productscommulativePerformanceB.length ;i++){
+   
+//    let obj={};
+//        for(let j =0 ;j< productscommulativePerformanceB[i].length ;j++){
+
+//          if(!isNaN(productscommulativePerformanceB[i][j])){
+//          let val = productscommulativePerformanceB[i][j]*100;
+        
+//          // var numb= 212421434.533423131231;
+//          var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+        
+//          console.log(rounded);
+//          obj[keysCommulativePerfB[j]] = rounded ;
+//          console.log(obj);
+//          console.log("obj");
+//        }
+//          else{
+//            obj[keysCommulativePerfB[j]] = productscommulativePerformanceB[i][j] ;
+//          }     
+       
+//          }
+       
+//          CummulativeperformanceBData.push(obj)
+
+//  }
+
+
+ 
+//   var keysCommPerfBEUR = ["name", "value"]
+//   for(let i=0 ; i< productscommulativePerformanceBEUR.length ;i++){
+   
+//    let obj={};
+//    for(let j =0 ;j< productscommulativePerformanceBEUR[i].length ;j++){
+
+//      if(!isNaN(productscommulativePerformanceBEUR[i][j])){
+//      let val = productscommulativePerformanceBEUR[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keysCommPerfBEUR[j]] = rounded ;
+
+//    }
+//      else{
+//        obj[keysCommPerfBEUR[j]] = productscommulativePerformanceBEUR[i][j] ;
+//      }     
+
+//     }
+//     CummulativeperformanceBEURData.push(obj)
+   
+     
+   
+//  } 
+ 
+
+//   var keysCommPerfC= ["name", "value"]
+  
+//   for(let i=0 ; i< productscommulativePerformanceC.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< productscommulativePerformanceC[i].length ;j++){
+
+//      if(!isNaN(productscommulativePerformanceC[i][j])){
+//      let val = productscommulativePerformanceC[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keysCommPerfC[j]] = rounded ;
+
+//    }
+//      else{
+//        obj[keysCommPerfC[j]] = productscommulativePerformanceC[i][j] ;
+//      }     
+
+//      }
+//      CummulativeperformanceCData.push(obj)
+   
+//  } 
 
 
  var keys12monthsDis = ["name", "value"]
@@ -1171,8 +1258,9 @@ setmonthsArrayState(monthsArr)
     
     // var numb= 212421434.533423131231;
     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
-    rounded =parseFloat(rounded).toFixed(2);
+
     console.log(rounded);
+    rounded =parseFloat(rounded).toFixed(2);
     obj[keys12monthsDis[j]] = rounded+'%' ;
 
   }
@@ -1192,6 +1280,75 @@ setmonthsArrayState(monthsArr)
   
 } 
 
+// var keys12monthsDisBGBP = ["name", "value"]
+  
+//  for(let i=0 ; i< twelvemonPerfBGBP.length ;i++){
+//   // typeof(products[i][j])
+  
+//   let obj={};
+//   for(let j =0 ;j< twelvemonPerfBGBP[i].length ;j++){
+
+//     if(!isNaN(twelvemonPerfBGBP[i][j])){
+//     let val = twelvemonPerfBGBP[i][j]*100;
+    
+//     // var numb= 212421434.533423131231;
+//     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//     console.log(rounded);
+//     obj[keys12monthsDisBGBP[j]] = rounded ;
+
+//   }
+
+//     // var updatedVal =  parseFloat(val).toFixed(2);
+//     // console.log(updatedVal);
+//     else{
+//       obj[keys12monthsDisBGBP[j]] = twelvemonPerfBGBP[i][j] ;
+//     }     
+
+//     }
+    
+
+//     TwelveMperfBGBP.push(obj)
+ 
+
+//               // console.log("allKeys")
+  
+// } 
+
+// var keys12monthsDisBEUR = ["name", "value"]
+  
+//  for(let i=0 ; i< twelvemonPerfBEUR.length ;i++){
+//   // typeof(products[i][j])
+  
+//   let obj={};
+//   for(let j =0 ;j< twelvemonPerfBEUR[i].length ;j++){
+
+//     if(!isNaN(twelvemonPerfBEUR[i][j])){
+//     let val = twelvemonPerfBEUR[i][j]*100;
+    
+//     // var numb= 212421434.533423131231;
+//     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//     console.log(rounded);
+//     obj[keys12monthsDisBEUR[j]] = rounded ;
+
+//   }
+
+//     // var updatedVal =  parseFloat(val).toFixed(2);
+//     // console.log(updatedVal);
+//     else{
+//       obj[keys12monthsDisBEUR[j]] = twelvemonPerfBEUR[i][j] ;
+//     }     
+
+//     }
+    
+    
+//     TwelveMperfBEUR.push(obj)
+    
+
+//               // console.log("allKeys")
+  
+// } 
 
 
 
@@ -1278,6 +1435,8 @@ var keysbot3contr = ["name", "value"]
   setbot3contriarray(Bot3contriData)
     setInceptionArrayState(InceptionDataArray)
     
+    setmonthlyPerformance2DArrayState(arr2D)
+    setmonthsArrayState(monthsArr)
   // setTwelveMperfBGBPState(TwelveMperfBGBP)
 //   setTwelveMperfBEURState(TwelveMperfBEUR)
 //   setTwelveMperfCGBPState(TwelveMperfCGBP)
@@ -1450,15 +1609,9 @@ async function fetchMyAPI(){
 // const fetchMyAPI = useCallback(() => {
   // https://epicipprojects.com/getdata  
   // https://jsonplaceholder.typicode.com/posts
-  // const url ='https://epicipprojects.com/garraway-financial-trends';
-  // const url = 'https://epicipprojects.com/api/vtgarraway-multi-asset-growth-fund' 
-  
-  const Localurl = 'https://www.epicip.com/vtepic-multi-asset-growth-fund' 
-  const url = window.location.origin+'/vtepic-multi-asset-growth-fund' 
-  const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund';
-   // const url = 'https://www.epicip.com/vtepic-multi-asset-growth-fund';
-   //const url = 'http://127.0.0.1:8000/vtepic-multi-asset-growth-fund'
 
+  const url = window.location.origin+'/epic-mps-rtm8';
+  //const url = 'https://demo.epicip.com/epic-mps-rtm8';
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
   console.log(resp);
@@ -1501,15 +1654,16 @@ async function fetchMyAPI(){
     setproductstop10Holding(resp.TopHoldings)
 
     setproductsmarketCap(resp.FixedIncomeBreakdown)
-    setproductRegionBreakdown(resp.DervsVaRBreakdown)
-
+    setproductRegionBreakdown(resp.CumulativePerf)
+    setInceptionData2(resp.CumulativePerf)
 
     setproductSectorBreakdown(resp.EquitiesBreakdown)
     setproductsFundinfo(resp.FundInfo)
-    setproductsShareClass(resp.NAVperShare)
+    setproductsShareClass(resp.shareinfo)
     setproductsMonthlyPerf(resp.MonthlyPerf)
     // setLoading(true)
     setInceptionData(resp.inceptionperfdata)
+   // setInceptionData(resp.TopHoldings)
     setPRTU(resp.prtu)
     setLiterature(resp.literature)
     setSummary(resp.summary)
@@ -1523,20 +1677,514 @@ async function fetchMyAPI(){
     setstatus(true)
     document.getElementById("summaryButton").click();
 
+    // setTimeout(()=>{setstatus(true)}, 2000  )
     
+    // setproductscommulativePerformanceA(productscommulativePerformance)
+    // setproductstest(productscommulativePerformance[0])
+    
+    
+    //  console.log(resp.SectorVaR);
+    //  console.log("resp.SectorVaR"); 
+    //  console.log(productsVAR)
+
+
+    //  console.log(resp.SectorExposures);
+    //  console.log("resp.SectorExposures");
+    //  console.log(products);
+   
+    //  console.log(resp.CumulativePerf);
+    //  console.log("resp.CumulativePerf");
+    //  console.log(productscommulativePerformance);     
+    //  console.log(productstest)
+    // console.log("productstest")
+    // XYZ = JSON.stringify(productscommulativePerformance)
+    // setproductscommulativePerformanceA()
+    // prevCountRef.current = productscommulativePerformance;
+    // console.log(objjj)
+    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    // console.log(objee)
+    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+    //  console.log(resp.twelvemPerfDiscrete);
+    //  console.log("resp.twelvemonPerfDiscrete");
+    //  console.log(products12monthsPerformance); 
+     
+    //  console.log(resp.Top3Contributors);
+    //  console.log("resp.Top3Contributors");
+    //  console.log(productstop3contr); 
+
+    //  console.log(resp.Bottom3Contributors);
+    //  console.log("resp.Bottom3Contributors");
+    //  console.log(productsbot3contr);
+     
+    //  console.log(resp.content);
+    //  console.log("resp.content");
+    //  console.log(productsCommentary);
+
+    //  console.log(resp.FundInfo);
+    //  console.log("resp.content");
+    //  console.log(productsFundinfo);
+
+    //  console.log(resp.NAVperShare);
+    //  console.log("resp.NAVperShare");
+    //  console.log(productsShareClass);
+
+    //  console.log(resp.MonthlyPerfBGBP);
+    //  console.log("resp.MonthlyPerfBGBP");
+    //  console.log(productsMonthlyPerf);
+
+    //  if(productsMonthlyPerf.length > 1){
+    //    console.log(productsMonthlyPerf)
+    //    console.log("COnsole.productsMonthlyPerf")
+
+    //   setstatus(true)
+    //  }else{
+    //   // fetchMyAPI();
+    //   // EpicfinanceTrends();
+    //   // window.location.reload(true);
+    // setproductsMonthlyPerf(resp.MonthlyPerfBGBP)
+
+    //  }
 
     })
     
    .catch(e=>{
      console.log(e);
    })
+  // setresponseData(result)
+  // .then( resp=>console.log(resp.SectorExposures))
   
+  // console.log(responseData)
+  // console.log("responseData")
 
   var keysMonthly = ["name"]
   var testArr =[]
   var monthsValue =[[],[]]
   var xArr =[[]]
+  // var xArr = new Array(10);
+
+  // for (var i = 0; i < xArr.length; i++) {
+  //   xArr[i] = new Array(14);
+  // }
   
+
+//   for(let y = 4; y < 13; y++){
+
+//     var count = 0;
+//     var moreCount = 0;  
+
+//     for(let z = 8; z < 22; z++){
+
+//       xArr[count][moreCount]= productsMonthlyPerf[y][z]
+//       // xArr.push(productsMonthlyPerf[y][z])
+
+//       moreCount++;
+//     }
+//     count++;
+
+
+//   }
+//   console.log(xArr);
+//   console.log("xArr");
+
+//   for(let x= 8; x < 22; x++){
+
+//   testArr.push(productsMonthlyPerf[3][x])
+
+// }
+// console.log(testArr)
+// console.log("testArr")
+
+
+//   for(let i=3 ; i< 14;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j = 8 ;j< 22 ;j++){
+
+//      if(!isNaN(productsMonthlyPerf[i][j])){
+       
+//      let val = productsMonthlyPerf[i][j]*100;
+//      console.log(productsMonthlyPerf[i][j])
+//      console.log("productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]productsMonthlyPerf[i][j]")
+
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+
+
+
+//      console.log(rounded);
+//      obj[keysMonthly[j]] = rounded ;
+//      console.log(obj);
+//      console.log("obj");
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keysMonthly[j]] = productsMonthlyPerf[i][j] ;
+//      }     
+
+//      }
+//     //  ShareClassarray.push(obj)
+   
+     
+//     //  console.log(bot3contriarray);
+//     //  console.log("bot3contriarray");
+//     //  console.log(bot3contriDummy);
+//     //  console.log("bot3contriDummy");
+
+//                // console.log("allKeys")
+//  }  
+
+// For loops for displaying data
+//   var keysShareClass = ["name", "value"]
+  
+//   for(let i=0 ; i< productsShareClass.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< productsShareClass[i].length ;j++){
+
+//      if(!isNaN(productsShareClass[i][j])){
+//      let val = productsShareClass[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keysShareClass[j]] = rounded ;
+//      console.log(obj);
+//      console.log("obj");
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keysShareClass[j]] = productsShareClass[i][j] ;
+//      }     
+
+//      }
+//      ShareClassarray.push(obj)
+   
+     
+//      console.log(bot3contriarray);
+//      console.log("bot3contriarray");
+//      console.log(bot3contriDummy);
+//      console.log("bot3contriDummy");
+
+//                // console.log("allKeys")
+//  }  
+
+
+//   var keysFundinfo = ["name", "value"]
+  
+//   for(let i=0 ; i< productsFundinfo.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< productsFundinfo[i].length ;j++){
+
+//      if(!isNaN(productsFundinfo[i][j])){
+//      let val = productsFundinfo[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keysFundinfo[j]] = rounded ;
+//      console.log(obj);
+//      console.log("obj");
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keysFundinfo[j]] = productsFundinfo[i][j] ;
+//      }     
+
+//      }
+//      Fundinfoarray.push(obj)
+   
+     
+//      console.log(Fundinfoarray);
+//      console.log("Fundinfoarray");
+
+//  }
+
+
+
+
+//   var keysbot3contr = ["name", "value"]
+  
+//   for(let i=0 ; i< productsbot3contr.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< productsbot3contr[i].length ;j++){
+
+//      if(!isNaN(productsbot3contr[i][j])){
+//      let val = productsbot3contr[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keysbot3contr[j]] = rounded ;
+//      console.log(obj);
+//      console.log("obj");
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keysbot3contr[j]] = productsbot3contr[i][j] ;
+//      }     
+
+//      }
+//      bot3contriarray.push(obj)
+   
+     
+//      console.log(bot3contriarray);
+//      console.log("bot3contriarray");
+//      console.log(bot3contriDummy);
+//      console.log("bot3contriDummy");
+
+//                // console.log("allKeys")
+//  }
+// //  bot3contriDummy = [
+// //   {name: 'Short Euro / Swiss Franc', value: -0.34},
+// //   {name: 'Short Norwegian Krone / US Dollar', value: -0.31},
+// //   {name: 'Long Italian BTP', value: -0.29}
+// //  ]
+
+ 
+// //  bot3contriarray.push(productsbot3contr)
+
+// //  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+// //  console.log(productsbot3contr)
+
+
+
+ 
+//   var keystop3contr = ["name", "value"]
+  
+//   for(let i=1 ; i< productstop3contr.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< productstop3contr[i].length ;j++){
+
+//      if(!isNaN(productstop3contr[i][j])){
+//      let val = productstop3contr[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keystop3contr[j]] = rounded ;
+
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keystop3contr[j]] = productstop3contr[i][j] ;
+//      }     
+
+//      }
+//      top3contriarray.push(obj)
+   
+     
+//      console.log(top3contriarray);
+//      console.log("top3contriarray");
+//       // console.log("allKeys")
+   
+//  } 
+ 
+
+//   var keys12monthsPer = ["name", "value"]
+  
+//   for(let i=0 ; i< products12monthsPerformance.length ;i++){
+//    // typeof(products[i][j])
+   
+//    let obj={};
+//    for(let j =0 ;j< products12monthsPerformance[i].length ;j++){
+
+//      if(!isNaN(products12monthsPerformance[i][j])){
+//      let val = products12monthsPerformance[i][j]*100;
+     
+//      // var numb= 212421434.533423131231;
+//      var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+//      console.log(rounded);
+//      obj[keys12monthsPer[j]] = rounded ;
+
+//    }
+
+//      // var updatedVal =  parseFloat(val).toFixed(2);
+//      // console.log(updatedVal);
+//      else{
+//        obj[keys12monthsPer[j]] = products12monthsPerformance[i][j] ;
+//      }     
+
+//      }
+//      twelvemonPerfDiscreteAPI.push(obj)
+   
+     
+//      console.log(twelvemonPerfDiscreteAPI);
+//      console.log("twelvemonPerfDiscreteAPI");
+
+//                // console.log("allKeys")
+   
+//  } 
+
+  // var keysCummulativePer = ["name", "value"]
+  
+  //  for(let i=0 ; i< productscommulativePerformance.length ;i++){
+  //   // typeof(products[i][j])
+    
+  //   let obj={};
+  //   for(let j =0 ;j< productscommulativePerformance[i].length ;j++){
+
+  //     if(!isNaN(productscommulativePerformance[i][j])){
+  //     let val = productscommulativePerformance[i][j]*100;
+      
+  //     // var numb= 212421434.533423131231;
+  //     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+  //     console.log(rounded);
+  //     obj[keysCummulativePer[j]] = rounded ;
+
+  //   }
+
+  //     // var updatedVal =  parseFloat(val).toFixed(2);
+  //     // console.log(updatedVal);
+  //     else{
+  //       obj[keysCummulativePer[j]] = productscommulativePerformance[i][j] ;
+  //     }     
+
+  //     }
+  //     cummulatovePerfData.push(obj)
+  //     AbcObject = obj;
+      
+      
+  //     console.log(AbcObject)
+  //     console.log("AbcObjectAbcObjectAbcObjectAbcObject")
+    
+      
+  //     console.log(cummulatovePerfData);
+  //     console.log("cummulatovePerfData");
+
+  //               // console.log("allKeys")
+    
+  // } 
+
+
+
+  // var keysSectorPer = ["name", "value"]
+  
+  //  for(let i=1 ; i< productsSectorPer.length ;i++){
+  //   // typeof(products[i][j])
+    
+  //   let obj={};
+  //   for(let j =0 ;j< productsSectorPer[i].length ;j++){
+
+  //     if(!isNaN(productsSectorPer[i][j])){
+  //     let val = productsSectorPer[i][j]*100;
+      
+  //     // var numb= 212421434.533423131231;
+  //     var rounded = Math.round((val + Number.EPSILON) * 100) / 100;
+
+  //     console.log(rounded);
+  //     obj[keysSectorPer[j]] = rounded ;
+
+  //   }
+
+  //     // var updatedVal =  parseFloat(val).toFixed(2);
+  //     // console.log(updatedVal);
+  //     else{
+  //       obj[keysSectorPer[j]] = productsSectorPer[i][j] ;
+  //     }     
+
+  //     }
+  //     graphDataSectorPer.push(obj)
+    
+      
+  //     console.log(graphDataSectorPer);
+  //               // console.log("allKeys")
+    
+  // } 
+  
+  
+  // var keysVAR = ["name", "value"]
+
+  //  for(let i=1 ; i< productsVAR.length ;i++){
+  //   // typeof(products[i][j])
+    
+  //   let obj={};
+  //   for(let j =0 ;j< productsVAR[i].length ;j++){
+
+  //     if(!isNaN(productsVAR[i][j])){
+  //     let val = productsVAR[i][j]*100;
+      
+  //     // var numb= 212421434.533423131231;
+  //     var rounded1 = Math.round((val + Number.EPSILON) * 100) / 100;
+
+  //     console.log(rounded1);
+  //     obj[keysVAR[j]] = rounded1 ;
+
+  //   }
+
+  //     // var updatedVal =  parseFloat(val).toFixed(2);
+  //     // console.log(updatedVal);
+  //     else{
+  //       obj[keysVAR[j]] = productsVAR[i][j] ;
+  //     }     
+
+  //     } 
+  //     graphDataVAR.push(obj)
+  //     setstatus(true)
+  //     // console.log(graphData);
+  //     // console.log("allKeys")
+      
+  // }
+
+
+  
+  
+  // var allKeys = ["name","current month","pevious month"];
+  
+  // for(let i=1 ; i< products.length ;i++){
+  //   // typeof(products[i][j])
+    
+  //   let obj={};
+  //   for(let j =0 ;j< products[i].length ;j++){
+
+  //     if(!isNaN(products[i][j])){
+  //     let val = products[i][j];
+  //     // var numb= 212421434.533423131231;
+  //     var rounded2 = Math.round((val + Number.EPSILON) * 100) / 100;
+
+  //     console.log(rounded2);
+  //     obj[allKeys[j]] = rounded2 ;
+
+  //   }
+  //     // var updatedVal =  parseFloat(val).toFixed(2);
+  //     // console.log(updatedVal);
+  //     else{
+  //       obj[allKeys[j]] = products[i][j] ;
+  //     }     
+
+  //     }
+  //     graphData.push(obj)
+      
+  //     // console.log(graphData);
+  //     // console.log("allKeys")
+      
+  // }
+      // console.log(graphData);
 
       console.log("allKeys")
 };
@@ -1777,8 +2425,8 @@ function rendertwelvemonPerfDiscreteAPIValue(twelvemon, index){
 function rendertop3contri(top3contriparam, index){
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="align-left" style={{width: "75%",height: "50px"}}>{top3contriparam.name}</td>
-      <td className="align-right" style={{width: "25%",height: "50px"}}>{top3contriparam.value}</td>
+      <td className="align-left">{top3contriparam.name}</td>
+      <td className="align-right">{top3contriparam.value}</td>
     </tr>
   )
 }
@@ -1821,8 +2469,9 @@ function renderbot3contri(bot3contriparam, index){
 
   return(
     <tr className="AssetClass__Row-sc-1rmhbx4-5 eVXooJ" key={index}>
-      <td className="align-left" style={{width: "75%",height: "50px"}}>{bot3contriparam.name}</td>
-      <td className="align-right" style={{width: "25%",height: "50px"}}>{bot3contriparam.value}</td>
+      
+      <td className="align-left">{bot3contriparam.name}</td>
+      <td className="align-right">{bot3contriparam.value}</td>
     </tr>
   )
 }
@@ -1868,7 +2517,7 @@ function renderFundinfo(fundinfoparam, index){
   // alert(bot3contriparam.name);
 
   return(
-    <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
+    <tr className="FundInformation__Row-sc-18irt95-2 fweCQL fixwidth_info" key={index}>
       
       <td className="align-left">{fundinfoparam.name}</td>
       <td className="align-center">{fundinfoparam.value}</td>
@@ -2062,21 +2711,21 @@ function previewData(formData) {
             </div>
           </div>
           <div className="accordion__item">
-            <div className="accordion__item__header active"><NavLink to="/markets/Epic-MultiAsset" className="navlink a">Multi Asset</NavLink></div>
+            <div className="accordion__item__header active"><NavLink to="/markets/Epic-MultiAsset" className="navlink a active-dis">Multi Asset</NavLink></div>
             <div className="accordion__item__content block">
               <ul>
                 <li><NavLink to="/markets/EpicipWealthFund" className="navlink a">EPIC Wealth Fund <span className="fa fa-angle-right"></span></NavLink></li>
                 {/* <li><NavLink to="/markets/EpicipDiversifiedIncomeFund" className="navlink a">VT EPIC Diversified Income <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/EpicipMultiAssetFund" className="navlink a">VT EPIC Multi Asset Balanced <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a a-active-color">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">EPIC MPS Risk Managed Decumulation 5 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a">EPIC MPS Risk Managed Decumulation 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 {/* <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li> */}
                 <li><NavLink to="/markets/RTM1" className="navlink a">EPIC MPS Risk Target Managed 1 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM2" className="navlink a">EPIC MPS Risk Target Managed 2 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM8" className="navlink a">EPIC MPS Risk Target Managed 8 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM8" className="navlink a a-active-color">EPIC MPS Risk Target Managed 8 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM9" className="navlink a">EPIC MPS Risk Target Managed 9 <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
@@ -2092,11 +2741,11 @@ function previewData(formData) {
             </div>
           </div> */}
           {/* <div className="accordion__item">
-            <div className="accordion__item__header"><NavLink to="/markets/EpicDFM" className="navlink a">Discretionary  <br />Fund Management</NavLink></div>
-            <div className="accordion__item__content">
+            <div className="accordion__item__header active"><NavLink to="/markets/EpicDFM" className="navlink a">Discretionary  <br />Fund Management</NavLink></div>
+            <div className="accordion__item__content block">
               <ul>
-                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RiskEpicDFM" className="navlink a">Risk Managed Decumulation Portfolios <span className="fa fa-angle-right"></span></NavLink></li>
+                <li><NavLink to="/markets/RTM3" className="navlink a a-active-color">EPIC MPS - Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS - Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS - Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/AIMPortfolioDFM" className="navlink a">AIM Portfolio <span className="fa fa-angle-right"></span></NavLink></li>
@@ -2127,7 +2776,7 @@ function previewData(formData) {
 
       <li class="nav-item nav-item-tabs"> <a class="nav-link " data-toggle="tab" href="#two" role="tab">Commentary</a> </li>
      <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#three" onClick={informationButton}  role="tab">Information</a> </li>
-     <li class="nav-item nav-item-tabs"> <a style={{padding: "7px 17px"}} class="nav-link" data-toggle="tab" href="#four" id="literatureTab" onClick={literatureButton} role="tab">Literature</a> </li>  
+     <li class="nav-item nav-item-tabs"> <a class="nav-link" data-toggle="tab" href="#four" id="literatureTab" onClick={literatureButton} role="tab">Literature</a> </li>  
     </ul>
     <div class="tab-content">
       <div class="tab-pane fade active show" id="nine" role="tabpanel">
@@ -2188,7 +2837,7 @@ function previewData(formData) {
                                 </div>
                             </div>
                         {/* </div> */}
-                        <div class="row ">
+                        {/* <div class="row ">
                             <div class="col-md-12">
                                 <div class="col-md-12">
                                     <h3 class="Paragraph__Heading-sc-2ra4j2-2 ">Daily Prices</h3>
@@ -2196,15 +2845,9 @@ function previewData(formData) {
                                     <p>
                                     Daily Prices can be found at: <a href="http://www.valu-trac.com/administration-services/clients/garraway/multi-asset/" target="_blank">http://www.valu-trac.com/administration-services/clients/garraway/multi-asset/</a></p>
                                       </div>
-                                    {/* <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
-                                    <p className="mt-2">Data as at: {PRTUDate}<br/>
-                                        <span className="mt-1">Source: Maples Fund Services (Ireland) Limited</span></p>
-
-
-                                    </div> */}
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div class="row margin-1">
                             <div class="col">
                                 <h3 class="Paragraph__Heading-sc-2ra4j2-2">Investment Team</h3>
@@ -2238,30 +2881,116 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
-        {/*<div class="col-md-6" style={{paddingRight: "2px"}}> 
-            <table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
-            <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
-              <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                <th colspan="1" className="align-left">Top 10 Holdings</th>
-                <th colspan="1" className="align-right">Asset Class</th>
-              </tr>
-              {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
-              
-               {/* {top10HoldingState.map(renderTop10Holding)} */}
-                
-                {/* <td>Microsoft</td>
-                <td>7.46%</td> */}
-              {/* </tr> */}
-              {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                <td>PayPal Holdings</td>
-                <td>5.54%</td>
-              </tr> */}
-              {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
-               {/* </tbody></table> 
-            </div>*/}
+        <div class="col-md-6 chart-block">
+            <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
-          <div class="col-md-6 VARmargin chart-block" style={{height: "373px"}}> 
+        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+              <Pie
+                data={graphData}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabel}
+
+            >
+                {graphData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+                ))}
+                {graphData.map(assessAllocation)}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical'/>
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+          
+          </div>
+
+          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity"  style={{display: 'none'}}> 
+          <p class="lse_redirect">Equities Breakdown (% NAV)</p>
+          <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+                
+            <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+              <Pie
+                data={equititeState}
+                cx={80}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabel}
+              >
+                {/* {equititeState.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+                ))} */}
+                {equititeState.map(equitichart)}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>  
+          </div>
+
+          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity_text">
+               <p class="exposore">The portfolio does not currently have any equity exposure</p>
+          </div>
+          
+        </div>
+
+
+        <div class="row chart-row">
+          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed" style={{ display: 'none'}}> 
+          <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+                
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={marketCapState}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabelFixed}
+
+              >
+                {/* {marketCapState.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
+                ))} */}
+                {marketCapState.map(marketCapchart)}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+          
+          
+          </div>
+          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed_text">
+               <p class="exposore">The portfolio does not currently have any fixed income exposure</p>
+          </div>
+          <div class="col-md-6 SECmargin chart-block"> 
             <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
@@ -2293,128 +3022,39 @@ function previewData(formData) {
             
 
           </div>
-       
 
-          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity"  style={{height: "373px",display: 'none'}}> 
 
-          <p class="lse_redirect">Equities Breakdown (% NAV)</p>
-          <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+          <div class="col-md-12 "> 
+
             
-                
-            <PieChart width={330} height={550} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
-              <Pie
-                data={equititeState}
-                cx={80}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabel}
-              >
-                {/* {equititeState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
-                ))} */}
-                {equititeState.map(equitichart)}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>  
-          </div>
-
-          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity_text" style={{height: "373px"}}>
-               <p class="exposore">The portfolio does not currently have any equity exposure</p>
-          </div>
-          
-        </div>
+<table class="AssetClass__Table-sc-1rmhbx4-3 iiGyjE ">
+<tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
+  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+    <th colspan="1" className="align-left">Top 10 Holdings</th>
+    <th colspan="1" className="align-right">Asset Class</th>
+  </tr> */}
+  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
+  
+    {/* {top10HoldingState.map(renderTop10Holding)} */}
+    
+    {/* <td>Microsoft</td>
+    <td>7.46%</td> */}
+  {/* </tr> */}
+  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+    <td>PayPal Holdings</td>
+    <td>5.54%</td>
+  </tr> */}
+  {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
+    <td>JD Sports Fashion</td><td>5.06%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Adobe</td><td>4.82%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Mastercard</td><td>4.65%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Amazon.com</td><td>4.64%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Visa</td><td>4.62%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Facebook</td><td>4.58%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Coloplast</td><td>3.50%</td></tr><tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"><td>Veeva Systems</td><td>3.13%</td></tr> */}
+    </tbody></table> 
 
 
-        <div class="row chart-row">
-        <div class="col-md-6 chart-block">
-            <p class="lse_redirect">Asset Allocation (% NAV)</p>
-
-        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
-              <Pie
-                data={graphData}
-                cx={90}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedAssLabel}
-
-            >
-                {graphData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
-                ))}
-                {graphData.map(assessAllocation)}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>
-          
-          </div>
-          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed" style={{ display: 'none'}}> 
-
-          
-          <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
-            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-                
-            <PieChart width={300} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 20} } >
-              <Pie
-                data={marketCapState}
-                cx={80}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabelFixed}
-
-              >
-                {/* {marketCapState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS6[index % DONUTCOLORS6.length]} />
-                ))} */}
-                {marketCapState.map(marketCapchart)}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>
-          
-          </div>
-
-          <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed_text">
-               <p class="exposore">The portfolio does not currently have any fixed income exposure</p>
-          </div>
-        
-
-
-          
+</div>
           
         </div>
         <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank">here</a>
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm8.pdf"} target="_blank">here</a>
                       <br/></p>
                   </div>
       </div>
@@ -2425,43 +3065,39 @@ function previewData(formData) {
           <div class="col-sm-12">
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
-            <div class="row chart-row">
+            <div class="row chart-row chart-row_dfm">
                     <div class="col-md-12 chart-block" >
-                    <p class="lse_redirect">Cumulative Strategy performance under Mark Harris</p>
+                    <p class="lse_redirect">Cumulative Strategy performance</p>
                     <LineChart
                         width={700}
                         height={260}
                         data={InceptionArrayState}
                         margin={{
                           top: 5,
-                          right: 30,
+                          right: -10,
                           left: -20,
-                          bottom: 5
+                          bottom: 5,
                         }}
                       >
-                        <CartesianGrid horizontal="true" vertical="" strokeDasharray=" " />
+                        <CartesianGrid strokeDasharray="" />
                         <XAxis dataKey="date" />
-                        <YAxis tickFormatter={(tick) => {
-                         return `${tick}%`;
-                         }}
-                        />
-                        {/* <Tooltip /> */}
-                        {/* <Legend /> */}
-                        <Line
-                          type="monotone"
-                          dataKey="value"
-                          stroke="#1a2352"
-                          dot={false}
-                          activeDot={{ r: 4 }}
-                        />
-
+                        <YAxis yAxisId="left"/>
+                        <YAxis yAxisId="right" orientation="right"/>
+                        {/* <Tooltip />
+                        <Legend /> */}
+                        <Line yAxisId="left" type="monotone" dataKey="value" dot={false} stroke="#1a2352" activeDot={{ r: 8 }} />
+                        <Line yAxisId="right" type="monotone" dataKey="value1" dot={false} stroke="#99103c" activeDot={{ r: 8 }}/>
                       </LineChart>
-                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; VT EPIC Multi Asset Growth Fund Class A Acc in GBP</p>
+                      <p class="lse_redirect12"><p class="p_color"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC MPS - RTM 8</p>
+                      <p><span class="span_color12"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; 12m. Rolling Vol (RHS)</p></p>
                       </div>
-                      {/* <div class="mb-2 row chart-row">
-                    <div class="col-md-12 table-margin">
+                      
+                    
+                </div>
+                {/* <div class="mb-2 row chart-row">
+                    <div class="col-md-12table-margin_dfm">
 
-                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
+                        <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2481,12 +3117,9 @@ function previewData(formData) {
                         </table>
                         </div>
                         </div> */}
-                    
-                </div>
-
-                <div class="mb-2 row cum-row">
+                <div class="mb-2 row table-row">
                     <div class="col-md-12" >
-                    <table class="table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
+                    <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
@@ -2503,7 +3136,7 @@ function previewData(formData) {
                     </div>
                 </div>
 
-                <div class="row cum-row">
+                <div class="mb-2 row table-row">
                     <div class="col-md-12" >
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz hRUkzz_dfm_new">
                             <tbody>
@@ -2531,27 +3164,11 @@ function previewData(formData) {
                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjEGR iiGyjEGR_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <th colspan="1" className="align-left" style={{width: "75%"}}>Top Three Contributors</th>
-                                    <th colspan="1" className="align-right" style={{width: "25%"}}>Asset Class</th>
+                                    <th colspan="1" className="align-left">Top Three Contributors</th>
+                                    <th colspan="1" className="align-right">Asset Class</th>
                                 </tr>
-                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ"> */}
-                                {/* {top3contriarray.map(rendertop3contri)} */}
                                 
                                 {top3contriState.map(rendertop3contri)}
-
-                                {/* </tr> */}
-                                {/* <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Long ASX SPI 200 Index</td>
-                                    <td>0.41%</td>
-                                </tr>
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Long S&amp;P 500 Index</td>
-                                    <td>0.33%</td>
-                                </tr>
-                                <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <td>Short Australian Dollar / New Zealand Dollar</td>
-                                    <td>0.30%</td>
-                                </tr> */}
                             </tbody>
                         </table>
                     </div>
@@ -2560,8 +3177,8 @@ function previewData(formData) {
                         <table class="table  AssetClass__Table-sc-1rmhbx4-3 iiGyjE iiGyjE_dfm">
                             <tbody class="AssetClass__Body-sc-1rmhbx4-4 cyhKrw">
                                 <tr class="AssetClass__Row-sc-1rmhbx4-5 eVXooJ">
-                                    <th colspan="1" className="align-left" style={{width: "75%"}}>Bottom Three Contributors</th>
-                                    <th colspan="1" className="align-right" style={{width: "25%"}}>Asset Class</th>
+                                    <th colspan="1" className="align-left">Bottom Three Contributors</th>
+                                    <th colspan="1" className="align-right">Asset Class</th>
                                 </tr>
                                 {bot3contriarray.map(renderbot3contri)}
                                 
@@ -2577,7 +3194,7 @@ function previewData(formData) {
 
                 <div class="mb-2 row monthly-row">
                     <div class="col" >
-                    <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
+                    <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ cHAvbZ_dfm">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAWGR">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
@@ -2594,7 +3211,7 @@ function previewData(formData) {
                                 </tbody>
                             </table>
 
-                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW table-striped">
+                            <table class="table MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAWGR table-striped">
                                 <tbody class="MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     
                                     {/* <tr class="MonthlyPerformance__Row-sc-1n33bhd-4 oKXFa"> */}
@@ -2609,7 +3226,7 @@ function previewData(formData) {
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>here</a> 
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm8.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
             </div>
@@ -2631,9 +3248,9 @@ function previewData(formData) {
                     
                   </div>
                 </div>
-                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
+                <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK"><br/>
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>here</a> 
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm8.pdf"} target="_blank" download>here</a> 
                      <br/></p>
                   </div>
                     </div>            
@@ -2650,9 +3267,9 @@ function previewData(formData) {
                         <table class="FundInformation__Table-sc-18irt95-0 cRUpgb">
                             <tbody class=" FundInformation__Body-sc-18irt95-1 hNmQXY">
                                 <tr class="FundInformation__Row-sc-18irt95-2 kzFInj">
-                                    <th>Fund Information</th>
+                                    <th>Portfolio Information</th>
                                 </tr>
-                                {Fundinfoarray.map(renderFundinfo)}
+                                {/* {Fundinfoarray.map(renderFundinfo)} */}
                                 {CMSFundinfoarray.map(renderFundinfo)}
 
                                 {/* <tr className="FundInformation__Row-sc-18irt95-2 fweCQL">
@@ -2712,7 +3329,7 @@ function previewData(formData) {
                     <div class="col" >
                         <table class="table  Shares__Table-sc-1brks4f-0 hBbtmd">
                             <tbody class="Shares__Body-sc-1brks4f-1 hbWYKC">
-                                <tr class="Shares__Row-sc-1brks4f-2 hzpAKA">
+                                <tr class="Shares__Row-sc-1brks4f-2 hzpAKA" >
                                 
 
                                 {ShareClassarray.map(renderShareClassNames)}
@@ -2728,178 +3345,15 @@ function previewData(formData) {
                                 <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
 
                                 {ShareClassarray.map(renderShareClassValue)}
-
-                                    {/* <td>NAV per Share</td>
-                                    <td align="center" colspan="1">$995.86</td>
-                                    <td align="center" colspan="1">£964.27</td>
-                                    <td align="center" colspan="1">€820.02</td>
-                                    <td align="center" colspan="1">$1,063.31</td>
-                                    <td align="center" colspan="1">£795.17</td>
-                                    <td align="center" colspan="1">€773.23</td> */}
                                 </tr>
                                 {CMSshareinfoarray.map(renderCMSshareinfo)}
-
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Minimum Initial Investment</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100,000	</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                </tr>
-
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Minimum Additional Investment</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$10,000	</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                    <td className="align-right">$100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Ongoing Charge (as at 31 December 2020)</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.56%</td>
-                                    <td className="align-right">1.55%</td>
-                                    <td className="align-right">1.81%</td>
-                                    <td className="align-right">1.80%</td>
-                                    <td className="align-right">1.81%</td>
-                                 </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">ISIN</td>
-                                    <td className="align-right">IE00B86V3N61</td>
-                                    <td className="align-right">IE00B8NCXV05</td>
-                                    <td className="align-right">IE00B86JXG34</td>
-                                    <td className="align-right">IE00B8L77L59</td>
-                                    <td className="align-right">IE00B86KNN34</td>
-                                    <td className="align-right">IE00B7S9LZ93</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Bloomberg Ticker</td>
-                                    <td className="align-right">EEADTAU ID</td>
-                                    <td className="align-right">EEADTAS ID</td>
-                                    <td className="align-right">GARFTAE ID</td>
-                                    <td className="align-right">EEADTBU ID</td>
-                                    <td className="align-right">EEADTBS ID</td>
-                                    <td className="align-right">GARFTBE ID</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Citi</td>
-                                    <td className="align-right">MD8G</td>
-                                    <td className="align-right">I2VK</td>
-                                    <td className="align-right">Q6OF</td>
-                                    <td className="align-right">I2VL</td>
-                                    <td className="align-right">MD8J</td>
-                                    <td className="align-right">NTGR</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">MEXID</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GAWXA</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">-</td>
-                                    <td className="align-right">GACMA</td>
-                                    <td className="align-right">GAYZA</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td className="align-left">Open for new investment</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                    <td className="align-right">Yes</td>
-                                </tr> */}
-
-                                {/* <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Minimum Initial Investment</td>
-                                    <td align="center" colspan="1">$100,000</td>
-                                    <td align="center" colspan="1">£100,000</td>
-                                    <td align="center" colspan="1">€100,000</td>
-                                    <td align="center" colspan="1">$100</td>
-                                    <td align="center" colspan="1">£100</td>
-                                    <td align="center" colspan="1">€100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Minimum Additional Investment</td>
-                                    <td align="center" colspan="1">$10,000</td>
-                                    <td align="center" colspan="1">£10,000</td>
-                                    <td align="center" colspan="1">€10,000</td>
-                                    <td align="center" colspan="1">$100</td>
-                                    <td align="center" colspan="1">£100</td>
-                                    <td align="center" colspan="1">€100</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Ongoing Charge (as at 31 December 2020)</td>
-                                    <td align="center" colspan="1">1.56%</td>
-                                    <td align="center" colspan="1">1.56%</td>
-                                    <td align="center" colspan="1">1.55%</td>
-                                    <td align="center" colspan="1">1.81%</td>
-                                    <td align="center" colspan="1">1.80%</td>
-                                    <td align="center" colspan="1">1.81%</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Performance Fee</td>
-                                    <td align="center" colspan="99">20%, High water mark</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>UK Reporting Fund Status</td>
-                                    <td align="center" colspan="99">Yes (All share classes)</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>ISIN</td>
-                                    <td align="center" colspan="1">IE00B86V3N61</td>
-                                    <td align="center" colspan="1">IE00B8NCXV05</td>
-                                    <td align="center" colspan="1">IE00B86JXG34</td>
-                                    <td align="center" colspan="1">IE00B8L77L59</td>
-                                    <td align="center" colspan="1">IE00B86KNN34</td>
-                                    <td align="center" colspan="1">IE00B7S9LZ93</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Bloomberg Ticker</td>
-                                    <td align="center" colspan="1">EEADTAU ID</td>
-                                    <td align="center" colspan="1">EEADTAS ID</td>
-                                    <td align="center" colspan="1">GARFTAE ID</td>
-                                    <td align="center" colspan="1">EEADTBU ID</td>
-                                    <td align="center" colspan="1">EEADTBS ID</td>
-                                    <td align="center" colspan="1">GARFTBE ID</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Citi</td>
-                                    <td align="center" colspan="1">MD8G</td>
-                                    <td align="center" colspan="1">I2VK</td>
-                                    <td align="center" colspan="1">Q6OF</td>
-                                    <td align="center" colspan="1">I2VL</td>
-                                    <td align="center" colspan="1">MD8J</td>
-                                    <td align="center" colspan="1">NTGR</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>MEXID</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">GAWXA</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">-</td>
-                                    <td align="center" colspan="1">GACMA</td>
-                                    <td align="center" colspan="1">GAYZA</td>
-                                </tr>
-                                <tr class="Shares__Row-sc-1brks4f-2 eoQrEv">
-                                    <td>Open for new investment</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                    <td align="center" colspan="1">Yes</td>
-                                </tr> */}
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                      <p className="mt-2 i">Monthly data as at: {PRTUDate}. 
-                     All information also available to download <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>here</a>
+                     All information also available to download <a href={window.location.origin+"/sitepdfs/epic_mps_rtm8.pdf"} target="_blank" download>here</a>
                       <br/></p>
                   </div>
             </div>
@@ -2923,7 +3377,7 @@ function previewData(formData) {
           <h4>Fact Sheet</h4>
 
 					  <p class="pdf_download">              
-                          <a href={window.location.origin+"/sitepdfs/vtepic_multi_asset_growth_fund.pdf"} target="_blank" download>Multi Asset Growth Fund PDF
+                          <a href={window.location.origin+"/sitepdfs/epic_mps_rtm8.pdf"} target="_blank" download>EPIC MPS – RTM 8 PDF
                             <br/>
                           </a>
                      </p>
