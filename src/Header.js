@@ -263,6 +263,9 @@ const Header = () => {
 
           var HeaderService6f = ServiceName[24].name;
           var HeaderServiceURL6f = ServiceName[24].url
+
+          var HeaderService3e = ServiceName[25].name;
+          var HeaderServiceURL3e = ServiceName[25].url
           
         }
       }
@@ -474,7 +477,7 @@ const Header = () => {
 
       const url =window.location.origin+'/division_api';
     // const url ="https://epicipprojects.com/epicip/division_api";
-     // const url ="https://www.epicip.com/division_api";
+      //const url ="https://www.epicip.com/division_api";
       const localurl ="https://epicipprojects.com/division_api";
       //const url ='http://127.0.0.1:8000/division_api';
       
@@ -668,7 +671,7 @@ const Header = () => {
               {/* <a className="dropdown-item" href="#">Managed Futures</a>  */}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Equitites">{HeaderService3c}</NavLink>
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-MultiAsset">{HeaderService3d}</NavLink>
-              {/* <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink>  */}
+              <NavLink  className="dropdown-item nav-color" to="/markets/Hedge-Funds">{HeaderService3e}</NavLink> 
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Insights">EPIC Insights</NavLink> 
             
             </div>

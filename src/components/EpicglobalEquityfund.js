@@ -1165,8 +1165,20 @@ const performanceButton=()=>{
      }
       arr.push(rounded+'%')
     }else{
-      rounded = ''; 
-      arr.push(rounded)
+      if(productsMonthlyPerf[i][j] === 0){
+        let val1 = productsMonthlyPerf[i][j]*100;
+         var rounded1 = Math.round((val1 + Number.EPSILON) * 100) / 100;
+         rounded1 = parseFloat(rounded1).toFixed(2);
+          if(rounded1 ==0.00){
+            rounded1 = 0;
+            arr.push(rounded1+'%')
+          }
+        }else{
+            rounded = ''; 
+            arr.push(rounded)
+        }
+      // rounded = ''; 
+      // arr.push(rounded)
     }
       
       // arr.push(productsMonthlyPerf[i][j])
@@ -1237,8 +1249,20 @@ for(let i=4 ;i<=9;i++){
    }
     arr.push(rounded+'%')
   }else{
-    rounded = ''; 
-    arr.push(rounded)
+    if(productsMonthlyPerfB[i][j] === 0){
+      let val1 = productsMonthlyPerfB[i][j]*100;
+       var rounded1 = Math.round((val1 + Number.EPSILON) * 100) / 100;
+       rounded1 = parseFloat(rounded1).toFixed(2);
+        if(rounded1 ==0.00){
+          rounded1 = 0;
+          arr.push(rounded1+'%')
+        }
+      }else{
+          rounded = ''; 
+          arr.push(rounded)
+      }
+    // rounded = ''; 
+    // arr.push(rounded)
   }
     
     // arr.push(productsMonthlyPerf[i][j])
@@ -1300,8 +1324,20 @@ for(let i=4 ;i<=8;i++){
     arr.push(rounded+'%')
    
   }else{
-    rounded = ''; 
-    arr.push(rounded)
+    if(productsMonthlyPerfC[i][j] === 0){
+      let val1 = productsMonthlyPerfC[i][j]*100;
+       var rounded1 = Math.round((val1 + Number.EPSILON) * 100) / 100;
+       rounded1 = parseFloat(rounded1).toFixed(2);
+        if(rounded1 ==0.00){
+          rounded1 = 0;
+          arr.push(rounded1+'%')
+        }
+    }else{
+        rounded = ''; 
+        arr.push(rounded)
+    }
+    // rounded = ''; 
+    // arr.push(rounded)
   }
     // arr.push(productsMonthlyPerf[i][j])
   }
@@ -1363,8 +1399,20 @@ for(let i=4 ;i<=8;i++){
    }
     arr.push(rounded+'%')
   }else{
-    rounded = ''; 
-    arr.push(rounded)
+    if(productsMonthlyPerfBEUR[i][j] === 0){
+      let val1 = productsMonthlyPerfBEUR[i][j]*100;
+       var rounded1 = Math.round((val1 + Number.EPSILON) * 100) / 100;
+       rounded1 = parseFloat(rounded1).toFixed(2);
+        if(rounded1 ==0.00){
+          rounded1 = 0;
+          arr.push(rounded1+'%')
+        }
+      }else{
+          rounded = ''; 
+          arr.push(rounded)
+      }
+    // rounded = ''; 
+    // arr.push(rounded)
   }
     
     // arr.push(productsMonthlyPerf[i][j])
@@ -2863,15 +2911,14 @@ function previewData(formData) {
                 <li><NavLink to="/markets/EpicipMultiAssetGrowthFund" className="navlink a">VT EPIC Multi Asset Growth <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RiskEpicDFM" className="navlink a ">EPIC MPS Risk Managed Decumulation 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 {/* <li><NavLink to="/markets/RiskTargetedDFM" className="navlink a">Risk Targeted Portfolios <span className="fa fa-angle-right"></span></NavLink></li> */}
-                <li><NavLink to="/markets/RTM1" className="navlink a">EPIC MPS Risk Target Managed 1 <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM2" className="navlink a">EPIC MPS Risk Target Managed 2 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM3" className="navlink a">EPIC MPS Risk Target Managed 3 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM5" className="navlink a">EPIC MPS Risk Target Managed 5 <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/RTM7" className="navlink a">EPIC MPS Risk Target Managed 7 <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM8" className="navlink a">EPIC MPS Risk Target Managed 8 <span className="fa fa-angle-right"></span></NavLink></li>
-                <li><NavLink to="/markets/RTM9" className="navlink a">EPIC MPS Risk Target Managed 9 <span className="fa fa-angle-right"></span></NavLink></li>
               </ul>
             </div>
+          </div>
+          <div className="accordion__item">
+            <div className="accordion__item__header"><NavLink to="/markets/Hedge-Funds" className="navlink a">Fund of Hedge Funds </NavLink></div>
           </div>
           {/* <div className="accordion__item">
           <div className="accordion__item__header_dfm"><NavLink to="/markets/EpicDFM" className="navlink a ">Discretionary  <br />Fund Management</NavLink></div>
