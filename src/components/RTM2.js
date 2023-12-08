@@ -2730,6 +2730,9 @@ function previewData(formData) {
               </ul>
             </div>
           </div>
+          <div className="accordion__item">
+            <div className="accordion__item__header"><NavLink to="/markets/Hedge-Funds" className="navlink a">Fund of Hedge Funds </NavLink></div>
+          </div>
           {/* <div className="accordion__item">
           <div className="accordion__item__header_dfm"><NavLink to="/markets/EpicDFM" className="navlink a ">Discretionary  <br />Fund Management</NavLink></div>
             <div className="accordion__item__content">
