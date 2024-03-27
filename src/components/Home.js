@@ -202,6 +202,7 @@ $( document ).ready(function() {
 async function fetchMyService3API(){
 
   const url =window.location.origin+'/people_api';
+  //const url ='https://www.epicip.com/people_api';
   
    fetch(url).then(resp=> resp.json())
    .then (resp => {
@@ -225,6 +226,7 @@ async function fetchMyService3API(){
 async function fetchMyServiceAPI(){
 
   const url =window.location.origin+'/key_mapdata';
+  //const url ='https://www.epicip.com/key_mapdata';
   
    fetch(url).then(resp=> resp.json())
    .then (resp => {
@@ -248,6 +250,7 @@ async function fetchMyServiceAPI(){
 async function fetchMyAPI(){
 
   const url =window.location.origin+'/market_contentapi';
+  //const url ='https://www.epicip.com/market_contentapi';
   
    fetch(url).then(resp=> resp.json())
    .then (resp => {
@@ -357,7 +360,7 @@ useEffect(()=>{
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>

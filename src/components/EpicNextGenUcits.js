@@ -656,7 +656,11 @@ const summaryButton=()=>{
   // For loop for calculation date
   let calculation = RespPrtu[1][2]
   // new Date(date).toLocaleDateString()
-let daily_cal = PRTU[5][4]
+  let daily_cal = ''
+  if(PRTU !=0){
+    daily_cal = PRTU[5][4]
+  }
+
   
   
   let calculatedDate = new Date(calculation).toLocaleDateString("en-US", { day: 'numeric' })+ "/"+ new Date(calculation).toLocaleDateString("en-US", { month: 'numeric' })+ "/" + new Date(calculation).toLocaleDateString("en-US", { year: 'numeric' });
@@ -2088,6 +2092,7 @@ async function fetchMyAPI(){
   const Localurl = 'https://www.epicip.com/epic-next-gen-ucits'
   const url = window.location.origin+'/epic-next-gen-ucits' 
    //const url = 'http://127.0.0.1:8000/epic-next-gen-ucits';
+   //const url = 'https://www.epicip.com/epic-next-gen-ucits';
   
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -3011,7 +3016,7 @@ function previewData(formData) {
             </div>
           </div>
           <div className="accordion__item">
-            <div className="accordion__item__header "><NavLink to="/markets/Epic-ManagedFutures" className="navlink a ">Managed Futures </NavLink></div>
+            <div className="accordion__item__header "><NavLink to="/markets/Epic-ManagedFutures" className="navlink a">Managed Futures </NavLink></div>
             <div className="accordion__item__content">
               <ul>
                 <li><NavLink to="/markets/EpicfinanceTrends" className="navlink a">EPIC Financial Trends <span className="fa fa-angle-right"></span></NavLink></li>
@@ -3077,7 +3082,7 @@ function previewData(formData) {
             <div className="accordion__item__header"><NavLink to="/markets/Epic-Insights" className="navlink a ">EPIC Insights</NavLink></div>
             <div className="accordion__item__content">
               <ul>
-                {/* <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li> */}
+                <li><NavLink to="/markets/EpicDailyUpdates" className="navlink a">Daily Updates <span className="fa fa-angle-right"></span></NavLink></li>
                 <li><NavLink to="/markets/EpicInsights" className="navlink a">News  <span className="fa fa-angle-right"></span></NavLink></li>
                 
               </ul>

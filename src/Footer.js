@@ -141,7 +141,7 @@ console.log("ArrLinkResponse");
   async function fetchMyServiceAPI(){
 
     const url =window.location.origin+'/footer_linksapi';
-    
+    //const url ='https://www.epicip.com/footer_linksapi';
      fetch(url).then(resp=> resp.json())
      .then (resp => {
 
@@ -164,6 +164,7 @@ console.log("ArrLinkResponse");
   async function fetchMyAPI(){
 
     const url =window.location.origin+'/footer_contentapi';
+    //const url ='https://www.epicip.com/footer_contentapi';
     
      fetch(url).then(resp=> resp.json())
      .then (resp => {
