@@ -233,6 +233,7 @@ const EpicFixedIncomeFunction = () => {
       async function fetchMyService3API(){
 
         const url =window.location.origin+'/people_api';
+        //const url ='https://demo.epicip.com/people_api';
         
          fetch(url).then(resp=> resp.json())
          .then (resp => {
@@ -256,6 +257,7 @@ const EpicFixedIncomeFunction = () => {
       async function fetchMyServiceAPI(){
       
         const url =window.location.origin+'/key_mapdata';
+        //const url ='https://demo.epicip.com/key_mapdata';
         
          fetch(url).then(resp=> resp.json())
          .then (resp => {
@@ -279,7 +281,7 @@ const EpicFixedIncomeFunction = () => {
       async function fetchMyService2API(){
       
         const url =window.location.origin+'/market_contentapi';
-        //const url ='http://127.0.0.1:8000/market_contentapi';
+        //const url ='https://demo.epicip.com/market_contentapi';
         const Localurl ='https://epicipprojects.com/market_contentapi';
         
          fetch(url).then(resp=> resp.json())
@@ -494,6 +496,11 @@ return(
       </div>
       <div class="col-md-3">
         <p ><strong><a href={window.location.origin+"/people/"+KeyLinkfour+"#"+KeyLinkfour}>{KeyNamefour}</a></strong> <br />
+          {/* frederick.coldham@epicpe.com */}
+          </p>
+      </div>
+      <div class="col-md-3">
+        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
           {/* frederick.coldham@epicpe.com */}
           </p>
       </div>
