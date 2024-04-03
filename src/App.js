@@ -37,7 +37,8 @@ import RTM2Component from './components/RTM2'
 import RTM8Component from './components/RTM8'
 import RTM9Component from './components/RTM9'
 
-import AIMPortfolioDFMComponent from './components/AIMPortfolioDFM'
+//import AIMPortfolioDFMComponent from './components/AIMPortfolioDFM'
+import AIMPortfolioDFMComponent from './components/AIMPortfolioDFMFund'
 import RiskTargetedDFMComponent from './components/RiskTargetedDFM'
 import NotFoundComponent from './components/NotFound'
 import EpicPCCNextGenComponent from './components/EpicPCCNextGen';
