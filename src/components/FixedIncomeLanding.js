@@ -257,6 +257,7 @@ const EpicFixedIncomeFunction = () => {
       
         const url =window.location.origin+'/key_mapdata';
         
+        
          fetch(url).then(resp=> resp.json())
          .then (resp => {
       
@@ -493,6 +494,11 @@ return(
       </div>
       <div class="col-md-3">
         <p ><strong><a href={window.location.origin+"/people/"+KeyLinkfour+"#"+KeyLinkfour}>{KeyNamefour}</a></strong> <br />
+          {/* frederick.coldham@epicpe.com */}
+          </p>
+      </div>
+      <div class="col-md-3">
+        <p ><strong><a href={window.location.origin+"/people/"+KeyLinkone+"#"+KeyLinkone}>{KeyNameone}</a></strong> <br />
           {/* frederick.coldham@epicpe.com */}
           </p>
       </div>
