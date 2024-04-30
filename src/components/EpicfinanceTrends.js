@@ -860,7 +860,7 @@ var monthsArr=[];
   console.log(monthsArr)
 
   var arr2D=[];
-  for(let i=4 ;i<=15;i++){
+  for(let i=4 ;i<=16;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerf[i][j] != ""){
@@ -940,7 +940,7 @@ console.log("arr2D");
   console.log(monthsArrUSD)
 
   var arr2DUSD=[];
-  for(let i=4 ;i<=15;i++){
+  for(let i=4 ;i<=16;i++){
     let arr=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerfUSD[i][j] != ""){
@@ -1013,7 +1013,7 @@ console.log("-------------------------------------------------------------------
   console.log(monthsArrAEUR)
 
   var arr2DAEUR=[];
-  for(let i=4 ;i<=10;i++){
+  for(let i=4 ;i<=11;i++){
     let arrAEUR=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerfAEUR[i][j] != ""){
@@ -1088,7 +1088,7 @@ console.log("-------------------------------------------------------------------
   console.log(monthsArrUSDB)
 
   var arr2DUSDB=[];
-  for(let i=4 ;i<=15;i++){
+  for(let i=4 ;i<=16;i++){
     let arrB=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerfUSDB[i][j] != ""){
@@ -1161,7 +1161,7 @@ console.log("-------------------------------------------------------------------
   console.log(monthsArrBEUR)
 
   var arr2DBEUR=[];
-  for(let i=4 ;i<=10;i++){
+  for(let i=4 ;i<=11;i++){
     let arrBEUR=[]
     for(let j=8 ;j<=21;j++){
       if(productsMonthlyPerfBEUR[i][j] != ""){
@@ -2845,9 +2845,10 @@ function previewData(formData) {
         <div class="row chart-row">
           <div class="col-md-6"> 
 
-            <div>
-                Exposures do not include share class hedges, only notional exposure from futures positions within the portfolio. Where FX Sector exposures are shown, both sides of the contract contribute to the relevant currency exposure.
-            </div>  
+            <div>Exposures do not include share class hedges, only notional exposure from futures
+positions within the portfolio. Where FX Sector exposures are shown, both sides of
+the contract contribute to the relevant currency exposure.
+            </div>
           
           </div>
           <div class="col-md-6 chart-block"> 
