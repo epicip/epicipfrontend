@@ -186,7 +186,7 @@ const Header = () => {
     var meru6 = [];
     for(let j=0 ; j< ServiceName.length ;j++){
       let meru11 = [];
-      if(ServiceName[j].division_id == 1){
+      if(ServiceName[j].division_id == 1 && ServiceName[j].status == "1"){
         meru11['name'] = ServiceName[j].name;
         meru11['url'] = ServiceName[j].url;
         meru1.push(meru11) 
@@ -194,12 +194,12 @@ const Header = () => {
 
       if(meru1.length > 0){
         for(let k=0 ; k< meru1.length ;k++){
-          if(meru1[k].name ="Private Equity"){
+          if(meru1[k].name =="Private Equity"){
             var HeaderService1a = meru1[k].name;
             var HeaderServiceURL1a = meru1[k].url
           }
 
-          if(meru1[k].name ="Special Purpose Acquisition Companies"){
+          if(meru1[k].name =="Special Purpose Acquisition Companies"){
             var HeaderService1c = meru1[k].name;
             var HeaderServiceURL1c = meru1[k].url
           }
@@ -210,10 +210,10 @@ const Header = () => {
           }
         }
       }
-       
+
 
       let meru22 = [];
-      if(ServiceName[j].division_id == 2){
+      if(ServiceName[j].division_id == 2 && ServiceName[j].status == "1"){
         meru22['name'] = ServiceName[j].name;
         meru22['url'] = ServiceName[j].url;
         meru2.push(meru22) 
@@ -221,12 +221,12 @@ const Header = () => {
 
       if(meru2.length > 0){
         for(let k=0 ; k< meru2.length ;k++){
-          if(meru2[k].name ="Corporate Services"){
+          if(meru2[k].name =="Corporate Services"){
             var HeaderService2a = meru2[k].name;
             var HeaderServiceURL2a = meru2[k].url
           }
 
-          if(meru2[k].name ="Fund Services"){
+          if(meru2[k].name =="Fund Services"){
             var HeaderService2b = meru2[k].name;
             var HeaderServiceURL2b = meru2[k].url
           }
@@ -239,7 +239,7 @@ const Header = () => {
       }
 
       let meru33 = [];
-      if(ServiceName[j].division_id == 3){
+      if(ServiceName[j].division_id == 3 && ServiceName[j].status == "1"){
         meru33['name'] = ServiceName[j].name;
         meru33['url'] = ServiceName[j].url;
         meru3.push(meru33) 
@@ -247,27 +247,27 @@ const Header = () => {
 
       if(meru3.length > 0){
         for(let k=0 ; k< meru3.length ;k++){
-          if(meru3[k].name ="Fixed Income"){
+          if(meru3[k].name =="Fixed Income"){
             var HeaderService3a = meru3[k].name;
             var HeaderServiceURL3a = meru3[k].url
           }
 
-          if(meru3[k].name ="Managed Futures"){
+          if(meru3[k].name =="Managed Futures"){
             var HeaderService3b = meru3[k].name;
             var HeaderServiceURL3b = meru3[k].url
           }
 
-          if(meru3[k].name ="Equities"){
+          if(meru3[k].name =="Equities"){
             var HeaderService3c = meru3[k].name;
             var HeaderServiceURL3c = meru3[k].url
           }
 
-          if(meru3[k].name ="Multi Asset"){
+          if(meru3[k].name =="Multi Asset"){
             var HeaderService3d = meru3[k].name;
             var HeaderServiceURL3d = meru3[k].url
           }
 
-          if(meru3[k].name ="Fund of Hedge Funds"){
+          if(meru3[k].name =="Fund of Hedge Funds"){
             var HeaderService3e = meru3[k].name;
             var HeaderServiceURL3e = meru3[k].url
           }
@@ -275,7 +275,7 @@ const Header = () => {
       }
 
       let meru44 = [];
-      if(ServiceName[j].division_id == 4){
+      if(ServiceName[j].division_id == 4 && ServiceName[j].status == "1"){
         meru44['name'] = ServiceName[j].name;
         meru44['url'] = ServiceName[j].url;
         meru4.push(meru44) 
@@ -283,12 +283,12 @@ const Header = () => {
 
       if(meru4.length > 0){
         for(let k=0 ; k< meru4.length ;k++){
-          if(meru4[k].name ="Corporate Finance"){
+          if(meru4[k].name =="Corporate Finance"){
             var HeaderService4a = meru4[k].name;
             var HeaderServiceURL4a = meru4[k].url
           }
 
-          if(meru4[k].name ="General Partners"){
+          if(meru4[k].name =="General Partners"){
             var HeaderService4b = meru4[k].name;
             var HeaderServiceURL4b = meru4[k].url
           }
@@ -296,7 +296,7 @@ const Header = () => {
       }
 
       let meru66 = [];
-      if(ServiceName[j].division_id == 6){
+      if(ServiceName[j].division_id == 6 && ServiceName[j].status == "1"){
         meru66['name'] = ServiceName[j].name;
         meru66['url'] = ServiceName[j].url;
         meru6.push(meru66) 
@@ -304,30 +304,30 @@ const Header = () => {
     }
     if(meru6.length > 0){
       for(let k=0 ; k< meru6.length ;k++){
-        if(meru6[k].name ="About Us"){
-          var HeaderService6a = meru6[k].name;
-          var HeaderServiceURL6a = meru6[k].url
+        if(meru6[k].name =="About Us" ){
+           HeaderService6a = meru6[k].name;
+          HeaderServiceURL6a = meru6[k].url
         }
-        if(meru6[k].name ="Our Values"){
+        if(meru6[k].name =="Our Values"){
           var HeaderService6b = meru6[k].name;
           var HeaderServiceURL6b = meru6[k].url
         }
-        if(meru6[k].name ="Our Investment Principles"){
+        if(meru6[k].name =="Our Investment Principles"){
           var HeaderService6c = meru6[k].name;
           var HeaderServiceURL6c = meru6[k].url
         }
 
-        if(meru6[k].name ="Our People"){
+        if(meru6[k].name =="Our People"){
           var HeaderService6d = meru6[k].name;
           var HeaderServiceURL6d = meru6[k].url
         }
 
-        if(meru6[k].name ="Reading Room"){
+        if(meru6[k].name =="Reading Room"){
           var HeaderService6e = meru6[k].name;
           var HeaderServiceURL6e = meru6[k].url
         }
 
-        if(meru6[k].name ="Community"){
+        if(meru6[k].name =="Community"){
           var HeaderService6f = meru6[k].name;
           var HeaderServiceURL6f = meru6[k].url
         }
@@ -339,10 +339,10 @@ const Header = () => {
     
           if(HeaderName[i].id == ServiceName[j].division_id){
 
-          obj[allKeys[0]] = ServiceName[j].division_id ;
-          obj[allKeys[1]] = ServiceName[j].name ;
-          obj[allKeys[2]] = HeaderName[i].name ;
-          obj[allKeys[3]] = ServiceName[j].url ;
+        //   obj[allKeys[0]] = ServiceName[j].division_id ;
+        //   obj[allKeys[1]] = ServiceName[j].name ;
+        //   obj[allKeys[2]] = HeaderName[i].name ;
+        //   obj[allKeys[3]] = ServiceName[j].url ;
 
         //   var HeaderService1a = ServiceName[5].name;
         //   var HeaderServiceURL1a = ServiceName[5].url
@@ -354,75 +354,80 @@ const Header = () => {
         //   var HeaderService1d = ServiceName[8].name;
         //   var HeaderServiceURL1d = ServiceName[8].url
          
-          // var HeaderService2a = ServiceName[9].name;
-          // var HeaderServiceURL2a = ServiceName[9].url
+        //   var HeaderService2a = ServiceName[9].name;
+        //   var HeaderServiceURL2a = ServiceName[9].url
 
-          // var HeaderService2b = ServiceName[25].name;
-          // var HeaderServiceURL2b = ServiceName[25].url
+        //   var HeaderService2b = ServiceName[25].name;
+        //   var HeaderServiceURL2b = ServiceName[25].url
          
-          // var HeaderService2c = ServiceName[26].name;
-          // var HeaderServiceURL2c = ServiceName[26].url
+        //   var HeaderService2c = ServiceName[26].name;
+        //   var HeaderServiceURL2c = ServiceName[26].url
+
+        //   var HeaderService2d = ServiceName[24].name;
+        //   var HeaderServiceURL2d = ServiceName[24].url
          
-          // var HeaderService3a = ServiceName[0].name;
-          // var HeaderServiceURL3a = ServiceName[0].url
+        //   var HeaderService3a = ServiceName[0].name;
+        //   var HeaderServiceURL3a = ServiceName[0].url
         
-          // var HeaderService3b = ServiceName[1].name;
-          // var HeaderServiceURL3b = ServiceName[1].url
+        //   var HeaderService3b = ServiceName[1].name;
+        //   var HeaderServiceURL3b = ServiceName[1].url
         
-          // var HeaderService3c = ServiceName[2].name;
-          // var HeaderServiceURL3c = ServiceName[2].url
+        //   var HeaderService3c = ServiceName[2].name;
+        //   var HeaderServiceURL3c = ServiceName[2].url
 
-          // var HeaderService3d = ServiceName[3].name;
-          // var HeaderServiceURL3d = ServiceName[3].url
+        //   var HeaderService3d = ServiceName[3].name;
+        //   var HeaderServiceURL3d = ServiceName[3].url
 
-          // var HeaderService3e = ServiceName[23].name;
-          // var HeaderServiceURL3e = ServiceName[23].url
+        //   // var HeaderService3e = ServiceName[4].name;
+        //   // var HeaderServiceURL3e = ServiceName[4].url
 
-          // var HeaderService4a = ServiceName[10].name;
-          // var HeaderServiceURL4a = ServiceName[10].url
+        //   var HeaderService4a = ServiceName[9].name;
+        //   var HeaderServiceURL4a = ServiceName[9].url
 
-          // var HeaderService4b = ServiceName[11].name;
-          // var HeaderServiceURL4b = ServiceName[11].url
+        //   var HeaderService4b = ServiceName[11].name;
+        //   var HeaderServiceURL4b = ServiceName[11].url
 
-          var HeaderService5a = ServiceName[15].name;
-          var HeaderServiceURL5a = ServiceName[15].url
+        //   var HeaderService5a = ServiceName[15].name;
+        //   var HeaderServiceURL5a = ServiceName[15].url
           
-          var HeaderService5b = ServiceName[16].name;
-          var HeaderServiceURL5b = ServiceName[16].url
+        //   var HeaderService5b = ServiceName[16].name;
+        //   var HeaderServiceURL5b = ServiceName[16].url
           
-          var HeaderService5c = ServiceName[17].name;
-          var HeaderServiceURL5c = ServiceName[17].url
+        //   var HeaderService5c = ServiceName[17].name;
+        //   var HeaderServiceURL5c = ServiceName[17].url
           
-          var HeaderService5d = ServiceName[18].name;
-          var HeaderServiceURL5d = ServiceName[18].url
+        //   var HeaderService5d = ServiceName[18].name;
+        //   var HeaderServiceURL5d = ServiceName[18].url
           
-          var HeaderService5e = ServiceName[19].name;
-          var HeaderServiceURL5e = ServiceName[19].url
+        //   var HeaderService5e = ServiceName[19].name;
+        //   var HeaderServiceURL5e = ServiceName[19].url
 
-          // var HeaderService6a = ServiceName[17].name;
-          // var HeaderServiceURL6a = ServiceName[17].url
+        //   var HeaderService6a = ServiceName[17].name;
+        //   var HeaderServiceURL6a = ServiceName[17].url
 
-          // var HeaderService6b = ServiceName[18].name;
-          // var HeaderServiceURL6b = ServiceName[18].url
+        //   var HeaderService6b = ServiceName[18].name;
+        //   var HeaderServiceURL6b = ServiceName[18].url
 
-          // var HeaderService6c = ServiceName[19].name;
-          // var HeaderServiceURL6c = ServiceName[19].url
+        //   var HeaderService6c = ServiceName[19].name;
+        //   var HeaderServiceURL6c = ServiceName[19].url
 
-          // var HeaderService6d = ServiceName[20].name;
-          // var HeaderServiceURL6d = ServiceName[20].url
+        //   var HeaderService6d = ServiceName[20].name;
+        //   var HeaderServiceURL6d = ServiceName[20].url
 
-          // var HeaderService6e = ServiceName[21].name;
-          // var HeaderServiceURL6e = ServiceName[21].url
+        //   var HeaderService6e = ServiceName[21].name;
+        //   var HeaderServiceURL6e = ServiceName[21].url
 
-          // var HeaderService6f = ServiceName[22].name;
-          // var HeaderServiceURL6f = ServiceName[22].url
+        //   var HeaderService6f = ServiceName[22].name;
+        //   var HeaderServiceURL6f = ServiceName[22].url
+
+        //   var HeaderService3e = ServiceName[23].name;
+        //   var HeaderServiceURL3e = ServiceName[23].url
           
         }
       }
     ArrServiceResponse.push(obj)    
  
   }
-  
 
   setHeaderService1a(HeaderService1a)
   setHeaderServiceURL1a(HeaderServiceURL1a)
@@ -509,8 +514,11 @@ const Header = () => {
   setDomainUrl(window.location.origin);
  
     var HeaderKeys = ["HeaderId","HeaderName","HeaderUrl","headerImage","Status"];
-
+    var HeaderMenu5 = "";
+    var HeaderURL5 = "";
+    var HeaderStatus5 = "";
   for(let i=0 ; i< HeaderName.length ;i++){
+    
       let obj={};
       obj[HeaderKeys[0]] = HeaderName[i].id ;
       obj[HeaderKeys[1]] = HeaderName[i].name ;
@@ -536,13 +544,13 @@ const Header = () => {
       var HeaderURL4 = HeaderName[3].url;
       var HeaderStatus4 = HeaderName[3].status;
 
-      var HeaderMenu5 = HeaderName[4].name;
-      var HeaderURL5 = HeaderName[4].url;
-      var HeaderStatus5 = HeaderName[4].status;
+      // var HeaderMenu5 = HeaderName[4].name;
+      // var HeaderURL5 = HeaderName[4].url;
+      // var HeaderStatus5 = HeaderName[4].status;
 
-      var HeaderMenu6 = HeaderName[5].name;
-      var HeaderURL6 = HeaderName[5].url;
-      var HeaderStatus6 = HeaderName[5].status;
+      var HeaderMenu6 = HeaderName[4].name;
+      var HeaderURL6 = HeaderName[4].url;
+      var HeaderStatus6 = HeaderName[4].status;
         
     }
     
@@ -612,9 +620,8 @@ const Header = () => {
 
     const url =window.location.origin+'/service_api';
     //const url ='https://www.epicip.com/service_api';
-    //const url ="https://demo.epicip.com/service_api";
     const localurl ="https://epicipprojects.com/service_api";
-    // const url ='http://127.0.0.1:8000/service_api';
+     //const url ='https://demo.epicip.com/service_api';
      fetch(url).then(resp=> resp.json())
      .then (resp => {
       setServiceResponse(resp)
@@ -630,9 +637,8 @@ const Header = () => {
       const url =window.location.origin+'/division_api';
     // const url ="https://epicipprojects.com/epicip/division_api";
       //const url ="https://www.epicip.com/division_api";
-      //const url ="https://demo.epicip.com/division_api";
       const localurl ="https://epicipprojects.com/division_api";
-      //const url ='http://127.0.0.1:8000/division_api';
+      //const url ='https://demo.epicip.com/division_api';
       
        fetch(url).then(resp=> resp.json())
        .then (resp => {      
@@ -689,11 +695,17 @@ const Header = () => {
           
             <a className="nav-link dropdown-toggle" href={window.location.origin+"/"+HeaderURL1} id="capital" role="button" aria-haspopup="true" aria-expanded="false" onClick={navItemClick}>{Header1}</a>
             <div className="dropdown-menu" aria-labelledby="capital"> 
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1a}>{HeaderService1a}</a> 
+            { HeaderService1a != "" ?
+            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1a}>{HeaderService1a}</a>
+            : "" }
 
               {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1b}>{HeaderService1b}</a>  */}
-              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1c}>{HeaderService1c}</a> 
+              { HeaderService1c != "" ?
+               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1c}>{HeaderService1c}</a> 
+              : "" }
+              { HeaderService1d != "" ?
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1d}>{HeaderService1d}</a>
+              : "" }
               <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a>
 
               {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL1e}>{HeaderService1e}</a> */}
@@ -806,10 +818,17 @@ const Header = () => {
                       { HeaderStatus2 ==1 ? 
 		  <li className="nav-item dropdown"> <a className="nav-link dropdown-toggle" href={window.location.origin+"/"+HeaderURL2} id="administration" role="button" aria-haspopup="true" aria-expanded="false">{Header2}</a>
             <div className="dropdown-menu" aria-labelledby="administration"> 
+            { HeaderService2a != "" ?
               <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2a}>{HeaderService2a}</a> 
-              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2b}>{HeaderService2b}</a> 
-              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2c}>{HeaderService2c}</a>
+              :""}
               {/* <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2d}>{HeaderService2d}</a> */}
+              { HeaderService2b != "" ?
+              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2b}>{HeaderService2b}</a> 
+              :""}
+              { HeaderService2c != "" ?
+              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL2c}>{HeaderService2c}</a>
+              :""}
+              
              
              </div>   
           </li> :""}
@@ -819,12 +838,22 @@ const Header = () => {
             
             <div className="dropdown-menu" aria-labelledby="markets"> 
             {/* <a className="dropdown-item" href="/markets/Epic-FixedIncome">Fixed</a> */}
-            <NavLink  className="dropdown-item nav-color" to="/markets/Epic-FixedIncome">{HeaderService3a}</NavLink> 
-              <NavLink  className="dropdown-item nav-color" to="/markets/Epic-ManagedFutures">{HeaderService3b}</NavLink> 
+              { HeaderService3a != "" ?
+                <NavLink  className="dropdown-item nav-color" to="/markets/Epic-FixedIncome">{HeaderService3a}</NavLink> 
+              :""} 
+            { HeaderService3b != "" ?
+              <NavLink  className="dropdown-item nav-color" to="/markets/Epic-ManagedFutures">{HeaderService3b}</NavLink>
+              :""} 
               {/* <a className="dropdown-item" href="#">Managed Futures</a>  */}
+              { HeaderService3c != "" ?
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Equitites">{HeaderService3c}</NavLink>
+              :""}
+              { HeaderService3d != "" ?
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-MultiAsset">{HeaderService3d}</NavLink>
-              <NavLink  className="dropdown-item nav-color" to="/markets/EpicDFM">{HeaderService3e}</NavLink> 
+              :""}
+              { HeaderService3e != "" ?
+              <NavLink  className="dropdown-item nav-color" to="/markets/Hedge-Funds">{HeaderService3e}</NavLink> 
+              :""}
               <NavLink  className="dropdown-item nav-color" to="/markets/Epic-Insights">EPIC Insights</NavLink> 
             
             </div>
@@ -833,34 +862,38 @@ const Header = () => {
 			<li className="nav-item dropdown"> 
             <a className="nav-link dropdown-toggle" href={window.location.origin+"/"+HeaderURL4} id="advisory" role="button" aria-haspopup="true" aria-expanded="false">{Header4}</a>
             <div className="dropdown-menu" aria-labelledby="advisory"> 
+            { HeaderService4a != "" ?
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL4a}>{HeaderService4a}</a> 
+            :""}
+            { HeaderService4b != "" ?
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL4b}>{HeaderService4b}</a>
+            :""}
             <a className="dropdown-item" href={window.location.origin+"/sectors"}>Sectors</a>
 
             </div>
           </li>:""}
-          { HeaderStatus5 ==1 ? 
-			<li className="nav-item dropdown"> <a className="nav-link dropdown-toggle" href={window.location.origin+"/"+HeaderURL5} id="sectors" role="button" aria-haspopup="true" aria-expanded="false">{Header5}</a>
-            <div className="dropdown-menu" aria-labelledby="sectors"> 
-
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL5a}>{HeaderService5a}</a>
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL5b}>{HeaderService5b}</a> 
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL5c}>{HeaderService5c}</a>
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL5d}>{HeaderService5d}</a>
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL5e}>{HeaderService5e}</a>
-            {/* <a className="dropdown-item" href="sectors-data-science.php">Data Science</a> */}
-            </div>
-          </li> : ""}
           { HeaderStatus6 ==1 ? 
 			<li className="nav-item dropdown"> <a className="nav-link dropdown-toggle" href={window.location.origin+"/"+HeaderURL6} id="about" role="button" aria-haspopup="true" aria-expanded="false">{Header6}</a>
             <div className="dropdown-menu right" aria-labelledby="about"> 
             {/* <a className="dropdown-item" href="#">History</a>  */}
-            <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6a}>{HeaderService6a}</a>
+            { HeaderService6a != "" ? 
+              <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6a}>{HeaderService6a}</a>
+              :""}
+            { HeaderService6b != "" ? 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6b}>{HeaderService6b}</a>
+            :""}
+            { HeaderService6c != "" ? 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6c}>{HeaderService6c}</a>
+            :""}
+            { HeaderService6d != "" ? 
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6d}>{HeaderService6d}</a>
+            :""}
+            { HeaderService6e != "" ?
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6e}>{HeaderService6e}</a>
+            :""}
+            { HeaderService6f != "" ?
             <a className="dropdown-item" href={window.location.origin+"/"+HeaderServiceURL6f}>{HeaderService6f}</a>
+            :""}
             {/* <a className="dropdown-item" href="why-join-us.php">Why Join Us</a> */}
             </div>
           </li>:""}

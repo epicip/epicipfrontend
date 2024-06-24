@@ -368,6 +368,7 @@ const [productSectorBreakdown, setproductSectorBreakdown] = useState([]);
 
 const[Literature,setLiterature]= useState([]);
 const [LiteratureDataState, setLiteratureDataState] = useState([]);
+const [LiteratureSummaryDataState, setLiteratureSummaryDataState] = useState([]);
 
 const [FundNameState, setFundNameState] = useState([]);
 const [KeyInveInfoState, setKeyInveInfoState] = useState([]);
@@ -767,6 +768,7 @@ const literatureButton=()=>{
   let FinancialTrendFund;
   let LiteratureSubHead;
   let OtherInfoLiteratureArr=[];
+  let OtherSummaryInfoLiteratureArr=[];
   let KeyInveInfoLiteratureArr=[];
   let pressCoverageLiteratureArr=[];
   let applicationsLiteratureArr=[];
@@ -804,6 +806,21 @@ const literatureButton=()=>{
         OtherInfoObj[LiteratureKeys[3]] = LiteratureTitle;
   
         OtherInfoLiteratureArr.push(OtherInfoObj);
+      }
+      if(Literature[i].literature_name == "other_information_summary"){
+
+        FinancialTrendFund = FundName; 
+        LiteratureTitle = Literature[i].title;
+        LiteratureName = Literature[i].literature_name;
+        FileName = Literature[i].file;
+        LiteratureDate = Literature[i].date;
+
+        OtherInfoObj[LiteratureKeys[0]] = LiteratureName;
+        OtherInfoObj[LiteratureKeys[1]] = FileName;
+        OtherInfoObj[LiteratureKeys[2]] = LiteratureDate;
+        OtherInfoObj[LiteratureKeys[3]] = LiteratureTitle;
+
+        OtherSummaryInfoLiteratureArr.push(OtherInfoObj);
       }
       if(Literature[i].literature_name == "key_investor_information"){
   
@@ -908,6 +925,7 @@ const literatureButton=()=>{
   
     setFundNameState(FinancialTrendFund);
     setLiteratureDataState(OtherInfoLiteratureArr);
+    setLiteratureSummaryDataState(OtherSummaryInfoLiteratureArr);
     setKeyInveInfoState(KeyInveInfoLiteratureArr);
     setPressCoverageState(pressCoverageLiteratureArr);
     setApplicationsState(applicationsLiteratureArr);
@@ -1096,7 +1114,7 @@ if (!arrPRTU.length > 0) {
 }
 
 $('.footer-container').addClass('footer-container-line')
-
+literatureButton();
 }
 // $( document ).ready(function() {
     
@@ -2788,6 +2806,25 @@ function renderLiteratureData(data, index){
   )
 }
 
+function renderLiteratureDataPO(data, index){
+  if(data.LiteratureNameKey == "other_information_summary"){
+    return(
+      <div class="col-sm-12" style={{ paddingLeft:"0px",paddingRight:"0px"}}>
+                  <p class="pdf_download"><a href={window.location.origin+"/storage/literature-file/"+data.FileName} target="_blank" download>{data.LiteratureTitle}</a></p>
+              </div>
+     )
+  }
+
+}
+function renderLiteratureDataRecent(data, index){
+  return(
+
+              <div class="col-sm-6">
+                          <p class="pdf_download"><a href={window.location.origin+"/storage/literature-file/"+data.FileName} target="_blank" download>{data.LiteratureTitle}<br/><span class="date">{data.LiteratureDate}</span></a></p>
+                      </div>
+  )
+}
+
 function previewData(formData) {
 
   /* Add return before formData.map */
@@ -2928,7 +2965,19 @@ function previewData(formData) {
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
                
                 <div class="row">
-
+                <div class="col">
+                      <div class="Paragraph__ParagraphContainer-sc-2ra4j2-0 gnBxSc">
+                          <div>
+                              { LiteratureSummaryDataState.length>0 ? <div><h3><b>Product Overview</b></h3></div>  : ""}
+                              { LiteratureSummaryDataState.length>0 ? LiteratureSummaryDataState.map(renderLiteratureDataPO) :""}
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                    { PressCoverageState.length>0 ? <h3><b>Recent Updates</b></h3>  : ""}
+                    </div>
+                    { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureDataRecent) :""}
+                    <div class="col-md-12"></div>
                     {/* <div class="col">
                         <div class="Paragraph__ParagraphContainer-sc-2ra4j2-0 gnBxSc">
                             <div>
@@ -3795,7 +3844,7 @@ function previewData(formData) {
             </p>
 				  </div>
 
-          { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Press Coverage</b></h3><br/></div>  : ""}
+          { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Recent Updates</b></h3><br/></div>  : ""}
           { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
 
           { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
