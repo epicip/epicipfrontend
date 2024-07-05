@@ -1703,13 +1703,15 @@ function renderLiteratureDataPO(data, index){
   }
 
 }
-function renderLiteratureDataRecent(data, index){
+function renderLiteratureDataRecent(data, index,sumCount){
+  if(index <= 1){
   return(
 
               <div class="col-sm-6">
                           <p class="pdf_download"><a href={window.location.origin+"/storage/literature-file/"+data.FileName} target="_blank" download>{data.LiteratureTitle}<br/><span class="date">{data.LiteratureDate}</span></a></p>
                       </div>
   )
+}
 }
 function renderTop10Holding(holding, index) {
   return(
@@ -2640,12 +2642,12 @@ function previewData(formData) {
                           </a>
                       </p>
 				  </div>
+          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
+          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
           
           { PressCoverageState.length>0 ? <div class="col-md-12"><h3><b>Recent Updates</b></h3><br/></div>  : ""}
           { PressCoverageState.length>0 ? PressCoverageState.map(renderLiteratureData) :""}
 
-          { LiteratureDataState.length>0 ? <div class="col-md-12"><h3><b>Other Information</b></h3><br/></div>  : ""}
-          { LiteratureDataState.length>0 ? LiteratureDataState.map(renderLiteratureData) :""}
 
           { ApplicationsState.length>0 ? <div class="col-md-12"><h3><b>Applications</b></h3><br/></div>  : ""}
           { ApplicationsState.length>0 ? ApplicationsState.map(renderLiteratureData) :""}
