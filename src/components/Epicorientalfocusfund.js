@@ -1336,8 +1336,8 @@ async function fetchMyAPI(){
   // const url = 'https://epicipprojects.com/garraway-global-equity-fund' 
   // const url = 'https://epicipprojects.com/api/garraway-oriental-focus-fund' 
   const Localurl = 'https://www.epicip.com/epic-oriental-focus-fund' 
-   //const url = window.location.origin+'/epic-oriental-focus-fund' 
-  const url = 'http://127.0.0.1:8000/epic-oriental-focus-fund'
+   const url = window.location.origin+'/epic-oriental-focus-fund' 
+  //const url = 'http://127.0.0.1:8000/epic-oriental-focus-fund'
   //const url = 'https://www.epicip.com/epic-oriental-focus-fund'
 
   

@@ -1270,6 +1270,7 @@ async function fetchMyAPI(){
   
   const Localurl = 'https://epicipprojects.com/dailyupdate' 
   const url = window.location.origin+'/dailyupdate' 
+  //const url ='http://127.0.0.1:8000/dailyupdate';
 
   fetch(url).then(resp=> resp.json())
    .then (resp => {
@@ -2211,7 +2212,7 @@ function previewData(formData) {
     
     <div class="col-sm-12">
         <h4>{NewsHeadingState}</h4>
-                <p class="pdf_download" dangerouslySetInnerHTML={{ __html: NewsContentState }}>
+                <p dangerouslySetInnerHTML={{ __html: NewsContentState }}>
                 </p>
             </div>
     

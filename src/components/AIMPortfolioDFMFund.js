@@ -1474,8 +1474,8 @@ async function fetchMyAPI(){
   const Localurl = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     const Local2url = 'https://www.epicip.com/vtepic-multi-asset-balanced-fund'
     //const url = window.location.origin+'/AIM-Portfolio' 
-   //const url = 'https://www.epicip.com/AIM-Portfolio' 
-   const url = 'http://127.0.0.1:8000/AIM-Portfolio'
+   const url = 'https://www.epicip.com/AIM-Portfolio' 
+   //const url = 'http://127.0.0.1:8000/AIM-Portfolio'
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
