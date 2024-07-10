@@ -258,11 +258,19 @@ const [SessionResponse, setSessionResponse] = useState([]);
 const [productscommulativePerformance, setproductscommulativePerformance] = useState([]);
 const [productscommulativePerformanceB, setproductscommulativePerformanceB] = useState([]);
 const [productscommulativePerformanceBEUR, setproductscommulativePerformanceBEUR] = useState([]);
+const [productscommulativePerformanceBUSD, setproductscommulativePerformanceBUSD] = useState([]);
+
 const [productscommulativePerformanceC, setproductscommulativePerformanceC] = useState([]);
+const [productscommulativePerformanceEUR, setproductscommulativePerformanceEUR] = useState([]);
+
 const [twelvemonPerfAGBP, settwelvemonPerfAGBP] = useState([]);
 const [twelvemonPerfBGBP, settwelvemonPerfBGBP] = useState([]);
 const [twelvemonPerfBEUR, settwelvemonPerfBEUR] = useState([]);
+const [twelvemonPerfBUSD, settwelvemonPerfBUSD] = useState([]);
 const [twelvemonPerfCGBP, settwelvemonPerfCGBP] = useState([]);
+const [twelvemonPerfDEUR, settwelvemonPerfDEUR] = useState([]);
+
+
 const [InceptionData, setInceptionData] = useState([]);
 
 
@@ -313,7 +321,11 @@ const[graphDataSectorPer,setgraphDataSectorPer]= useState([]);
 const[cummulatovePerfData,setcummulatovePerfData]= useState([]);
 const[cummulatovePerfBData,setcummulatovePerfBData]= useState([]);
 const[CummulativeperfeBEURData,setCummulativeperfeBEURData]= useState([]);
+const[CummulativeperfeBUSDData,setCummulativeperfeBUSDData]= useState([]);
+
 const[CummulativeperfC,setCummulativeperfC]= useState([]);
+const[CummulativeperfDEUR,setCummulativeperfDEUR]= useState([]);
+
 
 
 const[TwelveMperfAGBPState,setTwelveMperfAGBPState]= useState([]);
@@ -322,7 +334,11 @@ const[TwelveMperfAGBPState,setTwelveMperfAGBPState]= useState([]);
 
 const[TwelveMperfBGBPState,setTwelveMperfBGBPState]= useState([]);
 const[TwelveMperfBEURState,setTwelveMperfBEURState]= useState([]);
+const[TwelveMperfBUSDState,setTwelveMperfBUSDState]= useState([]);
+
 const[TwelveMperfCGBPState,setTwelveMperfCGBPState]= useState([]);
+const[TwelveMperfDEURState,setTwelveMperfDEURState]= useState([]);
+
 
 
 
@@ -1141,12 +1157,19 @@ const performanceButton=()=>{
   const CummulativeperformanceData = []
   const CummulativeperformanceBData = []
   const CummulativeperformanceBEURData = []
+  const CummulativeperformanceBUSDData = []
+  
   const CummulativeperformanceCData = []
+  const CummulativeperformanceCEURData = []
+  
 
   const TwelveMperfAGBP = []
   const TwelveMperfBGBP = []
   const TwelveMperfBEUR = []
+  const TwelveMperfBUSD = []
   const TwelveMperfCGBP = []
+  const TwelveMperfDEUR = []
+  
   const InceptionDataArray =[]
   
 
@@ -1572,6 +1595,35 @@ console.log("arrD2D");
      
    
  } 
+
+
+ var keysCommPerfBUSD = ["name", "value"]
+  for(let i=0 ; i< productscommulativePerformanceBUSD.length ;i++){
+   
+   let obj={};
+   for(let j =0 ;j< productscommulativePerformanceBUSD[i].length ;j++){
+
+     if(!isNaN(productscommulativePerformanceBUSD[i][j])){
+     let val = productscommulativePerformanceBUSD[i][j]*100;
+     
+     // var numb= 212421434.533423131231;
+     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
+     rounded =parseFloat(rounded).toFixed(2);
+     console.log(rounded);
+     obj[keysCommPerfBUSD[j]] = rounded+'%' ;
+
+   }
+     else{
+       obj[keysCommPerfBUSD[j]] = productscommulativePerformanceBUSD[i][j] ;
+     }     
+
+    }
+    CummulativeperformanceBUSDData.push(obj)
+   
+     
+   
+ }
+ 
  
 
   var keysCommPerfC= ["name", "value"]
@@ -1599,7 +1651,37 @@ console.log("arrD2D");
      }
      CummulativeperformanceCData.push(obj)
    
- } 
+ }
+
+
+ var keysCommPerfEUR= ["name", "value"]
+  
+  for(let i=0 ; i< productscommulativePerformanceEUR.length ;i++){
+   // typeof(products[i][j])
+   
+   let obj={};
+   for(let j =0 ;j< productscommulativePerformanceEUR[i].length ;j++){
+
+     if(!isNaN(productscommulativePerformanceEUR[i][j])){
+     let val = productscommulativePerformanceEUR[i][j]*100;
+     
+     // var numb= 212421434.533423131231;
+     var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
+     rounded =parseFloat(rounded).toFixed(2);
+     console.log(rounded);
+     obj[keysCommPerfEUR[j]] = rounded+'%' ;
+
+   }
+     else{
+       obj[keysCommPerfEUR[j]] = productscommulativePerformanceEUR[i][j] ;
+     }     
+
+     }
+     CummulativeperformanceCEURData.push(obj)
+   
+ }
+ 
+ 
 
 
  var keys12monthsDis = ["name", "value"]
@@ -1725,6 +1807,41 @@ var keys12monthsDisBEUR = ["name", "value"]
 } 
 
 
+var keys12monthsDisBUSD = ["name", "value"]
+  
+ for(let i=0 ; i< twelvemonPerfBUSD.length ;i++){
+  // typeof(products[i][j])
+  
+  let obj={};
+  for(let j =0 ;j< twelvemonPerfBUSD[i].length ;j++){
+
+    if(!isNaN(twelvemonPerfBUSD[i][j])){
+    let val = twelvemonPerfBUSD[i][j]*100;
+    
+    // var numb= 212421434.533423131231;
+    var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
+    rounded =parseFloat(rounded).toFixed(2);
+    console.log(rounded);
+    obj[keys12monthsDisBUSD[j]] = rounded+'%' ;
+
+  }
+
+    // var updatedVal =  parseFloat(val).toFixed(2);
+    // console.log(updatedVal);
+    else{
+      obj[keys12monthsDisBUSD[j]] = twelvemonPerfBUSD[i][j] ;
+    }     
+
+    }
+    
+    
+    TwelveMperfBUSD.push(obj)
+    
+
+              // console.log("allKeys")
+  
+}
+
 
 var keys12monthsDisCGBP = ["name", "value"]
   
@@ -1760,6 +1877,43 @@ var keys12monthsDisCGBP = ["name", "value"]
   
 } 
 
+
+
+var keys12monthsDisDEUR = ["name", "value"]
+  
+ for(let i=0 ; i< twelvemonPerfDEUR.length ;i++){
+  // typeof(products[i][j])
+  
+  let obj={};
+  for(let j =0 ;j< twelvemonPerfDEUR[i].length ;j++){
+
+    if(!isNaN(twelvemonPerfDEUR[i][j])){
+    let val = twelvemonPerfDEUR[i][j]*100;
+    
+    // var numb= 212421434.533423131231;
+    var rounded = Math.round((val + Number.EPSILON) * 1000) / 1000;
+    rounded =parseFloat(rounded).toFixed(2);
+    console.log(rounded);
+    obj[keys12monthsDisDEUR[j]] = rounded+'%' ;
+
+  }
+
+    // var updatedVal =  parseFloat(val).toFixed(2);
+    // console.log(updatedVal);
+    else{
+      obj[keys12monthsDisDEUR[j]] = twelvemonPerfDEUR[i][j] ;
+    }     
+
+    }
+
+    TwelveMperfDEUR.push(obj)
+    
+
+              // console.log("allKeys")
+  
+}
+
+
 var keysInceptionData = ["date", "value"]
   
  console.log(InceptionData)
@@ -1769,21 +1923,23 @@ for(let i=1 ; i< InceptionData.length ;i++){
  // typeof(products[i][j])
  
  let obj={};
- var date = InceptionData[i][3]
- var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
- console.log("AlphaDate")
- console.log(AlphaDate)
-
- var PerformanceValue = InceptionData[i][7]
-
-
-  obj[keysInceptionData[0]] = AlphaDate;
-  obj[keysInceptionData[1]] = PerformanceValue*100;
-
-   InceptionDataArray.push(obj)
-
-   date = null
-   PerformanceValue = null
+ if(InceptionData[i][13] != ""){
+  var date = InceptionData[i][13]
+  var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
+  console.log("AlphaDate")
+  console.log(AlphaDate)
+ 
+  var PerformanceValue = InceptionData[i][17]
+ 
+ 
+   obj[keysInceptionData[0]] = AlphaDate;
+   obj[keysInceptionData[1]] = PerformanceValue*100;
+ 
+    InceptionDataArray.push(obj)
+ 
+    //date = null
+    //PerformanceValue = null
+ }
  
 } 
 console.log(InceptionDataArray);
@@ -1792,13 +1948,21 @@ console.log(InceptionDataArray);
   setcummulatovePerfData(CummulativeperformanceData)
   setcummulatovePerfBData(CummulativeperformanceBData)
   setCummulativeperfeBEURData(CummulativeperformanceBEURData)
+  setCummulativeperfeBUSDData(CummulativeperformanceBUSDData)
+  
   
   setCummulativeperfC(CummulativeperformanceCData)
+  setCummulativeperfDEUR(CummulativeperformanceCEURData)
+  
 
   setTwelveMperfAGBPState(TwelveMperfAGBP)
   setTwelveMperfBGBPState(TwelveMperfBGBP)
   setTwelveMperfBEURState(TwelveMperfBEUR)
+  setTwelveMperfBUSDState(TwelveMperfBUSD)
+  
   setTwelveMperfCGBPState(TwelveMperfCGBP)
+  setTwelveMperfDEURState(TwelveMperfDEUR)
+  
   setmonthsArrayState(monthsArr)
   setmonthlyPerformance2DArrayState(arr2D)
 
@@ -1834,11 +1998,9 @@ const informationButton=()=>{
   var keysCMSshareinfo = ["name", "ausdValue","agbpValue","aeurValue","busdValue","bgbpValue","beurValue","cgbpValue"]
   
   for(let j =0 ;j< CMSshareinfo.length ;j++){
-   console.log(CMSshareinfo[j].title);
    console.log("CMSFundinfo.title");
 
    let obj={};
-
       obj[keysCMSshareinfo[0]] = CMSshareinfo[j].title ;
       obj[keysCMSshareinfo[1]] = CMSshareinfo[j].ausd_value ;
       obj[keysCMSshareinfo[2]] = CMSshareinfo[j].agbp_value ;
@@ -1883,7 +2045,7 @@ const informationButton=()=>{
    let obj={};
    for(let j =0 ;j< productsShareClass[i].length ;j++){
 
-     if(!isNaN(productsShareClass[i][j])){
+     if(!isNaN(productsShareClass[i][j]) && productsShareClass[i][j] != ""){
      let val = productsShareClass[i][j];
      
      // var numb= 212421434.533423131231;
@@ -1898,7 +2060,10 @@ const informationButton=()=>{
      // var updatedVal =  parseFloat(val).toFixed(2);
      // console.log(updatedVal);
      else{
-       obj[keysShareClass[j]] = productsShareClass[i][j] ;
+      if(productsShareClass[i][j] == ""){
+      }else{
+        obj[keysShareClass[j]] = productsShareClass[i][j] ;
+      }
      }     
      if(obj.name == "A GBP" || obj.name=="B GBP" || obj.name=="C GBP"){
       obj[keysShareClass[2]] = "£";
@@ -1913,11 +2078,12 @@ const informationButton=()=>{
      console.log(obj);
 
      }
-     shareClassData.push(obj)
-   
-     
+     if(Object.keys(obj).length != 0){
+      shareClassData.push(obj) 
+     }
+      
  }  
-
+console.log(shareClassData,"hiiiiiiiiiii");
 
   var keysFundinfo = ["name", "value"]
   
@@ -1992,6 +2158,7 @@ async function fetchMyAPI(){
   const url = window.location.origin+'/epic-global-equity-fund'
   //const url = 'http://127.0.0.1:8000/epic-global-equity-fund'
   //const url = 'https://www.epicip.com/epic-global-equity-fund'
+  //const url = 'https://demo.epicip.com/epic-global-equity-fund'
   
   // const url = 'https://epicipprojects.com/api/garraway-global-equity-fund' 
   
@@ -2014,12 +2181,19 @@ async function fetchMyAPI(){
     setproductscommulativePerformance(resp.CumulativePerfClassAGBP)
     setproductscommulativePerformanceB(resp.CumulativePerfClassBGBP)
     setproductscommulativePerformanceBEUR(resp.CumulativePerfClassBEUR)
+    setproductscommulativePerformanceBUSD(resp.CumulativePerfClassBUSD)
+    
     setproductscommulativePerformanceC(resp.CumulativePerfClassCGBP)
+    setproductscommulativePerformanceEUR(resp.CumulativePerfClassDEUR)
+    
       
     settwelvemonPerfAGBP(resp.twelvemPerfDiscreteClassAGBP)
     settwelvemonPerfBGBP(resp.twelvemPerfDiscreteClassBGBP)
     settwelvemonPerfBEUR(resp.twelvemPerfDiscreteClassBEUR)
+    settwelvemonPerfBUSD(resp.twelvemPerfDiscreteClassBUSD)
     settwelvemonPerfCGBP(resp.twelvemPerfDiscreteClassCGBP)
+    settwelvemonPerfDEUR(resp.twelvemPerfDiscreteClassDEUR)
+    
     setInceptionData(resp.InceptionPerfData);
     
 
@@ -2798,6 +2972,7 @@ function renderCMSshareinfo(shareinfoparam, index){
       <td className="align-center">{shareinfoparam.bgbpValue}</td>
       <td className="align-center">{shareinfoparam.beurValue}</td>
       <td className="align-center">{shareinfoparam.cgbpValue}</td>
+      <td className="align-right">{shareinfoparam.busdValue}</td>
 
     </tr>
   )
@@ -3353,7 +3528,7 @@ function previewData(formData) {
                         />
 
                       </LineChart>
-                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Global Equity Fund Class A GBP</p>
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC Global Equity Fund Class B GBP</p>
                   </div>
                   </div>
                     <div class="row chart-row">
@@ -3365,11 +3540,11 @@ function previewData(formData) {
                                   {cummulatovePerfData.map(renderCummulativePerformanceNames)}
 
                                 </tr>
-                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+                                {/* <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
                                   {cummulatovePerfData.map(renderCummulativePerformanceValue)}
 
-                                </tr>
+                                </tr> */}
                                 
                                 <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
@@ -3383,7 +3558,18 @@ function previewData(formData) {
                                 </tr>
                                 <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
+                                  {CummulativeperfeBUSDData.map(renderCummulativePerformanceValue)}
+              
+                                </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
                                   {CummulativeperfC.map(renderCummulativePerformanceValue)}
+              
+                                </tr>
+
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                  {CummulativeperfDEUR.map(renderCummulativePerformanceValue)}
               
                                 </tr>
                                 
@@ -3400,14 +3586,14 @@ function previewData(formData) {
                             <tbody>
                                 <tr class="CumulativePerformance__TopRow-sc-51pab9-1 dwdfBh">
                                   
-                                  {TwelveMperfAGBPState.map(renderCummulativePerformanceNames)}
+                                  {TwelveMperfBGBPState.map(renderCummulativePerformanceNames)}
 
                                 </tr>
-                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+                                {/* <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
                                   {TwelveMperfAGBPState.map(renderCummulativePerformanceValue)}
 
-                                </tr>
+                                </tr> */}
                                 
                                 <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
@@ -3421,7 +3607,17 @@ function previewData(formData) {
                                 </tr>
                                 <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
               
+                                  {TwelveMperfBUSDState.map(renderCummulativePerformanceValue)}
+              
+                                </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
                                   {TwelveMperfCGBPState.map(renderCummulativePerformanceValue)}
+              
+                                </tr>
+                                <tr class="CumulativePerformance__BottomRow-sc-51pab9-2 eeFpGK">
+              
+                                  {TwelveMperfDEURState.map(renderCummulativePerformanceValue)}
               
                                 </tr>
                                 
@@ -3435,7 +3631,7 @@ function previewData(formData) {
 
                 <div class="row">
                     <div class="col-md-12 mergin_new_table" >
-                    <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
+                    {/* <div class="MonthlyPerformance__Wrapper-sc-1n33bhd-0 cHAvbZ">
                         <table class=" MonthlyPerformance__Table-sc-1n33bhd-2 bDbyAW">
                                 <tbody class="table MonthlyPerformance__Body-sc-1n33bhd-3 eLhmcV">
                                     <tr>
@@ -3458,9 +3654,9 @@ function previewData(formData) {
                                     {monthlyPerformance2DArrayState.map(render12MonthsData)}
 
                                     {/* </tr> */}
-                                </tbody>
+                                {/*</tbody>
                             </table>
-                        </div>
+                        </div> */}
                         </div>
                         <div class="col-md-12 mergin_new_table" >
 

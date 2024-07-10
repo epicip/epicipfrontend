@@ -241,23 +241,23 @@ Net Foreign Asset (NFA) analysis is a key driver of country and currency returns
     </div>
     <div class="row">
     <div class="col-md-3">
-        <p ><strong><a href={window.location.origin+"/people/47#47"}>Frederick Coldham</a></strong> <br />
+        <p ><strong><a href={window.location.origin+"/people/37#37"}>Andy Seaman</a></strong> <br />
           {/* hiren.patel@epicpe.com */}
           </p>
       </div>
       <div class="col-md-3">
-        <p><strong><a href={window.location.origin+"/people/37#37"}>Andy Seaman</a></strong> <br />
+        <p><strong><a href={window.location.origin+"/people/47#47"}>Frederick Coldham</a></strong> <br />
           {/* andy.seaman@epicpe.com */}
           </p>
       </div>
 
       <div class="col-md-3">
-        <p ><strong><a href={window.location.origin+"/people/38#38"}>Yannis Katsis</a></strong> <br />
+        <p ><strong><a href={window.location.origin+"/people/57#57"}>Will Baker</a></strong> <br />
           {/* darren.goodwin@epicpe.com */}
           </p>
       </div>
       <div class="col-md-3">
-        <p ><strong><a href={window.location.origin+"/people/39#39"}>Josh Palmer</a></strong> <br />
+        <p ><strong><a href={window.location.origin+"/people/63#63"}>Parita Ghalay</a></strong> <br />
           {/* frederick.coldham@epicpe.com */}
           </p>
       </div>
