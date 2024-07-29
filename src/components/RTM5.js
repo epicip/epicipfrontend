@@ -2893,6 +2893,38 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div class="row chart-row">
+        <div class="col-md-6 SECmargin chart-block"> 
+            <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
+            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+            
+            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+              <Pie
+                data={InceptionArrayState2}
+                cx={90}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomized12LabelFixed}
+
+              >
+                {InceptionArrayState2.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
+                ))}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+            
+
+        </div>
         <div class="col-md-6 chart-block">
             <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
@@ -2960,10 +2992,7 @@ function previewData(formData) {
                <p class="exposore">The portfolio does not currently have any equity exposure</p>
           </div>
           
-        </div>
 
-
-        <div class="row chart-row">
           <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed" style={{ display: 'none'}}> 
           <p class="lse_redirect">Fixed Income Breakdown (% NAV)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
@@ -3001,38 +3030,10 @@ function previewData(formData) {
           <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed_text">
                <p class="exposore">The portfolio does not currently have any fixed income exposure</p>
           </div>
-          <div class="col-md-6 SECmargin chart-block"> 
-            <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
-            <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-            
-            <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
-              <Pie
-                data={InceptionArrayState2}
-                cx={90}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomized12LabelFixed}
-
-              >
-                {InceptionArrayState2.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
-                ))}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>
-            
-
-          </div>
+        </div>
+        <div class="row chart-row">
+          
+          
 
 
           <div class="col-md-12 "> 

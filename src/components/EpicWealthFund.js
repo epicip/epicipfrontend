@@ -1749,6 +1749,7 @@ async function fetchMyAPI(){
   const Localurl = 'https://www.epicip.com/epic-wealth-fund' 
     const url = window.location.origin+'/epic-wealth-fund'
    //const url ="http://127.0.0.1:8000/epic-wealth-fund"; 
+   //const url ="https://www.epicip.com/epic-wealth-fund"; 
 
   fetch(window.location.origin+'/session_data').then(resp => resp.json()).then(resp =>  {
     console.log(resp);
@@ -2656,7 +2657,15 @@ function renderCMSshareinfo(shareinfoparam, index){
 
 function renderFundinfo(fundinfoparam, index){
   // alert(bot3contriparam.name);
-
+if(fundinfoparam.name == "Annualised Return" || fundinfoparam.name == "Annualised Volatility"){
+  return(
+    <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
+      
+      <td className="align-left">{fundinfoparam.name}</td>
+      <td className="align-right">{fundinfoparam.value} %</td>
+    </tr>
+  )
+}else{
   return(
     <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
       
@@ -2664,6 +2673,8 @@ function renderFundinfo(fundinfoparam, index){
       <td className="align-right">{fundinfoparam.value}</td>
     </tr>
   )
+}
+  
 }
 function renderShareClassNames(shareClass, index){
   if(index==0){
@@ -3058,6 +3069,38 @@ function previewData(formData) {
       </div>
       <div class="tab-pane fade" id="eight" role="tabpanel">
         <div className="row chart-row">
+        <div class="col-md-6 VARmargin chart-block"> 
+                <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
+                <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
+                
+                <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
+                  <Pie
+                    data={InceptionArrayState3}
+                    cx={90}
+                    cy={200}
+                    innerRadius={45}
+                    outerRadius={90}
+                    // fill="#0c2340"
+                    paddingAngle={0}
+                    startAngle={90}
+                    endAngle={-330}
+                    dataKey="value"
+                    labelLine={false}
+                    label={renderCustomized12LabelFixed}
+
+                  >
+                    {InceptionArrayState3.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
+                    ))}
+                  </Pie>
+                  <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+                  <Tooltip />
+                  {/* <Legend /> */}
+                </PieChart>
+                
+
+              </div>
         <div class="col-md-6 chart-block" id="hide_show_chart">
           <p class="lse_redirect">Asset Allocation (% NAV)</p>
 
@@ -3161,38 +3204,6 @@ function previewData(formData) {
           <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed_text">
                <p class="exposore">The portfolio does not currently have any fixed income exposure</p>
           </div>
-          <div class="col-md-6 VARmargin chart-block"> 
-                <p class="lse_redirect">Top 10 Holdings (% NAV)</p>
-                <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
-                
-                <PieChart width={295} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 10} } >
-                  <Pie
-                    data={InceptionArrayState3}
-                    cx={90}
-                    cy={200}
-                    innerRadius={45}
-                    outerRadius={90}
-                    // fill="#0c2340"
-                    paddingAngle={0}
-                    startAngle={90}
-                    endAngle={-330}
-                    dataKey="value"
-                    labelLine={false}
-                    label={renderCustomized12LabelFixed}
-
-                  >
-                    {InceptionArrayState3.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={DONUTCOLORS8[index % DONUTCOLORS8.length]} />
-                    ))}
-                  </Pie>
-                  <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColor12fulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-                  <Tooltip />
-                  {/* <Legend /> */}
-                </PieChart>
-                
-
-              </div>
           {/* <div class="col-md-6 SECmargin chart-block"> 
             <p class="lse_redirect">Derivatives VaR Contribution (% of total VaR)</p>
             <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>

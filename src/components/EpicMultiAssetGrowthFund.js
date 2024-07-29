@@ -1878,7 +1878,15 @@ function renderCMSshareinfo(shareinfoparam, index){
 
 function renderFundinfo(fundinfoparam, index){
   // alert(bot3contriparam.name);
-
+  if(fundinfoparam.name == "Annualised Return" || fundinfoparam.name == "Annualised Volatility" || fundinfoparam.name == "Downside Volatility"){
+    return(
+      <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
+        
+        <td className="align-left">{fundinfoparam.name}</td>
+        <td className="align-center">{fundinfoparam.value} %</td>
+      </tr>
+    )
+}else{
   return(
     <tr className="FundInformation__Row-sc-18irt95-2 fweCQL" key={index}>
       
@@ -1886,6 +1894,7 @@ function renderFundinfo(fundinfoparam, index){
       <td className="align-center">{fundinfoparam.value}</td>
     </tr>
   )
+}
 }
 function renderShareClassNames(shareClass, index){
   if(index==0){
@@ -2205,7 +2214,7 @@ function previewData(formData) {
                                     <h3 class="Paragraph__Heading-sc-2ra4j2-2 ">Daily Prices</h3>
                                     <div class="DailyPricing__Boxes-sc-62f3gi-0 biswZj">
                                     <p>
-                                    Daily Prices can be found at: <a href="http://www.valu-trac.com/administration-services/clients/garraway/multi-asset/" target="_blank">http://www.valu-trac.com/administration-services/clients/garraway/multi-asset/</a></p>
+                                    Daily Prices can be found at: <a href="https://www.valu-trac.com/administration-services/clients/epic/multi-asset/" target="_blank">https://www.valu-trac.com/administration-services/clients/epic/multi-asset/</a>&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                       </div>
                                     {/* <div class="DailyPricing__SourceWrapper-sc-62f3gi-4 hfRiYK">
                                     <p className="mt-2">Data as at: {PRTUDate}<br/>
@@ -2308,49 +2317,10 @@ function previewData(formData) {
 
           <div class="col-md-6 VARmargin chart-block" id="hide_show_equity"  style={{height: "373px",display: 'none'}}> 
 
-          <p class="lse_redirect">Equities Breakdown (% NAV)</p>
+          <p class="lse_redirect">Asset Allocation (% NAV)</p>
           <p class="lse_redirect"><a className="display-none" target="_blank" href="transaction-own-share.php">Transaction In Own Share</a></p>
             
-                
-            <PieChart width={330} height={550} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
-              <Pie
-                data={equititeState}
-                cx={80}
-                cy={200}
-                innerRadius={45}
-                outerRadius={90}
-                // fill="#0c2340"
-                paddingAngle={0}
-                startAngle={90}
-                endAngle={-330}
-                dataKey="value"
-                labelLine={false}
-                label={renderCustomizedLabel}
-              >
-                {/* {equititeState.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
-                ))} */}
-                {equititeState.map(equitichart)}
-              </Pie>
-              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
-
-              <Tooltip />
-              {/* <Legend /> */}
-            </PieChart>  
-          </div>
-
-          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity_text" style={{height: "373px"}}>
-               <p class="exposore">The portfolio does not currently have any equity exposure</p>
-          </div>
-          
-        </div>
-
-
-        <div class="row chart-row">
-        <div class="col-md-6 chart-block">
-            <p class="lse_redirect">Asset Allocation (% NAV)</p>
-
-        <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+          <PieChart width={330} height={750} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
               <Pie
                 data={graphData}
                 cx={90}
@@ -2376,6 +2346,46 @@ function previewData(formData) {
               <Tooltip />
               {/* <Legend /> */}
             </PieChart>
+              
+          </div>
+
+          <div class="col-md-6 VARmargin chart-block" id="hide_show_equity_text" style={{height: "373px"}}>
+               <p class="exposore">The portfolio does not currently have any equity exposure</p>
+          </div>
+          
+        </div>
+
+
+        <div class="row chart-row">
+        <div class="col-md-6 chart-block">
+            
+            <p class="lse_redirect">Equities Breakdown (% NAV)</p>
+            <PieChart width={330} height={550} margin ={ {top: -60, right: 50, bottom: 5, left: 30} } >
+              <Pie
+                data={equititeState}
+                cx={80}
+                cy={200}
+                innerRadius={45}
+                outerRadius={90}
+                // fill="#0c2340"
+                paddingAngle={0}
+                startAngle={90}
+                endAngle={-330}
+                dataKey="value"
+                labelLine={false}
+                label={renderCustomizedLabel}
+              >
+                {/* {equititeState.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={DONUTCOLORS10[index % DONUTCOLORS10.length]} />
+                ))} */}
+                {equititeState.map(equitichart)}
+              </Pie>
+              <Legend margin={ {top:-500,} } className="legend-text" formatter={renderColorfulLegendText} iconSize={10} width={300} height={50} layout='vertical' />
+
+              <Tooltip />
+              {/* <Legend /> */}
+            </PieChart>
+        
           
           </div>
           <div class="col-md-6 TOPmargin chart-block" id="hide_show_fixed" style={{ display: 'none'}}> 
