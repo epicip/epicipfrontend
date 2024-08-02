@@ -1085,13 +1085,13 @@ console.log("arr2D");
 
   var keysInceptionData = ["date", "value"]
   
-  
+  console.log(InceptionData,"Mahesh 23232323");
   for(let i=1 ; i< InceptionData.length ;i++){
    // typeof(products[i][j])
    
    let obj={};
-   var date = InceptionData[i][3]
-   var PerformanceValue = InceptionData[i][7]
+   var date = InceptionData[i][0]
+   var PerformanceValue = InceptionData[i][3]
    var AlphaDate = new Date(date).toLocaleDateString("en-US", { month: 'short' })+ "-" + new Date(date).toLocaleDateString("en-US", { year: 'numeric' })
    console.log("AlphaDate")
    console.log(AlphaDate)
@@ -1118,8 +1118,11 @@ console.log("arr2D");
  
   //    }
   obj[keysInceptionData[0]] = AlphaDate;
-  obj[keysInceptionData[1]] = PerformanceValue*100;
- 
+  // if(PerformanceValue == null){
+  //   obj[keysInceptionData[1]] = null
+  // }else{
+     obj[keysInceptionData[1]] = PerformanceValue*100; 
+  // }
      InceptionDataArray.push(obj)
  
      date = null
@@ -2390,8 +2393,8 @@ function previewData(formData) {
             <div role="tabpanel" aria-hidden="false" class="fade tab-pane active show">
 
             <div class="row chart-row">
-                    {/* <div class="col-md-12 chart-block" >
-                    <p class="lse_redirect">Cumulative Strategy performance under Mark Harris</p>
+                     <div class="col-md-12 chart-block" >
+                    <p class="lse_redirect">&nbsp;</p>
                     <LineChart
                         width={700}
                         height={260}
@@ -2404,14 +2407,14 @@ function previewData(formData) {
                         }}
                       >
                         <CartesianGrid horizontal="true" vertical="" strokeDasharray=" " />
-                        <XAxis dataKey="date" type="category" />
+                        <XAxis dataKey="date" />
                         <YAxis  tickFormatter={(tick) => {
                          return `${tick}%`;
                          }}
-                        /> */}
+                        /> 
                         {/* <Tooltip /> */}
                         {/* <Legend /> */}
-                        {/* <Line
+                        <Line
                           type="monotone"
                           dataKey="value"
                           stroke="#1a2352"
@@ -2420,8 +2423,8 @@ function previewData(formData) {
                         />
 
                       </LineChart>
-                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; VT EPIC Multi Asset Balanced Fund Class I Acc in GBP</p>
-                      </div> */}
+                      <p class="lse_redirect1"><span class="span_color"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp; EPIC AIM IHT Portfolio</p>
+                      </div> 
                       {/* <div class="mb-2 row chart-row">
                     <div class="col-md-12 table-margin">
                         <table class=" table  CumulativePerformance__Table-sc-51pab9-0 hRUkzz">
@@ -2637,7 +2640,7 @@ function previewData(formData) {
           <h4>Fact Sheet</h4>
 
 					  <p class="pdf_download">
-                      <a href={window.location.origin+"/sitepdfs/aim_portfolio.pdf"}target="_blank" download>AIM Portfolio Fund PDF
+                      <a href={window.location.origin+"/sitepdfs/aim_portfolio.pdf"}target="_blank" download>AIM IHT Portfolio PDF
                             <br/>
                           </a>
                       </p>
